@@ -23,8 +23,8 @@
 	}
 %>
 <!-- top -->
-	<tr height="50">
-		<td width="300" align="right">
+	<tr height="500">
+		<td width="1000" align="right">
 		<jsp:include page="NewFile.jsp"/>
 	</td>
 </tr>

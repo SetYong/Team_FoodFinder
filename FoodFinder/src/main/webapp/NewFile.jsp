@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>확인용</h2>
 <%
 	String id = (String)session.getAttribute("id");
 	String center = request.getParameter("center");

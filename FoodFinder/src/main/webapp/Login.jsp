@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,32 +10,33 @@
 <form method="post" action="Session.jsp">
 <table>
 <tr height="50">
-	<td height="50">���̵�</td>
+	<td height="50">아이디</td>
 	<td height="50"><input type="text" name="id"></td>
 </tr>
 <tr height="50">
-	<td height="50">�н�����</td>
+	<td height="50">패스워드</td>
 	<td height="50"><input type="password" name="pass"></td>
 </tr>
 <tr height="50">
-	<td height="50">�̸�</td>
+	<td height="50">이름</td>
 	<td height="50"><input type="text" name="name"></td>
 </tr>
 <tr height="50">
-	<td height="50">�ֹε�Ϲ�ȣ</td>
+	<td height="50">주민등록번호</td>
 	<td height="50"><input type="text" name="resident registration number"></td>
 </tr>
 <tr height="50">
-	<td height="50">�ڵ��� ��ȣ</td>
+	<td height="50">핸드폰 번호</td>
 	<td height="50"><input type="text" name="phoneNumber"></td>
 </tr>
 <tr height="50">
-	<td height="50">�̸���</td>
+	<td height="50">이메일</td>
 	<td height="50"><input type="text" name="e-mail"></td>
 </tr>
 <tr height="50">
-	<td height="50"><input type="submit" value="�α���"></td>
+	<td height="50"><input type="submit" value="로그인"></td>
 </tr>
 </table>
+</form>
 </body>
 </html>

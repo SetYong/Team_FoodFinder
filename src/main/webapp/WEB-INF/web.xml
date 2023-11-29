@@ -9,4 +9,35 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+<<<<<<< HEAD
+=======
+  <filter>
+		<filter-name>SetCharEncoding</filter-name>
+		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SetCharEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<context-param>
+		<param-name>OracleDriver</param-name>
+		<param-value>oracle.jdbc.OracleDriver</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OracleURL</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OracleId</param-name>
+		<param-value>c##foodfinder</param-value>
+	</context-param>
+	<context-param>
+		<param-name>OraclePwd</param-name>
+		<param-value>food1234</param-value>
+	</context-param>
+>>>>>>> branch 'master' of https://github.com/SetYong/Team_FoodFinder.git
 </web-app>

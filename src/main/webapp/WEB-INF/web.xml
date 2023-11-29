@@ -9,8 +9,6 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-=======
   <filter>
 		<filter-name>SetCharEncoding</filter-name>
 		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
@@ -39,5 +37,4 @@
 		<param-name>OraclePwd</param-name>
 		<param-value>food1234</param-value>
 	</context-param>
->>>>>>> branch 'master' of https://github.com/SetYong/Team_FoodFinder.git
 </web-app>

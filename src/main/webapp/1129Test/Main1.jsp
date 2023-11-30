@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<%
 	response.setCharacterEncoding("UTF-8");
 	String center = request.getParameter("center");
 	String logout = request.getParameter("logout");
-	if (logout != null) {
-		//id°ª¿¡ null °ªÀ» ³ÖÀ½
+	if(logout!=null){
+		//idê°’ì— null ê°’ì„ ë„£ìŒ
 		session.setAttribute("id", null);
-		//¼¼¼Ç½Ã°£ 0. ·Î±×¾Æ¿ô Ã³¸®
+		//ì„¸ì…˜ì‹œê°„ 0. ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
 		session.setMaxInactiveInterval(0);
 	}
-	if (center == null) {
+	if(center==null){
 		center = "center.jsp";
 	}
-	%>
-	<!-- center -->
-	<tr height="300">
-		<td width="300" align="center"><jsp:include page="<%=center%>" />
-		</td>
-	</tr>
+%>
+<!-- center -->
+<tr height="300">
+		<td width="300" align="center">
+		<jsp:include page="<%=center %>"/>
 </body>
 </html>

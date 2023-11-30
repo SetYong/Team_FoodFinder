@@ -34,6 +34,10 @@
 	<td height="50"><input type="text" name="e-mail"></td>
 </tr>
 <tr height="50">
+	<td height="50">닉네임</td>
+	<td height="50"><input type="text" name="Nickname"></td>
+</tr>
+<tr height="50">
 	<td height="50"><input type="submit" value="로그인"></td>
 </tr>
 </table>

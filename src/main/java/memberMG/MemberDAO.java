@@ -9,10 +9,10 @@ public class MemberDAO extends JDBConnect {
 	
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
-		String query = "SELECT id FROM MEMBER_LOGIN "
+		String query = "SELECT User_id FROM MEMBER_LOGIN "
 				+ "WHERE member_Login.mbnum "
 				+ "IN (SELECT mbnum FROM MEMBER_PROFILE WHERE "
-				+ "name=? AND cn=? AND phone=?);";
+				+ "name=? AND cn=? AND phone=?)";
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -21,11 +21,13 @@ public class MemberDAO extends JDBConnect {
 			psmt.setString(3, phone);
 			rs = psmt.executeQuery();
 			
+			System.out.println(query);
 			if(rs.next()) {
-				dto.setId(rs.getString("id"));
+				dto.setId(rs.getString("User_id"));
 			}
+			System.out.println(dto.getId());
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 		return dto;
 	}

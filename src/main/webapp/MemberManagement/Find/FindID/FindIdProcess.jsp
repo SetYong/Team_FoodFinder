@@ -19,9 +19,9 @@
 	
 	MemberDAO dao = new MemberDAO(oracleDriver, oracleURL, oracleId, oraclePwd);
 	MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhone);
-	memberDTO.setName(memberName);
 	dao.close();
 	
-
+	session.setAttribute("memberName",memberName);
+	session.setAttribute("memberId",memberDTO.getId());
 	response.sendRedirect("FindIdResult.jsp");
 %>

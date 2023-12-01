@@ -1,14 +1,27 @@
+<%@ page import="memberMG.MemberDTO"%>
+<%@ page import="memberMG.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Find ID - 아이디찾기 받기</title>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
 <%
-response.sendRedirect("FindIdResult.jsp");
+	String memberName = request.getParameter("memberName");
+
+	String memberCn = request.getParameter("memberCn1");
+		   memberCn += request.getParameter("memberCn2");
+		   
+	String memberPhone = request.getParameter("memberPhone1");
+		   memberPhone += request.getParameter("memberPhone2");
+		   memberPhone += request.getParameter("memberPhone3");
+
+	String oracleDriver = application.getInitParameter("OracleDriver");
+	String oracleURL = application.getInitParameter("OracleURL");
+	String oracleId = application.getInitParameter("OracleId");
+	String oraclePwd = application.getInitParameter("OraclePwd");
+	
+	MemberDAO dao = new MemberDAO(oracleDriver, oracleURL, oracleId, oraclePwd);
+	MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhone);
+	memberDTO.setName(memberName);
+	dao.close();
+	
+
+	response.sendRedirect("FindIdResult.jsp");
 %>
-</body>
-</html>

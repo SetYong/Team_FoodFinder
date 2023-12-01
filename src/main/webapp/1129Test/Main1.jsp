@@ -12,9 +12,9 @@
 	String center = request.getParameter("center");
 	String logout = request.getParameter("logout");
 	if(logout!=null){
-		//id°ª¿¡ null °ªÀ» ³ÖÀ½
+		//idê°’ì— null ê°’ì„ ë„£ìŒ
 		session.setAttribute("id", null);
-		//¼¼¼Ç½Ã°£ 0. ·Î±×¾Æ¿ô Ã³¸®
+		//ì„¸ì…˜ì‹œê°„ 0. ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
 		session.setMaxInactiveInterval(0);
 	}
 	if(center==null){

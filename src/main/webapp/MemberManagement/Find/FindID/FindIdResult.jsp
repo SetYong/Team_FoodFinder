@@ -1,5 +1,9 @@
+<%@ page import = "memberMG.MemberDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+MemberDTO dto = new MemberDTO();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +26,8 @@ align: center;
 	<h2 align="center">ID</h2>
 	<form>
 		<div align="center">
-		<%= request.getParameter("memberName") %>님 <br>
-		아이디 : ""를 찾았습니다<br>
+		<%= dto.getName() %>님 <br>
+		아이디 : "<%= dto.getId() %>"를 찾았습니다<br>
 		</div>
 		<button type="button" onclick="location.href='../../../1129Test/NewFile.jsp'">확인</button>
 	</form>

@@ -118,3 +118,49 @@
 	font-family: 'Hanna';
 	text-align: right;
 }
+
+.mypage_1{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+.mypage_2{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+.mypage_3{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.mypage_home{
+	left: 20%;
+	border: 1px;
+	box-sizing: border-box;
+	text-decoration-color: #000;
+	text-decoration-line: none;
+	font-size: 20px;
+}

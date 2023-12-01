@@ -37,4 +37,8 @@
 		<param-name>OraclePwd</param-name>
 		<param-value>food1234</param-value>
 	</context-param>
+	<context-param>
+		<param-name>contentPage</param-name>
+		<param-value></param-value>
+	</context-param>
 </web-app>

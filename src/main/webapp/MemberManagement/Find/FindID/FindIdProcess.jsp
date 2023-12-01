@@ -8,10 +8,6 @@
 </head>
 <body>
 <%
-String name = request.getParameter("memberName");
-String cn = request.getParameter("memberCn1");
-String cn2 = request.getParameter("memberCn2");
-
 response.sendRedirect("FindIdResult.jsp");
 %>
 </body>

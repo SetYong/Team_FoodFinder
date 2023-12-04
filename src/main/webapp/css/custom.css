@@ -164,3 +164,33 @@
 	text-decoration-line: none;
 	font-size: 20px;
 }
+.setprofile_head {
+	font-size: 40px;	
+	padding-left: 50px;
+	margin-left: 100px;
+}
+
+.setprofile_img {
+	width: 200px;
+	height: 200px;
+	float: left;
+	margin-left: 5%;
+	margin-right: 30px;
+}
+
+.setprofile_box {
+	width: 100%;
+	height: 300px;
+	border: 2px solid lightgray;
+	box-sizing: border-box;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.setprofile_table {
+	width:100%;
+	height: 50%;
+	padding-right: 10%;
+}

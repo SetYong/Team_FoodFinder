@@ -1,11 +1,8 @@
 package memberMG;
 
-import common.JDBConnect;
+import common.DBConnPool;
 
-public class MemberDAO extends JDBConnect {
-	public MemberDAO(String drv, String url, String id, String pw) {
-		super(drv, url, id, pw);
-	}
+public class MemberDAO extends DBConnPool {
 	
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
@@ -28,7 +25,26 @@ public class MemberDAO extends JDBConnect {
 			System.out.println(dto.getId());
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return dto;
+	}
+	
+	public int updatePwd(String pw, String id){
+		int result = 0;
+		String query = "UPDATE MEMBER_LOGIN SET User_Pwd =? "
+					 + "WHERE User_id = ?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, pw);
+			psmt.setString(2, id);
+			result = psmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 }

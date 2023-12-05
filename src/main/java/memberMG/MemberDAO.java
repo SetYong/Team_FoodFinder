@@ -1,11 +1,9 @@
 package memberMG;
 
-import common.JDBConnect;
+import common.DBConnPool;
 
-public class MemberDAO extends JDBConnect {
-	public MemberDAO(String drv, String url, String id, String pw) {
-		super(drv, url, id, pw);
-	}
+public class MemberDAO extends DBConnPool {
+	
 	
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();

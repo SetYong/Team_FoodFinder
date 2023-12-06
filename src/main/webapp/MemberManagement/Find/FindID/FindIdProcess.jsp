@@ -5,6 +5,7 @@
 <%
 	String memberName = request.getParameter("memberName");
 
+
 	String memberCn = request.getParameter("memberCn1");
 		   memberCn += request.getParameter("memberCn2");
 		   

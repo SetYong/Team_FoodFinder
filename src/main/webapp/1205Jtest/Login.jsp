@@ -1,49 +1,46 @@
-
+<%@ page import="memberMG.MemberDTO"%>
+<%@ page import="memberMG.MemberDAO"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
-<form method="post" action="Session.jsp">
-<table>
-<tr height="50">
-	<td height="50">아이디</td>
-	<td height="50"><input type="text" name="id"></td>
-</tr>
-<tr height="50">
-	<td height="50">패스워드</td>
-	<td height="50"><input type="password" name="pass"></td>
-</tr>
-<tr height="50">
-	<td height="50">이름</td>
-	<td height="50"><input type="text" name="name"></td>
-</tr>
-<tr height="50">
-	<td height="50">주민등록번호</td>
-	<td height="50"><input type="text" name="resident registration number"></td>
-</tr>
-<tr height="50">
-	<td height="50">핸드폰 번호</td>
-	<td height="50"><input type="text" name="phoneNumber"></td>
-</tr>
-<tr height="50">
-	<td height="50">이메일</td>
-	<td height="50"><input type="text" name="e-mail"></td>
-</tr>
-<tr height="50">
-	<td height="50">닉네임</td>
-	<td height="50"><input type="text" name="Nickname"></td>
-</tr>
-<tr height="50">
-	<td height="50"><input type="submit" value="로그인"></td>
-</tr>
-</table>
+<form action="LoginDateBase.jsp" onsubmit="returnForm(this);">
+	 <h2>Login</h2>
+      ID <input type = "text" name="id" placeholder="아이디를 입력해주세요."><br/>
+      PASSWORD <input type = "password" name="password" placeholder="비밀번호를 입력해주세요.">
+      <p>
+        <button type="submit">로그인</button>
+      </p>
+      
+      <%
+	String id = (String)session.getAttribute("USER_ID");
+	String center = request.getParameter("");
+%>
+<%
+	if(id!=null){
+		%>
+		<%=id %> 님
+		<button onclick="location.href='Main.jsp?logout=1'">로그아웃</button>
+		<%
+	}else if(center==null){
+		//center에 값이 존재하는 경우에만 로그인버튼을 띄움.
+		%>
+		<button type= "button" onclick="location.href='LoginProcess.jsp?center=Register.jsp'">회원가입</button>
+		<% 
+	}	
+	else{
+		%>
+	<%} 
+	%>
 </form>
 </body>
-</html>
+</html> 

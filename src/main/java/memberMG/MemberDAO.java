@@ -43,6 +43,7 @@ public class MemberDAO extends DBConnPool {
 			
 			if(rs.next()) {
 				vo.setId(rs.getString("id"));
+				vo.setPwd(rs.getString("PWD"));
 			}
 			
 		}catch(Exception e) {

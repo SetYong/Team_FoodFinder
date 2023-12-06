@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-<form method="post" action="Session.jsp">
+<form method="post" >
 <table>
 <tr height="50">
 	<td height="50">아이디</td>

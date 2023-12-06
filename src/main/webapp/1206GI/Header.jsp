@@ -13,30 +13,30 @@
 			location.href="Main.jsp?contentPage=MainIntro.jsp";
 		}
 		else if(value == "1"){
-			location.href="Main.jsp?contentPage=center.jsp";
+			location.href="Main.jsp?sidePage=foodside.jsp&contentPage=foodbody.jsp";
 		}
 		else if(value == "2"){
 			location.href="Main.jsp";
 		}
 		else if(value == "3"){
-			location.href="Main.jsp?contentPage=MyPage2.jsp";
+			location.href="Main.jsp?sidePage=MyPageSide.jsp&contentPage=MyPageBody.jsp";
 		}
 		else if(value == "11"){
-			location.href="LoginPage.jsp";
+			location.href="Main.jsp?contentPage=LoginPage.jsp";
 		}
 		else if(value == "12"){
-			location.href="Newmember.jsp";
+			location.href="Main.jsp?contentPage=Newmember.jsp";
 		}
 	}
 </script>
 </head>
 <body>
 	<div align="right">
-	<a href="LoginPage.jsp" class="menu_login">
+	<a href="#" onclick="changeView(11)" class="menu_login">
 	로그인
 	</a>
 	&nbsp;&nbsp;&nbsp;
-	<a href="Newmember.jsp" class="menu_login">
+	<a href="#" onclick="changeView(12)" class="menu_login">
 	회원가입
 	</a>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,10 +47,10 @@
 		<img class="logo_img" src="../img/test2.jpeg">
 		</a>
 		
-		<a href="MainIntro.jsp" class="menu_intro">소개</a>
-		<a href="center.jsp" class="menu_food">음식</a>
-		<a href="QuestionBoardHome.jsp" class="menu_qna">문의</a>
-		<a href="MyPage2.jsp" class="menu_mypage">마이페이지</a>
+		<a href="#" onclick="changeView(0)" class="menu_intro">안내</a>
+		<a href="#" onclick="changeView(1)" class="menu_food">음식</a>
+		<a href="#" onclick="changeView(2)" class="menu_qna">고객문의</a>
+		<a href="#" onclick="changeView(3)" class="menu_mypage">마이페이지</a>
 	</div>
 	&nbsp;
 </body>

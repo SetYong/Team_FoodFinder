@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,8 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
-<h2> 회원가입 </h2>
+
 <form method="post" action="Session.jsp">
 <table>
 <tr height="50">
@@ -40,10 +41,9 @@
 	<td height="50"><input type="text" name="Nickname"></td>
 </tr>
 <tr height="50">
-	<td height="50"><input type="submit" value="회원가입" onclick="location.href='Main.jsp';"></td>
+	<td height="50"><input type="submit" value="로그인"></td>
 </tr>
 </table>
 </form>
-</div>
 </body>
 </html>

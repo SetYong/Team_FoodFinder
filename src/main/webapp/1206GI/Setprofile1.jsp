@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String nickname = "밥도둑";
-String mail = "abc@gmail.com";
-String phone = "010-1234-5678";
+String nickname = (String)session.getAttribute("nickname");
+String mail = (String)session.getAttribute("mail");
+String phone = (String)session.getAttribute("phone");
 %>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,16 @@ String phone = "010-1234-5678";
 						</p>
 					</div></td>
 			</tr>
+			<tr>
+				<td><div align="right">
+						<button type="button" onclick="location.href='Main.jsp?contentPage=Setprofile2.jsp'">정보
+							수정</button>
+					</div></td>
+			</tr>
 		</table>
 	</div>
+
+
+
 </body>
 </html>

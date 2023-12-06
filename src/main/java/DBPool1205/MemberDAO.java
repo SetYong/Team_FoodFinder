@@ -3,7 +3,11 @@ package DBPool1205;
 import common.DBConnPool;
 
 public class MemberDAO extends DBConnPool{
+	public MemberDAO() {
+		super();
+	}
 	
+	// 로그인 시 MBNUM 불러오기 + pass용으로 사용하기
 	public MemberDTO getMemberNum(String id, String pwd) {
 		MemberDTO dto = new MemberDTO();
 		String query = "SELECT MBNUM FROM MEMBER_LOGIN"

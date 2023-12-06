@@ -41,4 +41,12 @@
 		<param-name>contentPage</param-name>
 		<param-value></param-value>
 	</context-param>
+	
+	<servlet>
+		<servlet-name>FoodLogin</servlet-name>
+		<servlet-class>Test1205.LoginController</servlet-class>
+	</servlet>
+	
+	
+	
 </web-app>

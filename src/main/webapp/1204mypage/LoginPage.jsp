@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +16,7 @@
 	<%
 	String id = (String)session.getAttribute("id");
 	String center = request.getParameter("center");
+	
 	
 	
 	%>

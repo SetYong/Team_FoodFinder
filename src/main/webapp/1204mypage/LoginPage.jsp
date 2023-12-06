@@ -15,7 +15,9 @@
 	<%
 	String id = (String)session.getAttribute("id");
 	String center = request.getParameter("center");
-%>
+	
+	
+	%>
 	<%
 	if(id!=null){
 		%>

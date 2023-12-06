@@ -29,4 +29,25 @@ public class MemberDAO extends DBConnPool {
 		}
 		return dto;
 	}
+	
+	public MemberDTO getUSER_ID(String id, String pwd) {
+		MemberDTO vo = new MemberDTO();
+		String query = "SELECT * From member_login WHERE id=? AND PWD=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			psmt.setString(2, pwd);
+			rs=psmt.executeQuery();
+			
+			System.out.println(query);
+			
+			if(rs.next()) {
+				vo.setId(rs.getString("id"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<form method="post" >
+<form method="post" action="RegisterDateBase.jsp" onsubmit="returnForm(this);">
+
 <table>
 <tr height="50">
 	<td height="50">아이디</td>
@@ -29,11 +30,11 @@
 	<td height="50"><input type="text" name="resident registration number"></td>
 </tr>
 <tr height="50">
-	<td height="50">핸드폰 번호</td>
+	<td height="50">이메일</td>
 	<td height="50"><input type="text" name="phoneNumber"></td>
 </tr>
 <tr height="50">
-	<td height="50">이메일</td>
+	<td height="50">핸드폰번호</td>
 	<td height="50"><input type="text" name="e-mail"></td>
 </tr>
 <tr height="50">
@@ -42,6 +43,7 @@
 </tr>
 <tr height="50">
 	<td height="50"><input type="submit" value="로그인"></td>
+	
 </tr>
 </table>
 </form>

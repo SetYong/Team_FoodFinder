@@ -32,7 +32,7 @@ public class MemberDAO extends DBConnPool {
 	
 	public MemberDTO getUSER_ID(String id, String pwd) {
 		MemberDTO vo = new MemberDTO();
-		String query = "SELECT * From member_login WHERE id=? AND PWD=?";
+		String query = "SELECT * From member_login WHphERE id=? AND PWD=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
@@ -51,4 +51,34 @@ public class MemberDAO extends DBConnPool {
 		}
 		return vo;
 	}
+	
+	public MemberDTO getRegister(String name, String cn, String mail, String phone, String nickname) {
+		MemberDTO Vo = new MemberDTO();
+		String insertQuery = "INSERT INTO member_profile() "
+        		+ "VALUES(?, ?, ?, ?, ?)";
+		try {
+			psmt = con.prepareStatement(insertQuery);
+			psmt.setString(1, name);
+			psmt.setString(2, cn);
+			psmt.setString(3, mail);
+			psmt.setString(4, phone);
+			psmt.setString(5, nickname);
+			rs=psmt.executeQuery();
+			
+			System.out.println(insertQuery);
+			
+			if(rs.next()) {
+				Vo.setId(rs.getString("name"));
+				Vo.setPwd(rs.getString("cn"));
+				Vo.setPwd(rs.getString("amil"));
+				Vo.setPwd(rs.getString("phone"));
+				Vo.setPwd(rs.getString("nickname"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return Vo;
+	}
+	
 }

@@ -49,7 +49,7 @@
 		
 		<a href="MainIntro.jsp" class="menu_intro">소개</a>
 		<a href="center.jsp" class="menu_food">음식</a>
-		<a href="MemberBoard.jsp" class="menu_qna">문의</a>
+		<a href="QuestionBoardHome.jsp" class="menu_qna">문의</a>
 		<a href="MyPage2.jsp" class="menu_mypage">마이페이지</a>
 	</div>
 	&nbsp;

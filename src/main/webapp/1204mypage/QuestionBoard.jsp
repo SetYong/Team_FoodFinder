@@ -48,7 +48,7 @@ resize: none;
 		<label onclick="location.href='QuestionBoard.jsp'">문의하기</label> <br>
 		<label onclick="location.href='MemberBoard.jsp'">자유게시판</label>
 	</div>
-	<form name="QuestionForm" action="QuestionProcess.jsp" onsubmit="return validateForm(this);">
+	<form name="QuestionForm" action="QuWriteProcess.jsp" onsubmit="return validateForm(this);">
 	<table border ="1" class="mainborad">
 	<tr>
 		<td align = "center" colspan="2">
@@ -57,9 +57,9 @@ resize: none;
 	</tr>
 	<tr>
 		<td >
-			<select name = "Qucate">
-				<option value = "title">이용 문의</option>
-				<option value = "content">오류 신고</option>
+			<select name = "QuCate">
+				<option value = "이용문의">이용 문의</option>
+				<option value = "오류신고">오류 신고</option>
 			</select> </td>
 			<td><textarea name="QuContent" cols="30" placeholder="문의하실내용을 입력해주세요" required></textarea></td>
 	</tr>

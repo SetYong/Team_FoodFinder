@@ -7,10 +7,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function validateForm(form){
+if(!from.User_id.value){
+		alert("아이디를 입력해주세요.");
+		return false;}
+if(!from.User_pwd.value){
+		alert("비밀번호를 입력해주세요.");
+		return false;}
+if(!from.name.value){
+alert("이름을 입력해주세요.");
+return false;}
+
+if(!form.cn.value){
+alert("주민등록번호를 입력해주세요.");
+return false;
+}
+if(!form.mail.value{
+alert("메일을 입력해주세요.");
+return false;
+}
+if(!form.phone.value{
+	alert("핸드폰 번호를 입력해주세요.");
+	return false;
+	}
+if(!form.nickname.value{
+	alert("닉네임을 입력해주세요.");
+	return false;
+	}
+}
+</script>
 </head>
 <body>
 
-<form method="post" action="RegisterDateBase.jsp" onsubmit="returnForm(this);">
+<form method="post" action="RegisterDateBase.jsp" onsubmit="validateForm(this);">
 
 <table>
 <tr height="50">

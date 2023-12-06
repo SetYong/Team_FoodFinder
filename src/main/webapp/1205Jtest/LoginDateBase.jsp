@@ -12,7 +12,7 @@
 
     // null 체크를 추가하여 오류 방지
     if (memberDTO != null) {
-        session.setAttribute("memberId", memberDTO.getId());
+        session.getAttribute("memberId");
         response.sendRedirect("Main.jsp");
     } else {
         // 사용자 정보가 조회되지 않았을 경우 처리

@@ -32,7 +32,7 @@ public class MemberDAO extends DBConnPool {
 	
 	public MemberDTO getUSER_ID(String id, String pwd) {
 		MemberDTO vo = new MemberDTO();
-		String query = "SELECT * From member_login WHphERE id=? AND PWD=?";
+		String query = "SELECT * From member_login WHERE id=? AND PWD=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);

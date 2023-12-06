@@ -40,7 +40,8 @@ if(!form.nickname.value{
 </head>
 <body>
 
-<form method="post" action="RegisterDateBase.jsp" onsubmit="validateForm(this);">
+<form method="post" action="RegisterDateBase.jsp" onsubmit="validate
+Form(this);">
 
 <table>
 <tr height="50">

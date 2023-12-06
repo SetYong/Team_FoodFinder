@@ -22,4 +22,3 @@
 		response.sendRedirect("QuestionBoardResult.jsp");
 	}
 %>
-<%= cate + title + content%> 

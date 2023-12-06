@@ -1,8 +1,11 @@
 package memberMG;
 
-import common.DBConnPool;
+import common.JDBConnect;
 
-public class MemberDAO extends DBConnPool {	
+public class MemberDAO2 extends JDBConnect {
+	public MemberDAO2(String drv, String url, String id, String pw) {
+		super(drv, url, id, pw);
+	}
 	
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
@@ -45,25 +48,6 @@ public class MemberDAO extends DBConnPool {
 		} finally {
 			close();
 		}
-
-	public MemberDTO getUSER_ID(String id, String pwd) {
-		MemberDTO vo = new MemberDTO();
-		String query = "SELECT * From member_login WHERE id=? AND PWD=?";
-		try {
-			psmt = con.prepareStatement(query);
-			psmt.setString(1, id);
-			psmt.setString(2, pwd);
-			rs=psmt.executeQuery();
-			
-			System.out.println(query);
-			
-			if(rs.next()) {
-				vo.setId(rs.getString("id"));
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return vo;
+		return result;
 	}
 }

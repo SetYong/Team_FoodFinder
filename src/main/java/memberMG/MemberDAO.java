@@ -29,4 +29,27 @@ public class MemberDAO extends DBConnPool {
 		}
 		return dto;
 	}
+	
+	public MemberDTO getMemberNum(String mbn) {
+		MemberDTO dto = new MemberDTO();
+		String query = "SELECT nickname, mail, phone FROM member_profile "
+				+ "WHERE mbnum=? ";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbn);
+			rs = psmt.executeQuery();
+			
+			System.out.println(query);
+			if(rs.next()) {
+				dto.setNickname(rs.getString("nickname"));
+				dto.setEamil(rs.getString("mail"));
+				dto.setPhone(rs.getString("phone"));
+			}
+			System.out.println(dto.getId());
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
 }

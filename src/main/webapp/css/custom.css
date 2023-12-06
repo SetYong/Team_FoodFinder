@@ -29,13 +29,6 @@
 	margin-right: 50px;
 }
 
-.logo_img:hover {
-	width: 10%;
-	height: 10%;
-	padding-left: 30px;
-	text-decoration-line: none;
-}
-
 .menu_intro {
 	position: absolute;
 	left: 25%;

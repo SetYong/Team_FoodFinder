@@ -1,0 +1,189 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+* {
+	font-family: 'Nanum Gothic';
+}
+
+.main_text {
+	font-family: 'Hanna';
+}
+
+.main_img {
+	width: 70%;
+	height: 20%;
+}
+
+.menu_login {
+	font-family: 'Hanna';
+	font-size: 15px;
+	text-decoration-line: none;
+}
+
+.logo_img {
+	width: 5%;
+	height: 5%;
+	padding-left: 30px;
+	text-decoration-line: none;
+	margin-right: 50px;
+}
+
+.menu_intro {
+	position: absolute;
+	left: 25%;
+	text-align: center;
+	font-family: 'Hanna';
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.menu_food {
+	position: absolute;
+	left: 40%;
+	text-align: center;
+	font-family: 'Hanna';
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.menu_qna {
+	position: absolute;
+	left: 55%;
+	text-align: center;
+	font-family: 'Hanna';
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.menu_mypage {
+	position: absolute;
+	left: 70%;
+	text-align: center;
+	font-family: 'Hanna';
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.main_post {
+	font-family: 'Hanna';
+	text-align: left;
+	left: 20%;
+	padding-bottom: 30%;
+}
+
+.main_map {
+	left: 20%;
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.main_event {
+	right: 20%;
+	font-family: 'Hanna';
+	text-align: right;
+}
+
+.mypage_1{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+.mypage_2{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+.mypage_3{
+	font-family: 'Hanna';
+	text-decoration-line: none;
+	text-align: left;
+	font-size: 30px;
+	text-decoration-line: none;
+	background-color: #FAD291;
+	text-decoration-color: #000;
+	box-sizing: border-box;
+	width: 10%;
+	border-radius: 30px 30px 30px 30px;
+}
+
+.mypage_home{
+	left: 20%;
+	border: 1px;
+	box-sizing: border-box;
+	text-decoration-color: #000;
+	text-decoration-line: none;
+	font-size: 20px;
+}
+.setprofile_head {
+	font-size: 40px;	
+	padding-left: 50px;
+	margin-left: 100px;
+}
+
+.setprofile_img {
+	width: 200px;
+	height: 200px;
+	float: left;
+	margin-left: 5%;
+	margin-right: 30px;
+}
+
+.setprofile_box {
+	width: 100%;
+	height: 300px;
+	border: 2px solid lightgray;
+	box-sizing: border-box;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.setprofile_table {
+	width:100%;
+	height: 50%;
+	padding-right: 10%;
+}

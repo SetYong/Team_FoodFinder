@@ -7,7 +7,7 @@ public class MemberDTO {
 	private String nickname;
 	private String name;
 	private String cn;
-	private String eamil;
+	private String email;
 	private String phone;
 	
 	public int getMbnum() {
@@ -46,11 +46,11 @@ public class MemberDTO {
 	public void setCn(String cn) {
 		this.cn = cn;
 	}
-	public String getEamil() {
-		return eamil;
+	public String getEmail() {
+		return email;
 	}
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPhone() {
 		return phone;
@@ -58,4 +58,5 @@ public class MemberDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 }

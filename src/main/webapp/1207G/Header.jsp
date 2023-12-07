@@ -47,7 +47,19 @@ label:hover {
 		<label onclick="location.href='Main.jsp?sidePage=IntroSide.jsp&contentPage=IntroBody.jsp'" class="menu_intro">안내</label>
 		<label onclick="location.href='Main.jsp?sidePage=foodside.jsp&contentPage=foodbody.jsp'" class="menu_food">음식</label>
 		<label onclick="location.href='Main.jsp?sidePage=QuestionSide.jsp&contentPage=QuestionBody.jsp'" class="menu_qna">고객문의</label>
-		<label onclick="location.href='Main.jsp?sidePage=MyPageSide.jsp&contentPage=MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
+<%
+if(session.getAttribute("user_Id")==null){
+	System.out.println(session.getAttribute("user_Id"));
+%>
+<label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_mypage">마이페이지</label>
+<%
+} else {
+System.out.println("나야!" + session.getAttribute("user_Id"));
+%>
+<label onclick="location.href='Main.jsp?sidePage=MyPageSide.jsp&contentPage=MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
+<%		
+}		
+%>
 	</div>
 	&nbsp;
 </body>

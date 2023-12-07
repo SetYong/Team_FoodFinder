@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
 	<h2>소개페이지가 될 곳임</h2>
 		<table border="1">
 			<tr>
@@ -18,6 +17,5 @@
 			</tr>
 			<tr>
 		</table>
-	</div>
 </body>
 </html>

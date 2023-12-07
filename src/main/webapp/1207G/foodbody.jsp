@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 String contentPage = "center.jsp";
 %>
@@ -10,43 +10,43 @@ String contentPage = "center.jsp";
 <title>Insert title here</title>
 </head>
 <body>
-	<h3 text align=center>╪╪╩С©║ юж╢б ╦П╣Г ╦ююж╢б ю╫╫дю╩ ╦т╬Н╨цю╦╦И аа╟з╬Н©Д.</h3>
+	<h3 text align=center>Л└╦Л┐│Л≈░ Л·┬К┼■ К╙╗К⌠═ К╖⌡Л·┬К┼■ Л²▄Л▀²Л²└ К╗╧Л√╢К╢╓Л°╪К╘╢ Л╒▀Й╡═Л√╢Л ■.</h3>
 	<span style="float: right;">
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">╠ш
-			юш╪╨</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">Й╦─
+			Л·▒Л└╠</button>
 	</span>
 	<br>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ1" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─1" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ2" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─2" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ3" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─3" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ4" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─4" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ5" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─5" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ6" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─6" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ7" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─7" />
 	</a>
 	<a href="../1129Test/center.jsp"> <img src="../img/test2.jpeg"
 		style="float: left; margin-right: 80px; margin-bottom: 60px;"
-		width="200" height="200" alt="ев╫╨ф╝юл╧лаЖ8" />
+		width="200" height="200" alt="М┘▄Л┼╓М┼╦Л²╢К╞╦Л╖─8" />
 	</a>
 </body>
 </html>

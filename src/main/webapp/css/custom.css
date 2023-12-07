@@ -159,8 +159,7 @@
 }
 .setprofile_head {
 	font-size: 40px;	
-	padding-left: 50px;
-	margin-left: 100px;
+	margin-left: 50px;
 }
 
 .setprofile_img {
@@ -183,7 +182,7 @@
 }
 
 .setprofile_table {
-	width:100%;
+	width:80%;
 	height: 50%;
 	padding-right: 10%;
 }

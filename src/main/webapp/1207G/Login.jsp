@@ -9,7 +9,7 @@
 <head><title>Insert title here</title></head>
 <meta charset="UTF-8">
 <body>
-<h2>로그인</h2>
+<h2 align="center">로그인</h2>
 <%
 if(session.getAttribute("user_Id")==null){
 %>
@@ -25,10 +25,10 @@ return false;
 	}
 }
 </script>
-<form action="LoginDateBase.jsp" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
-아이디 : <input type = "text" name="id"/><br/>
+<form align="center" action="LoginDateBase.jsp" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
+아이디 : &nbsp;&nbsp;&nbsp;<input type = "text" name="id"/><br/>
 비밀번호 : <input type = "password" name="password"/><br/>
-<input type = "submit" value="로그인"/>
+<input align="center" type = "submit" value="로그인"/>
 </form>
 <%
 } 

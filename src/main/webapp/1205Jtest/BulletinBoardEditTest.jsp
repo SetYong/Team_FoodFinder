@@ -8,39 +8,39 @@
 </head>
 <body>
 	<center>
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">¼Ò°³</button>
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">À½½Ä</button>
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">°í°´
-			¹®ÀÇ</button>
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">¸¶ÀÌ
-			ÆäÀÌÁö</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">ì†Œê°œ</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">ìŒì‹</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">ê³ ê°
+			ë¬¸ì˜</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">ë§ˆì´
+			íŽ˜ì´ì§€</button>
 	</center>
 	<span style="float: right;">
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">·Î±×ÀÎ</button>
-		<button type="button" style="boreder-radius: 0.5em:padding:5px20px">È¸¿ø°¡ÀÔ</button>
+		<button type="button" style="border-radius: 0.5em:padding:5px20px">ë¡œê·¸ì¸</button>
+		<button type="button" style="boreder-radius: 0.5em:padding:5px20px">íšŒì›ê°€ìž…</button>
 	</span>
 
-	<h3 text align=center>¼¼»ó¿¡ ÀÖ´Â ¸ðµç ¸ÀÀÖ´Â À½½ÄÀ» ¸Ô¾îºÃÀ¸¸é ÁÁ°Ú¾î¿ä.</h3>
+	<h3 text align=center>ì„¸ìƒì— ìžˆëŠ” ëª¨ë“  ë§›ìžˆëŠ” ìŒì‹ì„ ë¨¹ì–´ë´¤ìœ¼ë©´ ì¢‹ê² ì–´ìš”.</h3>
 
 
 	<table width="90" height="300" align=left>
 		<td>
-			<button type="button">¸ÞÀÎ¿ä¸®</button> </br>
-			<button type="button">ÃÊ´ë¿ä¸®</button> </br>
-			<button type="button">°£´Ü¿ä¸®</button> </br>
-			<button type="button">¹Ø ¹ÝÂù</button> </br>
-			<button type="button">°£½Ä</button> </br>
-			<button type="button">¾ÈÁÖ</button> </br>
-			<button type="button">º£ÀÌÅ·</button> </br>
-			<button type="button">´ÙÀÌ¾îÆ®</button> </br>
-			<button type="button">µµ½Ã¶ô</button> </br>
-			<button type="button">ÇÑ½Ä</button> </br>
-			<button type="button">¾ç½Ä</button> </br>
-			<button type="button">ÀÏ½Ä</button> </br>
-			<button type="button">Áß½Ä</button> </br>
-			<button type="button">Ã¤½Ä</button> </br>
-			<button type="button">Ç»Àü</button> </br>
-			<button type="button">¸ðµÎ º¸±â</button>
+			<button type="button">ë©”ì¸ìš”ë¦¬</button> </br>
+			<button type="button">ì´ˆëŒ€ìš”ë¦¬</button> </br>
+			<button type="button">ê°„ë‹¨ìš”ë¦¬</button> </br>
+			<button type="button">ë°‘ ë°˜ì°¬</button> </br>
+			<button type="button">ê°„ì‹</button> </br>
+			<button type="button">ì•ˆì£¼</button> </br>
+			<button type="button">ë² ì´í‚¹</button> </br>
+			<button type="button">ë‹¤ì´ì–´íŠ¸</button> </br>
+			<button type="button">ë„ì‹œë½</button> </br>
+			<button type="button">í•œì‹</button> </br>
+			<button type="button">ì–‘ì‹</button> </br>
+			<button type="button">ì¼ì‹</button> </br>
+			<button type="button">ì¤‘ì‹</button> </br>
+			<button type="button">ì±„ì‹</button> </br>
+			<button type="button">í“¨ì „</button> </br>
+			<button type="button">ëª¨ë‘ ë³´ê¸°</button>
 		</td>
 	</table> 
 
@@ -48,30 +48,30 @@
     <input type="hidden" name="num" > 
     <table border="1" width="92%"  >
         <tbody><tr> 
-            <td style="text-align: center;">Á¦¸ñ</td>
+            <td style="text-align: center;">ì œëª©</td>
             <td>
                 <input type="text" name="title" style="width: 90%;" > 
             </td>
             <tr> 
-            <td style="text-align: center;">ÀÌ¹ÌÁö</td>
+            <td style="text-align: center;">ì´ë¯¸ì§€</td>
             <td >
-                <textarea name="content" style="width: 10%; height: 50px;">Ã·ºÎÆÄÀÏ  </textarea> 
-                <textarea name="content" style=" width: 15%; height: 50px;">ÀÌ¹ÌÁö °æ·Î  </textarea> 
+                <textarea name="content" style="width: 10%; height: 50px;">ì²¨ë¶€íŒŒì¼  </textarea> 
+                <textarea name="content" style=" width: 15%; height: 50px;">ì´ë¯¸ì§€ ê²½ë¡œ  </textarea> 
             </td> 
         </tr>
            
         <tr> 
-            <td rowspan="2" style="text-align: center;">³»¿ë</td>
+            <td rowspan="2" style="text-align: center;">ë‚´ìš©</td>
             <td>
-                <textarea name="content" style="width: 90%; height: 100px;">±âº»Àç·á¸¦ ÀÔ·ÂÇÏ¼¼¿ä.  </textarea> 
-                <textarea name="content" style="width: 90%; height: 100px;">¸¸µå´Â ¹æ¹ýÀ» ÀÔ·ÂÇÏ¼¼¿ä.  </textarea> 
+                <textarea name="content" style="width: 90%; height: 100px;">ê¸°ë³¸ìž¬ë£Œë¥¼ ìž…ë ¥í•˜ì„¸ìš”.  </textarea> 
+                <textarea name="content" style="width: 90%; height: 100px;">ë§Œë“œëŠ” ë°©ë²•ì„ ìž…ë ¥í•˜ì„¸ìš”.  </textarea> 
             </td> 
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button type="submit">¼öÁ¤ Ãë¼Ò</button>
-                <button type="reset">¼öÁ¤ ¿Ï·á</button>
-                <button type="button">¸ñ·Ï º¸±â</button> 
+                <button type="submit">ìˆ˜ì • ì·¨ì†Œ</button>
+                <button type="reset">ìˆ˜ì • ì™„ë£Œ</button>
+                <button type="button">ëª©ë¡ ë³´ê¸°</button> 
             </td>
         </tr>
     </tbody></table>

@@ -5,15 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../css/custom.css">
-<title>FoodFinder - MyPage(myhome)</title>
+<title>FoodFinder - MyPage(home)</title>
 </head>
-<body>
-	<div id="header">
-		<jsp:include page="Header.jsp" />
-	</div>
-	<div>
-		<jsp:include page="MyPage1.jsp" />
-	</div>
+<div>
+	<jsp:include page="MyPageProfile.jsp" />
 	<div class="mypage_home">
 		<h4>공감한 레시피</h4>
 		<table>
@@ -23,5 +18,5 @@
 			</tr>
 		</table>
 	</div>
-</body>
+</div>
 </html>

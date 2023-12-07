@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="header">
-		<jsp:include page="Header.jsp" />
-	</div>
 	<div>
-	<h2 align="center">소개페이지가 될 곳임</h2>
-		<table border="1" align="center">
+	<h2>소개페이지가 될 곳임</h2>
+		<table border="1">
 			<tr>
 			<td>회사 소개<br>
 			저희 회사는 매번 무엇을 먹을지 고민하시는 분들을 위해 제작하였습니다.<br>

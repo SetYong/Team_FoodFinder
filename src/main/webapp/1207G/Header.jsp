@@ -10,13 +10,13 @@
 	function changeView(value){
 		
 		if(value == "0"){
-			location.href="Main.jsp?contentPage=MainIntro.jsp";
+			location.href="Main.jsp?contentPage=IntroBody.jsp";
 		}
 		else if(value == "1"){
 			location.href="Main.jsp?sidePage=foodside.jsp&contentPage=foodbody.jsp";
 		}
 		else if(value == "2"){
-			location.href="Main.jsp";
+			location.href="Main.jsp?sidePage=QuestionSide.jsp&contentPage=QuestionBody.jsp";
 		}
 		else if(value == "3"){
 			location.href="Main.jsp?sidePage=MyPageSide.jsp&contentPage=MyPageBody.jsp";
@@ -47,10 +47,10 @@
 		<img class="logo_img" src="../img/test2.jpeg">
 		</a>
 		
-		<a href="#" onclick="changeView(0)" class="menu_intro">안내</a>
-		<a href="#" onclick="changeView(1)" class="menu_food">음식</a>
-		<a href="#" onclick="changeView(2)" class="menu_qna">고객문의</a>
-		<a href="#" onclick="changeView(3)" class="menu_mypage">마이페이지</a>
+		<a href="http://14.42.124.35:8080/Team_FoodFinder/1207G/Main.jsp?sidePage=IntroSide.jsp&contentPage=IntroBody.jsp" class="menu_intro">안내</a>
+		<a href="http://14.42.124.35:8080/Team_FoodFinder/1207G/Main.jsp?sidePage=foodside.jsp&contentPage=foodbody.jsp" class="menu_food">음식</a>
+		<a href="http://14.42.124.35:8080/Team_FoodFinder/1207G/Main.jsp?sidePage=QuestionSide.jsp&contentPage=QuestionBody.jsp" class="menu_qna">고객문의</a>
+		<a href="http://14.42.124.35:8080/Team_FoodFinder/1207G/Main.jsp?sidePage=MyPageSide.jsp&contentPage=MyPageBody.jsp" class="menu_mypage">마이페이지</a>
 	</div>
 	&nbsp;
 </body>

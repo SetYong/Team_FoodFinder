@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%
 String contentPage = request.getParameter("contentPage");
-String contentPageSize = "width=85%";
+String contentPageSize = "85%";
 String sidePage = request.getParameter("sidePage");
 if (contentPage == null)
-	contentPage = "Recomand.jsp";
+	contentPage = "MainBody.jsp";
 if (sidePage == null) {
 	sidePage = "";
 	contentPageSize = "";
@@ -25,7 +25,7 @@ if (sidePage == null) {
 	<div id="body">
 		<table width="100%">
 			<tr>
-				<td><jsp:include page="<%=sidePage %>"/></td>
+				<td style="margin-left:8%"><jsp:include page="<%=sidePage %>"/></td>
 				<td width="<%=contentPageSize%>"><jsp:include page="<%=contentPage%>" /></td>
 			</tr>
 		</table>

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="header">
-		<jsp:include page="../../../1204mypage/Header.jsp" />
+		<jsp:include page="../../../1207G/Header.jsp" />
 	</div>
 	<table>
 		<tr>

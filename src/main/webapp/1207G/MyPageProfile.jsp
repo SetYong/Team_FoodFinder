@@ -17,7 +17,7 @@ String phone = (String)session.getAttribute("phone");
 		<table class="setprofile_table">
 			<tr>
 				<td width="85%"><h2 align="left" class="setprofile_head">내 정보</h2>
-					<div align="center" class="setprofile_box">
+					<div class="setprofile_box">
 						<img class="setprofile_img" src="../img/test2.jpeg">
 						<p align="left">
 							<br>별명 :

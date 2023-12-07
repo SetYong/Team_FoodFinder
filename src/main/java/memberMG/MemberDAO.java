@@ -45,6 +45,8 @@ public class MemberDAO extends DBConnPool {
 		} finally {
 			close();
 		}
+		return result;
+	}
 
 	public MemberDTO getUSER_ID(String id, String pwd) {
 		MemberDTO vo = new MemberDTO();

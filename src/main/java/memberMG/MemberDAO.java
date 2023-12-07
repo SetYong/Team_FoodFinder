@@ -78,6 +78,42 @@ public class MemberDAO extends DBConnPool {
 		return vo;
 	}
 	
+	public MemberDTO getRegister(String name, String cn, String email, String phone, String nickname) {
+		MemberDTO Vo = new MemberDTO();
+		String insertQuery = "INSERT INTO member_profile(name, cn, email, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
+		try {
+			psmt = con.prepareStatement(insertQuery);
+			psmt.setString(1, name);
+			psmt.setString(2, cn);
+			psmt.setString(3, email);
+			psmt.setString(4, phone);
+			psmt.setString(5, nickname);
+			psmt.executeUpdate();
+
+			
+			System.out.println(insertQuery);
+			System.out.println(name + cn + email + phone + nickname);
+			
+			if((this.rs != null && this.rs.next())) {
+				Vo.setName(rs.getString("name"));
+				Vo.setCn(rs.getString("cn"));
+				Vo.setEmail(rs.getString("email"));
+				Vo.setPhone(rs.getString("phone"));
+				Vo.setNickname(rs.getString("nickname"));
+			}
+			
+			System.out.println(Vo.getName());
+			System.out.println(Vo.getCn());
+			System.out.println(Vo.getEmail());
+			System.out.println(Vo.getPhone());
+			System.out.println(Vo.getNickname());
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return Vo;
+	} 
+
 	//내정보 읽어오기
 	public MemberDTO getProfile(String mbn) {
 		MemberDTO dto = new MemberDTO();

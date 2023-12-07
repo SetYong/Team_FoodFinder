@@ -18,9 +18,9 @@
 	dao.close();
 	
 	if(memberDTO.getId() != null){
-		session.setAttribute("memberName",memberDTO.getName());
-		session.setAttribute("memberId",memberDTO.getId());
-		response.sendRedirect("FindIdResult.jsp");
+		request.setAttribute("memberName",memberDTO.getName());
+		request.setAttribute("memberId",memberDTO.getId());
+		request.getRequestDispatcher("FindIdResult.jsp").forward(request, response);;
 	}
 	else{
 		request.setAttribute("LoginErrMsg", "입력하신 정보의 회원을 찾지 못하였습니다.");

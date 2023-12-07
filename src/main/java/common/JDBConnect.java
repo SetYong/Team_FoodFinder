@@ -32,18 +32,18 @@ public class JDBConnect {
 		}
 	}
 	
-//	public JDBConnect(String driver, String url, String id, String pwd) {
-//		try {
-//			System.out.println(driver +" : "+ url +" : "+ id +" : "+ pwd);
-//			Class.forName(driver);
-//
-//			con = DriverManager.getConnection(url, id, pwd);
-//
-//			System.out.println("DB연결 성공(인수 생성자 1)");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public JDBConnect(String driver, String url, String id, String pwd) {
+		try {
+			System.out.println(driver +" : "+ url +" : "+ id +" : "+ pwd);
+			Class.forName(driver);
+
+			con = DriverManager.getConnection(url, id, pwd);
+
+			System.out.println("DB연결 성공(인수 생성자 1)");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public void close() {
 		try {

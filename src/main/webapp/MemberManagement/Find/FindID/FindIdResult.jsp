@@ -22,10 +22,10 @@ align: center;
 	<h2 align="center">ID</h2>
 	<form>
 		<div align="center">
-		<%= session.getAttribute("memberName") %>님 <br>
-		아이디 : "<%= session.getAttribute("memberId") %>"를 찾았습니다<br>
+		<%= request.getAttribute("memberName") %>님 <br>
+		아이디 : "<%= request.getAttribute("memberId") %>"를 찾았습니다<br>
 		</div>
-		<button type="button" onclick="location.href='../../../1129Test/NewFile.jsp'">확인</button>
+		<button type="button" onclick="location.href='Login.jsp'">확인</button>
 	</form>
 </body>
 </html>

@@ -26,7 +26,8 @@ label:hover {
 <body>
 	<div class="sidetable">
 		<label onclick="location.href='QuestionBoard.jsp'">문의하기</label> <br>
-		<label onclick="location.href='MemberBoard.jsp'">자유게시판</label>
+		<label onclick="location.href='MemberBoard.jsp'">자유게시판</label> <br>
+		<label >내 문의내역</label>
 	</div>
 </body>
 </html>

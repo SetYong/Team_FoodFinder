@@ -7,10 +7,7 @@
 <title>문의</title>
 </head>
 <body>
-	<div id="header">
-		<jsp:include page="Header.jsp" />
-	</div>
-	
+
 	<div class="sidetable">
 		<label onclick="location.href='QuestionBoard.jsp'">문의하기</label> <br>
 		<label onclick="location.href='MemberBoard.jsp'">자유게시판</label> <br>

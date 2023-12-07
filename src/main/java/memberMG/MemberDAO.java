@@ -48,7 +48,7 @@ public class MemberDAO extends DBConnPool {
 	}
 	public MemberDTO getUSER_ID(String id, String pwd) {
 		MemberDTO vo = new MemberDTO();
-		String query = "SELECT * From member_login WHERE id=? AND PWD=?";
+		String query = "SELECT * From member_login WHERE user_id=? AND user_pwd=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
@@ -56,11 +56,15 @@ public class MemberDAO extends DBConnPool {
 			rs=psmt.executeQuery();
 			
 			System.out.println(query);
+			System.out.println(id + pwd);
+			
 			
 			if(rs.next()) {
-				vo.setId(rs.getString("id"));
+				vo.setId(rs.getString("user_id"));
+				vo.setPwd(rs.getString("user_pwd"));
 			}
-			
+			System.out.println(vo.getId());
+			System.out.println(vo.getPwd());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

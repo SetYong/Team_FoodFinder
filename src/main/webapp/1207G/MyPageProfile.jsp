@@ -1,9 +1,22 @@
+<%@ page import="memberMG.MemberDTO"%>
+<%@ page import="memberMG.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String nickname = (String)session.getAttribute("nickname");
-String mail = (String)session.getAttribute("mail");
-String phone = (String)session.getAttribute("phone");
+System.out.println(1);
+System.out.println(session.getAttribute("MBNUM"));
+String mbnum = (String)session.getAttribute("MBNUM");
+System.out.println(mbnum);
+MemberDAO dao = new MemberDAO();
+MemberDTO dto = dao.getProfile(mbnum);
+dao.close();
+
+System.out.println(2);
+String nickname = dto.getNickname();
+String mail = dto.getEmail();
+String phone = dto.getPhone();
+
+System.out.println(3);
 %>
 <!DOCTYPE html>
 <html>

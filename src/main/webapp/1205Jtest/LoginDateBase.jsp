@@ -5,11 +5,6 @@
     String USER_ID = request.getParameter("id");
     String USER_pwd = request.getParameter("password");
    
-    String oracleDriver = application.getInitParameter("OracleDriver");
-    String oracleURL = application.getInitParameter("OracleURL");
-    String oracleId = application.getInitParameter("OracleID");
-    String oraclePwd = application.getInitParameter("OraclePwd");
-    
     MemberDAO dao = new MemberDAO();
     MemberDTO memberDTO = dao.getUSER_ID(USER_ID, USER_pwd);
     dao.close();

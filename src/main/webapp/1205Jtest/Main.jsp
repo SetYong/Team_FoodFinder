@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +8,16 @@
 <body>
 	<%
 		response.setCharacterEncoding("UTF-8");
-		String center = request.getParameter("center");
+		String center = "Main.jsp";
 		String logout = request.getParameter("logout");
 		if (logout != null) {
-			//id°ª¿¡ null °ªÀ» ³ÖÀ½
+			//idê°’ì— null ê°’ì„ ë„£ìŒ
 			session.setAttribute("id", null);
-			//¼¼¼Ç½Ã°£ 0. ·Î±×¾Æ¿ô Ã³¸®
+			//ì„¸ì…˜ì‹œê°„ 0. ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
 			session.setMaxInactiveInterval(0);
 		}
 		if (center == null) {
-			center = "center.jsp";
+			center = "Main.jsp";
 		}
 		%>
 	<!-- center -->

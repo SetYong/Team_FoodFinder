@@ -11,15 +11,14 @@
 	dto.setQucate(cate);
 	dto.setTitle(title);
 	dto.setContent(content);
-	//dto.setUserid(session.getAttribute("User_Id").toString());
-	dto.setMbnum(20);
-	
-	System.out.println(dto.getQucate() + dto.getTitle() + dto.getContent() + dto.getMbnum());
+	dto.setMbnum(();
+
+	System.out.println(cate + title + content + dto.getMbnum());
 	QuestionBoardDAO dao = new QuestionBoardDAO();
 	int iResult = dao.insertQuWrite(dto);
 	dao.close();
 	
 	if(iResult == 1){
-		response.sendRedirect("QuestionBoardResult.jsp");
+		response.sendRedirect("Main.jsp?sidePage=QuestionSide.jsp&contentPage=QuestionBoardHome.jsp");
 	}
 %>

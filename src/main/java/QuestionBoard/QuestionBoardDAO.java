@@ -31,11 +31,12 @@ public class QuestionBoardDAO extends DBConnPool{
 						 + " Values( " 
 						 + "?, ?, ?, ?)";
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, dto.getQucate());
+			psmt.setString(1, dto.getQucate());;
 			psmt.setString(2, dto.getTitle());
 			psmt.setString(3, dto.getContent());
 			psmt.setInt(4, dto.getMbnum());
 			
+			System.out.println(query);
 			result = psmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println("게시물 입력 중 예외 발생");

@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html>
-<head><title>Insert title here</title></head>
+<head><title>Login</title></head>
 <meta charset="UTF-8">
 <body>
 <h2>로그인</h2>

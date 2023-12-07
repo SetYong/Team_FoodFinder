@@ -3,5 +3,5 @@
 <%
 session.removeAttribute("UserId");
 session.invalidate();
-response.sendRedirect("main.jsp");
+response.sendRedirect("Main.jsp");
 %>

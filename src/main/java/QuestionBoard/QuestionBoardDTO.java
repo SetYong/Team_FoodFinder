@@ -23,8 +23,8 @@ public class QuestionBoardDTO {
 	public int getMbnum() {
 		return mbnum;
 	}
-	public void setMbnum(int mbnum) {
-		this.mbnum = mbnum;
+	public void setMbnum(Integer mbnum) {
+		this.mbnum =  mbnum;
 	}
 	public String getQucate() {
 		return qucate;

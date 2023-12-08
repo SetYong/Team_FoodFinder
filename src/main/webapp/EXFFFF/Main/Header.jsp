@@ -30,10 +30,11 @@ label:hover {
 	} else{	
 %>
 	<div align="right">
-	<label onclick="location.href='Main.jsp?contentPage=Logout.jsp'" class="menu_login">
+	<label class="menu_login">
 	로그아웃
 	</label>
 	</div>
+
 <%
 }
 %>

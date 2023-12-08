@@ -15,17 +15,19 @@ if(session.getAttribute("user_Id")==null){
 %>
 <script>
 function validateForm(form){
-if(!form.user_id.value){
+if(!form.id.value){
 	alert("아이디를 입력하세요.");
 	return false;
 	}
-if(form.user_pwd.value == ""){}	
+if(form.password.value == ""){}	
 alert("비밀번호를 입력하세요.");
 return false;
 	}
 }
 </script>
-<form align="center" action="LoginDateBase.jsp" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
+<h4>${loginMessage}</h4>
+<a href="/EXFFF/Login.do">으아아아아아아아악</a>
+<form align="center" action="/EXFFF/Login.do" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
 아이디 : &nbsp;&nbsp;&nbsp;<input type = "text" name="id"/><br/>
 비밀번호 : <input type = "password" name="password"/><br/>
 <input align="center" type = "submit" value="로그인"/>

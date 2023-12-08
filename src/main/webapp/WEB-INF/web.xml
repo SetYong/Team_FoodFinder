@@ -44,9 +44,12 @@
 	
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
-		<servlet-class>Test1205.LoginController</servlet-class>
+		<servlet-class>EXFFF.LoginController</servlet-class>
 	</servlet>
-	
+	<servlet-mapping>
+		<servlet-name>FoodLogin</servlet-name>
+		<url-pattern>/EXFFF/Login.do</url-pattern>
+	</servlet-mapping>
 	
 	
 </web-app>

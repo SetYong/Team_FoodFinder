@@ -37,7 +37,7 @@
 	<br>
 	<button type="button">퓨전</button>
 	<br>
-	<button type="button">모두 보기</button>
+	<button type="button" onclick="location.href='Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp">모두 보기</button>
 
 </body>
 </html>

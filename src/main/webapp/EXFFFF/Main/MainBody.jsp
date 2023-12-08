@@ -10,7 +10,7 @@
 <body>
 	<div align="center">
 	<h2 class="main_text">오늘의 추천 음식</h2>
-		<a href="../1129Test/center.jsp">
+		<a href="Main.jsp">
 		<img class="main_img" src="../img/test2.jpeg" alt="테스트이미지"/>
 		</a>
 	</div>
@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 			<td>
-			<a class="main_map" href="../1129Test/center.jsp">마트찾기</a>
+			<label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="main_map">마트찾기</label>
 			</td>
 			</tr>
 		</table>

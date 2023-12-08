@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h2>문의 완료!</h2>
-	<input type="button" value="확인" onclick="location.href='Main.jsp?sidePage=QuestionSide.jsp&contentPage=QuestionBoardHome.jsp'">
+	<input type="button" value="확인" onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBoardBody.jsp'">
 </body>
 </html>

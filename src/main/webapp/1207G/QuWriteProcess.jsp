@@ -11,7 +11,7 @@
 	dto.setQucate(cate);
 	dto.setTitle(title);
 	dto.setContent(content);
-	dto.setMbnum(();
+	dto.setMbnum();
 
 	System.out.println(cate + title + content + dto.getMbnum());
 	QuestionBoardDAO dao = new QuestionBoardDAO();

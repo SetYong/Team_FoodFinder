@@ -16,11 +16,11 @@
     	String mbnum = Integer.toString(memberDTO.getMbnum());
     	session.setAttribute("MBNUM", mbnum);
     	System.out.println("mbnum 확인 : " +mbnum);
-        response.sendRedirect("Main.jsp");
+        response.sendRedirect("../Main/Main.jsp");
     } 
     else if(memberDTO.getPwd() == null){
     	session.setAttribute("user_Id",memberDTO.getId());
-    	response.sendRedirect("#");
+    	response.sendRedirect("../Main/Main.jsp");
     }
     else {
         // 사용자 정보가 조회되지 않았을 경우 처리

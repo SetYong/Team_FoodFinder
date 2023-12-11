@@ -17,11 +17,11 @@ label:hover {
 	if(session.getAttribute("user_Id")==null){
 %>
 	<div align="right">
-	<label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_login">
+	<label onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
 	로그인
 	</label>
 	&nbsp;&nbsp;&nbsp;
-	<label onclick="location.href='Main.jsp?contentPage=Newmember.jsp'" class="menu_login">
+	<label onclick="location.href='Main.jsp?contentPage=../Member/Newmember.jsp'" class="menu_login">
 	회원가입
 	</label>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +30,7 @@ label:hover {
 	} else{	
 %>
 	<div align="right">
-	<label onclick="location.href='Main.jsp?contentPage=Logout.jsp'" class="menu_login">
+	<label onclick="location.href='../Member/Logout.jsp'" class="menu_login">
 	로그아웃
 	</label>
 	</div>
@@ -51,7 +51,7 @@ label:hover {
 if(session.getAttribute("user_Id")==null){
 	System.out.println(session.getAttribute("user_Id"));
 %>
-<label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_mypage">마이페이지</label>
+<label onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'" class="menu_mypage">마이페이지</label>
 <%
 } else {
 System.out.println("나야!" + session.getAttribute("user_Id"));

@@ -28,18 +28,7 @@ function validateForm(form){
 }
   </script>
 <Style>
-form{
-background-color: blue;
-}
-div{
-background-color: green;
-display: inline-block;
-}
-table{
-background-color: red;
-padding: 20px;
-display: inline-block;
-}
+
 .smbt{
   color: black; 
   padding: 10px 25px;
@@ -72,7 +61,7 @@ width: 8em;
 <body>
 <div align=center>
 	<h2 align="center">ID</h2>
-	<form name="findIdForm" action="../FindIdHome.do" onsubmit="return validateForm(this);">
+	<form name="findIdForm" action="FindIdProcess.jsp" onsubmit="return validateForm(this);">
 		<table>
 			<tr>
 				<td><input type="text" name="memberName" placeholder="이름" size="20" maxlength=5 autofocus></td>

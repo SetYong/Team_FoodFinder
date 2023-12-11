@@ -10,9 +10,6 @@
 <meta charset="UTF-8">
 <body>
 <h2 align="center">로그인</h2>
-<%
-if(session.getAttribute("user_Id")==null){
-%>
 <script>
 function validateForm(form){
 if(!form.id.value){
@@ -30,10 +27,5 @@ return false;
 비밀번호 : <input type = "password" name="password"/><br/>
 <input align="center" type = "submit" value="로그인"/>
 </form>
-<%
-} 
-%>
-
-
 </body>
 </html> 

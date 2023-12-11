@@ -50,16 +50,19 @@ label:hover {
 		<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
 if(session.getAttribute("MBNUM")==null){
-	System.out.println("header jsp " + session.getAttribute("MBNUM"));
+	System.out.println("header jsp 로그인 실패 " + session.getAttribute("MBNUM"));
 %>
 <label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_mypage">마이페이지</label>
 <%
 } else {
-System.out.println("header jsp " + session.getAttribute("MBNUM"));
+System.out.println("header jsp 로그인 성공 " + session.getAttribute("MBNUM"));
 %>
-<a href="/EXFFFF/MyPage/MyPageProfile.do" class="menu_mypage">마이페이지</a>
-<%		
-}		
+<form action="./MyPageProfile.do" method="post" name="MyPage">
+<input type="submit" value="마이페이지" class="menu_mypage"/>
+<input type="hidden" name="MBNUM" value="<%=session.getAttribute("MBNUM") %>"/>
+</form>
+<%
+}
 %>
 	</div>
 	&nbsp;

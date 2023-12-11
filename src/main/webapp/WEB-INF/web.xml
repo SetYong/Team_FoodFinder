@@ -53,7 +53,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MyPageController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
+		<url-pattern>/EXFFFF/Main/MyPageProfile.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

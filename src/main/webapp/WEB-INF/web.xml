@@ -49,17 +49,20 @@
    
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
-		<servlet-class>Test1205.LoginController</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>FindIdHome</servlet-name>
-		<servlet-class>Test1210.IDFind</servlet-class>
+		<servlet-class>EXFFF.FoodLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FindIdHome</servlet-name>
-		<url-pattern>/MemberManagement/Find/FindID/FindIdHome.do</url-pattern>
+		<servlet-name>FoodLogin</servlet-name>
+		<url-pattern>/EXFFFF/Member/Login.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>MyPageController</servlet-name>
+		<servlet-class>EXFFF.MyPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

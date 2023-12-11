@@ -14,7 +14,7 @@ label:hover {
 </head>
 <body>
 	<label
-		onclick="location.href='Main.jsp?sidePage=IntroSide.jsp&contentPage=IntroBody.jsp'"
+		onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp'"
 		class="intro_1">소개</label>
 	<br>
 	<label class="intro_2">공지사항</label>

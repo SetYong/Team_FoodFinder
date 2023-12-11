@@ -10,7 +10,8 @@
 <body>
 	<h2 align="left" class="setprofile_head">정보 수정</h2>
 	<div>
-		<p>정보수정 텍스트필드 넣으삼</p>
+		<p>비밀번호 확인</p>
+		<input type = "password" name="password"/>
 	</div>
 </body>
 </html>

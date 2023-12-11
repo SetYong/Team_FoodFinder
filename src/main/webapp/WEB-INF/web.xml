@@ -37,19 +37,23 @@
 		<param-name>OraclePwd</param-name>
 		<param-value>food1234</param-value>
 	</context-param>
-	<context-param>
-		<param-name>contentPage</param-name>
-		<param-value></param-value>
-	</context-param>
 	
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
-		<servlet-class>EXFFF.LoginController</servlet-class>
+		<servlet-class>EXFFF.FoodLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodLogin</servlet-name>
-		<url-pattern>/EXFFF/Login.do</url-pattern>
+		<url-pattern>/EXFFFF/Main/Login.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>MyPageController</servlet-name>
+		<servlet-class>EXFFF.MyPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

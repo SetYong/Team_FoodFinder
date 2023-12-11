@@ -17,31 +17,33 @@ public class FoodLogin extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		ServletContext application = this.getServletContext();
-		
 		dao = new MemberDAO();
 	}
 	
 	@Override
-	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String admin_id = "admin";
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String admin_id = "admin_id";
 		
 		String id = req.getParameter("id");
-		String pass = req.getParameter("pass");
+		String pass = req.getParameter("password");
 		
-		MemberDTO dto = dao.getUSER_ID(id, pass);
+		MemberDTO memberDTO = dao.getMember(id, pass);
 		
-		String memberID = dto.getId();
-		if(memberID != null) {
-			req.setAttribute("loginMessage", memberID + " 회원님 등장");
+		int memberMBnum = memberDTO.getMbnum();
+		System.out.println(id+" "+  pass+" "+ "1111"+" " + memberMBnum);
+		if (memberMBnum>0) {
+			req.setAttribute("authMessage", memberMBnum + " 회원 등장");
+			req.setAttribute("MBNUM", memberMBnum);
 		}
 		else {
 			if (admin_id.equals(id)) {
-				req.setAttribute("loginMessage", admin_id + "관리자 등장");
+				req.setAttribute("authMessage", admin_id +"는 관리자");
 			} else {
-				req.setAttribute("loginMessage", "비회원 등장");
+				req.setAttribute("authMessage", "비회원 등장");
 			}
 		}
-		req.getRequestDispatcher("/Main/Main.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
+		
 	}
 	
 	@Override

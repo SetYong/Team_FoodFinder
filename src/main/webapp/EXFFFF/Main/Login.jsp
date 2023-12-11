@@ -25,9 +25,7 @@ return false;
 	}
 }
 </script>
-<h4>${loginMessage}</h4>
-<a href="/EXFFF/Login.do">으아아아아아아아악</a>
-<form align="center" action="/EXFFF/Login.do" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
+<form align="center" action="./Login.do" method="post"name="loginFrm" onsubmit="return validateFrom(this);">
 아이디 : &nbsp;&nbsp;&nbsp;<input type = "text" name="id"/><br/>
 비밀번호 : <input type = "password" name="password"/><br/>
 <input align="center" type = "submit" value="로그인"/>
@@ -35,6 +33,7 @@ return false;
 <%
 } 
 %>
+
 
 </body>
 </html> 

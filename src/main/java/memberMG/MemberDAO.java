@@ -137,4 +137,31 @@ public class MemberDAO extends DBConnPool {
 		}
 		return dto;
 	}
+	
+	// 로그인 
+	public MemberDTO getMember(String uid, String upass) {
+		MemberDTO dto = new MemberDTO();
+		System.out.println("DB DAO 실행중");
+		String query = "SELECT * FROM C##FOODFINDER.MEMBER_LOGIN WHERE USER_ID=? AND USER_PWD=?";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, uid);
+			psmt.setString(2, upass);
+			rs = psmt.executeQuery();
+			
+			System.out.println("DAO 실행 완료"+uid + " " + upass);
+			
+			if (rs.next()) {
+				dto.setMbnum(rs.getInt(1));
+				dto.setId(rs.getString(2));
+				dto.setPwd(rs.getString(3));
+			}
+			System.out.println(dto.getId()+" "+dto.getPwd());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
 }

@@ -14,7 +14,7 @@ label:hover {
 </head>
 <body>
 <%
-	if(session.getAttribute("user_Id")==null){
+	if(session.getAttribute("MBNUM")==null){
 %>
 	<div align="right">
 	<label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_login">
@@ -49,15 +49,15 @@ label:hover {
 		<label onclick="location.href='Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">음식</label>
 		<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
-if(session.getAttribute("user_Id")==null){
-	System.out.println(session.getAttribute("user_Id"));
+if(session.getAttribute("MBNUM")==null){
+	System.out.println("header jsp " + session.getAttribute("MBNUM"));
 %>
 <label onclick="location.href='Main.jsp?contentPage=Login.jsp'" class="menu_mypage">마이페이지</label>
 <%
 } else {
-System.out.println("나야!" + session.getAttribute("user_Id"));
+System.out.println("header jsp " + session.getAttribute("MBNUM"));
 %>
-<label onclick="location.href='Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
+<a href="/EXFFFF/MyPage/MyPageProfile.do" class="menu_mypage">마이페이지</a>
 <%		
 }		
 %>

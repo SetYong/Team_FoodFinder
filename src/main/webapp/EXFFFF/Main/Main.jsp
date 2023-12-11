@@ -6,6 +6,9 @@ String contentPageSize = "85%";
 String sidePage = request.getParameter("sidePage");
 String sidebar = "sidebar";
 String mainbody = "mainbody";
+if(session.getAttribute("MBNUM")==null){
+session.setAttribute("MBNUM", request.getAttribute("MBNUM"));
+}
 if (contentPage == null)
 	contentPage = "MainBody.jsp";
 if (sidePage == null) {
@@ -43,7 +46,7 @@ if (sidePage == null) {
 	<div id="header">
 		<jsp:include page="Header.jsp" />
 	</div>
-	
+
 	<div id="body">
 		<div class="<%=sidebar%>"><jsp:include page="<%=sidePage %>"/></div>
 		<div class="<%=mainbody%>"><jsp:include page="<%=contentPage%>" /></div>

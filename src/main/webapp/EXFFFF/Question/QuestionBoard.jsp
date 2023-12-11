@@ -17,7 +17,7 @@ display: inline-block;
 }
 .mainborad{
 position: static;
-width: 1200px;
+width: 800px;
 display: inlline-block;
 background-color:blue;
 }

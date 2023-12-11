@@ -38,22 +38,40 @@
 		<param-value>food1234</param-value>
 	</context-param>
 	
+	<context-param>
+   	<param-name>POSTS_PER_PAGE</param-name>
+   	<param-value>10</param-value>
+   </context-param>
+   <context-param>
+   	<param-name>PAGES_PER_BLOCK</param-name>
+   	<param-value>5</param-value>
+   </context-param>
+   
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
-		<servlet-class>EXFFF.FoodLogin</servlet-class>
+		<servlet-class>exffff.FoodLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodLogin</servlet-name>
-		<url-pattern>/EXFFFF/Main/Login.do</url-pattern>
+		<url-pattern>/EXFFFF/Member/Login.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindID</servlet-name>
+		<servlet-class>exffff.FindControler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindID</servlet-name>
+		<url-pattern>/EXFFFF/Member/FindIdHome.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>MyPageController</servlet-name>
-		<servlet-class>EXFFF.MyPageController</servlet-class>
+		<servlet-class>exffff.MyPageController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MyPageController</servlet-name>
-		<url-pattern>/EXFFFF/Main/MyPageProfile.do</url-pattern>
+		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Register</title>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 </head>
 <body>
 <div align="center">
 <h2> 회원가입 </h2>
-<form method="post" action="Session.jsp">
+<form method="post" action="./Newmember.do">
 <table>
 <tr height="50">
 	<td height="50">아이디</td>

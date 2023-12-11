@@ -74,4 +74,12 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FoodNewMember</servlet-name>
+		<servlet-class>exffff.NewmemberController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodNewMember</servlet-name>
+		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -1,10 +1,9 @@
-package FoodDB;
+package foodDB;
 
 import java.sql.Date;
 
-import FoodDB.FoodDTO;
-
 import common.DBConnPool;
+import foodDB.FoodDTO;
 
 public class FoodDAO extends DBConnPool {
 	public FoodDTO getHead_num(int head_num, int visitcount, String image, String text, 

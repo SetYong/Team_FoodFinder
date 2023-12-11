@@ -21,7 +21,7 @@ background-color: red;
 		<div align="center">
 		<%= request.getAttribute("memberName") %>님 <br>
 		아이디 : "<%= request.getAttribute("memberId") %>"를 찾았습니다<br>
-		<button type="button" onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'">확인</button>
+		<button type="button" onclick="location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp'">확인</button>
 		</div>
 	</form>
 </body>

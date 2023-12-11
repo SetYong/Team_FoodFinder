@@ -1,4 +1,4 @@
-package FoodDB;
+package foodDB;
 
 import java.sql.Date;
 

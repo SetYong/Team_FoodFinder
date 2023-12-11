@@ -1,4 +1,4 @@
-package QuestionBoard;
+package questionBoard;
 
 import java.util.List;
 import java.util.Vector;

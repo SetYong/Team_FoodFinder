@@ -25,7 +25,7 @@ return false;
 	}
 }
 </script>
-<form align=center action="../Main/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this);">
+<form align=center action="../Member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this);">
 아이디 : &nbsp;&nbsp;&nbsp;<input type = "text" name="id"/><br/>
 비밀번호 : <input type = "password" name="password"/><br/>
 <input type = "submit" value="로그인"/>

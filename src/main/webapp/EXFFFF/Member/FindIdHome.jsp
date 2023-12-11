@@ -61,7 +61,7 @@ width: 8em;
 <body>
 <div align=center>
 	<h2 align="center">ID</h2>
-	<form name="findIdForm" action="FindIdProcess.jsp" onsubmit="return validateForm(this);">
+	<form name="findIdForm" action="../Member/FindIdHome.do" onsubmit="return validateForm(this);">
 		<table>
 			<tr>
 				<td><input type="text" name="memberName" placeholder="이름" size="20" maxlength=5 autofocus></td>

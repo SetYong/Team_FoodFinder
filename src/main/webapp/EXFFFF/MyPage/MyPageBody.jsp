@@ -4,6 +4,8 @@
 session.setAttribute("nickname", request.getAttribute("nickname"));
 session.setAttribute("email", request.getAttribute("email"));
 session.setAttribute("phone", request.getAttribute("phone"));
+
+String phone = (String)session.getAttribute("phone");
 %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +25,7 @@ session.setAttribute("phone", request.getAttribute("phone"));
 						<br> <br> 이메일 :
 						<%=session.getAttribute("email")%>
 						<br> <br> 핸드폰 :
-						<%=session.getAttribute("phone")%>
+						<%=phone%>
 					</p>
 				</div></td>
 		</tr>

@@ -23,8 +23,8 @@ public class NewmemberController extends HttpServlet{
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
 		String name = req.getParameter("name");
-		String cn = req.getParameter("resident registration number");
-		String phone = req.getParameter("phoneNumber");
+		String cn = req.getParameter("memberCn1") + "-" + req.getParameter("memberCn2");
+		String phone = req.getParameter("memberPhone1")+ "-" + req.getParameter("memberPhone2") + "-" +req.getParameter("memberPhone3");
 		String email = req.getParameter("e-mail");
 		String nickname = req.getParameter("Nickname");
 		

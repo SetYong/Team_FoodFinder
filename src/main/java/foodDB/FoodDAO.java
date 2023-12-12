@@ -6,20 +6,20 @@ import common.DBConnPool;
 import foodDB.FoodDTO;
 
 public class FoodDAO extends DBConnPool {
-	public FoodDTO getHead_num(int head_num, int visitcount, String image, String text, 
-			String title, int mbnum, int heartcount, Date fooddate, String cate ) {
+	public FoodDTO getHead_num(String head_num, String visitcount, String image, String text, 
+			String title, String mbnum, String heartcount, String fooddate, String cate ) {
 		FoodDTO vo = new FoodDTO();
 		String insertQuery = "INSERT INTO FOOD(head_num, visitcount, image, text, title, mbnum, heartcount, fooddate, cate) VALUES(?,?,?,?,?,?,?,?,?)";
 		try {
 			psmt=con.prepareStatement(insertQuery);
-			psmt.setInt(1, head_num);
-			psmt.setInt(2, visitcount);
+			psmt.setString(1, head_num);
+			psmt.setString(2, visitcount);
 			psmt.setString(3, image);
 			psmt.setString(4, text);
 			psmt.setString(5, title);
-			psmt.setInt(6, mbnum);
-			psmt.setInt(7, heartcount);
-			psmt.setDate(8, fooddate);
+			psmt.setString(6, mbnum);
+			psmt.setString(7, heartcount);
+			psmt.setString(8, fooddate);
 			psmt.setString(9, cate);
 			psmt.executeUpdate();
 			
@@ -42,4 +42,5 @@ public class FoodDAO extends DBConnPool {
 		}
 		return vo;
 	}
+
 }

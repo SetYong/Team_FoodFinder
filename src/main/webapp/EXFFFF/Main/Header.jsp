@@ -14,7 +14,7 @@ label:hover {
 </head>
 <body>
 <%
-	if(session.getAttribute("MBNUM")==null){
+	if(session.getAttribute("MBNUM") == null) {
 %>
 	<div align="right">
 	<label onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
@@ -27,7 +27,7 @@ label:hover {
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
 <%
-	} else{	
+	} else {	
 %>
 	<div align="right">
 	<label onclick="location.href='../Member/Logout.jsp'" class="menu_login">

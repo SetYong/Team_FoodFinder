@@ -17,24 +17,28 @@ public class FindControler extends HttpServlet {
 		String memberName = req.getParameter("memberName");
 
 		String memberCn = req.getParameter("memberCn1");
+			   memberCn += "-";
 			   memberCn += req.getParameter("memberCn2");
 			   
 		String memberPhone = req.getParameter("memberPhone1");
+		       memberPhone += "-";
 			   memberPhone += req.getParameter("memberPhone2");
+		       memberPhone += "-";
 			   memberPhone += req.getParameter("memberPhone3");
 		
+		System.out.println(memberName + " : " + memberCn + " : " + memberPhone);
 		MemberDAO dao = new MemberDAO();
 		MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhone);
 		memberDTO.setName(memberName);
 		dao.close();
 		System.out.println("가져온 ID " + memberDTO.getId());
 		
-		if(memberDTO.getId() != null){
+		if(memberDTO.getId() != null) {
 			req.setAttribute("memberName",memberDTO.getName());
 			req.setAttribute("memberId",memberDTO.getId());
-			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/FindIdResult.jsp").forward(req, resp);;
+			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/FindIdResult.jsp").forward(req, resp);
 		}
-		else{
+		else {
 			req.setAttribute("LoginErrMsg", "입력하신 정보의 회원을 찾지 못하였습니다.");
 			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/FindIdHome.jsp").forward(req, resp);
 		}

@@ -84,12 +84,13 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>FoodNewMemberCheck</servlet-name>
-		<servlet-class>exffff.NewmemberCheckController</servlet-class>
+	<servlet-name>BulletinBoardTestController</servlet-name>
+	<servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FoodNewMemberCheck</servlet-name>
-		<url-pattern>/EXFFFF/Main/Newmembercheck.do</url-pattern>
+	<servlet-name>BulletinBoardTest</servlet-name>
+	<url-pattern>/EXffff/Main/BulletinBoardTest.do</url-pattern>
+
 	</servlet-mapping>
 	
 </web-app>

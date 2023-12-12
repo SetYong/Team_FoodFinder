@@ -45,8 +45,8 @@ label:hover {
 		<img class="logo_img" src="../img/test2.jpeg">
 		</a>
 		
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="menu_intro">안내</label>
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">음식</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="menu_intro">소식</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">커뮤니티</label>
 		<label onclick="location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
 if(session.getAttribute("MBNUM")==null){

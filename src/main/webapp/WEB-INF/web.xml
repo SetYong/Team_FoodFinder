@@ -82,4 +82,14 @@
 		<servlet-name>FoodNewMember</servlet-name>
 		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FoodNewMemberCheck</servlet-name>
+		<servlet-class>exffff.NewmemberCheckController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodNewMemberCheck</servlet-name>
+		<url-pattern>/EXFFFF/Main/Newmembercheck.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

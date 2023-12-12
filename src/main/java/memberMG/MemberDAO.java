@@ -155,6 +155,28 @@ public class MemberDAO extends DBConnPool {
 		return dto;
 	}
 
+	// 회원가입 3 아이디 중복확인
+	public boolean checkId(String id) {
+		boolean check = false;
+		String query = "SELECT USER_ID FROM MEMBER_LOGIN WHERE USER_ID=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				check = false;
+			} else {
+				check = true;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("회원가입 아이디 중복확인 중 예외 발생");
+			e.printStackTrace();
+		}
+		return check;
+	}
+	
 	// 내정보 읽어오기
 	public MemberDTO getProfile(String mbn) {
 		MemberDTO dto = new MemberDTO();

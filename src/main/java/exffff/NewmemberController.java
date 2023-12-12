@@ -27,7 +27,7 @@ public class NewmemberController extends HttpServlet{
 		String phone = req.getParameter("memberPhone1")+ "-" + req.getParameter("memberPhone2") + "-" +req.getParameter("memberPhone3");
 		String email = req.getParameter("e-mail");
 		String nickname = req.getParameter("Nickname");
-		
+
 		dao.insertRegister(name, cn, email, phone, nickname);
 		MemberDTO memberDTO2 = dao.getMBNUM(name, cn, email, phone, nickname);
 		dao.insertLogin(memberDTO2.getMbnum(),id, pass);
@@ -35,7 +35,6 @@ public class NewmemberController extends HttpServlet{
 		
 		System.out.println("name : "+ name + " cn :"+ cn + " email :"+ email + " phone :"+ phone + " nickname :"+ nickname);
 		System.out.println("MBNUM :"+ MBNUM);
-		
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
 	}
 	@Override

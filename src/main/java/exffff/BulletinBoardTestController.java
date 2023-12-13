@@ -20,23 +20,23 @@ public class BulletinBoardTestController extends HttpServlet{
 	}
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String head_num = req.getParameter("head_num");
+		
 		String visitcount = req.getParameter("visitcount");
 		String image = req.getParameter("image");
 		String text = req.getParameter("text");
 		String title = req.getParameter("title");
-		String mbnum = req.getParameter("mbnumt");
 		String heartcount = req.getParameter("heartcount");
-		String fooddate = req.getParameter("foodate");
 		String cate = req.getParameter("cate");
 		
-		dao.getHead_num(head_num, visitcount, image, text, title, mbnum, heartcount, fooddate, cate);
-		FoodDTO memberDTO2 = dao.getHead_num(head_num, visitcount, image, text, title, mbnum, heartcount, fooddate, cate);
-		int MBNUM = memberDTO2.getMbnum();
+		System.out.println(visitcount + image + text + title + heartcount + cate);
+		
+		dao.getList( visitcount, image, text, title, heartcount,  cate);
+		FoodDTO Fooddto = dao.getList( visitcount, image, text, title, heartcount, cate);
+		int MBNUM = Fooddto.getMbnum();
 		
 		
 		
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Food/BulletinBoardTest.jsp").forward(req, resp);
 	}
 	@Override
 	public void destroy() {

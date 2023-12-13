@@ -88,9 +88,8 @@
 	<servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardTest</servlet-name>
-	<url-pattern>/EXffff/Main/BulletinBoardTest.do</url-pattern>
-
+	<servlet-name>BulletinBoardTestController</servlet-name>
+	<url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

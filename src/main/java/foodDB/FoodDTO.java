@@ -23,7 +23,7 @@ public int getVisitcount() {
 	return visitcount;
 }
 public void setVisitcount() {
-	this.visitcount =visitcount;
+	this.visitcount = visitcount;
 }
 public String getImage() {
 	return image;

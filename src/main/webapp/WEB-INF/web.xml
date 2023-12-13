@@ -92,4 +92,13 @@
 	<url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+	<servlet-name>BulletinBoardEditTestController</servlet-name>
+	<servlet-class>exffff.BulletinBoardEditTestController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>BulletinBoardEditTestController</servlet-name>
+	<url-pattern>/EXFFFF/Food/BulletinBoardEditTest.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

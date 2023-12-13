@@ -2,55 +2,52 @@ package memberMG;
 
 import common.DBConnPool;
 
-public class MemberDAO extends DBConnPool {	
-	
-	//아이디 찾기
+public class MemberDAO extends DBConnPool {
+
+	// 아이디 찾기
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
-		String query = "SELECT User_id FROM MEMBER_LOGIN "
-				+ "WHERE member_Login.mbnum "
-				+ "IN (SELECT mbnum FROM MEMBER_PROFILE WHERE "
-				+ "name=? AND cn=? AND phone=?)";
-		
+		String query = "SELECT User_id FROM MEMBER_LOGIN " + "WHERE member_Login.mbnum "
+				+ "IN (SELECT mbnum FROM MEMBER_PROFILE WHERE " + "name=? AND cn=? AND phone=?)";
+
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, name);
 			psmt.setString(2, cn);
 			psmt.setString(3, phone);
 			rs = psmt.executeQuery();
-			
+
 			System.out.println(query);
-			if(rs.next()) {
+			if (rs.next()) {
 				dto.setId(rs.getString("User_id"));
 			}
 			System.out.println(dto.getId());
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
 		return dto;
 	}
-	
-	//비밀번호 찾기
-	public int updatePwd(String pw, String id){
+
+	// 비밀번호 찾기
+	public int updatePwd(String pw, String id) {
 		int result = 0;
-		String query = "UPDATE MEMBER_LOGIN SET User_Pwd =? "
-					 + "WHERE User_id = ?";
+		String query = "UPDATE MEMBER_LOGIN SET User_Pwd =? " + "WHERE User_id = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, pw);
 			psmt.setString(2, id);
 			result = psmt.executeUpdate();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
 		return result;
 	}
-	
-	//로그인
+
+	// 로그인
 	public MemberDTO getUSER_ID(String id, String pwd) {
 		MemberDTO vo = new MemberDTO();
 		String query = "SELECT * From member_login WHERE user_id=? AND user_pwd=?";
@@ -58,13 +55,12 @@ public class MemberDAO extends DBConnPool {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			psmt.setString(2, pwd);
-			rs=psmt.executeQuery();
-			
+			rs = psmt.executeQuery();
+
 			System.out.println(query);
 			System.out.println(id + pwd);
-			
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				vo.setId(rs.getString("user_id"));
 				vo.setPwd(rs.getString("user_pwd"));
 				vo.setMbnum(rs.getInt("mbnum"));
@@ -72,15 +68,16 @@ public class MemberDAO extends DBConnPool {
 			System.out.println(vo.getId());
 			System.out.println(vo.getPwd());
 			System.out.println(vo.getMbnum());
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
 	}
-	
-	public MemberDTO getRegister(String name, String cn, String email, String phone, String nickname) {
+
+	// 회원가입1
+	public MemberDTO insertRegister(String name, String cn, String email, String phone, String nickname) {
 		MemberDTO Vo = new MemberDTO();
-		String insertQuery = "INSERT INTO member_profile(name, cn, email, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
+		String insertQuery = "INSERT INTO member_profile(name, cn, mail, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
 		try {
 			psmt = con.prepareStatement(insertQuery);
 			psmt.setString(1, name);
@@ -90,31 +87,97 @@ public class MemberDAO extends DBConnPool {
 			psmt.setString(5, nickname);
 			psmt.executeUpdate();
 
-			
 			System.out.println(insertQuery);
 			System.out.println(name + cn + email + phone + nickname);
-			
-			if((this.rs != null && this.rs.next())) {
-				Vo.setName(rs.getString("name"));
-				Vo.setCn(rs.getString("cn"));
-				Vo.setEmail(rs.getString("email"));
-				Vo.setPhone(rs.getString("phone"));
-				Vo.setNickname(rs.getString("nickname"));
-			}
-			
+
+			Vo.setName(name);
+			Vo.setCn(cn);
+			Vo.setEmail(email);
+			Vo.setPhone(phone);
+			Vo.setNickname(nickname);
+
 			System.out.println(Vo.getName());
 			System.out.println(Vo.getCn());
 			System.out.println(Vo.getEmail());
 			System.out.println(Vo.getPhone());
 			System.out.println(Vo.getNickname());
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
+			System.out.println("회원가입 프로필정보 입력 중 예외 발생");
 			e.printStackTrace();
 		}
 		return Vo;
-	} 
+	}
 
-	//내정보 읽어오기
+	// 회원가입 1.5
+	public MemberDTO getMBNUM(String name, String cn, String email, String phone, String nickname) {
+		MemberDTO dto = new MemberDTO();
+		String query = "SELECT MBNUM FROM MEMBER_PROFILE WHERE NAME=? AND CN=? AND MAIL=? AND PHONE=? AND nickname=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, name);
+			psmt.setString(2, cn);
+			psmt.setString(3, email);
+			psmt.setString(4, phone);
+			psmt.setString(5, nickname);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setMbnum(rs.getInt("MBNUM"));
+			}
+
+		} catch (Exception e) {
+			System.out.println("회원가입 후 MBNUM 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
+	// 회원가입 2
+	public MemberDTO insertLogin(int mbnum, String id, String pwd) {
+		MemberDTO dto = new MemberDTO();
+		String query = "INSERT INTO MEMBER_LOGIN VALUES(?,?,?)";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setInt(1, mbnum);
+			psmt.setString(2, id);
+			psmt.setString(3, pwd);
+			psmt.executeUpdate();
+
+			if (rs.next()) {
+				dto.setMbnum(rs.getInt("MBNUM"));
+			}
+			System.out.println(dto.getMbnum());
+		} catch (Exception e) {
+			System.out.println("회원가입 로그인 입력 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
+	// 회원가입 3 아이디 중복확인
+	public boolean checkId(String id) {
+		boolean check = false;
+		String query = "SELECT USER_ID FROM MEMBER_LOGIN WHERE USER_ID=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				check = false;
+			} else {
+				check = true;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("회원가입 아이디 중복확인 중 예외 발생");
+			e.printStackTrace();
+		}
+		return check;
+	}
+	
+	// 내정보 읽어오기
 	public MemberDTO getProfile(String mbn) {
 		MemberDTO dto = new MemberDTO();
 		String query = "SELECT * FROM MEMBER_PROFILE WHERE MBNUM=? ";
@@ -122,43 +185,43 @@ public class MemberDAO extends DBConnPool {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, mbn);
 			rs = psmt.executeQuery();
-			
+
 			System.out.println(query);
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				dto.setNickname(rs.getString("NICKNAME"));
 				dto.setEmail(rs.getString("MAIL"));
 				dto.setPhone(rs.getString("PHONE"));
 			}
-			System.out.println("별명 : "+dto.getNickname()+ " 이메일: "+ dto.getEmail()+ " 핸드폰: "+ dto.getPhone());
+			System.out.println("별명 : " + dto.getNickname() + " 이메일: " + dto.getEmail() + " 핸드폰: " + dto.getPhone());
 		} catch (Exception e) {
 			System.out.println("유저 정보 불러오기 시도 중 예외 발생");
 			e.printStackTrace();
 		}
 		return dto;
 	}
-	
-	// 로그인 
+
+	// 로그인
 	public MemberDTO getMember(String uid, String upass) {
 		MemberDTO dto = new MemberDTO();
 		System.out.println("DB DAO 실행중");
 		String query = "SELECT * FROM C##FOODFINDER.MEMBER_LOGIN WHERE USER_ID=? AND USER_PWD=?";
-		
+
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, uid);
 			psmt.setString(2, upass);
 			rs = psmt.executeQuery();
-			
-			System.out.println("DAO 실행 완료"+uid + " " + upass);
-			
+
+			System.out.println("DAO 실행 완료" + uid + " " + upass);
+
 			if (rs.next()) {
 				dto.setMbnum(rs.getInt(1));
 				dto.setId(rs.getString(2));
 				dto.setPwd(rs.getString(3));
 			}
-			System.out.println(dto.getId()+" "+dto.getPwd());
-			
+			System.out.println(dto.getId() + " " + dto.getPwd());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

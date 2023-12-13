@@ -45,21 +45,24 @@ label:hover {
 		<img class="logo_img" src="../img/test2.jpeg">
 		</a>
 		
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="menu_intro">안내</label>
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">음식</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="menu_intro">소식</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">커뮤니티</label>
 		<label onclick="location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
 if(session.getAttribute("MBNUM")==null){
-	System.out.println("header jsp " + session.getAttribute("MBNUM"));
+	System.out.println("header jsp 로그인 아직" + session.getAttribute("MBNUM"));
 %>
 <label onclick="location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp'" class="menu_mypage">마이페이지</label>
 <%
 } else {
-System.out.println("header jsp " + session.getAttribute("MBNUM"));
+System.out.println("header jsp 로그인 성공" + session.getAttribute("MBNUM"));
 %>
-<a href="/EXFFFF/MyPage/MyPageProfile.do" class="menu_mypage">마이페이지</a>
-<%		
-}		
+<form action="../MyPage/MyPageProfile.do" method="post" name="MyPage" >
+<input type="submit" value="마이페이지" class="menu_mypage"/>
+<input type="hidden" value="<%= request.getAttribute("MBNUM") %>" name="MBNUM"/>
+</form>
+<%
+}
 %>
 	</div>
 	&nbsp;

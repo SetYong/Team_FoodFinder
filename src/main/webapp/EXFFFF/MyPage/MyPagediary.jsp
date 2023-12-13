@@ -74,7 +74,7 @@
 </td>
 
 </table>
-<a class="cls1" href="/board/write"><p class="cls2">글쓰기</a>
+<a class="cls1" href="../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPagewrite.jsp"><p class="cls2">글쓰기</a>
 <script>
 window.onload= () => {
 	const removeResult = '${result}'

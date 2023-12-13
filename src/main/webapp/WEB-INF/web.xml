@@ -93,6 +93,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<servlet-class>exffff.MyPageDiaryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
 	</servlet>

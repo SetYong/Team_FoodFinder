@@ -43,8 +43,8 @@
 			<button type="button">모두 보기</button>
 		</td>
 	</table> 
-
-<form name="writeFrm" method="post" >
+	
+<form name="writeFrm" method="post" action="./BulletinBoardTest.do" >
     <input type="hidden" name="num" > 
     <table border="1" width="92%"  >
         <tbody><tr> 
@@ -56,24 +56,27 @@
             <td style="text-align: center;">이미지</td>
             <td>
                 <textarea name="content" style="width: 10%; height: 50px;">첨부파일  </textarea> 
-                <textarea name="content" style="width: 15%; height: 50px;">이미지 경로  </textarea> 
+                <textarea name="image" style="width: 15%; height: 50px;">이미지 경로  </textarea> 
+                <button name="visitcount" type="button">방문횟수</button>
             </td> 
         </tr>
            
         <tr> 
             <td rowspan="2" style="text-align: center;">내용</td>
             <td>
-                <textarea name="content" style="width: 90%; height: 100px;">기본재료를 입력하세요.  </textarea> 
-                <textarea name="content" style="width: 90%; height: 100px;">만드는 방법을 입력하세요.  </textarea> 
+                <textarea name="text" style="width: 90%; height: 100px;">기본재료를 입력하세요.  </textarea> 
+                <textarea name="text" style="width: 90%; height: 100px;">만드는 방법을 입력하세요.  </textarea> 
+                <button name="heartcount" type="submit">좋아요</button>
             </td> 
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button type="submit">다시 입력</button>
-                <button type="reset">작성 완료</button>
-                <button type="button">목록 보기</button> 
+                <button type="reset">다시 입력</button>
+                <button type="submit">작성 완료</button>
+                <button type="button" onclick="BoardList.jsp">목록 보기</button> 
             </td>
         </tr>
     </tbody></table>
+    </form>
 </body>
 </html>

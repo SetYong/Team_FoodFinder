@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import foodDB.FoodDAO;
 import foodDB.FoodDTO;
 
-public class BulletinBoardTestController extends HttpServlet{
+public class BulletinBoardEditTestController extends HttpServlet{
 	FoodDAO dao;
 	@Override
 	public void init() throws ServletException {
@@ -20,23 +20,24 @@ public class BulletinBoardTestController extends HttpServlet{
 	}
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String head_num = req.getParameter("head_num");
 		String visitcount = req.getParameter("visitcount");
 		String image = req.getParameter("image");
 		String text = req.getParameter("text");
 		String title = req.getParameter("title");
+		String mbnum = req.getParameter("mbnum");
 		String heartcount = req.getParameter("heartcount");
 		String cate = req.getParameter("cate");
 		
 		System.out.println(visitcount + image + text + title + heartcount + cate);
 		
-		dao.getList( visitcount, image, text, title, heartcount,  cate);
-		FoodDTO Fooddto = dao.getList( visitcount, image, text, title, heartcount, cate);
+		dao.getEdit(head_num, visitcount, image, text, title, mbnum,heartcount,  cate);
+		FoodDTO Fooddto = dao.getEdit(head_num, visitcount, image, text, title, mbnum, heartcount, cate);
 		int MBNUM = Fooddto.getMbnum();
 		
 		
 		
-		req.getRequestDispatcher("/EXFFFF/Food/BulletinBoardTest.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Food/BulletinBoardEditTest.jsp").forward(req, resp);
 	}
 	@Override
 	public void destroy() {

@@ -84,12 +84,12 @@
 	</servlet-mapping>
 	
 	<servlet>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<servlet-class>exffff.BulletinBoardTestController</servlet-class>
+  	<servlet-name>BulletinBoardTestController</servlet-name>
+	  <servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<url-pattern>/EXFFFF/Main/BulletinBoardTest.do</url-pattern>
+	  <servlet-name>BulletinBoardTestController</servlet-name>
+	  <url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

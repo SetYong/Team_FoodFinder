@@ -44,7 +44,8 @@
 		</td>
 	</table> 
 
-<form name="writeFrm" method="post" >
+<form name="writeFrm" method="post" action="./BulletinBoardEditTest.do
+" >
     <input type="hidden" name="num" > 
     <table border="1" width="92%"  >
         <tbody><tr> 
@@ -53,24 +54,24 @@
                 <input type="text" name="title" style="width: 90%;" > 
             </td>
             <tr> 
-            <td style="text-align: center;">이미지</td>
-            <td>
+            <td style="text-align: center;" name="image">이미지</td>
+            <td >
                 <textarea name="content" style="width: 10%; height: 50px;">첨부파일  </textarea> 
-                <textarea name="content" style="width: 15%; height: 50px;">이미지 경로  </textarea> 
+                <textarea name="image" style=" width: 15%; height: 50px;">이미지 경로  </textarea> 
             </td> 
         </tr>
            
         <tr> 
             <td rowspan="2" style="text-align: center;">내용</td>
             <td>
-                <textarea name="content" style="width: 90%; height: 100px;">기본재료를 입력하세요.  </textarea> 
-                <textarea name="content" style="width: 90%; height: 100px;">만드는 방법을 입력하세요.  </textarea> 
+                <textarea name="text" style="width: 90%; height: 100px;">기본재료를 입력하세요.  </textarea> 
+                <textarea name="text" style="width: 90%; height: 100px;">만드는 방법을 입력하세요.  </textarea> 
             </td> 
         </tr>
         <tr>
             <td colspan="2" align="center">
-                <button type="submit">다시 입력</button>
-                <button type="reset">작성 완료</button>
+                <button type="reset">수정 취소</button>
+                <button type="submit">수정 완료</button>
                 <button type="button">목록 보기</button> 
             </td>
         </tr>

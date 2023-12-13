@@ -3,6 +3,7 @@
 <%@ page import = "java.util.Map" %>
 <%@ page import = "questionBoard.QuestionBoardDAO" %>
 <%@ page import = "questionBoard.QuestionBoardDTO" %>
+<%@ page import = "questionBoard.QuestionPage" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
@@ -16,6 +17,24 @@ if(searchWord != null){
 	param.put("searchField", searchField);
 	param.put("searchWord", searchWord);
 }
+
+int totalCount = dao.selectCount(param);
+
+int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
+int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
+int totalPage = (int)Math.ceil((double)totalCount / pageSize);
+
+int pageNum = 1;
+String pageTemp = request.getParameter("pageNum");
+if(pageTemp != null && !pageTemp.equals("")){
+	pageNum = Integer.parseInt(pageTemp);
+}
+
+int start = (pageNum -1) * pageSize + 1;
+int end = pageNum * pageSize;
+param.put("start",start);
+param.put("end",end);
+
 List<QuestionBoardDTO> boardLists = dao.selectList(param);
 dao.close();
 %>
@@ -26,7 +45,8 @@ dao.close();
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>문의 사항</h2>
+	<h2>문의 사항 - 현재 페이지 :  <%= pageNum %></h2>
+	<form method ="get">
 	<table>
 		<tr>
 			<td align = "center">
@@ -40,6 +60,7 @@ dao.close();
 			</td>
 		</tr>
 	</table>
+	</form>
 	<table>
 		<tr>
 			<td>번호</td>
@@ -56,6 +77,11 @@ if (boardLists.isEmpty()){
 		</tr>
 <%
 }
+else if (searchWord != null){
+%>
+
+<%
+}
 else{
 for(QuestionBoardDTO dto : boardLists){
 %>
@@ -69,6 +95,14 @@ for(QuestionBoardDTO dto : boardLists){
 <%	}
 }
 %>
+	</table>
+	
+	<table border="1" style="width: 90%;">
+		<tr align="center" >
+			<td>
+			<%= QuestionPage.pagingStr(totalCount, pageSize, blockPage, pageNum, request.getRequestURI()) %>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>

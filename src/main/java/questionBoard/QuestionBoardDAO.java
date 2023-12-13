@@ -11,16 +11,17 @@ public class QuestionBoardDAO extends DBConnPool{
 	public List<QuestionBoardDTO> selectList(Map<String, Object> map) {
 		List<QuestionBoardDTO> QuestionBoardList = new Vector<QuestionBoardDTO>();
 		
-		String query ="SELECT * FROM QUESTIONBOARD ";
+		String query = "SELECT * FROM(SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM QUESTIONBOARD";
 		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
-		query += " ORDER BY head_num desc ";
-		
+		query += " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		System.out.println(query);
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, map.get("start").toString());
+			psmt.setString(2, map.get("end").toString());
+			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				QuestionBoardDTO dto = new QuestionBoardDTO();
@@ -56,6 +57,7 @@ public class QuestionBoardDAO extends DBConnPool{
 			psmt.setString(3, dto.getContent());
 			psmt.setInt(4, dto.getMbnum());
 			
+			System.out.println(dto.getQucate() + " : "+ dto.getTitle() + " : " + dto.getContent() + " : " + dto.getMbnum());
 			System.out.println(query);
 			result = psmt.executeUpdate();
 		} catch(Exception e) {
@@ -63,5 +65,25 @@ public class QuestionBoardDAO extends DBConnPool{
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public int selectCount(Map<String, Object> map) {
+		int totalCount = 0;
+
+		String query = "SELECT COUNT(*) FROM QuestionBoard ";
+		if (map.get("searchWord") != null) {
+			query += "Where " + map.get("searchField") + " " + "like '%" + map.get("searchWord") + "%'";
+		}
+
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			rs.next();
+			totalCount = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println("게시물 수를 구하는 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
 	}
 }

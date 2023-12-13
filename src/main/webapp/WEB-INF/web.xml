@@ -84,21 +84,21 @@
 	</servlet-mapping>
 	
 	<servlet>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<servlet-class>exffff.BulletinBoardTestController</servlet-class>
+  	<servlet-name>BulletinBoardTestController</servlet-name>
+	  <servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
+	  <servlet-name>BulletinBoardTestController</servlet-name>
+	  <url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-	<servlet-name>BulletinBoardEditTestController</servlet-name>
-	<servlet-class>exffff.BulletinBoardEditTestController</servlet-class>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<servlet-class>exffff.MyPageDiaryController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardEditTestController</servlet-name>
-	<url-pattern>/EXFFFF/Food/BulletinBoardEditTest.do</url-pattern>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

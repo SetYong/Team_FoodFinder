@@ -68,4 +68,29 @@ public class MyPageBoardDAO extends DBConnPool{
 		}
 		return board;
 	}
+	
+	// 게시물 입력
+	public MyPageBoardDTO insertDiaryWrtie(String title, String timecate, String text, int mbnum, String image, int kcal) {
+		MyPageBoardDTO dto = new MyPageBoardDTO();
+		String query = "INSERT INTO DIARYBOARD("
+				+ "title, timecate, text, mbnum, image, kcal)"
+				+ " VALUES(?, ?, ?, ?, ?, ?)";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, title);
+			psmt.setString(2, timecate);
+			psmt.setString(3, text);
+			psmt.setInt(4, mbnum);
+			psmt.setString(5, image);
+			psmt.setInt(6, kcal);
+			System.out.println(query);
+			psmt.executeUpdate(query);
+			
+		}
+		catch (Exception e) {
+			System.out.println("다이어리 게시물 입력 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
+	}
 }

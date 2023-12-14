@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>FoodFinder</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  <filter>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>FoodFinder</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+	<filter>
 		<filter-name>SetCharEncoding</filter-name>
 		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
 		<init-param>
@@ -37,16 +40,16 @@
 		<param-name>OraclePwd</param-name>
 		<param-value>food1234</param-value>
 	</context-param>
-	
+
 	<context-param>
-   	<param-name>POSTS_PER_PAGE</param-name>
-   	<param-value>10</param-value>
-   </context-param>
-   <context-param>
-   	<param-name>PAGES_PER_BLOCK</param-name>
-   	<param-value>5</param-value>
-   </context-param>
-   
+		<param-name>POSTS_PER_PAGE</param-name>
+		<param-value>10</param-value>
+	</context-param>
+	<context-param>
+		<param-name>PAGES_PER_BLOCK</param-name>
+		<param-value>5</param-value>
+	</context-param>
+
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
 		<servlet-class>exffff.FoodLogin</servlet-class>
@@ -55,7 +58,7 @@
 		<servlet-name>FoodLogin</servlet-name>
 		<url-pattern>/EXFFFF/Member/Login.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>FindID</servlet-name>
 		<servlet-class>exffff.FindControler</servlet-class>
@@ -64,7 +67,7 @@
 		<servlet-name>FindID</servlet-name>
 		<url-pattern>/EXFFFF/Member/FindIdHome.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>MyPageController</servlet-name>
 		<servlet-class>exffff.MyPageController</servlet-class>
@@ -73,7 +76,7 @@
 		<servlet-name>MyPageController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>FoodNewMember</servlet-name>
 		<servlet-class>exffff.NewmemberController</servlet-class>
@@ -82,23 +85,41 @@
 		<servlet-name>FoodNewMember</servlet-name>
 		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<servlet-class>exffff.BulletinBoardTestController</servlet-class>
+		<servlet-name>BulletinBoardTestController</servlet-name>
+		<servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardTestController</servlet-name>
-	<url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
+		<servlet-name>BulletinBoardTestController</servlet-name>
+		<url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BulletinBoardEditTestController</servlet-name>
+		<servlet-class>exffff.BulletinBoardEditTestController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BulletinBoardEditTestController</servlet-name>
+		<url-pattern>/EXFFFF/Food/BulletinBoardEditTest.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<servlet-class>exffff.MyPageDiaryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageDiaryController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-	<servlet-name>BulletinBoardEditTestController</servlet-name>
-	<servlet-class>exffff.BulletinBoardEditTestController</servlet-class>
+		<servlet-name>BoardListController</servlet-name>
+		<servlet-class>exffff.BoardListController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>BulletinBoardEditTestController</servlet-name>
-	<url-pattern>/EXFFFF/Food/BulletinBoardEditTest.do</url-pattern>
+		<servlet-name>BoardListController</servlet-name>
+		<url-pattern>/EXFFFF/Food/BoardList.do</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>

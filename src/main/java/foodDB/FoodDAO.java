@@ -25,12 +25,12 @@ public class FoodDAO extends DBConnPool {
 			System.out.println(visitcount + image + text + title + heartcount + cate);
 			
 			
-			vo.setVisitcount();
-			vo.setImage();
-			vo.setText();
-			vo.setTitle();
-			vo.setHeartcount();
-			vo.setCate();
+			vo.setVisitcount(rs.getInt(visitcount));
+			vo.setImage(rs.getString(image));
+			vo.setText(rs.getString(text));
+			vo.setTitle(rs.getString(title));
+			vo.setHeartcount(rs.getInt(heartcount));
+			vo.setCate(rs.getString(cate));
 
 			System.out.println(vo.getVisitcount());
 			System.out.println(vo.getImage());
@@ -46,6 +46,8 @@ public class FoodDAO extends DBConnPool {
 
 	}
 	
+	
+
 	public FoodDTO getEdit(String head_num, String visitcount, String image, String text, String title,String mbnum ,String heartcount, String cate) {
 		FoodDTO vo = new FoodDTO();
 		try {
@@ -65,12 +67,12 @@ public class FoodDAO extends DBConnPool {
 			System.out.println(visitcount + image + text + title + heartcount + cate);
 			
 			
-			vo.setVisitcount();
-			vo.setImage();
-			vo.setText();
-			vo.setTitle();
-			vo.setHeartcount();
-			vo.setCate();
+			vo.setVisitcount(rs.getInt(visitcount));
+			vo.setImage(rs.getString(image));
+			vo.setText(rs.getString(text));
+			vo.setTitle(rs.getString(title));
+			vo.setHeartcount(rs.getInt(heartcount));
+			vo.setCate(rs.getString(cate));
 
 			System.out.println(vo.getVisitcount());
 			System.out.println(vo.getImage());
@@ -86,4 +88,34 @@ public class FoodDAO extends DBConnPool {
 
 	}
 	
-}
+	public FoodDTO getBoard(String visitcount,  String fooddate, String title ) {
+		FoodDTO vo = new FoodDTO();
+		try {
+			String query = "SELECT TITLE,fooddate,visitcount FROM FOOD";
+			
+			psmt = con.prepareStatement(query);
+			rs = psmt.executeQuery();
+
+			System.out.println(query);
+		
+			
+			if(rs.next()) {
+			
+			vo.setTitle(title);
+			vo.setFooddate(null);
+			vo.setVisitcount(0);
+			}
+			
+			System.out.println(vo.getTitle());
+			System.out.println(vo.getVisitcount());
+			System.out.println(vo.getFooddate());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시물 불러오는 도중 오류 발생");
+		}
+		return vo;
+	}
+
+
+	}

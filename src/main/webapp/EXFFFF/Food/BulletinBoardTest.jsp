@@ -73,7 +73,8 @@
             <td colspan="2" align="center">
                 <button type="reset">다시 입력</button>
                 <button type="submit">작성 완료</button>
-                <button type="button" onclick="BoardList.jsp">목록 보기</button> 
+                <button type="button" onclick="location.href='BulletinBoardEditTest.jsp'">수정하기</button>
+                <button type="button" onclick="location.href='BoardList.jsp'">목록 보기</button> 
             </td>
         </tr>
     </tbody></table>

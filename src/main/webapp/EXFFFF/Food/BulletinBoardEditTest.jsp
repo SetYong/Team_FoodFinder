@@ -72,7 +72,7 @@
             <td colspan="2" align="center">
                 <button type="reset">수정 취소</button>
                 <button type="submit">수정 완료</button>
-                <button type="button">목록 보기</button> 
+                <button type="button"  onclick="location.href='BoardList.jsp'">목록 보기</button> 
             </td>
         </tr>
     </tbody></table>

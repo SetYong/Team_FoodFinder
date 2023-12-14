@@ -87,6 +87,7 @@
 	</servlet-mapping>
 
 	<servlet>
+
 		<servlet-name>BulletinBoardTestController</servlet-name>
 		<servlet-class>exffff.BulletinBoardTestController</servlet-class>
 	</servlet>
@@ -102,8 +103,10 @@
 	<servlet-mapping>
 		<servlet-name>BulletinBoardEditTestController</servlet-name>
 		<url-pattern>/EXFFFF/Food/BulletinBoardEditTest.do</url-pattern>
-	</servlet-mapping>
 
+	 
+
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>MyPageDiaryController</servlet-name>
 		<servlet-class>exffff.MyPageDiaryController</servlet-class>

@@ -101,9 +101,9 @@ public class FoodDAO extends DBConnPool {
 			
 			if(rs.next()) {
 			
-			vo.setTitle(title);
-			vo.setFooddate(null);
-			vo.setVisitcount(0);
+			vo.setTitle(rs.getString("title"));
+			vo.setFooddate(rs.getDate("fooddate"));
+			vo.setVisitcount(rs.getInt("visitcount"));
 			}
 			
 			System.out.println(vo.getTitle());

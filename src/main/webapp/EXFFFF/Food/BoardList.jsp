@@ -26,7 +26,7 @@ session.setAttribute("fooddate",request.getAttribute("fooddate"));
 <input type="text" name="searchWord"/>
 <input type="submit" value="검색하기"/>
 <input type="submit" value="새로고침"/>
-<button type="submit" name="visitcount" align="right">방문횟수</button>
+<button type="submit" name="visitcount">방문횟수</button>
 </td>
 </tr>
 </table>
@@ -39,7 +39,7 @@ session.setAttribute("fooddate",request.getAttribute("fooddate"));
 <th width="15%">작성일</th>
 </tr>
 <c:choose>
-<c:when test="${empty boardLists }">
+<c:when test="${empty boardList }">
 <tr>
 <td colspan="6" align="center">
 등록된 게시물이 없습니다.
@@ -49,10 +49,6 @@ session.setAttribute("fooddate",request.getAttribute("fooddate"));
 <c:otherwise>
 <c:forEach items="${Fooddto}" var="row" varStatus="loop">
 <tr align="center">
-<td>
-</td>
-<td align="left">
-</td>
 <td>${row.title}</td>
 <td>${row.visitcount}</td>
 <td>${row.fooddate}</td>

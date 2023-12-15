@@ -29,7 +29,7 @@ label:hover {
 <%
 	} else {	
 %>
-	<div align="right">
+	<div align="right">	
 	<label onclick="location.href='../Member/Logout.jsp'" class="menu_login">
 	로그아웃
 	</label>
@@ -57,7 +57,7 @@ if(session.getAttribute("MBNUM")==null){
 } else {
 System.out.println("header jsp 로그인 성공" + session.getAttribute("MBNUM"));
 %>
-<form action="../MyPage/MyPageProfile.do" method="post" name="MyPage" >
+<form action="../MyPage/MyPageProfile.do" method="post" name="MyPage" style="float: left">
 <input type="submit" value="마이페이지" class="menu_mypage"/>
 <input type="hidden" value="<%= request.getAttribute("MBNUM") %>" name="MBNUM"/>
 </form>

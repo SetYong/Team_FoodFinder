@@ -6,6 +6,7 @@
 <%@ page import = "questionBoard.QuestionPage" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% 
 QuestionBoardDAO dao = new QuestionBoardDAO();
 
@@ -77,11 +78,6 @@ if (boardLists.isEmpty()){
 		</tr>
 <%
 }
-else if (searchWord != null){
-%>
-
-<%
-}
 else{
 for(QuestionBoardDTO dto : boardLists){
 %>
@@ -90,9 +86,16 @@ for(QuestionBoardDTO dto : boardLists){
 		<td align = "left"><%= dto.getTitle() %></td>
 		<td align = "center"> <%= dto.getQucate() %></td>
 		<td align = "center"> <%= dto.getQudate() %></td>
-		<td align = "center"> <%= dto.getReadadmin() %></td>
+		<td align = "center">
+			<c:if test="${ dto.getReadadmin() ==  '0' }">
+				<font color="#F15F5F">미답변</font>
+			</c:if>
+			<c:if test="${ dto.getReadadmin() == '1' }">
+				<font color="#4374D9">답변완료</font>
+			</c:if> ${ requestScope.dtoo.mbnum } : ${ dtoo.mbnum } : <%= dto.getReadadmin() %>
+		</td>
 	</tr>
-<%	}
+<%	} 
 }
 %>
 	</table>

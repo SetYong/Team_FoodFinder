@@ -7,6 +7,16 @@
 <title>고객문의</title>
 </head>
 <body>
+<% if(session.getAttribute("MBNUM") == null)
+{ 
+%>
+	<script>
+		alert('로그인을 해주세요.');
+		location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp';
+	</script>
+<%
+} else{ 
+%>
 	<table border=1 style="width= 1100px;">
 		<tr>
 			<th width = "10%">번호</th>
@@ -24,5 +34,8 @@
 		
 		</tr>
 	</table>
+<%
+} 
+%>
 </body>
 </html>

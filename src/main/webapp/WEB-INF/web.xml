@@ -125,14 +125,15 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MyPageSetprofileController</servlet-name>
-		<servlet-class>mypageBoard.MyPageSetprofileController</servlet-class>
+		<servlet-name>MyPageSetprofilepassController</servlet-name>
+		<servlet-class>mypageBoard.MyPageSetprofilepassController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MyPageSetprofileController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
+		<servlet-name>MyPageSetprofilepassController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageSetprofilepass.do</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
 	</servlet>
@@ -148,5 +149,23 @@
 	<servlet-mapping>
 		<servlet-name>QuestionList</servlet-name>
 		<url-pattern>/EXFFFF/Question/QuestionList.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageSetprofileController</servlet-name>
+		<servlet-class>mypageBoard.MyPageSetprofile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageSetprofileController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NewmemberCheckid</servlet-name>
+		<servlet-class>exffff.NewmemberCheckController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewmemberCheckid</servlet-name>
+		<url-pattern>/EXFFFF/Member/Newmembercheck.do</url-pattern>
 	</servlet-mapping>
 </web-app>

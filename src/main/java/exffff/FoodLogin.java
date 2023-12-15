@@ -29,12 +29,15 @@ public class FoodLogin extends HttpServlet {
 		String pass = req.getParameter("password");
 		
 		MemberDTO memberDTO = dao.getMember(id, pass);
-		
 		int memberMBnum = memberDTO.getMbnum();
+		memberDTO = dao.getProfile(memberMBnum);
 		System.out.println(id+" "+  pass+" "+ "1111"+" " + memberMBnum);
 		if (memberMBnum>0) {
 			req.setAttribute("authMessage", memberMBnum + " 회원 등장");
 			req.setAttribute("MBNUM", memberMBnum);
+			req.setAttribute("nickname", memberDTO.getNickname());
+			req.setAttribute("email", memberDTO.getEmail());
+			req.setAttribute("phone", memberDTO.getPhone());
 		}
 		else {
 			if (admin_id.equals(id) && admin_pwd.equals(pass)) {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import memberMG.MemberDAO;
 import memberMG.MemberDTO;
 
-public class MyPageSetprofileController extends HttpServlet {
+public class MyPageSetprofilepassController extends HttpServlet {
 	MemberDAO dao;
 	@Override
 	public void init() throws ServletException {
@@ -23,10 +23,18 @@ public class MyPageSetprofileController extends HttpServlet {
 		String MBNUMstr = req.getParameter("MBNUM");
 		int MBNUM = Integer.parseInt(MBNUMstr);
 		String pwd = req.getParameter("pwd");
-		boolean pass = dao.getPwdpass(MBNUM, pwd);
+		String pass = dao.getPwdpass(MBNUM, pwd);
 		
-		req.setAttribute("pwdpass", pass);
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofile.jsp").forward(req, resp);
+		if( pass.equals("true")) {
+			System.out.println("비밀번호 조회 성공");
+			req.setAttribute("pwdpass", pass);
+			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofile.jsp").forward(req, resp);
+		} else {
+			System.out.println("비밀번호 조회 실패");
+			req.setAttribute("authmessage", "비밀번호가 일치하지 않습니다.");
+			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp").forward(req, resp);
+		}
+		
 	}
 	@Override
 	public void destroy() {

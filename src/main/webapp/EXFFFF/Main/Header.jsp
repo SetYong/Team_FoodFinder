@@ -41,7 +41,7 @@ label:hover {
 	
 	&nbsp;&nbsp;&nbsp;
 	<div align="left">
-		<a href="Main.jsp">
+		<a href="../Main/Main.jsp">
 		<img class="logo_img" src="../img/test2.jpeg">
 		</a>
 		
@@ -57,11 +57,7 @@ if(session.getAttribute("MBNUM")==null){
 } else {
 System.out.println("header jsp 로그인 성공" + session.getAttribute("MBNUM"));
 %>
-
-<form action="../MyPage/MyPageProfile.do" method="post" name="MyPage" style="float: left">
-<input type="submit" value="마이페이지" class="menu_mypage"/>
-<input type="hidden" value="<%= request.getAttribute("MBNUM") %>" name="MBNUM"/>
-</form>
+<label onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
 <%
 }
 %>

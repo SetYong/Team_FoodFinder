@@ -48,16 +48,16 @@ public class MemberDAO extends DBConnPool {
 	}
 
 	// 비밀번호 확인
-	public boolean getPwdpass(int mbnum, String pwd) {
-		boolean pass = false;
-		String query = "SELECT * From member_login WHERE mbnum=? and USER_pwd=?";
+	public String getPwdpass(int mbnum, String pwd) {
+		String pass = "false";
+		String query = "SELECT * From C##foodfinder.member_login WHERE mbnum=? and USER_pwd=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setInt(1, mbnum);
 			psmt.setString(2, pwd);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				pass = true;
+				pass = "true";
 			}
 		} catch (Exception e) {
 			System.out.println("비밀번호 조회 중 예외 발생");
@@ -67,7 +67,7 @@ public class MemberDAO extends DBConnPool {
 	}
 
 	// 비밀번호 조회 성공 후 정보수정
-	public MemberDTO setProfile(String nickname, String email, String phone, int mbnum) {
+	public void setProfile(String nickname, String email, String phone, int mbnum) {
 		MemberDTO dto = new MemberDTO();
 		String query = "UPDATE member_profile SET mail=?, phone=?, nickname=? WHERE mbnum=?";
 		try {
@@ -83,7 +83,6 @@ public class MemberDAO extends DBConnPool {
 			System.out.println("정보수정 중 예외 발생");
 			e.printStackTrace();
 		}
-		return dto;
 	}
 	
 	// 회원가입1
@@ -168,8 +167,8 @@ public class MemberDAO extends DBConnPool {
 	}
 
 	// 회원가입 3 아이디 중복확인
-	public boolean checkId(String id) {
-		boolean check = false;
+	public String checkId(String id) {
+		String check = "false";
 		String query = "SELECT USER_ID FROM MEMBER_LOGIN WHERE USER_ID=?";
 		try {
 			psmt = con.prepareStatement(query);
@@ -177,9 +176,9 @@ public class MemberDAO extends DBConnPool {
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				check = false;
+				check = "false";
 			} else {
-				check = true;
+				check = "true";
 			}
 			
 		} catch (Exception e) {

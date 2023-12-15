@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mypageBoard.BoardPage;
 import mypageBoard.MyPageBoardDAO;
 import mypageBoard.MyPageBoardDTO;
 
@@ -47,10 +48,9 @@ public class MyPageViewController extends HttpServlet{
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가
-//		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
-//				blockPage, pageNum, "../MyPageList.do");
-		// 책 324페이지 작성하기 
-//		map.put("pagingImg", pagingImg);
+		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
+				blockPage, pageNum, "../MyPageList.do"); 
+		map.put("pagingImg", pagingImg);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);
 		map.put("pageNum", pageNum);

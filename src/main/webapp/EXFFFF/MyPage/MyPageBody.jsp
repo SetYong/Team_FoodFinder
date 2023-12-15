@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-if(session.getAttribute("nickname")==null){
-session.setAttribute("nickname", request.getAttribute("nickname"));
-session.setAttribute("email", request.getAttribute("email"));
-session.setAttribute("phone", request.getAttribute("phone"));
-}
-String phone = (String)session.getAttribute("phone");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +18,7 @@ String phone = (String)session.getAttribute("phone");
 						<br> <br> 이메일 :
 						<%=session.getAttribute("email")%>
 						<br> <br> 핸드폰 :
-						<%=phone%>
+						<%=session.getAttribute("phone")%>
 					</p>
 				</div></td>
 		</tr>

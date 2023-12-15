@@ -1,4 +1,4 @@
-package exffff;
+package mypageBoard;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import memberMG.MemberDAO;
 import memberMG.MemberDTO;
 
-public class MyPageController extends HttpServlet {
+public class MyPageSetprofileController extends HttpServlet {
 	MemberDAO dao;
 	@Override
 	public void init() throws ServletException {
@@ -22,20 +22,11 @@ public class MyPageController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String MBNUMstr = req.getParameter("MBNUM");
 		int MBNUM = Integer.parseInt(MBNUMstr);
-		MemberDTO memberDTO = dao.getProfile(MBNUM);
-		System.out.println("mypagecontroller : "+MBNUM);
+		String pwd = req.getParameter("pwd");
+		boolean pass = dao.getPwdpass(MBNUM, pwd);
 		
-		String nickname = memberDTO.getNickname();
-		String email = memberDTO.getEmail();
-		String phone = memberDTO.getPhone();
-		
-		System.out.println("nickname : "+ nickname + " email : "+ email + " phone : "+ phone);
-		
-		req.setAttribute("nickname", nickname);
-		req.setAttribute("email", email);
-		req.setAttribute("phone", phone);
-		
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp").forward(req, resp);
+		req.setAttribute("pwdpass", pass);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofile.jsp").forward(req, resp);
 	}
 	@Override
 	public void destroy() {

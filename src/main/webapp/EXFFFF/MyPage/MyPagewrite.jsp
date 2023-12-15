@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-request.setAttribute("MBNUM", session.getAttribute("MBNUM"));
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +19,34 @@ display: inlline-block;
 background-color:#BBBBBB;
 }
 </style>
+<script type="text/javascript">
+	function validateform(form){
+		if (form.title.value==""){
+			alert("제목을 입력하세요.");
+			form.title.focus();
+			return false;
+		}
+		if (form.date.value==""){
+			alert("날짜를 선택하세요.");
+			form.date.focus();
+			return false;
+		}
+		if (form.timeCate.value==""){
+			alert("시간을 선택해주세요.");
+			form.timeCate.focus();
+			return false;
+		}
+		if (form.text.value==""){
+			alert("내용을 입력해주세요.");
+			form.text.focus();
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 	<form name="MyPageDiary" action="../MyPage/MyPagewrite.do" method="post">
+		<input type="hidden" name="MBNUM" value="<%=session.getAttribute("MBNUM")%>"/>
 		<table border="1" class="diarywrite">
 			<tr>
 				<td align="center" >제목 : <input type="text" name="title"></td>
@@ -42,7 +64,12 @@ background-color:#BBBBBB;
 				<td colspan="3" align="center"><textarea name="text" cols="20" placeholder="식단을 입력해주세요" required></textarea></td>
 			</tr>
 			<tr>
-			<td colspan="3" align="right"><button type="submit">일기 작성 완료</button></td>
+			<td colspan="3" align="right">
+			<button type="reset">다시 작성</button>
+			<button type="submit">일기 작성 완료</button>
+			<button type="button" onclick="location.href='../MyPage/MyPageList.do';">
+			목록으로 돌아가기</button>
+			</td>
 			</tr>
 		</table>
 	</form>

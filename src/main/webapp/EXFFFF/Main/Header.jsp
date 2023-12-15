@@ -57,7 +57,7 @@ if(session.getAttribute("MBNUM")==null){
 } else {
 System.out.println("header jsp 로그인 성공" + session.getAttribute("MBNUM"));
 %>
-<form action="../MyPage/MyPageProfile.do" method="post" name="MyPage" >
+<form action="../MyPage/MyPageProfile.do" method="post" name="menu_mypage" style="float: left">
 <input type="submit" value="마이페이지" class="menu_mypage"/>
 <input type="hidden" value="<%= request.getAttribute("MBNUM") %>" name="MBNUM"/>
 </form>

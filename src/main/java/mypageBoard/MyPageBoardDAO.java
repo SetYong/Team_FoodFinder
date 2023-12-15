@@ -15,7 +15,7 @@ public class MyPageBoardDAO extends DBConnPool{
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 		
-		String query = "SELECT COUNT(*) FROM MyPageBoard";
+		String query = "SELECT COUNT(*) FROM diaryBoard";
 	// 검색 조건이 있다면 WHERE 절 추가
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " "
@@ -39,8 +39,8 @@ public class MyPageBoardDAO extends DBConnPool{
 		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
 		String query = " "
 				+ "SELECT * FROM ( "
-				+ " 	SELECT Tb.*, ROWNUM rNum FROM ( "
-				+ "			SELECT * FROM mypageboard ";
+				+ " 	SELECT Tb.*, dno rNum FROM ( "
+				+ "			SELECT * FROM diaryboard ";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField")
 				+ " LIKE '%"+ map.get("searchWord") + "%' ";
@@ -60,7 +60,18 @@ public class MyPageBoardDAO extends DBConnPool{
 			while(rs.next()) {
 				MyPageBoardDTO dto = new MyPageBoardDTO();
 				
+				dto.setIdx(rs.getString(1));
+				dto.setName(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setPostdate(rs.getDate(5));
+				dto.setOfile(rs.getString(6));
+				dto.setSfile(rs.getString(7));
+				dto.setDowncount(rs.getInt(8));
+				dto.setPass(rs.getString(9));
+				dto.setVisitcount(rs.getInt(10));
 				
+				board.add(dto);
 			}
 		}
 		catch (Exception e) {

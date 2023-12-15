@@ -47,33 +47,45 @@ public class MemberDAO extends DBConnPool {
 		return result;
 	}
 
-	// 로그인
-	public MemberDTO getUSER_ID(String id, String pwd) {
-		MemberDTO vo = new MemberDTO();
-		String query = "SELECT * From member_login WHERE user_id=? AND user_pwd=?";
+	// 비밀번호 확인
+	public boolean getPwdpass(int mbnum, String pwd) {
+		boolean pass = false;
+		String query = "SELECT * From member_login WHERE mbnum=? and USER_pwd=?";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, id);
+			psmt.setInt(1, mbnum);
 			psmt.setString(2, pwd);
 			rs = psmt.executeQuery();
-
-			System.out.println(query);
-			System.out.println(id + pwd);
-
 			if (rs.next()) {
-				vo.setId(rs.getString("user_id"));
-				vo.setPwd(rs.getString("user_pwd"));
-				vo.setMbnum(rs.getInt("mbnum"));
+				pass = true;
 			}
-			System.out.println(vo.getId());
-			System.out.println(vo.getPwd());
-			System.out.println(vo.getMbnum());
 		} catch (Exception e) {
+			System.out.println("비밀번호 조회 중 예외 발생");
 			e.printStackTrace();
 		}
-		return vo;
+		return pass;
 	}
 
+	// 비밀번호 조회 성공 후 정보수정
+	public MemberDTO setProfile(String nickname, String email, String phone, int mbnum) {
+		MemberDTO dto = new MemberDTO();
+		String query = "UPDATE member_profile SET mail=?, phone=?, nickname=? WHERE mbnum=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, email);
+			psmt.setString(2, phone);
+			psmt.setString(3, nickname);
+			psmt.setInt(4, mbnum);
+			psmt.executeUpdate();
+			
+		}
+		catch (Exception e) {
+			System.out.println("정보수정 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
 	// 회원가입1
 	public MemberDTO insertRegister(String name, String cn, String email, String phone, String nickname) {
 		MemberDTO Vo = new MemberDTO();
@@ -178,12 +190,12 @@ public class MemberDAO extends DBConnPool {
 	}
 	
 	// 내정보 읽어오기
-	public MemberDTO getProfile(String mbn) {
+	public MemberDTO getProfile(int mbn) {
 		MemberDTO dto = new MemberDTO();
-		String query = "SELECT * FROM MEMBER_PROFILE WHERE MBNUM=? ";
+		String query = "SELECT * FROM C##FOODFINDER.MEMBER_PROFILE WHERE MBNUM=? ";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, mbn);
+			psmt.setInt(1, mbn);
 			rs = psmt.executeQuery();
 
 			System.out.println(query);

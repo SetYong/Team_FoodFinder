@@ -3,7 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String mbnum = (String) session.getAttribute("MBNUM");
+String mbnumstr = (String)session.getAttribute("MBNUM");
+int mbnum = Integer.parseInt(mbnumstr);
 MemberDAO dao = new MemberDAO();
 MemberDTO dto = dao.getProfile(mbnum);
 dao.close();

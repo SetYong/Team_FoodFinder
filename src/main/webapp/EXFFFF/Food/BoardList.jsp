@@ -1,13 +1,27 @@
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.util.HashMap" %>
+<%@ page import = "java.util.Map" %>
+<%@page import="foodDB.FoodDAO" %>
+<%@page import="foodDB.FoodDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-if(session.getAttribute("title")==null){ 
-session.setAttribute("title",request.getAttribute("title"));
-session.setAttribute("visitcount",request.getAttribute("visitcount"));
-session.setAttribute("fooddate",request.getAttribute("fooddate"));
+FoodDAO dao = new FoodDAO();
+Map<String, Object> param= new HashMap<String, Object>();
+
+String searchField = request.getParameter("searchField");
+String searchWord = request.getParameter("searchWord");
+if(searchWord != null){
+	param.put("searchField", searchField);
+	param.put("searchWord", searchWord);
 }
+
+int totalCount = dao.selectCount(param);
+List<FoodDTO> boardLists = dao.selectList(param);
+dao.close();
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,18 +29,18 @@ session.setAttribute("fooddate",request.getAttribute("fooddate"));
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="./BoardList.do">
+<form method="get">
 <table border="1" width="90%">
 <tr>
 <td align="center">
-<select name="title">
+<select name="searchField">
 <option value="title">제목</option>
 <option value="content">내용</option>
 </select>
 <input type="text" name="searchWord"/>
 <input type="submit" value="검색하기"/>
 <input type="submit" value="새로고침"/>
-<button type="submit" name="visitcount">방문횟수</button>
+<button type="button" name="visitcount">방문횟수</button>
 </td>
 </tr>
 </table>
@@ -38,24 +52,33 @@ session.setAttribute("fooddate",request.getAttribute("fooddate"));
 <th width="10%">조회수</th>
 <th width="15%">작성일</th>
 </tr>
-<c:choose>
-<c:when test="${empty boardList }">
+<%
+if(boardLists.isEmpty()){ 
+%>
 <tr>
-<td colspan="6" align="center">
-등록된 게시물이 없습니다.
+<td colspan="5" align="center">
 </td>
 </tr>
-</c:when>
-<c:otherwise>
-<c:forEach items="${Fooddto}" var="row" varStatus="loop">
-<tr align="center">
-<td>${row.title}</td>
-<td>${row.visitcount}</td>
-<td>${row.fooddate}</td>
-</tr>
-</c:forEach>
-</c:otherwise> 
-</c:choose>  
+<% 
+}
+else{
+	int virtualNum=0;
+	for(FoodDTO dto : boardLists)
+	{
+		virtualNum = totalCount--;
+		%>
+		<tr align="center">
+		<td><%= virtualNum %></td>
+		<td align="left">
+		</td>
+		<td align="center"><%= dto.getTitle() %></td>
+		<td align="center"><%= dto.getVisitcount() %></td>
+ 	    <td align="center"><%= dto.getFooddate() %></td>
+ 	    </tr>
+<% 
+	}
+}
+%>
 </table>
 <table border="1" width="90%">
 <tr aligin="center">

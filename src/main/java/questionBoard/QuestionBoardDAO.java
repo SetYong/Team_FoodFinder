@@ -43,6 +43,39 @@ public class QuestionBoardDAO extends DBConnPool{
 		return QuestionBoardList;
 	}
 	
+	public List<QuestionBoardDTO> selctListUser(Map<String,Object> map){
+		List<QuestionBoardDTO> userList = new Vector<QuestionBoardDTO>();
+		
+		String query = "SELELT  * FROM(SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM QUESTIONBOARD "
+					 + "WHERE mbnum = " + map.get("MBNUM")
+					 +  " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+		System.out.println(query);
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, map.get("start").toString());
+			psmt.setString(2, map.get("end").toString());
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				QuestionBoardDTO dto = new QuestionBoardDTO();
+				
+				dto.setHeadnum(rs.getInt("head_num"));
+				dto.setQucate(rs.getString("Qucate"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setMbnum(rs.getInt("MBNUM"));
+				dto.setQudate(rs.getDate("Qudate"));
+				dto.setReadadmin(rs.getInt("ReadAdmin"));
+				
+				userList.add(dto);
+			}
+		} catch (Exception e) {
+			System.out.println("유저 문의사항 : 게시판 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return userList;
+	}
+	
 	public int insertQuWrite(QuestionBoardDTO dto) {
 		int result = 0;
 		

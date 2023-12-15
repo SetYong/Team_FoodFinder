@@ -38,7 +38,7 @@ if (sidePage == null) {
 .mainbody {
 	border: 1px solid;
 	margin-left: 250px;
-	margin-right: 3%;	
+	margin-right: 75px;	
 }
 </style>
 </head>

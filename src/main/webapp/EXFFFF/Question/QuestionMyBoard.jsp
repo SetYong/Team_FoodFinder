@@ -11,13 +11,18 @@
 { 
 %>
 	<script>
-		alert('로그인을 해주세요.');
-		location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp';
+		
+		if(confirm("로그인 후 이용 가능합니다. 로그인 하시겠습니까?" )){
+			location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp';
+		}
+		else{
+			location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';
+		}
 	</script>
 <%
 } else{ 
 %>
-	<table border=1 style="width= 1100px;">
+	<table border=1 style="width: 1195px;">
 		<tr>
 			<th width = "10%">번호</th>
 			<th width = "50%">제목</th>

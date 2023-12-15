@@ -48,8 +48,8 @@
    </context-param>
    
    <servlet>
-   		<servlet-name>MainControler</servlet-name>
-   		<servlet-class></servlet-class>
+   		<servlet-name>MainController</servlet-name>
+   		<servlet-class>controller.ControllerURI</servlet-class>
    		<init-param>
    			<param-name>RequestMapping</param-name>
    			<param-value>/WEB-INF/commandHandlerURI.properties</param-value>
@@ -57,7 +57,7 @@
    </servlet>
    
    <servlet-mapping>
-  	<servlet-name>MainControler</servlet-name>
+  	<servlet-name>MainController</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
@@ -133,6 +133,7 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
 	</servlet>
@@ -142,11 +143,20 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>QuestionList</servlet-name>
+		<servlet-name>QuestionListUesr</servlet-name>
+		<servlet-class>questionBoard.QuestionListUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionListUesr</servlet-name>
+		<url-pattern>/EXFFFF/Question/QeustionListUser.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>QuestionListAdmin</servlet-name>
 		<servlet-class>questionBoard.QuestionListAdmin</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>QuestionList</servlet-name>
+		<servlet-name>QuestionListAdmin</servlet-name>
 		<url-pattern>/EXFFFF/Question/QuestionList.do</url-pattern>
 	</servlet-mapping>
 </web-app>

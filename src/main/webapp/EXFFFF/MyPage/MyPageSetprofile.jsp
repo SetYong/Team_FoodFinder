@@ -4,14 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/custom.css">
-<title>Insert title here</title>
+<title>FoodFinder</title>
 </head>
 <body>
-	<h2 align="left" class="setprofile_head">정보 수정</h2>
-		<p>비밀번호 확인</p>
-		<form method="post" action="" name="MyPageCheck">
-		<input type = "password" name="checkpass"/>
-		</form>	
+	<form method="post" action="" name="MyPageSetprofile">
+		<table align="center">
+			<tr>
+				<td>닉네임&nbsp; : &nbsp;<input type="text" name="nickname"/></td>
+			</tr>
+			<tr>
+				<td>이메일&nbsp; : &nbsp;<input type="text" name="email"/></td>
+			</tr>
+			<tr>
+				<td>핸드폰&nbsp; : &nbsp;<input type="text" name="phone"/></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="정보 변경하기"/></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

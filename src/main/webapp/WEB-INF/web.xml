@@ -116,6 +116,23 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>MyPageViewController</servlet-name>
+		<servlet-class>exffff.MyPageViewController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageViewController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageSetprofileController</servlet-name>
+		<servlet-class>mypageBoard.MyPageSetprofileController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageSetprofileController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
+	</servlet-mapping>
+
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
 	</servlet>

@@ -1,46 +1,74 @@
 package mypageBoard;
 
 public class MyPageBoardDTO {
-	private int MBnum;
-	private String text;
-	private String date;
-	private int kcal;
-	private String time;
-	private String image;
-	public int getMBnum() {
-		return MBnum;
+	private String idx;
+	private String name;
+	private String title;
+	private String content;
+	private String ofile;
+	private String sfile;
+	private String pass;
+	private int downcount;
+	private int visitcount;
+	private java.sql.Date postdate;
+	public String getIdx() {
+		return idx;
 	}
-	public void setMBnum(int mBnum) {
-		MBnum = mBnum;
+	public void setIdx(String idx) {
+		this.idx = idx;
 	}
-	public String getText() {
-		return text;
+	public String getName() {
+		return name;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getDate() {
-		return date;
+	public String getTitle() {
+		return title;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public int getKcal() {
-		return kcal;
+	public String getContent() {
+		return content;
 	}
-	public void setKcal(int kcal) {
-		this.kcal = kcal;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getTime() {
-		return time;
+	public String getOfile() {
+		return ofile;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setOfile(String ofile) {
+		this.ofile = ofile;
 	}
-	public String getImage() {
-		return image;
+	public String getSfile() {
+		return sfile;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setSfile(String sfile) {
+		this.sfile = sfile;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	public int getDowncount() {
+		return downcount;
+	}
+	public void setDowncount(int downcount) {
+		this.downcount = downcount;
+	}
+	public int getVisitcount() {
+		return visitcount;
+	}
+	public void setVisitcount(int visitcount) {
+		this.visitcount = visitcount;
+	}
+	public java.sql.Date getPostdate() {
+		return postdate;
+	}
+	public void setPostdate(java.sql.Date postdate) {
+		this.postdate = postdate;
 	}
 }

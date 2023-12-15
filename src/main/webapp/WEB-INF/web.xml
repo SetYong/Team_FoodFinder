@@ -47,6 +47,20 @@
    	<param-value>5</param-value>
    </context-param>
    
+   <servlet>
+   		<servlet-name>MainControler</servlet-name>
+   		<servlet-class></servlet-class>
+   		<init-param>
+   			<param-name>RequestMapping</param-name>
+   			<param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+   		</init-param>
+   </servlet>
+   
+   <servlet-mapping>
+  	<servlet-name>MainControler</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
 		<servlet-class>exffff.FoodLogin</servlet-class>
@@ -101,4 +115,21 @@
 		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>QuestionWrite</servlet-name>
+		<servlet-class>questionBoard.QuestionWrite</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionWrite</servlet-name>
+		<url-pattern>/EXFFFF/Question/QuestionBoard.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>QuestionList</servlet-name>
+		<servlet-class>questionBoard.QuestionListAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionList</servlet-name>
+		<url-pattern>/EXFFFF/Question/QuestionList.do</url-pattern>
+	</servlet-mapping>
 </web-app>

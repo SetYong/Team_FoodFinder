@@ -23,6 +23,7 @@ public class FoodLogin extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String admin_id = "admin_id";
+		String admin_pwd = "1234";
 		
 		String id = req.getParameter("id");
 		String pass = req.getParameter("password");
@@ -36,14 +37,15 @@ public class FoodLogin extends HttpServlet {
 			req.setAttribute("MBNUM", memberMBnum);
 		}
 		else {
-			if (admin_id.equals(id)) {
+			if (admin_id.equals(id) && admin_pwd.equals(pass)) {
 				req.setAttribute("authMessage", admin_id +"는 관리자");
+				resp.sendRedirect("../Admin/AdminMain.jsp");
+				return;
 			} else {
 				req.setAttribute("authMessage", "비회원 등장");
 			}
 		}
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
-		
 	}
 	
 	@Override

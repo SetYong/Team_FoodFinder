@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String mbnum = session.getAttribute("MBNUM").toString();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +27,11 @@ background-color:blue;
 </style>
 </head>
 <body>
-<form name="QuestionForm" action="QuWriteProcess.jsp" onsubmit="return validateForm(this);">
+<form name="QuestionForm" action="../Question/QuestionBoard.do" onsubmit="return validateForm(this);">
 	<table border ="1" class="mainborad">
 	<tr>
 		<td align = "center" colspan="2">
-			제목: <input type ="text" name="QuTitle">
+			제목: <input type ="text" name="QuTitle"> <input type="hidden" name="MBNUM" value=<%= mbnum %>> 
 		</td>
 	</tr>
 	<tr>

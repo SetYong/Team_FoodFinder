@@ -66,7 +66,7 @@ else{
 		%>
 		<tr align="center">
 		<td><%= dto.getHead_num()%></td>
-		<td align="center"><%= dto.getText()%>
+		<td align="left"><%= dto.getText()%>
 		</td>
 		<td align="center"><%= dto.getTitle() %></td>
 		<td align="center"><%= dto.getVisitcount() %></td>

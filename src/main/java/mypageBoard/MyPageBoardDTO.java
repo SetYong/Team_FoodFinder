@@ -1,6 +1,9 @@
 package mypageBoard;
 
 public class MyPageBoardDTO {
+	private String Mbnum;
+	private String kcal;
+	private String timecate;
 	private String idx;
 	private String name;
 	private String title;
@@ -8,9 +11,41 @@ public class MyPageBoardDTO {
 	private String ofile;
 	private String sfile;
 	private String pass;
+	private String image;
+	private String rnum;
 	private int downcount;
 	private int visitcount;
 	private java.sql.Date postdate;
+	public String getRnum() {
+		return rnum;
+	}
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getTimacate() {
+		return timecate;
+	}
+	public void setTimacate(String timecate) {
+		this.timecate = timecate;
+	}
+	public String getKcal() {
+		return kcal;
+	}
+	public void setKcal(String Kcal) {
+		this.kcal = Kcal;
+	}
+	public String getMbnum() {
+		return Mbnum;
+	}
+	public void setMbnum(String Mbnum) {
+		this.Mbnum = Mbnum;
+	}
 	public String getIdx() {
 		return idx;
 	}

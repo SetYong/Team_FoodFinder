@@ -15,7 +15,7 @@ public class MyPageBoardDAO extends DBConnPool{
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 		
-		String query = "SELECT COUNT(*) FROM diaryBoard";
+		String query = "SELECT COUNT(*) FROM C##foodfinder.diaryBoard";
 	// 검색 조건이 있다면 WHERE 절 추가
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " "
@@ -40,13 +40,13 @@ public class MyPageBoardDAO extends DBConnPool{
 		String query = " "
 				+ "SELECT * FROM ( "
 				+ " 	SELECT Tb.*, dno rNum FROM ( "
-				+ "			SELECT * FROM diaryboard ";
+				+ "			SELECT * FROM C##foodfinder.diaryboard ";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField")
 				+ " LIKE '%"+ map.get("searchWord") + "%' ";
 		}
 		
-		query += "			ORDER BY date DESC "
+		query += "			ORDER BY diarydate DESC "
 				+"		) Tb "
 				+"	) "
 				+" WHERE rNum BETWEEN ? AND ?";
@@ -59,19 +59,26 @@ public class MyPageBoardDAO extends DBConnPool{
 			
 			while(rs.next()) {
 				MyPageBoardDTO dto = new MyPageBoardDTO();
-				
-				dto.setIdx(rs.getString(1));
-				dto.setName(rs.getString(2));
-				dto.setTitle(rs.getString(3));
-				dto.setContent(rs.getString(4));
+				// mbnum title kcal timecate diarydate dno text image rnum
+				dto.setMbnum(rs.getString(1));
+				dto.setTitle(rs.getString(2));
+				dto.setKcal(rs.getString(3));
+				dto.setTimacate(rs.getString(4));
 				dto.setPostdate(rs.getDate(5));
-				dto.setOfile(rs.getString(6));
-				dto.setSfile(rs.getString(7));
-				dto.setDowncount(rs.getInt(8));
-				dto.setPass(rs.getString(9));
-				dto.setVisitcount(rs.getInt(10));
+				dto.setIdx(rs.getString(6));
+				dto.setContent(rs.getString(7));
+				dto.setImage(rs.getString(8));
+				dto.setRnum(rs.getString(9));
 				
 				board.add(dto);
+				System.out.println("1"+dto.getMbnum());
+				System.out.println("2"+dto.getTitle());
+				System.out.println("3"+dto.getKcal());
+				System.out.println("4"+dto.getTimacate());
+				System.out.println("5"+dto.getIdx());
+				System.out.println("6"+dto.getContent());
+				System.out.println("7"+dto.getImage());
+				System.out.println("8"+dto.getRnum());
 			}
 		}
 		catch (Exception e) {
@@ -81,27 +88,24 @@ public class MyPageBoardDAO extends DBConnPool{
 	}
 	
 	// 게시물 입력
-	public MyPageBoardDTO insertDiaryWrtie(String title, String timecate, String text, int mbnum, String image, int kcal) {
-		MyPageBoardDTO dto = new MyPageBoardDTO();
-		String query = "INSERT INTO DIARYBOARD("
-				+ "title, timecate, text, mbnum, image, kcal)"
-				+ " VALUES(?, ?, ?, ?, ?, ?)";
+	public void insertDiaryWrtie(int mbnum, String title, String timecate, String text, String image) {
+		String query = "INSERT INTO c##foodfinder.DIARYBOARD("
+				+ "mbnum, title, timecate, text, image)"
+				+ " VALUES(?, ?, ?, ?, ?)";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, title);
-			psmt.setString(2, timecate);
-			psmt.setString(3, text);
-			psmt.setInt(4, mbnum);
+			psmt.setInt(1, mbnum);
+			psmt.setString(2, title);
+			psmt.setString(3, timecate);
+			psmt.setString(4, text);
 			psmt.setString(5, image);
-			psmt.setInt(6, kcal);
 			System.out.println(query);
-			psmt.executeUpdate(query);
+			psmt.executeUpdate();
 			
 		}
 		catch (Exception e) {
 			System.out.println("다이어리 게시물 입력 중 예외 발생");
 			e.printStackTrace();
 		}
-		return dto;
 	}
 }

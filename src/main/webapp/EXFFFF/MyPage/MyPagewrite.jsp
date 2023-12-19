@@ -45,7 +45,7 @@ background-color:#BBBBBB;
 </script>
 </head>
 <body>
-	<form name="MyPageDiary" action="../MyPage/MyPagewrite.do" method="post">
+	<form name="MyPageDiary" action="../MyPage/MyPagewrite.do" method="post" onsubmit="validateform(this)">
 		<input type="hidden" name="MBNUM" value="<%=session.getAttribute("MBNUM")%>"/>
 		<table border="1" class="diarywrite">
 			<tr>
@@ -61,13 +61,13 @@ background-color:#BBBBBB;
 				<td colspan="3" align="center">API 칼로리 계산기 넣기</td>
 			</tr>
 			<tr>
-				<td colspan="3" align="center"><textarea name="text" cols="20" placeholder="식단을 입력해주세요" required></textarea></td>
+				<td colspan="3" align="center"><textarea name="text" cols="20" placeholder="식단을 입력해주세요"></textarea></td>
 			</tr>
 			<tr>
 			<td colspan="3" align="right">
 			<button type="reset">다시 작성</button>
 			<button type="submit">일기 작성 완료</button>
-			<button type="button" onclick="location.href='../MyPage/MyPageList.do';">
+			<button type="button" onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.jsp';">
 			목록으로 돌아가기</button>
 			</td>
 			</tr>

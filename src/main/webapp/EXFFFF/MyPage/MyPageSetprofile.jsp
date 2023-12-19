@@ -7,8 +7,8 @@
 <title>FoodFinder</title>
 </head>
 <body>
-	<form method="post" action="" name="MyPageSetprofile">
-		<table align="center">
+	<form method="post" action="../MyPage/MyPageSetprofile.do" name="MyPageSetprofile">
+		<table align="center">	
 			<tr>
 				<td>닉네임&nbsp; : &nbsp;<input type="text" name="nickname"/></td>
 			</tr>
@@ -22,6 +22,7 @@
 				<td><input type="submit" value="정보 변경하기"/></td>
 			</tr>
 		</table>
+		<input type="hidden" name="MBNUM" value="<%= session.getAttribute("MBNUM")%>"/>
 	</form>
 </body>
 </html>

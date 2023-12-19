@@ -35,17 +35,17 @@ public class FoodLogin extends HttpServlet {
 		if (memberMBnum>0) {
 			req.setAttribute("authMessage", memberMBnum + " 회원 등장");
 			req.setAttribute("MBNUM", memberMBnum);
+			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
 		}
 		else {
 			if (admin_id.equals(id) && admin_pwd.equals(pass)) {
-				req.setAttribute("authMessage", admin_id +"는 관리자");
 				resp.sendRedirect("../Admin/AdminMain.jsp");
 				return;
 			} else {
-				req.setAttribute("authMessage", "비회원 등장");
+				req.setAttribute("authMessage", "로그인 실패");
+				req.getRequestDispatcher("../Main/Main.jsp?contentPage=../Member/Login.jsp").forward(req, resp);
 			}
 		}
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp").forward(req, resp);
 	}
 	
 	@Override

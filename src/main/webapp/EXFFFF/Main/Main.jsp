@@ -32,13 +32,12 @@ if (sidePage == null) {
 	margin-left: 1%;
 	text-align: center;
 	display: inline-block;
-	background-color: green;
-	text-align: center;
+	line-height: 30px;
 }
 .mainbody {
 	border: 1px solid;
 	margin-left: 250px;
-	margin-right: 3%;	
+	margin-right: 75px;	
 }
 </style>
 </head>

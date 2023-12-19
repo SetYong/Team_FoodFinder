@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 style="text-align: center;">관리자 페이지 메인화면 입니다.</h2>
+
 </body>
 </html>

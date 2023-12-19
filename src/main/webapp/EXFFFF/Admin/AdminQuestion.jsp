@@ -44,25 +44,34 @@ dao.close();
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.board{
+width: 1100px;
+margin: 10px;
+margin-left:50px;
+border: solid 1px;
+transform-origin: center;
+text-align:center;
+}</style>
 </head>
 <body>
-	<h2>문의 사항 - 현재 페이지 :  <%= pageNum %></h2>
+	<h2 style="margin-left: 50px;">문의 사항 - 현재 페이지 :  <%= pageNum %></h2>
 	<form method ="get">
 	<table>
 		<tr>
 			<td align = "center">
-				<select name = "searchField">
+				<select name = "searchField" style="margin-left: 50px;height: 28px;text-align: center;">
 					<option value = "title">제목</option>
 					<option value = "content">내용</option>
 					<option value = "Qucate">카테고리</option>
 				</select>
-				<input type = "text"  name = "searchWord" />
+				<input type = "text"  name = "searchWord" style="width: 500px;height: 23px;"/>
 				<input type = "submit"  value = "검색하기" />
 			</td>
 		</tr>
 	</table>
-	</form>
-	<table>
+	</form> 
+	<table class=board>
 		<tr>
 			<td>번호</td>
 			<td>제목</td>

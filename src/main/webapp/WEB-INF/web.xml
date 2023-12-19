@@ -132,7 +132,7 @@
 		<servlet-name>MyPageSetprofileController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
 	</servlet>

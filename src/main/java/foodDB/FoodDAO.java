@@ -119,7 +119,8 @@ public class FoodDAO extends DBConnPool {
 
 			while (rs.next()) {
 				FoodDTO dto = new FoodDTO();
-
+				dto.setText(rs.getString("text"));
+				dto.setHead_num(rs.getInt("Head_num"));
 				dto.setTitle(rs.getString("title"));
 				dto.setFooddate(rs.getDate("fooddate"));
 				dto.setVisitcount(rs.getInt("visitcount"));

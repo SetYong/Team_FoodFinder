@@ -32,8 +32,7 @@ if (sidePage == null) {
 	margin-left: 1%;
 	text-align: center;
 	display: inline-block;
-	background-color: green;
-	text-align: center;
+	line-height: 30px;
 }
 .mainbody {
 	border: 1px solid;

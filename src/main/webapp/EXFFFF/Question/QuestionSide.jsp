@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+	<% 
+	System.out.println(session.getAttribute("MBNUM"));
+	%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -14,6 +17,7 @@ label:hover {
 </head>
 <body>
 	<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp'">문의하기</label> <br>
-	<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionMyBoard.jsp'">내 문의사항</label>
+	<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionMyBoard.jsp'">내 문의사항</label> <br>
+	<label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QeustionListUser.do'">내 문의사항2</label>
 </body>
 </html>

@@ -25,7 +25,7 @@ if (contentPage == null)
 }
 .sidebar_Profile{
 	width: 200px;
-	height: 200px;
+	height: 180px;
 	border: solid 1px;
 }
 .sidebar_Image{
@@ -53,6 +53,7 @@ background-color:gray;}
 				<p style="margin:auto;"> 관리자님
 			</div>
 		<div style="line-height: 30px">
+			<label onclick="">공지사항</label> <br>
 			<label onclick="location.href='AdminMain.jsp?contentPage=AdminQuestion.jsp'">문의 사항</label> <br>
 			<label onclick="location.href='AdminMain.jsp'">권한 관련</label>
 		</div>

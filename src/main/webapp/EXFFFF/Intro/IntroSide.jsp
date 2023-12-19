@@ -13,8 +13,8 @@ label:hover {
 </style>
 </head>
 <body>
-	<label class="intro_1">공지사항</label>
+	<label class="intro_1" onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';">공지사항</label>
 	<br>
-	<label class="intro_2">이벤트</label>
+	<label class="intro_2" onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/Introevent.jsp';">이벤트</label>
 </body>
 </html>

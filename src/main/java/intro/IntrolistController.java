@@ -1,4 +1,4 @@
-package exffff;
+package intro;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,13 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mypageBoard.BoardPage;
-import mypageBoard.MyPageBoardDAO;
-import mypageBoard.MyPageBoardDTO;
 
-public class MyPageViewController extends HttpServlet{
+public class IntrolistController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		MyPageBoardDAO dao = new MyPageBoardDAO();
+		IntroDAO dao = new IntroDAO();
 		// 뷰에 전달할 매개변수 저장용 맵 생성
 		Map<String, Object> map = new HashMap<String, Object>();
 		String searchField = req.getParameter("searchField");
@@ -44,12 +42,14 @@ public class MyPageViewController extends HttpServlet{
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<MyPageBoardDTO> boardLists = dao.selectListPage(map);
+		List<IntroDTO> boardLists = dao.selectListPage(map);
+		System.out.println(dao.selectListPage(map));
+		System.out.println("받은 리스트 : " + boardLists);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가
 		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
-				blockPage, pageNum, "../MyPageList.do"); 
+				blockPage, pageNum, "../IntroList.do"); 
 		map.put("pagingImg", pagingImg);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);
@@ -58,6 +58,6 @@ public class MyPageViewController extends HttpServlet{
 		// 전달할 데이터를 request 영역에 저장 후 list.jsp 로 포워드
 		req.setAttribute("boardLists", boardLists);
 		req.setAttribute("map", map);
-		req.getRequestDispatcher("/MyPage/MyPageList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp").forward(req, resp);
 	}
 }

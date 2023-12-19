@@ -63,18 +63,19 @@ function validateform(form){
 		form.Nickname.focus();
 		return false;
 	}
+	action="../Main/Newmember.do"
 }
 </script>
 </head>
 <body>
 	<div align="center">
 		<h2>회원가입</h2>
-		<form method="post" action="./Newmember.do" name="newform" onsubmit="validateform(this)">
+		<form method="post" name="newform" onsubmit="validateform(this)">
 			<table>
 				<tr height="50">
 					<td height="50">아이디</td>
 					<td height="50"><input type="text" name="id"></td>
-					<td height="50"><button type="button" name="checkid" onclick="./Newmembercheck.do">중복확인</button>
+					<td height="50"><button>중복확인</button>
 					&nbsp;<%=checkmessage %></td>
 				</tr>
 				<tr height="50">
@@ -105,8 +106,7 @@ function validateform(form){
 					<td height="50"><input type="text" name="Nickname"></td>
 				</tr>
 				<tr height="50">
-					<td height="50"><input type="submit" value="회원가입"
-						onclick="location.href='Main.jsp';"></td>
+					<td height="50"><input type="submit" value="회원가입"></td>
 				</tr>
 			</table>
 		</form>

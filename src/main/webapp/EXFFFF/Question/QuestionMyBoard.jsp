@@ -17,7 +17,7 @@
 <%
 } else{ 
 %>
-	<table border=1 style="width= 1100px;">
+	<table border="1" style="width: 1100px;">
 		<tr>
 			<th width = "10%">번호</th>
 			<th width = "50%">제목</th>

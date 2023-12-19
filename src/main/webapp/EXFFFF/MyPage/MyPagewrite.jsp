@@ -67,7 +67,7 @@ background-color:#BBBBBB;
 			<td colspan="3" align="right">
 			<button type="reset">다시 작성</button>
 			<button type="submit">일기 작성 완료</button>
-			<button type="button" onclick="location.href='../MyPage/MyPageList.do';">
+			<button type="button" onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.jsp';">
 			목록으로 돌아가기</button>
 			</td>
 			</tr>

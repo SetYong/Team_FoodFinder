@@ -107,21 +107,21 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MyPageDiaryController</servlet-name>
-		<servlet-class>exffff.MyPageDiaryController</servlet-class>
+		<servlet-name>MyPagewriteController</servlet-name>
+		<servlet-class>exffff.MyPagewriteController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MyPageDiaryController</servlet-name>
+		<servlet-name>MyPagewriteController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MyPageViewController</servlet-name>
-		<servlet-class>exffff.MyPageViewController</servlet-class>
+		<servlet-name>MyPagelistController</servlet-name>
+		<servlet-class>exffff.MyPagelistController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MyPageViewController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
+		<servlet-name>MyPagelistController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagelist.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -167,5 +167,14 @@
 	<servlet-mapping>
 		<servlet-name>NewmemberCheckid</servlet-name>
 		<url-pattern>/EXFFFF/Member/Newmembercheck.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>IntroListController</servlet-name>
+		<servlet-class>intro.IntrolistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroListController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
 	</servlet-mapping>
 </web-app>

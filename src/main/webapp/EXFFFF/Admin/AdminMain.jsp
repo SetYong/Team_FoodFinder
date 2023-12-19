@@ -16,19 +16,17 @@ if (contentPage == null)
 <style>
 .sidebar {
 	float: left;
-	border: 1px solid;
 	width: 200px;
 	height: 650px;
 	margin-left: 1%;
 	text-align: center;
 	display: inline-block;
-	background-color: green;
 	text-align: center;
 }
 .sidebar_Profile{
 	width: 200px;
-	height: 200px;
-	background-color: blue;
+	height: 180px;
+	border: solid 1px;
 }
 .sidebar_Image{
 	margin: 10px;
@@ -39,24 +37,25 @@ if (contentPage == null)
 .mainbody {
 	border: 1px solid;
 	margin-left: 250px;
-	margin-right: 3%;
+	margin-right: 75px;
 }
 label:hover{
 background-color:gray;}
 </style>
 </head>
 <body>
-	<div><a href="../Member/Logout.jsp"><img src="../img/exit.png" alt="로그아웃" style="float: right; width: 30px;"></a></div>
+	<div><a href="../Member/Logout.jsp"><img src="../img/exit.png" alt="로그아웃" style="float: right; width: 30px; margin-right: 20px;"></a></div>
 	<div>
 		<div class="sidebar">
 			<div class="sidebar_Profile">
 				<h3 style="margin: auto;">내정보</h3>
 				<img class="sidebar_Image" src="../img/test2.jpeg" alt="프로필"/>
-				<p style="margin:auto;"> <%= request.getParameter("id") %> 님
+				<p style="margin:auto;"> 관리자님
 			</div>
-		<div>
-			<label onclick="location.href='AdminMain.jsp?contentPage=AdminQuestion.jsp'">문의</label> <br>
-			<label onclick="location.href='AdminMain.jsp'">권한</label>
+		<div style="line-height: 30px">
+			<label onclick="">공지사항</label> <br>
+			<label onclick="location.href='AdminMain.jsp?contentPage=AdminQuestion.jsp'">문의 사항</label> <br>
+			<label onclick="location.href='AdminMain.jsp'">권한 관련</label>
 		</div>
 	</div>
 	<div class="<%=mainbody%>"><jsp:include page="<%=contentPage%>" /></div></div>

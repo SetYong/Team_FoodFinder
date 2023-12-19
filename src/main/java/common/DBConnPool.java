@@ -29,20 +29,17 @@ public class DBConnPool {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void close() {
 		try {
-			if (rs != null)
-				rs.close();
-			if (stmt != null)
-				stmt.close();
-			if (psmt != null)
-				psmt.close();
-			if (con != null)
-				con.close();
+			if (rs != null) rs.close();
+			if (stmt != null) stmt.close();
+			if (psmt != null) psmt.close();
+			if (con != null) con.close();
 
 			System.out.println("DB 커넥션 풀 자원 반납(foodfinder)");
 		} catch (Exception e) {
+			System.out.println("DB 커넥션 풀 닫는 중 예외 발생");
 			e.printStackTrace();
 		}
 	}

@@ -10,8 +10,13 @@
 <meta charset="UTF-8">
 <body>
 <h2 align="center">로그인</h2>
+<% System.out.println("로그인시 ID : " + session.getAttribute("user_Id")); %>
 <%
-System.out.println("로그인시 ID : " + session.getAttribute("user_Id"));
+if(request.getAttribute("authMessage") == "로그인 실패"){ %>
+	<script>
+		alert("아이디와 비밀번호를 다시 한번 확인해주세요.");
+	</script>
+<%}
 if(session.getAttribute("user_Id") == null){
 %>
 <script>
@@ -35,7 +40,7 @@ if(form.password.value == ""){
 <input type = "submit" value="로그인"/>
 </form>
 <%
-} 
+}
 %>
 
 </body>

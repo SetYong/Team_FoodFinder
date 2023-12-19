@@ -27,7 +27,7 @@ background-color:blue;
 </style>
 </head>
 <body>
-<form name="QuestionForm" action="../Question/QuestionBoard.do" onsubmit="return validateForm(this);">
+<form name="QuestionForm" method="post" action="../Question/QuestionBoard.do" onsubmit="return validateForm(this);">
 	<table border ="1" class="mainborad">
 	<tr>
 		<td align = "center" colspan="2">

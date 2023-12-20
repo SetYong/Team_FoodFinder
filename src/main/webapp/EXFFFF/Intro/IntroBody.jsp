@@ -52,7 +52,6 @@
 				<td align="left">
 					<a href="../Intro/IntroView.do?idx=${ row.idx }">${row.title }</a>
 				</td>
-				<td>${ row.title }</td>
 				<td>${ row.postdate }</td>
 				<td>${ row.visitcount }</td>
 			</tr>

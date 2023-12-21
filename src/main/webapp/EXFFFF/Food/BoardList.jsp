@@ -38,15 +38,14 @@ dao.close();
 <input type="text" name="searchWord"/>
 <input type="submit" value="검색하기"/>
 <input type="submit" value="새로고침"/>
-<button type="button" name="visitcount">방문횟수</button>
 </td>
 </tr>
 </table>
 <table border="1" width="90%">
 <tr>
 <th width="10%">번호</th>
-<th width="*" >제목</th>
-<th width="15%">작성자</th>
+<th width="*" >내용</th>
+<th width="15%">음식</th>
 <th width="10%">조회수</th>
 <th width="15%">작성일</th>
 </tr>
@@ -66,8 +65,8 @@ else{
 		virtualNum = totalCount--;
 		%>
 		<tr align="center">
-		<td><%= virtualNum %></td>
-		<td align="left">
+		<td><%= dto.getHead_num()%></td>
+		<td align="left"><%= dto.getText()%>
 		</td>
 		<td align="center"><%= dto.getTitle() %></td>
 		<td align="center"><%= dto.getVisitcount() %></td>

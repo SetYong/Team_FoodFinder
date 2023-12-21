@@ -79,7 +79,7 @@ function checkid(){
 		alert("아이디를 입력해주세요.");
 		form.id.focus();
 	}else {
-		form.action="../Member/NewmemberCheck.do?id="+id;
+		window.open("Newmembercheck.jsp","아이디 중복확인", "width=500, height=300");
 	}
 	
 }
@@ -88,7 +88,7 @@ function checkid(){
 <body>
 	<div align="center">
 		<h2>회원가입</h2>
-		<form name="newform" onsubmit="return validateform()">
+		<form name="newform" id="test" onsubmit="return validateform()">
 			<table>
 				<tr height="50">
 					<td height="50">아이디</td>

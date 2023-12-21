@@ -31,7 +31,7 @@ public class FoodLogin extends HttpServlet {
 		MemberDTO memberDTO = dao.getMember(id, pass);
 		int memberMBnum = memberDTO.getMbnum();
 		memberDTO = dao.getProfile(memberMBnum);
-		System.out.println(id+" "+  pass+" "+ "1111"+" " + memberMBnum);
+		System.out.println(id+" "+  pass+" "+ "로그인 했소"+" " + memberMBnum);
 		if (memberMBnum>0) {
 			req.setAttribute("authMessage", memberMBnum + " 회원 등장");
 			req.setAttribute("MBNUM", memberMBnum);
@@ -45,6 +45,7 @@ public class FoodLogin extends HttpServlet {
 				resp.sendRedirect("../Admin/AdminMain.jsp");
 				return;
 			} else {
+				System.out.println("로그인 실패");
 				req.setAttribute("authMessage", "로그인 실패");
 				req.getRequestDispatcher("../Main/Main.jsp?contentPage=../Member/Login.jsp").forward(req, resp);
 			}

@@ -224,14 +224,13 @@ public class MemberDAO extends DBConnPool {
 			psmt.setString(2, upass);
 			rs = psmt.executeQuery();
 
-			System.out.println("DAO 실행 완료" + uid + " " + upass);
+			System.out.println("DAO 실행 완료 ID : " + uid + " PWD : " + upass);
 
 			if (rs.next()) {
 				dto.setMbnum(rs.getInt(1));
 				dto.setId(rs.getString(2));
 				dto.setPwd(rs.getString(3));
 			}
-			System.out.println(dto.getId() + " " + dto.getPwd());
 
 		} catch (Exception e) {
 			e.printStackTrace();

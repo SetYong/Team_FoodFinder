@@ -46,20 +46,6 @@
    	<param-name>PAGES_PER_BLOCK</param-name>
    	<param-value>5</param-value>
    </context-param>
-   
-   <servlet>
-   		<servlet-name>MainController</servlet-name>
-   		<servlet-class>controller.ControllerURI</servlet-class>
-   		<init-param>
-   			<param-name>RequestMapping</param-name>
-   			<param-value>/WEB-INF/commandHandlerURI.properties</param-value>
-   		</init-param>
-   </servlet>
-   
-   <servlet-mapping>
-  	<servlet-name>MainController</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
   
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
@@ -141,6 +127,15 @@
 		<servlet-name>QuestionWrite</servlet-name>
 		<url-pattern>/EXFFFF/Question/QuestionBoard.do</url-pattern>
 	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>QuestionWriteAdmin</servlet-name>
+		<servlet-class>questionBoard.WriteAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionWriteAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/QuestionWrite.do</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>QuestionListUesr</servlet-name>
@@ -157,7 +152,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>QuestionListAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Question/QuestionList.do</url-pattern>
+		<url-pattern>/EXFFFF/Admin/AdminQuestion.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>QuestionViewAdmin</servlet-name>
+		<servlet-class>questionBoard.ViewAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionViewAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/QuestionView.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

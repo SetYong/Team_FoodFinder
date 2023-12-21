@@ -7,15 +7,24 @@
     <title>고객문의</title>
 </head>
 <body>
+<% if(session.getAttribute("MBNUM") == null) {
+%>
+	<script>           
+	if (confirm("로그인 후 이용 가능합니다. 로그인 하시겠습니까?")) {           
+		location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp';            
+	} else {
+		location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';           
+	}
+	</script>
+<% } else {
+%>
     <c:choose>
         <c:when test="${empty boardLists}">
-            <script>
-                if (confirm("로그인 후 이용 가능합니다. 로그인 하시겠습니까?")) {
-                    location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp';
-                } else {
-                    location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';
-                }
-            </script>
+        	<tr>
+				<td colspan="6" align="center">
+					등록된 게시물이 없습니다.
+				</td>
+			</tr>
         </c:when>
         <c:otherwise>
             <table border="1" style="width: 1195px;">
@@ -52,5 +61,6 @@
 	</table>
         </c:otherwise>
     </c:choose>
+<% } %>
 </body>
 </html>

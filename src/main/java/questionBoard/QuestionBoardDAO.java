@@ -9,7 +9,9 @@ import common.DBConnPool;
 public class QuestionBoardDAO extends DBConnPool{
 	public QuestionBoardDAO(){
 		super();
-	}    
+	} 
+	
+	//관리자 페이지 문의사항 리스트 조회
 	public List<QuestionBoardDTO> selectList(Map<String, Object> map) {
 		List<QuestionBoardDTO> questionBoardList = new Vector<QuestionBoardDTO>();
 		
@@ -32,10 +34,11 @@ public class QuestionBoardDAO extends DBConnPool{
 				dto.setQucate(rs.getString("Qucate"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
+				dto.setAnswer(rs.getString("answer"));
 				dto.setMbnum(rs.getInt("MBNUM"));
 				dto.setQudate(rs.getDate("Qudate"));
 				dto.setReadadmin(rs.getInt("ReadAdmin"));
-				
+					
 				questionBoardList.add(dto);
 			}
 		} catch(Exception e) {
@@ -45,6 +48,33 @@ public class QuestionBoardDAO extends DBConnPool{
 		return questionBoardList;
 	}
 	
+	//관리자 페이지 문의사항 View
+	public QuestionBoardDTO selectView(String headnum) {
+		QuestionBoardDTO dto = new QuestionBoardDTO();
+		String query = "SELECT * FROM QUESTIONBOARD WHERE head_num=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);;
+			rs= psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setHeadnum(rs.getInt(1));
+				dto.setQucate(rs.getString(1));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setMbnum(rs.getInt(5));
+				dto.setAnswer(rs.getString(6));
+				dto.setQudate(rs.getDate(7));
+				dto.setReadadmin(rs.getInt(8));
+			}
+		} catch (Exception e) {
+			System.out.println("게시물 상세보기 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	//유저 문의사항 리스트 조회
 	public List<QuestionBoardDTO> selctListUser(Map<String,Object> map){
 		List<QuestionBoardDTO> userList = new Vector<QuestionBoardDTO>();
 		
@@ -52,6 +82,7 @@ public class QuestionBoardDAO extends DBConnPool{
 					 + "WHERE mbnum = " + map.get("MBNUM")
 					 +  " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		System.out.println("게시물 조회 : " + query);
+		
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
@@ -75,8 +106,8 @@ public class QuestionBoardDAO extends DBConnPool{
 					System.out.println("Content 넣기 시도 : " + rs.getString(4));
 					dto.setMbnum(rs.getInt(5));
 					System.out.println("MBNUM 넣기 시도 : " + rs.getInt(5));
-					dto.setImage(rs.getString(6));
-					System.out.println("Image 넣기 시도 : " + rs.getString(6));
+					dto.setAnswer(rs.getString(6));
+					System.out.println("Answer 넣기 시도 : " + rs.getString(6));
 					dto.setQudate(rs.getDate(7));
 					System.out.println("QuDate 넣기 시도 : " + rs.getDate(7));
 					dto.setReadadmin(rs.getInt(8));
@@ -94,6 +125,7 @@ public class QuestionBoardDAO extends DBConnPool{
 		return userList;
 	}
 	
+	//유저 문의사항 작성
 	public int insertQuWrite(QuestionBoardDTO dto) {
 		int result = 0;
 		
@@ -102,6 +134,7 @@ public class QuestionBoardDAO extends DBConnPool{
 						 + "Qucate, title, content, mbnum)" 
 						 + " Values( " 
 						 + "?, ?, ?, ?)";
+			
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getQucate());;
 			psmt.setString(2, dto.getTitle());
@@ -118,6 +151,40 @@ public class QuestionBoardDAO extends DBConnPool{
 		return result;
 	}
 	
+	//관리자페이지 답신 작성
+	public void UpdateAnswer(QuestionBoardDTO dto) {
+		String query = "UPDATE QuestionBoard SET "
+					 + "answer = ? "
+					 + "WHERE head_num = ?";
+		System.out.println("관리자 답신 업데이트 쿼리 : " + query);
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getAnswer());
+			psmt.setInt(2, dto.getHeadnum());
+			psmt.executeQuery();
+		} catch(Exception e) {
+			System.out.println("고객문의 사항 답신 작성 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
+	
+	//관리자페이지 읽음 업데이트
+	public void updateReadAdmim(String headnum) {
+		String query = "UPDATE QuestionBoard SET "
+					 + " ReadAdmin = 1 "
+					 + " WHERE head_num = ?";
+		System.out.println("관리자 읽음 업데이트 쿼리 : " + query);
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.executeQuery();
+		} catch(Exception e) {
+			System.out.println("게시물 답신 완료 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
+	
+	//관리자 페이지 총 게시물 수 체크
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 
@@ -138,6 +205,7 @@ public class QuestionBoardDAO extends DBConnPool{
 		return totalCount;
 	}
 	
+	//유저 문의사항 총 게시글 수 체크
 	public int selectCountUser(Map<String, Object> map) {
 		int totalCount = 0;
 

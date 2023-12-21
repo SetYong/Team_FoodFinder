@@ -22,6 +22,12 @@
 </head>
 <body>
 	<h2 align=center>불만사항이 있으시다면 알려주세요. 총알같은 속도로 처리해볼게요.</h2>
-	<input type="button" value="문의하기" onclick="writeQuestion()" >
+	<input type="button" value="문의하기" onclick="writeQuestion()" style="
+    width: 100px;
+    height: 45px;
+    margin-left: 45%;
+    border-radius: 15%;
+    border: none;
+">
 </body>
 </html>

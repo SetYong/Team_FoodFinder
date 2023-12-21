@@ -14,11 +14,15 @@ import javax.servlet.http.HttpSession;
 
 public class QuestionListUser extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    QuestionBoardDAO dao;
+    
+    public void init() throws ServletException{
+		dao = new QuestionBoardDAO();
+	}
+    
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        QuestionBoardDAO dao = new QuestionBoardDAO();
 
         try {
             Map<String, Object> map = new HashMap<>();
@@ -50,7 +54,6 @@ public class QuestionListUser extends HttpServlet {
             map.put("end", end);
 
             List<QuestionBoardDTO> boardLists = dao.selctListUser(map);
-            dao.close();
 
             System.out.println("유저리스트 조회 끝 DAO 종료");
 
@@ -72,4 +75,9 @@ public class QuestionListUser extends HttpServlet {
             e.printStackTrace();
         }
     }
+    
+	@Override
+	public void destroy() {
+		dao.close();
+	}
 }

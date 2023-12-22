@@ -190,4 +190,13 @@
 		<servlet-name>IntroListController</servlet-name>
 		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>UploadController</servlet-name>
+	<servlet-class>exffff.UploadController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>UploadController</servlet-name>
+	<url-pattern>/EXFFFF/upload/FileUploadMain.do</url-pattern>
+	</servlet-mapping>
 </web-app>

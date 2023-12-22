@@ -20,7 +20,7 @@ height:200px;
 <body>
 	<h3 style="text-align:center">세상에 있는 모든 맛있는 음식을 먹어봤으면 좋겠어요.</h3>
 	<span style="float: right;">
-		<button type="button" style="border-radius: 0.5em:padding:5px20px">글
+		<button type="button" style="border-radius: 0.5em:padding:5px20px" onclick="location.href='BoardList.jsp'">글
 			작성</button>
 	</span>
 	<br>

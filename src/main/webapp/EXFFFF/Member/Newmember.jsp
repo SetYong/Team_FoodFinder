@@ -68,33 +68,23 @@ function validateform(){
 		form.Nickname.focus();
 		return false;
 	}else {
-		form.method="post";
-		form.action="../Main/Newmember.do";
+		return true;
 	}
-}
-function checkid(){
-	var form = document.newform;
-	var id = form.id.value;
-	if(id.length==0 || id==""){
-		alert("아이디를 입력해주세요.");
-		form.id.focus();
-	}else {
-		window.open("Newmembercheck.jsp","아이디 중복확인", "width=500, height=300");
-	}
-	
 }
 </script>
+<script src="js/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 	<div align="center">
 		<h2>회원가입</h2>
-		<form name="newform" id="test" onsubmit="return validateform()">
+		<form name="newform" action="../Member/Newmember.do" onsubmit="return validateform()">
 			<table>
 				<tr height="50">
 					<td height="50">아이디</td>
-					<td height="50"><input type="text" name="id"></td>
-					<td height="50"><button type="button" onclick="checkid()">중복확인</button>
-					&nbsp;<%=checkmessage %>
+					<td height="50"><input type="text" name="id" class="input_id"></td>
+					<td height="50"><button type="button" class="check_id">중복확인</button>
+					<font id = "checkId" size="2"></font>
 					<input type="hidden" name="idcheckpass" value="idUncheck"/>
 					</td>
 				</tr>
@@ -136,4 +126,29 @@ function checkid(){
 		</form>
 	</div>
 </body>
+<script>
+$('.check_id').ready(function{
+	console.log("출력이 안되네");
+	let userId = $('.input_id').val();
+	
+	$.ajax({
+		url: "/EXFFFF/Member/Newmembercheck.do";
+		type: "post";
+		data: {userId: userId};
+		dataType: 'json';
+		success: function(result){
+			if(result == 0){
+				$("#checkId").html("이미 사용중인 아이디입니다.");
+				$("#checkId").attr('color', 'red');
+			} else {
+				$("#checkId").html("사용 가능한 아이디입니다.");
+				$("#checkId").attr('color','green');
+			}
+		},
+		error: function(){
+			alert("서버요청실패");
+		}
+	})
+})
+</script>
 </html>

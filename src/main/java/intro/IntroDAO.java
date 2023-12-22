@@ -46,11 +46,11 @@ public class IntroDAO extends DBConnPool{
 				+ " LIKE '%"+ map.get("searchWord") + "%' ";
 		}
 		
-		query += "			ORDER BY introdate DESC "
+		query += "			ORDER BY idx DESC "
 				+"		) Tb "
 				+"	) "
-				+" WHERE rNum BETWEEN ? AND ?";
-		
+				+" WHERE idx BETWEEN ? AND ?";
+		System.out.println(query);
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
@@ -68,12 +68,12 @@ public class IntroDAO extends DBConnPool{
 				dto.setVisitcount(rs.getString(6));
 				
 				board.add(dto);
-				System.out.println("1"+dto.getTitle());
-				System.out.println("2"+dto.getText());
-				System.out.println("3"+dto.getIdx());
-				System.out.println("4"+dto.getImage());
-				System.out.println("5"+dto.getPostdate());
-				System.out.println("6"+dto.getVisitcount());
+				System.out.println("1 "+dto.getTitle());
+				System.out.println("2 "+dto.getText());
+				System.out.println("3 "+dto.getIdx());
+				System.out.println("4 "+dto.getImage());
+				System.out.println("5 "+dto.getPostdate());
+				System.out.println("6 "+dto.getVisitcount());
 			}
 		}
 		catch (Exception e) {

@@ -167,25 +167,27 @@ public class MemberDAO extends DBConnPool {
 	}
 
 	// 회원가입 3 아이디 중복확인
-	public String checkId(String id) {
-		String check = "false";
-		String query = "SELECT USER_ID FROM MEMBER_LOGIN WHERE USER_ID=?";
+	public int checkId(String id) {
+		int idCheck = 0;
+		String query = "SELECT USER_ID FROM c##foodfinder.MEMBER_LOGIN WHERE USER_ID=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
-				check = "false";
+			if(rs.next() || id.equals("")) {
+				idCheck = 0;
 			} else {
-				check = "true";
+				idCheck = 1;
 			}
 			
 		} catch (Exception e) {
 			System.out.println("회원가입 아이디 중복확인 중 예외 발생");
 			e.printStackTrace();
+		} finally {
+			close();
 		}
-		return check;
+		return idCheck;	
 	}
 	
 	// 내정보 읽어오기

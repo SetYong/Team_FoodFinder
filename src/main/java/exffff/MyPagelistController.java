@@ -43,8 +43,8 @@ public class MyPagelistController extends HttpServlet{
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("end", end);
-		
-		List<MyPageBoardDTO> boardLists = dao.selectListPage(map);
+		String mbnum = req.getParameter("MBNUM");
+		List<MyPageBoardDTO> boardLists = dao.selectListPage(map, mbnum);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가

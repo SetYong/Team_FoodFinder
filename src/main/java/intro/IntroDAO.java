@@ -101,4 +101,44 @@ public class IntroDAO extends DBConnPool{
 			e.printStackTrace();
 		}
 	}
+	
+	//주어진 일련번호에 해당하는 게시물을 DTO에 담아서 반환합니다.
+	public IntroDTO selectView(String idx) {
+		IntroDTO dto = new IntroDTO();
+		String query = "SELECT * FROM C##foodfinder.introboard WHERE idx=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, idx);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				dto.setTitle(rs.getString(1));
+				dto.setText(rs.getString(2));
+				dto.setIdx(rs.getString(3));
+				dto.setImage(rs.getString(4));
+				dto.setPostdate(rs.getDate(5));
+				dto.setVisitcount(rs.getString(6));
+			}
+		}
+		catch(Exception e) {
+			System.out.println("introdao 게시물 상세보기 중 예외 발생");
+			e.printStackTrace();;
+		}
+		return dto;
+	}
+	
+	// 주어진 일련번호에 해당하는 게시물의 조회수를 1 증가시킵니다.
+	public void updateVisitCount(String idx) {
+		String query = "UPDATE introboard set"
+				+" visitcount=visitcount+1"
+				+" WHERE idx=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, idx);
+			psmt.executeQuery();
+		}
+		catch (Exception e) {
+			System.out.println("introdao 게시물 조회수 증가 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
 }

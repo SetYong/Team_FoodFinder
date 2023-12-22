@@ -51,7 +51,7 @@
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
 				<td align="left">
-					<a href="../MyPage/MyPageView.do?idx=${ row.idx }">${row.title }</a>
+					<a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
 				</td>
 				<td>${ row.content }</td>
 				<td>${ row.postdate }</td>

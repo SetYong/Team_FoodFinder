@@ -10,7 +10,7 @@ public class FoodDAO extends DBConnPool {
 	public FoodDTO getList(String visitcount, String image, String text, String title, String heartcount, String cate) {
 		FoodDTO vo = new FoodDTO();
 		try {
-			String insertQuery = "INSERT INTO FOOD(head_num, visitcount, image, text, title, mbnum, heartcount, cate) VALUES(2,?,?,?,?,1,?,?)";
+			String insertQuery = "INSERT INTO FOOD(visitcount, image, text, title, heartcount, cate) VALUES(?,?,?,?,?,?)";
 
 			psmt = con.prepareStatement(insertQuery);
 			psmt.setString(1, visitcount);
@@ -45,11 +45,10 @@ public class FoodDAO extends DBConnPool {
 
 	}
 
-	public FoodDTO getEdit(String head_num, String visitcount, String image, String text, String title, String mbnum,
-			String heartcount, String cate) {
+	public FoodDTO getEdit( String visitcount, String image, String text, String title, String heartcount, String cate) {
 		FoodDTO vo = new FoodDTO();
 		try {
-			String updateQuery = "UPDATE FOOD set head_num='1',visitcount=?, image=?, text=?, title=?,mbnum=1,heartcount=?, cate=? where head_num='1'";
+			String updateQuery = "UPDATE FOOD set visitcount=?, image=?, text=?, title=?, heartcount=?, cate=?";
 
 			System.out.println(updateQuery);
 			psmt = con.prepareStatement(updateQuery);

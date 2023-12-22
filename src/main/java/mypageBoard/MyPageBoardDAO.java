@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import exffff.DBConnPool;
+import intro.IntroDTO;
 
 public class MyPageBoardDAO extends DBConnPool{
 	public MyPageBoardDAO() {
@@ -35,7 +36,7 @@ public class MyPageBoardDAO extends DBConnPool{
 	}
 	
 	// 검색 조건에 맞는 게시물 목록을 반환합니다.
-	public List<MyPageBoardDTO> selectListPage(Map<String, Object> map) {
+	public List<MyPageBoardDTO> selectListPage(Map<String, Object> map, String mbnum) {
 		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
 		String query = " "
 				+ "SELECT * FROM ( "
@@ -49,12 +50,13 @@ public class MyPageBoardDAO extends DBConnPool{
 		query += "			ORDER BY diarydate DESC "
 				+"		) Tb "
 				+"	) "
-				+" WHERE rNum BETWEEN ? AND ?";
-		
+				+" WHERE MBNUM=? AND rNum BETWEEN ? AND ?";
+		System.out.println(query);
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, map.get("start").toString());
-			psmt.setString(2, map.get("end").toString());
+			psmt.setString(1, mbnum);
+			psmt.setString(2, map.get("start").toString());
+			psmt.setString(3, map.get("end").toString());
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
@@ -71,14 +73,14 @@ public class MyPageBoardDAO extends DBConnPool{
 				dto.setRnum(rs.getString(9));
 				
 				board.add(dto);
-				System.out.println("1"+dto.getMbnum());
-				System.out.println("2"+dto.getTitle());
-				System.out.println("3"+dto.getKcal());
-				System.out.println("4"+dto.getTimacate());
-				System.out.println("5"+dto.getIdx());
-				System.out.println("6"+dto.getContent());
-				System.out.println("7"+dto.getImage());
-				System.out.println("8"+dto.getRnum());
+				System.out.println("1 "+dto.getMbnum());
+				System.out.println("2 "+dto.getTitle());
+				System.out.println("3 "+dto.getKcal());
+				System.out.println("4 "+dto.getTimacate());
+				System.out.println("5 "+dto.getIdx());
+				System.out.println("6 "+dto.getContent());
+				System.out.println("7 "+dto.getImage());
+				System.out.println("8 "+dto.getRnum());
 			}
 		}
 		catch (Exception e) {
@@ -108,4 +110,30 @@ public class MyPageBoardDAO extends DBConnPool{
 			e.printStackTrace();
 		}
 	}
+	//주어진 일련번호에 해당하는 게시물을 DTO에 담아서 반환합니다.
+		public MyPageBoardDTO selectView(String idx, String mbnum) {
+			MyPageBoardDTO dto = new MyPageBoardDTO();
+			String query = "SELECT * FROM C##foodfinder.diaryboard WHERE dno=? and mbnum=?";
+			try {
+				psmt = con.prepareStatement(query);
+				psmt.setString(1, idx);
+				psmt.setString(2, mbnum);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					dto.setMbnum(rs.getString(1));
+					dto.setTitle(rs.getString(2));
+					dto.setKcal(rs.getString(3));
+					dto.setTimacate(rs.getString(4));
+					dto.setPostdate(rs.getDate(5));
+					dto.setIdx(rs.getString(6));
+					dto.setContent(rs.getString(7));
+					dto.setImage(rs.getString(8));
+				}
+			}
+			catch(Exception e) {
+				System.out.println("mypage 게시물 상세보기 중 예외 발생");
+				e.printStackTrace();
+			}
+			return dto;
+		}
 }

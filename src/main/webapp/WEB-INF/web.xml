@@ -199,4 +199,31 @@
 		<servlet-name>IntroListController</servlet-name>
 		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>IntroViewController</servlet-name>
+		<servlet-class>intro.IntroViewController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroViewController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/IntroView.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MyPageViewController</servlet-name>
+		<servlet-class>mypageBoard.MyPageViewController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageViewController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
+	</servlet-mapping> 
+  
+  <servlet>
+	  <servlet-name>UploadController</servlet-name>
+    <servlet-class>exffff.UploadController</servlet-class>
+	</servlet>
+  <servlet-mapping>
+  	<servlet-name>UploadController</servlet-name>
+	  <url-pattern>/EXFFFF/upload/FileUploadMain.do</url-pattern>
+	</servlet-mapping>
 </web-app>

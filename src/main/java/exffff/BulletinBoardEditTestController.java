@@ -25,14 +25,14 @@ public class BulletinBoardEditTestController extends HttpServlet{
 		String image = req.getParameter("image");
 		String text = req.getParameter("text");
 		String title = req.getParameter("title");
-		String mbnum = req.getParameter("mbnum");
+		
 		String heartcount = req.getParameter("heartcount");
 		String cate = req.getParameter("cate");
 		
 		System.out.println(visitcount + image + text + title + heartcount + cate);
 		
-		dao.getEdit(head_num, visitcount, image, text, title, mbnum,heartcount,  cate);
-		FoodDTO Fooddto = dao.getEdit(head_num, visitcount, image, text, title, mbnum, heartcount, cate);
+		dao.getEdit( visitcount, image, text, title, heartcount,  cate);
+		FoodDTO Fooddto = dao.getEdit( visitcount, image, text, title,  heartcount, cate);
 		int MBNUM = Fooddto.getMbnum();
 		
 		

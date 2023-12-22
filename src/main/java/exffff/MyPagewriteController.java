@@ -19,7 +19,7 @@ public class MyPagewriteController extends HttpServlet{
 		dao = new MyPageBoardDAO();
 	}
 	@Override 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String title = req.getParameter("title");
 		String timeCate = req.getParameter("timeCate");
 		String text = req.getParameter("text");
@@ -35,7 +35,7 @@ public class MyPagewriteController extends HttpServlet{
 					+text+ " MBNUM : "+ mbnum + " image : "+ image + " kcal : "+ kcal); 
 		dao.insertDiaryWrtie(mbnum, title, timeCate, text, image);
 		
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.do").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/MyPage/MyPagelist.do").forward(req, resp);
 	}
 	@Override
 	public void destroy() {

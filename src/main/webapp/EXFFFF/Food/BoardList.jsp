@@ -38,6 +38,7 @@ dao.close();
 <input type="text" name="searchWord"/>
 <input type="submit" value="검색하기"/>
 <input type="submit" value="새로고침"/>
+<button type="button" onclick="location.href='foodbody.jsp'">처음으로</button>
 </td>
 </tr>
 </table>
@@ -81,7 +82,8 @@ else{
 <tr aligin="center">
 <td>
 </td>
-<td width="100"><button type="button" onclick="location.href='BulletinBoardTest.jsp'">글쓰기</button>
+<td width="100"><button type="button" onclick="location.href='BulletinBoardTest.jsp'">글쓰기
+<td width="100"><button type="button" onclick="location.href='BulletinBoardEditTest.jsp'">수정하기
 </td>
 </tr>
 </table>

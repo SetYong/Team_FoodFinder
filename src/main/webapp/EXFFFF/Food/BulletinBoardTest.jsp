@@ -57,7 +57,6 @@
             <td>
                 <textarea name="content" style="width: 10%; height: 50px;">첨부파일  </textarea> 
                 <textarea name="image" style="width: 15%; height: 50px;">이미지 경로  </textarea> 
-                <button name="visitcount" type="button">방문횟수</button>
             </td> 
         </tr>
            
@@ -73,7 +72,7 @@
             <td colspan="2" align="center">
                 <button type="reset">다시 입력</button>
                 <button type="submit">작성 완료</button>
-                <button type="button" onclick="BoardList.jsp">목록 보기</button> 
+                <button type="button" onclick="location.href='BoardList.jsp'">목록 보기</button> 
             </td>
         </tr>
     </tbody></table>

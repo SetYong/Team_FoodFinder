@@ -19,7 +19,6 @@ public class NewmemberCheckController extends HttpServlet{
 	}
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("newmembercheck controller 입장!");
 		String id = req.getParameter("id");
 		String check = dao.checkId(id);
 		

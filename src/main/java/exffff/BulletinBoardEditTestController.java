@@ -20,7 +20,7 @@ public class BulletinBoardEditTestController extends HttpServlet{
 	}
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String head_num = req.getParameter("head_num");
 		String visitcount = req.getParameter("visitcount");
 		String image = req.getParameter("image");
 		String text = req.getParameter("text");

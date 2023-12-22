@@ -23,7 +23,7 @@ List<MyfileDTO> fileLists = dao.myFileList();
 dao.close();%>
 <table border="1">
 <tr>
-<th>작성자</th><th>제목</th><th>카테고리</th>
+<th>작성자</th> <th>제목</th> <th>카테고리</th>
 <th>사진</th><th>작성일</th>
 </tr>
 <% for(MyfileDTO f : fileLists){ %>

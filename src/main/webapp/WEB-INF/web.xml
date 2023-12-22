@@ -165,6 +165,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>QuestionViewUser</servlet-name>
+		<servlet-class>questionBoard.ViewUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionViewUser</servlet-name>
+		<url-pattern>/EXFFFF/Question/QeustionViewUser.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>MyPageSetprofileController</servlet-name>
 		<servlet-class>mypageBoard.MyPageSetprofile</servlet-class>
 	</servlet>

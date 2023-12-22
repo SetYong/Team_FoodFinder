@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<% 
-	System.out.println(session.getAttribute("MBNUM"));
+	System.out.println("사이드바 : " + session.getAttribute("MBNUM"));
 	%>
 <html>
 <head>

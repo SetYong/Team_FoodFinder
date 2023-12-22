@@ -35,7 +35,7 @@ public class MyPagewriteController extends HttpServlet{
 					+text+ " MBNUM : "+ mbnum + " image : "+ image + " kcal : "+ kcal); 
 		dao.insertDiaryWrtie(mbnum, title, timeCate, text, image);
 		
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.do").forward(req, resp);
 	}
 	@Override
 	public void destroy() {

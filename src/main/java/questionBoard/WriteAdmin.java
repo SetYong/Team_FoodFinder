@@ -30,7 +30,7 @@ public class WriteAdmin extends HttpServlet {
 		dao.updateReadAdmim(headnum);
 		System.out.println("Update Read Admin 변경 완료");
 		
-		request.getRequestDispatcher("/EXFFFF/Admin/AdminMain.jsp?contentPage=AdminQuestion.jsp").forward(request, response);
+		request.getRequestDispatcher("/EXFFFF/Admin/AdminMain.jsp?contentPage=AdminQuestion.do").forward(request, response);
 	}
 	
 	@Override

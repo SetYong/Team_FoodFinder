@@ -4,6 +4,9 @@
 String contentPage = request.getParameter("contentPage");
 String contentPageSize = "85%";
 String mainbody = "mainbody";
+
+System.out.println("contentPage :: " + contentPage);
+
 if (contentPage == null)
 	contentPage = "AdminBody.jsp";
 

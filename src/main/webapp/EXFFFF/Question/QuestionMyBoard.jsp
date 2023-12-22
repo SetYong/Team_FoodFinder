@@ -38,7 +38,8 @@
                 <c:forEach items="${boardLists}" var="row" varStatus="loop">
                     <tr align="center">
                         <td>${row.headnum}</td>
-                        <td>${row.title}</td>
+                        <td><a href="../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionViewUser.do?headnum=${ row.headnum }">${row.title}</a></td>
+                        <td><label onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionViewUser.do?headnum=${ row.headnum }'"></td>
                         <td>${row.qucate}</td>
                         <td>${row.qudate}</td>
                         <td>
@@ -46,7 +47,7 @@
 							<font color="#F15F5F">미답변</font>
 						</c:if>
                         <c:if test="${row.readadmin ==  '1' }">
-							<font color="#F15F5F">답변</font>
+							<font color="#4194DD">답변</font>
 						</c:if>
 						</td>
                     </tr>

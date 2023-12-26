@@ -1,6 +1,7 @@
 package exffff;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,20 +20,16 @@ public class NewmemberCheckController extends HttpServlet{
 	}
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String check = dao.checkId(id);
+		String userId = req.getParameter("userId");
+		PrintWriter out = resp.getWriter();
+		int idCheck = dao.checkId(userId);
 		
-		if( check.equals("true")) {
-			System.out.println("아이디 사용 가능");
-			req.setAttribute("checkid", id);
-			req.setAttribute("checkidmessage", "사용가능한 아이디입니다.");
-			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/Newmember.jsp").forward(req, resp);
-		} else {
-			System.out.println("아이디 중복으로 사용 불가능 ");
-			req.setAttribute("checkid", id);
-			req.setAttribute("checkmessage", "이미 사용중인 아이디입니다.");
-			req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/Newmember.jsp").forward(req, resp);
+		if(idCheck == 0) {
+			System.out.println("NewmemberCheckController : 이미 사용중인 아이디입니다.");
+		} else if (idCheck ==1) {
+			System.out.println("NewmemberCheckController : 사용 가능한 아이디입니다.");
 		}
+		out.write(idCheck+"");
 	}
 	@Override
 	public void destroy() {

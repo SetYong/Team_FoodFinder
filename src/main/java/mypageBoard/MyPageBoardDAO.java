@@ -13,17 +13,17 @@ public class MyPageBoardDAO extends DBConnPool{
 	}
 	
 	// 검색 조건에 맞는 게시물의 개수를 반환합니다.
-	public int selectCount(Map<String, Object> map) {
+	public int selectCount(Map<String, Object> map, String mbnum) {
 		int totalCount = 0;
-		
-		String query = "SELECT COUNT(*) FROM C##foodfinder.diaryBoard";
+		String query = "SELECT COUNT(*) FROM C##foodfinder.diaryBoard WHERE mbnum=?";
 	// 검색 조건이 있다면 WHERE 절 추가
 		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchField") + " "
+			query += " AND " + map.get("searchField") + " "
 					+ " LIKE '%" + map.get("searchWord") + "%'";
 		}
 		try {
 			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
 			rs = psmt.executeQuery();
 			rs.next();
 			totalCount = rs.getInt(1);
@@ -40,8 +40,9 @@ public class MyPageBoardDAO extends DBConnPool{
 		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
 		String query = " "
 				+ "SELECT * FROM ( "
-				+ " 	SELECT Tb.*, dno rNum FROM ( "
-				+ "			SELECT * FROM C##foodfinder.diaryboard ";
+				+ " 	SELECT Tb.*, rownum rNum FROM ( "
+				+ "			SELECT * FROM C##foodfinder.diaryboard where mbnum=?";
+		
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField")
 				+ " LIKE '%"+ map.get("searchWord") + "%' ";
@@ -50,7 +51,7 @@ public class MyPageBoardDAO extends DBConnPool{
 		query += "			ORDER BY diarydate DESC "
 				+"		) Tb "
 				+"	) "
-				+" WHERE MBNUM=? AND rNum BETWEEN ? AND ?";
+				+" WHERE rNum BETWEEN ? AND ?";
 		System.out.println(query);
 		try {
 			psmt = con.prepareStatement(query);

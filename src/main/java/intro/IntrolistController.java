@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mypageBoard.BoardPage;
 
 public class IntrolistController extends HttpServlet{
 	@Override
@@ -49,7 +48,7 @@ public class IntrolistController extends HttpServlet{
 		
 		// 뷰에 전달할 매개변수 추가
 		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
-				blockPage, pageNum, "../IntroList.do"); 
+				blockPage, pageNum, "../Intro/IntroList.do"); 
 		map.put("pagingImg", pagingImg);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);

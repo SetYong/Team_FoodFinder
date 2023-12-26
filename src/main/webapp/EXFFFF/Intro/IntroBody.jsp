@@ -60,5 +60,13 @@
 	</c:choose>
 	</table>
 	
+	<table border="1" width="90%">
+		<tr align="center">
+			<td>
+				${ map.pagingImg }
+			</td>
+		</tr>
+	</table>
+	
 </body>
 </html>

@@ -13,7 +13,7 @@ label:hover {
 </style>
 </head>
 <body>
-	<label class="intro_1" onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';">공지사항</label>
+	<a class="intro_1" href="../Intro/IntroList.do">공지사항</a>
 	<br>
 	<label class="intro_2" onclick="location.href='../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/Introevent.jsp';">이벤트</label>
 </body>

@@ -80,7 +80,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodNewMember</servlet-name>
-		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
+		<url-pattern>/EXFFFF/Member/Newmember.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

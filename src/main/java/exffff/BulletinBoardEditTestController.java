@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import foodDB.FoodDAO;
-import foodDB.FoodDTO;
+import food.FoodDAO;
+import food.FoodDTO;
 
 public class BulletinBoardEditTestController extends HttpServlet{
 	FoodDAO dao;

@@ -11,6 +11,7 @@ String email = "정보가 없습니다.";
 String phone = "정보가 없습니다.";
 
 System.out.println("contentPage :: " + contentPage);
+
 if(session.getAttribute("MBNUM")==null){
 session.setAttribute("MBNUM", request.getAttribute("MBNUM"));
 session.setAttribute("nickname", request.getAttribute("nickname"));

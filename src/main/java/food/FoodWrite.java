@@ -1,4 +1,4 @@
-package questionBoard;
+package food;
 
 import java.io.IOException;
 
@@ -7,24 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class QuestionWrite extends HttpServlet {
+import questionBoard.QuestionBoardDTO;
+
+public class FoodWrite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	QuestionBoardDAO dao;
+	FoodDAO dao;
 	
 	public void init() throws ServletException{
-		dao = new QuestionBoardDAO();
+		dao = new FoodDAO();
 	}
 	
-	@Override   
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionBoardDTO dto = new QuestionBoardDTO();
-		dto.setTitle(request.getParameter("QuTitle"));
-		dto.setQucate(request.getParameter("QuCate"));
-		dto.setContent(request.getParameter("QuContent")); 
+		FoodDTO dto = new FoodDTO();
+		dto.setTitle(request.getParameter("Title"));
+		dto.setCate(request.getParameter("Cate"));
+		dto.setContent(request.getParameter("Content")); 
 		dto.setMbnum(Integer.parseInt(request.getParameter("MBNUM")));
-		System.out.println("mbnum setnum 후 : " + dto.getMbnum());
+		System.out.println("mbnum setnum 후 : " + dto.getMbnum() + "cate : " + dto.getCate());
 		
-		int iResult = dao.insertQuWrite(dto);
+		int iResult = dao.insertWrite(dto);
 		
 		if(iResult == 1){
 			response.sendRedirect("../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp");
@@ -34,7 +36,7 @@ public class QuestionWrite extends HttpServlet {
 			return;
 		}
 	}
-	
+
 	@Override
 	public void destroy() {
 		dao.close();

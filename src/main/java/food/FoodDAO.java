@@ -1,4 +1,4 @@
-package foodDB;
+package food;
 
 import java.util.List;
 import java.util.Map;
@@ -7,6 +7,18 @@ import java.util.Vector;
 import common.DBConnPool;
 
 public class FoodDAO extends DBConnPool {
+	
+	public int insertWrite(FoodDTO dto) {
+		int result = 0;
+		String query = "Insert INTO Food (title, content recipe, mbnum, cate) VALCUES ( ";
+		try {
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	public FoodDTO getList(String visitcount, String image, String text, String title, String heartcount, String cate) {
 		FoodDTO vo = new FoodDTO();
 		try {

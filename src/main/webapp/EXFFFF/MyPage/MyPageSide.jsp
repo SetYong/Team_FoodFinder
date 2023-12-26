@@ -11,6 +11,14 @@ label:hover {
 	color: white;
 	background-color: gray;
 }
+a{
+text-decoration:none;
+color: black;
+}
+a:hover {
+	color: white;
+	background-color: gray;
+}
 </style>
 </head>
 <body>

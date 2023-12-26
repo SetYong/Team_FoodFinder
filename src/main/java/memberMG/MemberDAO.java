@@ -7,8 +7,8 @@ public class MemberDAO extends DBConnPool {
 	// 아이디 찾기
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
-		String query = "SELECT User_id FROM MEMBER_LOGIN " + "WHERE member_Login.mbnum "
-				+ "IN (SELECT mbnum FROM MEMBER_PROFILE WHERE " + "name=? AND cn=? AND phone=?)";
+		String query = "SELECT User_id FROM c##foodfinder.MEMBER_LOGIN " + "WHERE member_Login.mbnum "
+				+ "IN (SELECT mbnum FROM c##foodfinder.MEMBER_PROFILE WHERE " + "name=? AND cn=? AND phone=?)";
 
 		try {
 			psmt = con.prepareStatement(query);
@@ -33,7 +33,7 @@ public class MemberDAO extends DBConnPool {
 	// 비밀번호 찾기
 	public int updatePwd(String pw, String id) {
 		int result = 0;
-		String query = "UPDATE MEMBER_LOGIN SET User_Pwd =? " + "WHERE User_id = ?";
+		String query = "UPDATE c##foodfinder.MEMBER_LOGIN SET User_Pwd =? " + "WHERE User_id = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, pw);
@@ -69,7 +69,7 @@ public class MemberDAO extends DBConnPool {
 	// 비밀번호 조회 성공 후 정보수정
 	public void setProfile(String nickname, String email, String phone, int mbnum) {
 		MemberDTO dto = new MemberDTO();
-		String query = "UPDATE member_profile SET mail=?, phone=?, nickname=? WHERE mbnum=?";
+		String query = "UPDATE c##foodfinder.member_profile SET mail=?, phone=?, nickname=? WHERE mbnum=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, email);
@@ -88,7 +88,7 @@ public class MemberDAO extends DBConnPool {
 	// 회원가입1
 	public MemberDTO insertRegister(String name, String cn, String email, String phone, String nickname) {
 		MemberDTO Vo = new MemberDTO();
-		String insertQuery = "INSERT INTO member_profile(name, cn, mail, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
+		String insertQuery = "INSERT INTO c##foodfinder.member_profile(name, cn, mail, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
 		try {
 			psmt = con.prepareStatement(insertQuery);
 			psmt.setString(1, name);
@@ -123,7 +123,7 @@ public class MemberDAO extends DBConnPool {
 	// 회원가입 1.5
 	public MemberDTO getMBNUM(String name, String cn, String email, String phone, String nickname) {
 		MemberDTO dto = new MemberDTO();
-		String query = "SELECT MBNUM FROM MEMBER_PROFILE WHERE NAME=? AND CN=? AND MAIL=? AND PHONE=? AND nickname=?";
+		String query = "SELECT MBNUM FROM c##foodfinder.MEMBER_PROFILE WHERE NAME=? AND CN=? AND MAIL=? AND PHONE=? AND nickname=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, name);
@@ -147,7 +147,7 @@ public class MemberDAO extends DBConnPool {
 	// 회원가입 2
 	public MemberDTO insertLogin(int mbnum, String id, String pwd) {
 		MemberDTO dto = new MemberDTO();
-		String query = "INSERT INTO MEMBER_LOGIN VALUES(?,?,?)";
+		String query = "INSERT INTO c##foodfinder.MEMBER_LOGIN VALUES(?,?,?)";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setInt(1, mbnum);

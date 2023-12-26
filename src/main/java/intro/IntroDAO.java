@@ -39,17 +39,17 @@ public class IntroDAO extends DBConnPool{
 		List<IntroDTO> board = new Vector<IntroDTO>();
 		String query = " "
 				+ "SELECT * FROM ( "
-				+ " 	SELECT Tb.*, idx rNum FROM ( "
+				+ " 	SELECT Tb.*, rownum rNum FROM ( "
 				+ "			SELECT * FROM C##foodfinder.introboard ";
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField")
 				+ " LIKE '%"+ map.get("searchWord") + "%' ";
 		}
 		
-		query += "			ORDER BY idx DESC "
+		query += "			ORDER BY introdate DESC "
 				+"		) Tb "
 				+"	) "
-				+" WHERE idx BETWEEN ? AND ?";
+				+" WHERE rNum BETWEEN ? AND ?";
 		System.out.println(query);
 		try {
 			psmt = con.prepareStatement(query);

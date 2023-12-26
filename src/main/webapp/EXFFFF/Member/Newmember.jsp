@@ -78,7 +78,7 @@ function validateform(){
 <body>
 	<div align="center">
 		<h2>회원가입</h2>
-		<form name="newform" action="../Member/Newmember.do" onsubmit="return validateform()">
+		<form name="newform" method="post" action="../Member/Newmember.do" onsubmit="return validateform()">
 			<table>
 				<tr height="50">
 					<td height="50">아이디</td>

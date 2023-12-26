@@ -19,6 +19,7 @@ public class MyPagelistController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MyPageBoardDAO dao = new MyPageBoardDAO();
+		String mbnum = req.getParameter("MBNUM");
 		// 뷰에 전달할 매개변수 저장용 맵 생성
 		Map<String, Object> map = new HashMap<String, Object>();
 		String searchField = req.getParameter("searchField");
@@ -27,7 +28,7 @@ public class MyPagelistController extends HttpServlet{
 			map.put("searchField", searchField);
 			map.put("searchWord", searchWord);
 		}
-		int totalCount = dao.selectCount(map);
+		int totalCount = dao.selectCount(map, mbnum);
 		// 페이지 처리
 		ServletContext application = getServletContext();
 		int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
@@ -43,7 +44,6 @@ public class MyPagelistController extends HttpServlet{
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("end", end);
-		String mbnum = req.getParameter("MBNUM");
 		List<MyPageBoardDTO> boardLists = dao.selectListPage(map,mbnum);
 		dao.close();
 		

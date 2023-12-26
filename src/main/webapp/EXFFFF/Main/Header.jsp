@@ -17,11 +17,11 @@ label:hover {
 	if(session.getAttribute("MBNUM") == null) {
 %>
 	<div align="right">
-	<label onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
+	<label onclick="location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
 	로그인
 	</label>
 	&nbsp;&nbsp;&nbsp;
-	<label onclick="location.href='Main.jsp?contentPage=../Member/Newmember.jsp'" class="menu_login">
+	<label onclick="location.href='../Main/Main.jsp?contentPage=../Member/Newmember.jsp'" class="menu_login">
 	회원가입
 	</label>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -32,8 +32,7 @@ dao.close();
 <tr>
 <td align="center">
 <select name="searchField">
-<option value="title">제목</option>
-<option value="content">내용</option>
+<option value="title">음식</option>
 </select>
 <input type="text" name="searchWord"/>
 <input type="submit" value="검색하기"/>

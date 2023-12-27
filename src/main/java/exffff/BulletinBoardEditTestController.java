@@ -25,7 +25,6 @@ public class BulletinBoardEditTestController extends HttpServlet{
 		String image = req.getParameter("image");
 		String text = req.getParameter("text");
 		String title = req.getParameter("title");
-		
 		String heartcount = req.getParameter("heartcount");
 		String cate = req.getParameter("cate");
 		

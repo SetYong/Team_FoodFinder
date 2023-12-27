@@ -33,7 +33,7 @@ color: black;}</style>
 	
 	<!-- 목록테이블 -->
 	<table border="1" width="90%" class="table">
-		<tr align="center" class="table-primary">
+		<tr align="center" class="table-default">
 			<th width="10%">번호</th>
 			<th width="20%">제목</th>
 			<th width="*">내용</th>

@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder - 아이디 중복확인</title>
-<script>
-function clear(){
+<script type="text/javascript">
+function sendid(){
+	window.opener.document.getElementById("userid").value = document.getElementById("checkid").value;
 	window.close();
 }
 </script>
@@ -17,11 +18,11 @@ function clear(){
 		<table>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="checkid" value=/></td>
+				<td><input type="text" name="checkid" id="checkid"/></td>
 				<td><button type="submit">중복확인</button>
 			</tr>
 			<tr>
-			<td><button type="button" onclick="clear()">완료</button></td>
+			<td><input type="button" onclick="sendid();" value="창 닫기"></td>
 			</tr>
 		</table>
 	</form>

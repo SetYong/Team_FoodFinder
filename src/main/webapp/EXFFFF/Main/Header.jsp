@@ -46,7 +46,7 @@ label:hover {
 		</a>
 		
 		<a href="../Intro/IntroList.do" class="menu_intro">소식</a>
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">커뮤니티</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do';" class="menu_food">커뮤니티</label>
 		<label onclick="location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
 if(session.getAttribute("MBNUM")==null){

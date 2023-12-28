@@ -27,7 +27,7 @@ public class QuestionWrite extends HttpServlet {
 		int iResult = dao.insertQuWrite(dto);
 		
 		if(iResult == 1){
-			response.sendRedirect("QuestionBoardResult.jsp");
+			response.sendRedirect("../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp");
 			return;
 		} else{
 			response.sendRedirect("../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp");

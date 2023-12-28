@@ -39,14 +39,16 @@
 	</context-param>
 	
 	<context-param>
-   	<param-name>POSTS_PER_PAGE</param-name>
-   	<param-value>10</param-value>
+   		<param-name>POSTS_PER_PAGE</param-name>
+  	 	<param-value>10</param-value>
    </context-param>
    <context-param>
-   	<param-name>PAGES_PER_BLOCK</param-name>
-   	<param-value>5</param-value>
+  	 	<param-name>PAGES_PER_BLOCK</param-name>
+   		<param-value>5</param-value>
    </context-param>
   
+  
+  <!-- 로그인 관련 -->
 	<servlet>
 		<servlet-name>FoodLogin</servlet-name>
 		<servlet-class>exffff.FoodLogin</servlet-class>
@@ -64,61 +66,76 @@
 		<servlet-name>FindID</servlet-name>
 		<url-pattern>/EXFFFF/Member/FindIdHome.do</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>MyPageController</servlet-name>
-		<servlet-class>exffff.MyPageController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MyPageController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
-	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>FoodNewMember</servlet-name>
 		<servlet-class>exffff.NewmemberController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodNewMember</servlet-name>
-		<url-pattern>/EXFFFF/Member/Newmember.do</url-pattern>
+		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>NewmemberCheckid</servlet-name>
+		<servlet-class>exffff.NewmemberCheckController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewmemberCheckid</servlet-name>
+		<url-pattern>/EXFFFF/Member/Newmembercheck.do</url-pattern>
+	</servlet-mapping>
+		
+		
+	<!-- 소식 -->	
+	<servlet>
+		<servlet-name>IntroListController</servlet-name>
+		<servlet-class>intro.IntrolistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroListController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-  	<servlet-name>BulletinBoardTestController</servlet-name>
-	  <servlet-class>exffff.BulletinBoardTestController</servlet-class>
+		<servlet-name>IntroViewController</servlet-name>
+		<servlet-class>intro.IntroViewController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	  <servlet-name>BulletinBoardTestController</servlet-name>
-	  <url-pattern>/EXFFFF/Food/BulletinBoardTest.do</url-pattern>
+		<servlet-name>IntroViewController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/IntroView.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 푸드게시판 -->
+	<servlet>
+		<servlet-name>FoodBoardList</servlet-name>
+		<servlet-class>food.FoodBoard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodBoardList</servlet-name>
+		<url-pattern>/EXFFFF/Food/FoodList.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MyPagewriteController</servlet-name>
-		<servlet-class>exffff.MyPagewriteController</servlet-class>
+		<servlet-name>FoodBoardWrite</servlet-name>
+		<servlet-class>food.FoodWrite</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MyPagewriteController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
+		<servlet-name>FoodBoardWrite</servlet-name>
+		<url-pattern>/EXFFFF/Food/FoodWrite.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>MyPagelistController</servlet-name>
-		<servlet-class>exffff.MyPagelistController</servlet-class>
+		<servlet-name>FoodBoardView</servlet-name>
+		<servlet-class>food.FoodView</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MyPagelistController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPagelist.do</url-pattern>
+		<servlet-name>FoodBoardView</servlet-name>
+		<url-pattern>/EXFFFF/Food/FoodView.do</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>MyPageSetprofilepassController</servlet-name>
-		<servlet-class>mypageBoard.MyPageSetprofilepassController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MyPageSetprofilepassController</servlet-name>
-		<url-pattern>/EXFFFF/MyPage/MyPageSetprofilepass.do</url-pattern>
-	</servlet-mapping>
-
+	
+	<!-- 문의사항 -->
 	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
 		<servlet-class>questionBoard.QuestionWrite</servlet-class>
@@ -173,6 +190,44 @@
 		<url-pattern>/EXFFFF/Question/QeustionViewUser.do</url-pattern>
 	</servlet-mapping>
 	
+	
+	<!-- 마이페이지 -->
+	<servlet>
+		<servlet-name>MyPageController</servlet-name>
+		<servlet-class>exffff.MyPageController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPagewriteController</servlet-name>
+		<servlet-class>exffff.MyPagewriteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPagewriteController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagewrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPagelistController</servlet-name>
+		<servlet-class>exffff.MyPagelistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPagelistController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagelist.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageSetprofilepassController</servlet-name>
+		<servlet-class>mypageBoard.MyPageSetprofilepassController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageSetprofilepassController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageSetprofilepass.do</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>MyPageSetprofileController</servlet-name>
 		<servlet-class>mypageBoard.MyPageSetprofile</servlet-class>
@@ -180,33 +235,6 @@
 	<servlet-mapping>
 		<servlet-name>MyPageSetprofileController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageSetprofile.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>NewmemberCheckid</servlet-name>
-		<servlet-class>exffff.NewmemberCheckController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>NewmemberCheckid</servlet-name>
-		<url-pattern>/EXFFFF/Member/Newmembercheck.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>IntroListController</servlet-name>
-		<servlet-class>intro.IntrolistController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>IntroListController</servlet-name>
-		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>IntroViewController</servlet-name>
-		<servlet-class>intro.IntroViewController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>IntroViewController</servlet-name>
-		<url-pattern>/EXFFFF/Intro/IntroView.do</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -217,13 +245,5 @@
 		<servlet-name>MyPageViewController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
 	</servlet-mapping> 
-  
-  <servlet>
-	  <servlet-name>UploadController</servlet-name>
-    <servlet-class>exffff.UploadController</servlet-class>
-	</servlet>
-  <servlet-mapping>
-  	<servlet-name>UploadController</servlet-name>
-	  <url-pattern>/EXFFFF/upload/FileUploadMain.do</url-pattern>
-	</servlet-mapping>
+
 </web-app>

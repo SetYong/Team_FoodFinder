@@ -3,10 +3,10 @@ package questionBoard;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 public class ViewUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,9 +21,7 @@ public class ViewUser extends HttpServlet {
 		QuestionBoardDTO dto = dao.selectView(headnum);
 		dao.close();
 		
-		dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
-		
 		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QeustionViewUser.do").forward(request, response);
+		request.getRequestDispatcher("../Main/Main.jsp").forward(request, response);
 	}
 }

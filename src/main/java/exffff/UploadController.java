@@ -15,9 +15,7 @@ import com.oreilly.servlet.MultipartRequest;
 import upload.MyfileDAO;
 import upload.MyfileDTO;
 
-/**
- * Servlet implementation class UploadController
- */
+
 @WebServlet("/UploadController")
 public class UploadController extends HttpServlet {
 @Override

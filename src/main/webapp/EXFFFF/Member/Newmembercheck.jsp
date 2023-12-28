@@ -17,7 +17,7 @@ function clear(){
 		<table>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="id"/></td>
+				<td><input type="text" name="checkid" value=/></td>
 				<td><button type="submit">중복확인</button>
 			</tr>
 			<tr>

@@ -29,7 +29,7 @@ text-align: center;
 	}
 	</script>
 	<h2 style = "margin-left: 30px;">Food Write</h2>
-	<form name = "FoodWriteFrom" action = "../Food/FoodWrite.do">
+	<form name = "FoodWriteFrom" action = "../Food/FoodWrite.do" method ="post">
 		<table>
 			<tr>
 				<td  colspan ="2" style = "padding-left:50px;">제목 : <input type = "text"  name = "title" size="100px"> </td>

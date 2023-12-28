@@ -108,12 +108,30 @@
 	
 	<!-- 푸드게시판 -->
 	<servlet>
+		<servlet-name>FoodBoardList</servlet-name>
+		<servlet-class>food.FoodBoard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodBoardList</servlet-name>
+		<url-pattern>/EXFFFF/Food/FoodList.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>FoodBoardWrite</servlet-name>
 		<servlet-class>food.FoodWrite</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodBoardWrite</servlet-name>
 		<url-pattern>/EXFFFF/Food/FoodWrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FoodBoardView</servlet-name>
+		<servlet-class>food.FoodView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodBoardView</servlet-name>
+		<url-pattern>/EXFFFF/Food/FoodView.do</url-pattern>
 	</servlet-mapping>
 	
 	

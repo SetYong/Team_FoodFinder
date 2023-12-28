@@ -17,11 +17,11 @@ label:hover {
 	if(session.getAttribute("MBNUM") == null) {
 %>
 	<div align="right">
-	<label onclick="location.href='Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
+	<label onclick="location.href='../Main/Main.jsp?contentPage=../Member/Login.jsp'" class="menu_login">
 	로그인
 	</label>
 	&nbsp;&nbsp;&nbsp;
-	<label onclick="location.href='Main.jsp?contentPage=../Member/Newmember.jsp'" class="menu_login">
+	<label onclick="location.href='../Main/Main.jsp?contentPage=../Member/Newmember.jsp'" class="menu_login">
 	회원가입
 	</label>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,7 +46,7 @@ label:hover {
 		</a>
 		
 		<a href="../Intro/IntroList.do" class="menu_intro">소식</a>
-		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp';" class="menu_food">커뮤니티</label>
+		<label onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do';" class="menu_food">커뮤니티</label>
 		<label onclick="location.href='../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp';" class="menu_qna">고객문의</label>
 <%
 if(session.getAttribute("MBNUM")==null){

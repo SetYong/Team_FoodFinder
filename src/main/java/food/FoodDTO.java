@@ -7,10 +7,13 @@ private int head_num;
 private String title;
 private String content;
 private String recipe;
-private int mbnum;
+private String mbnum;
 private String image;
 private String cate;
 private Date fooddate;
+private String repletext;
+private String replembnum;
+private String replenickname;
 private int heartcount;
 private int adminassent;
 
@@ -38,10 +41,10 @@ public String getRecipe() {
 public void setRecipe(String recipe) {
 	this.recipe = recipe;
 }
-public int getMbnum() {
+public String getMbnum() {
 	return mbnum;
 }
-public void setMbnum(int mbnum) {
+public void setMbnum(String mbnum) {
 	this.mbnum = mbnum;
 }
 public String getImage() {
@@ -61,6 +64,25 @@ public Date getFooddate() {
 }
 public void setFooddate(Date fooddate) {
 	this.fooddate = fooddate;
+}
+
+public String getRepletext() {
+	return repletext;
+}
+public void setRepletext(String repletext) {
+	this.repletext = repletext;
+}
+public String getReplembnum() {
+	return replembnum;
+}
+public void setReplembnum(String replembnum) {
+	this.replembnum = replembnum;
+}
+public String getReplenickname() {
+	return replenickname;
+}
+public void setReplenickname(String replenickname) {
+	this.replenickname = replenickname;
 }
 public int getHeartcount() {
 	return heartcount;

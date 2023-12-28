@@ -6,10 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder - mypage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
 	<h2>mypage view</h2>
-	<table border="1" width="90%">
+	<table border="1" width="90%" class="table">
 		<colgroup>
 			<col width="15%" />
 			<col width="35%" />
@@ -39,7 +41,7 @@
 		<tr>
 			<td colspan="4" align="center">
 				<button type="button"
-					onclick="location.href='../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>';">목록 바로가기</button>
+					onclick="location.href='../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>';">일기장으로 돌아가기</button>
 			</td>
 		</tr>
 	</table>

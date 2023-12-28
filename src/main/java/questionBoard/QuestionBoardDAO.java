@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import common.DBConnPool;
+import exffff.DBConnPool;
 
 public class QuestionBoardDAO extends DBConnPool{
 	public QuestionBoardDAO(){

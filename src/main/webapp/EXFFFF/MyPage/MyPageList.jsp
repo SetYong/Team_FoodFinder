@@ -6,14 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder</title>
-<style>a{text-decoration:none;}</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<style>a{text-decoration:none;
+color: black;}</style>
 </head>
 <body>
-	<h2>목록 보기(list)</h2>
-	
+	<br>
+	<h2 class="text-left" >밥 일기</h2>
+	<br>
 	<!-- 검색 폼 -->
 	<form method="get">
-	<table border="1" width="90%">
+	<table border="1" width="90%" class="table">
 	<tr>
 		<td align="center">
 			<select name="searchField">
@@ -28,14 +32,16 @@
 	</form>
 	
 	<!-- 목록테이블 -->
-	<table border="1" width="90%">
-		<tr>
+	<table border="1" width="90%" class="table">
+		<tr align="center" class="table-default">
 			<th width="10%">번호</th>
-			<th width="15%">제목</th>
+			<th width="20%">제목</th>
 			<th width="*">내용</th>
 			<th width="13%">날짜</th>
 			<th width="15%">kcal</th>
 		</tr>
+	</table>
+	<table border="1" width="90%" class="table table-hover table-striped">
 	<c:choose>
 		<c:when test="${empty boardLists }">
 			<tr>
@@ -47,15 +53,15 @@
 		<c:otherwise>
 			<c:forEach items="${ boardLists }" var="row" varStatus="loop">
 			<tr align="center">
-				<td>
+				<td width="10%">
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
-				<td align="left">
+				<td align="left" width="20%">
 					<a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
 				</td>
-				<td>${ row.content }</td>
-				<td>${ row.postdate }</td>
-				<td>${ row.kcal }kcal</td>
+				<td width="*"><a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
+				<td width="13%">${ row.postdate }</td>
+				<td width="15%">${ row.kcal }kcal</td>
 			</tr>
 			</c:forEach>
 		</c:otherwise>
@@ -63,7 +69,7 @@
 	</table>
 	
 	<!--  바로가기, 글쓰기 -->
-	<table border="1" width="90%">
+	<table border="1" width="90%" class="table">
 		<tr align="center">
 			<td>
 				${ map.pagingImg }

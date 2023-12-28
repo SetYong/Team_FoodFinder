@@ -1,6 +1,6 @@
 package memberMG;
 
-import common.DBConnPool;
+import  exffff.DBConnPool;
 
 public class MemberDAO extends DBConnPool {
 

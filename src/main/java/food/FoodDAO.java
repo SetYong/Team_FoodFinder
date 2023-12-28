@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
-import common.DBConnPool;
-import questionBoard.QuestionBoardDTO;
+import exffff.DBConnPool;
 
 public class FoodDAO extends DBConnPool {
 	

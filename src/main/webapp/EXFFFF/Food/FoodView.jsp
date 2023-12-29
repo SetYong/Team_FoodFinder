@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.foodimg{
+	margin-left: 30%;
+	width: 300px;
+	height: 300px;
+	}
+</style>
 <script type="text/javascript">
 	function textcheck() {
 		var form = document.replyForm;
@@ -24,15 +31,21 @@
 </script>
 </head>
 <body>
-	<h2>Food View</h2>
-	<table>
+	<h2 style="text-align: center;"> ${ dto.title }</h2>
+	<table style = "width:100%">
 		<tr>
-			<td> 제목 : ${ dto.title } </td>
+			<td style = "width:80%"> 작성자 :${ nickName } </td>
 			<td> 작성일 : ${ dto.fooddate } </td>
 		</tr>
 		<tr>
-			<td> 작성자 :${ nickName } </td>
+			<td> 조회 수 : </td>
 			<td> 공감 수 : ${ dto.heartcount } </td>
+		</tr>
+		<c:if test = "${ dto.image != null }">
+		<tr>
+			<td colspan = "2"> <img class ="foodimg" src="../img/${ dto.image }" alt="푸드 이미지" /> </td>
+		</tr>
+		</c:if>
 		<tr>
 			<td colspan = "2"> 재료 : ${ dto.content } </td>
 		</tr>
@@ -40,7 +53,7 @@
 			<td colspan = "2"> 레시피 :${ dto.recipe } </td>
 		</tr>
 		<tr>
-			<td> <input type = "button" value = "목록 바로가기" onclick="history.back()"> </td>
+			<td colspan = "2" style ="text-align:center;"> <input type = "button" value = "목록 바로가기" onclick="location.href='../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do'"> </td>
 		</tr>
 	</table>
 	<c:if test="${ mbnumcheck != null }">
@@ -52,10 +65,17 @@
 			</tr>
 			<tr>
 				<td> <input type = "text" name = "replyText" id = "replytextfield"> </td>
-				<td> <input type = "button" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()"> </td>
+				<td> <input type = "submit" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()"> </td>
 			</tr>
 		</table>
 	</form>
+	</c:if>
+	<c:if test="${ mbnumcheck == null }">
+		<table>
+			<tr>
+				<td colspan = "2"> 로그인 후 공감 및 댓글 작성이 가능합니다.</td>
+			</tr>
+		</table>
 	</c:if>
 	<table>
 	<c:choose>
@@ -69,7 +89,7 @@
         <c:otherwise>
         	<c:forEach items="${replyList}" var="reple"  varStatus="loop">
         		<tr>
-					<td>  "${ reple.replenickname }" 님  </td>
+					<td>  "${ reple.replenickname }" 님 </td>
 					<td> : ${ reple.repletext } </td>
 					<td style = "text-align:right;"> ${ reple.replydate } </td> 
 				</tr>

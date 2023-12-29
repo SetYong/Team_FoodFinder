@@ -6,6 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function textcheck() {
+		var form = document.replyForm;
+		var replytext = document.getElementById("replytextfield").value;
+		if(replytext==""){
+			alert("댓글을 입력해주세요.");
+			return false;
+		}
+		else {
+			form.method = "post";
+			form.action = "../Food/Reply.do";
+			form.submit();
+			return true;
+		}
+	}
+</script>
 </head>
 <body>
 	<h2>Food View</h2>
@@ -22,17 +38,25 @@
 		</tr>
 		<tr>
 			<td colspan = "2"> 레시피 :${ dto.recipe } </td>
-		<tr>
-	</table>
-	<table>
-		<tr>
-			<td> <input type = "button"  value = "공감"> </td> 
 		</tr>
 		<tr>
-			<td> <input type = "text"> </td>
-			<td> <input type = "submit" value = "댓글 달기"> </td>
+			<td> <input type = "button" value = "목록 바로가기" onclick="history.back()"> </td>
 		</tr>
 	</table>
+	<c:if test="${ mbnumcheck != null }">
+	<form name = "replyForm" >
+		<input type = "hidden" name = "headnum" value = " ${ dto.head_num }">
+		<table>
+			<tr>
+				<td colspan ="2" style = "float:right"> <input type = "button"  value = "공감"> </td> 
+			</tr>
+			<tr>
+				<td> <input type = "text" name = "replyText" id = "replytextfield"> </td>
+				<td> <input type = "button" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()"> </td>
+			</tr>
+		</table>
+	</form>
+	</c:if>
 	<table>
 	<c:choose>
 		<c:when test="${empty replyList}">
@@ -43,10 +67,13 @@
 			</tr>
         </c:when>
         <c:otherwise>
-        <tr>
-			<td> 작성자 : ${ replyList.replembnum }  </td>
-			<td> ${ replyList.repletext } </td>
-		</tr>
+        	<c:forEach items="${replyList}" var="reple"  varStatus="loop">
+        		<tr>
+					<td>  "${ reple.replenickname }" 님  </td>
+					<td> : ${ reple.repletext } </td>
+					<td style = "text-align:right;"> ${ reple.replydate } </td> 
+				</tr>
+        	</c:forEach>
 		</c:otherwise>
 		</c:choose>
 	</table>

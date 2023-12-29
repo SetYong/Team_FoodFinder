@@ -27,6 +27,7 @@ public class FoodView extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 		Map<String, Object> map = new HashMap<>();
+		HttpSession session = request.getSession();
 		String headnum = request.getParameter("headnum");
 		map.put("headnum", headnum);
 		System.out.println(headnum + "번 푸드게시판 View");
@@ -41,6 +42,7 @@ public class FoodView extends HttpServlet {
 		request.setAttribute("dto", dto);
 		request.setAttribute("nickName", nickname);
 		request.setAttribute("replyList", replyList);
+		request.setAttribute("mbnumcheck", session.getAttribute("MBNUM"));
 		request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.jsp").forward(request, response);
 		} catch (Exception e) {
 			System.out.println("푸드 게시판 상세보기 서블릿 예외 발생");

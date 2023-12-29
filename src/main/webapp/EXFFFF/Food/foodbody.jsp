@@ -65,8 +65,6 @@ a:hover{color: gray}
                 	<td class="foodBoard"> 
                 	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.head_num }">
                 		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
-						<c:if test="${row.adminassent ==  '0' }"> <font color="#F15F5F">미승인</font> </c:if>
-                        <c:if test="${row.adminassent ==  '1' }"> <font color="#4194DD">승인완료</font> </c:if>
                     </a>
 					</td>
                 </c:forEach>
@@ -81,8 +79,6 @@ a:hover{color: gray}
                 	<td  class="foodBoard"> 
                 	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.head_num }">
                 		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
-						<c:if test="${row.adminassent ==  '0' }"> <font color="#F15F5F">미승인</font> </c:if>
-                        <c:if test="${row.adminassent ==  '1' }"> <font color="#4194DD">승인완료</font> </c:if>
                     </a>
 					</td>
                 </c:forEach>

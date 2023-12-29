@@ -58,7 +58,7 @@ background-color:gray;}
 		<div style="line-height: 30px">
 			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminNotice.jsp'">공지사항</label> <br>
 			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminQuestion.do'">문의 사항</label> <br>
-			<label onclick="location.href='../Admin/AdminMain.jsp'">권한 관련</label>
+			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminFoodList.do'">권한 관련</label>
 		</div>
 	</div>
 	<div class="<%=mainbody%>"><jsp:include page="<%=contentPage%>" /></div></div>

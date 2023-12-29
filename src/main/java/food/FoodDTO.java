@@ -14,6 +14,7 @@ private Date fooddate;
 private String repletext;
 private String replembnum;
 private String replenickname;
+private Date replydate;
 private int heartcount;
 private int adminassent;
 
@@ -83,6 +84,12 @@ public String getReplenickname() {
 }
 public void setReplenickname(String replenickname) {
 	this.replenickname = replenickname;
+}
+public Date getReplydate() {
+	return replydate;
+}
+public void setReplydate(Date replydate) {
+	this.replydate = replydate;
 }
 public int getHeartcount() {
 	return heartcount;

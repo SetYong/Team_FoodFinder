@@ -3,7 +3,7 @@ package upload;
 import java.util.List;
 import java.util.Vector;
 
-import common.DBConnPool;
+import exffff.DBConnPool;
 
 public class MyfileDAO extends DBConnPool{
 	public int insertFile(MyfileDTO dto) {

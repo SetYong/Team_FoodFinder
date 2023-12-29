@@ -20,11 +20,13 @@
 %>
     <c:choose>
         <c:when test="${empty boardLists}">
-        	<tr>
-				<td colspan="6" align="center">
-					등록된 게시물이 없습니다.
-				</td>
-			</tr>
+        	<table>
+        		<tr>
+					<td colspan="6" style ="width:1190px; text-align: center;">
+						등록된 건의 사항이 없습니다.
+					</td>
+				</tr>
+        	</table>
         </c:when>
         <c:otherwise>
             <table border="1" style="width: 1195px;">

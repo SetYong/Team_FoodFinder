@@ -134,6 +134,14 @@
 		<url-pattern>/EXFFFF/Food/FoodView.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FoodReplyWrite</servlet-name>
+		<servlet-class>food.ReplyWrite</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodReplyWrite</servlet-name>
+		<url-pattern>/EXFFFF/Food/Reply.do</url-pattern>
+	</servlet-mapping>
 	
 	<!-- 문의사항 -->
 	<servlet>
@@ -144,15 +152,6 @@
 		<servlet-name>QuestionWrite</servlet-name>
 		<url-pattern>/EXFFFF/Question/QuestionBoard.do</url-pattern>
 	</servlet-mapping>
-		
-	<servlet>
-		<servlet-name>QuestionWriteAdmin</servlet-name>
-		<servlet-class>questionBoard.WriteAdmin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>QuestionWriteAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Admin/QuestionWrite.do</url-pattern>
-	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>QuestionListUesr</servlet-name>
@@ -161,24 +160,6 @@
 	<servlet-mapping>
 		<servlet-name>QuestionListUesr</servlet-name>
 		<url-pattern>/EXFFFF/Question/QeustionListUser.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>QuestionListAdmin</servlet-name>
-		<servlet-class>questionBoard.QuestionListAdmin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>QuestionListAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminQuestion.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>QuestionViewAdmin</servlet-name>
-		<servlet-class>questionBoard.ViewAdmin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>QuestionViewAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Admin/QuestionView.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -246,4 +227,62 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
 	</servlet-mapping> 
 
+
+	<!-- 관리자 푸드 -->
+	<servlet>
+		<servlet-name>FoodListAdmin</servlet-name>
+		<servlet-class>food.FoodBoardAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodListAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminFoodList.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FoodViewAdmin</servlet-name>
+		<servlet-class>food.FoodViewAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodViewAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/FoodViewAdmin.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminAssent</servlet-name>
+		<servlet-class>food.AdminAssent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminAssent</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminAssent.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 관리자 문의사항 -->
+	<servlet>
+		<servlet-name>QuestionWriteAdmin</servlet-name>
+		<servlet-class>questionBoard.WriteAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionWriteAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/QuestionWrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>QuestionListAdmin</servlet-name>
+		<servlet-class>questionBoard.QuestionListAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionListAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminQuestion.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>QuestionViewAdmin</servlet-name>
+		<servlet-class>questionBoard.ViewAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>QuestionViewAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/QuestionView.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

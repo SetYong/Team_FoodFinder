@@ -95,6 +95,22 @@ public class FoodDAO extends DBConnPool {
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 
+		String query = "SElECT COUNT(*) FROM Food WHERE ADMINASSENT = 1";
+
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(query);
+			rs.next();
+			totalCount = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println("게시물 수를 구하는 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
+	}
+	public int selectCountAdmin(Map<String, Object> map) {
+		int totalCount = 0;
+
 		String query = "SElECT COUNT(*) FROM Food ";
 
 		try {
@@ -110,6 +126,35 @@ public class FoodDAO extends DBConnPool {
 	}
 
 	public List<FoodDTO> selectList(Map<String, Object> map) {
+		List<FoodDTO> fbs = new Vector<FoodDTO>();
+
+		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food WHERE ADMINASSENT = 1";
+			   query += " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, map.get("start").toString());
+			psmt.setString(2, map.get("end").toString());
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				FoodDTO dto = new FoodDTO();
+				dto.setHead_num(rs.getInt("Head_num"));
+				dto.setTitle(rs.getString("title"));
+				dto.setCate(rs.getNString("cate"));
+				dto.setFooddate(rs.getDate("fooddate"));
+				dto.setHeartcount(rs.getInt("heartcount"));
+				dto.setAdminassent(rs.getInt("adminassent"));
+
+				fbs.add(dto);
+			}
+		} catch (Exception e) {
+			System.out.println("게시물 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return fbs;
+	}
+	
+	public List<FoodDTO> selectListAdmin(Map<String, Object> map) {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
 		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food";
@@ -159,7 +204,8 @@ public class FoodDAO extends DBConnPool {
 
 	public List<FoodDTO> Reple(Map<String, Object>map){
 		List<FoodDTO> repleList = new Vector<FoodDTO>();
-		String query = "SELECT * FROM Reply Where head_num = ? ";
+		String query = "SELECT * FROM Reply Where head_num = ? ORDER BY replydate ASC";
+		System.out.println(query);
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -170,6 +216,8 @@ public class FoodDAO extends DBConnPool {
 				FoodDTO dto = new FoodDTO();
 				dto.setReplembnum(rs.getString("MBNUM"));
 				dto.setRepletext(rs.getString("Text"));
+				dto.setReplydate(rs.getDate("replydate"));
+				dto.setReplenickname(rs.getString("nickname"));
 
 				repleList.add(dto);
 			}
@@ -178,6 +226,49 @@ public class FoodDAO extends DBConnPool {
 			System.out.println("푸드게시판 댓글 불러오기 중 예외 발생");
 			e.printStackTrace();
 		}
+		System.out.println("댓글 완료");
 		return repleList;
+	}
+	
+	public int ReplyWrite(FoodDTO dto, String headnum) {
+		int result = 0;
+		String query = "Insert INTO REPLY (head_num, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
+		try {
+			System.out.println(query);
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.setString(2, dto.getReplembnum());
+			psmt.setString(3, dto.getRepletext());
+			psmt.setString(4, dto.getReplenickname());
+			result = psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println("푸드 게시판 댓글 작성 중 예외 발생");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public void updateAssentYes(String headnum) {
+		String query = "UPDATE FOOD SET ADMINASSENT = 1 WHERE HEAD_NUM = " + headnum;
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.executeQuery();
+			
+		} catch(Exception e) {
+			System.out.println("푸드게시판 관리자 승인 처리 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
+	public void updateAssentNo(String headnum) {
+		String query = "UPDATE FOOD SET ADMINASSENT = 0 WHERE HEAD_NUM = " + headnum;
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.executeQuery();
+			
+		} catch(Exception e) {
+			System.out.println("푸드게시판 관리자 승인 처리 중 예외 발생");
+			e.printStackTrace();
+		}
 	}
 }

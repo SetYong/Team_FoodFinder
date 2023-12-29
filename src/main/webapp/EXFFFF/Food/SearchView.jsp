@@ -46,6 +46,7 @@
     <style>
         ul{border:2px #cccccc solid;}
     </style>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l6gbu2evid"></script>
 </head>
 <body>
     <div>
@@ -67,5 +68,15 @@
             여기에 검색 결과가 출력됩니다.
         </div>
     </div>
+    <div id="map" style="width:100%;height:560px;"></div>
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+</script>
 </body>
 </html>

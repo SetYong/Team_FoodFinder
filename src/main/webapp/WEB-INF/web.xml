@@ -73,7 +73,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodNewMember</servlet-name>
-		<url-pattern>/EXFFFF/Main/Newmember.do</url-pattern>
+		<url-pattern>/EXFFFF/Member/Newmember.do</url-pattern>
 	</servlet-mapping>	
 	
 	<servlet>
@@ -84,7 +84,15 @@
 		<servlet-name>NewmemberCheckid</servlet-name>
 		<url-pattern>/EXFFFF/Member/Newmembercheck.do</url-pattern>
 	</servlet-mapping>
-		
+	
+	<servlet>
+		<servlet-name>NewmemberCheckNick</servlet-name>
+		<servlet-class>exffff.NewmemberNicknameCheckController</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>NewmemberCheckNick</servlet-name>
+		<url-pattern>/EXFFFF/Member/Newmembernickcheck.do</url-pattern>
+	</servlet-mapping>
 		
 	<!-- 소식 -->	
 	<servlet>
@@ -198,6 +206,15 @@
 	<servlet-mapping>
 		<servlet-name>MyPagelistController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPagelist.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPagefoodlist</servlet-name>
+		<servlet-class>exffff.MyPagefoodlistController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPagefoodlist</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPagefoodlist.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

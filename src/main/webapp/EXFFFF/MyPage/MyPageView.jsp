@@ -42,6 +42,7 @@
 			<td colspan="4" align="center">
 				<button type="button"
 					onclick="location.href='../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>';">일기장으로 돌아가기</button>
+			<button type="button">수정하기</button>&nbsp;<button type="button">삭제하기</button>
 			</td>
 		</tr>
 	</table>

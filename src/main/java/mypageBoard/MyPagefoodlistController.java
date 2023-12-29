@@ -1,4 +1,4 @@
-package exffff;
+package mypageBoard;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,13 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mypageBoard.BoardPage;
-import mypageBoard.MyPageBoardDAO;
-import mypageBoard.MyPageBoardDTO;
-
-public class MyPagelistController extends HttpServlet{
+public class MyPagefoodlistController extends HttpServlet{
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MyPageBoardDAO dao = new MyPageBoardDAO();
 		String mbnum = req.getParameter("MBNUM");
 		// 뷰에 전달할 매개변수 저장용 맵 생성
@@ -28,7 +24,7 @@ public class MyPagelistController extends HttpServlet{
 			map.put("searchField", searchField);
 			map.put("searchWord", searchWord);
 		}
-		int totalCount = dao.selectCount(map, mbnum);
+		int totalCount = dao.selectfoodCount(map, mbnum);
 		// 페이지 처리
 		ServletContext application = getServletContext();
 		int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
@@ -44,12 +40,12 @@ public class MyPagelistController extends HttpServlet{
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("end", end);
-		List<MyPageBoardDTO> boardLists = dao.selectListPage(map,mbnum);
+		List<MyPageBoardDTO> boardLists = dao.selectfoodListPage(map,mbnum);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가
 		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
-				blockPage, pageNum, "../MyPage/MyPagelist.do?MBNUM="+mbnum); 
+				blockPage, pageNum, "../MyPage/MyPagefoodlist.do?MBNUM="+mbnum); 
 		map.put("pagingImg", pagingImg);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);
@@ -58,6 +54,6 @@ public class MyPagelistController extends HttpServlet{
 		// 전달할 데이터를 request 영역에 저장 후 list.jsp 로 포워드
 		req.setAttribute("boardLists", boardLists);
 		req.setAttribute("map", map);
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageList.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPagefoodlist.jsp").forward(req, resp);
 	}
 }

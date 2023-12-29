@@ -86,24 +86,24 @@ public class MemberDAO extends DBConnPool {
 	}
 	
 	// 회원가입1
-	public MemberDTO insertRegister(String name, String cn, String email, String phone, String nickname) {
+	public MemberDTO insertRegister(String name, String cn, String mail, String phone, String nickname) {
 		MemberDTO Vo = new MemberDTO();
 		String insertQuery = "INSERT INTO c##foodfinder.member_profile(name, cn, mail, phone, nickname)  VALUES(?, ?, ?, ?, ?)";
 		try {
 			psmt = con.prepareStatement(insertQuery);
 			psmt.setString(1, name);
 			psmt.setString(2, cn);
-			psmt.setString(3, email);
+			psmt.setString(3, mail);
 			psmt.setString(4, phone);
 			psmt.setString(5, nickname);
 			psmt.executeUpdate();
 
 			System.out.println(insertQuery);
-			System.out.println(name + cn + email + phone + nickname);
+			System.out.println(name + cn + mail + phone + nickname);
 
 			Vo.setName(name);
 			Vo.setCn(cn);
-			Vo.setEmail(email);
+			Vo.setEmail(mail);
 			Vo.setPhone(phone);
 			Vo.setNickname(nickname);
 
@@ -190,6 +190,29 @@ public class MemberDAO extends DBConnPool {
 		return idCheck;	
 	}
 	
+	//회원가입4 닉네임 중복확인
+	public int checkNick(String nickname) {
+		int nickCheck = 0;
+		String query = "SELECT NICKNAME FROM c##foodfinder.MEMBER_PROFILE WHERE NICKNAME=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, nickname);
+			rs = psmt.executeQuery();
+			
+			if(rs.next() || nickname.equals("")) {
+				nickCheck = 0;
+			} else {
+				nickCheck = 1;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("회원가입 닉네임 중복확인 중 예외 발생");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return nickCheck;	
+	}
 	// 내정보 읽어오기
 	public MemberDTO getProfile(int mbn) {
 		MemberDTO dto = new MemberDTO();

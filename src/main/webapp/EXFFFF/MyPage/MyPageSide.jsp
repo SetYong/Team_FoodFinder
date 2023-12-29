@@ -28,6 +28,8 @@ a:hover {
 	<br>
 	<a href="../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>">밥 일기</a>
 	<br>
+	<a href="../MyPage/MyPagefoodlist.do?MBNUM=<%=session.getAttribute("MBNUM")%>">작성한 레시피</a>
+	<br>
 	<label
 		onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp'"
 		>정보 수정</label>

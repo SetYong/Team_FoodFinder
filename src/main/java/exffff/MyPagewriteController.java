@@ -19,7 +19,7 @@ public class MyPagewriteController extends HttpServlet{
 		dao = new MyPageBoardDAO();
 	}
 	@Override 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String title = req.getParameter("title");
 		String timeCate = req.getParameter("timeCate");
 		String text = req.getParameter("text");

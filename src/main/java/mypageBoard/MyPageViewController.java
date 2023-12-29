@@ -17,8 +17,9 @@ public class MyPageViewController extends HttpServlet {
 	      MyPageBoardDAO dao = new MyPageBoardDAO();
 	      // 게시물 불러오기
 	      String idx = req.getParameter("idx");
+	      int headnum = Integer.parseInt(idx);
 	      String mbnum = req.getParameter("MBNUM");
-	      MyPageBoardDTO dto = dao.selectView(idx, mbnum);
+	      MyPageBoardDTO dto = dao.selectView(headnum, mbnum);
 	      dao.close();
 	      
 	      req.setAttribute("dto", dto);

@@ -46,7 +46,7 @@
 <body>
 	<h2>푸드 게시판 관리자 상세보기</h2>
 	<form action="../Admin/AdminAssent.do">
-		<input type="hidden" name="headnum" value="${ dto.head_num }">
+		<input type="hidden" name="headnum" value="${ dto.headnum }">
 		<table>
 			<tr>
 				<td>제목 : ${ dto.title }</td>

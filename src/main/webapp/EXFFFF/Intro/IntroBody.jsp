@@ -50,7 +50,7 @@
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
 				<td align="left">
-					<a href="../Intro/IntroView.do?idx=${ row.idx }">${row.title }</a>
+					<a href="../Intro/IntroView.do?headnum=${ row.headnum }">${row.title }</a>
 				</td>
 				<td>${ row.postdate }</td>
 				<td>${ row.visitcount }</td>

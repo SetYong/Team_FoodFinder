@@ -4,7 +4,7 @@ public class MyPageBoardDTO {
 	private String Mbnum;
 	private String kcal;
 	private String timecate;
-	private String idx;
+	private String headnum;
 	private String name;
 	private String title;
 	private String content;
@@ -46,11 +46,11 @@ public class MyPageBoardDTO {
 	public void setMbnum(String Mbnum) {
 		this.Mbnum = Mbnum;
 	}
-	public String getIdx() {
-		return idx;
+	public String getHeadnum() {
+		return headnum;
 	}
-	public void setIdx(String idx) {
-		this.idx = idx;
+	public void setHeadnum(String headnum) {
+		this.headnum = headnum;
 	}
 	public String getName() {
 		return name;

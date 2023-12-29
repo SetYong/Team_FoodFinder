@@ -20,7 +20,7 @@
 		<!-- 게시글 정보 -->
 		<tr>
 			<td>번호</td>
-			<td>${ dto.idx }</td>
+			<td>${ dto.headnum }</td>
 			<td>작성자</td>
 			<td>관리자</td>
 		</tr>

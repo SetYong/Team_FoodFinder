@@ -28,8 +28,8 @@
 				</tr>
 				<c:forEach items="${boardLists}" var="row" varStatus="loop">
 					<tr>
-                		<td style = "text-align:center;"> ${ row.head_num } </td>
-						<td> <a href="../Admin/AdminMain.jsp?contentPage=FoodViewAdmin.do?headnum=${ row.head_num }"> ${ row.title }  </a> </td>
+                		<td style = "text-align:center;"> ${ row.headnum } </td>
+						<td> <a href="../Admin/AdminMain.jsp?contentPage=FoodViewAdmin.do?headnum=${ row.headnum }"> ${ row.title }  </a> </td>
 						<td style = "text-align:center;"> ${ row.cate } </td>
 						<td style = "text-align:center;"> ${ row.fooddate }
 						<td style = "text-align:center;">

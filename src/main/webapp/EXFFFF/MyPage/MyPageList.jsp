@@ -57,9 +57,9 @@ color: black;}</style>
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
 				<td align="left" width="20%">
-					<a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
+					<a href="../MyPage/MyPageView.do?idx=${ row.headnum }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
 				</td>
-				<td width="*"><a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
+				<td width="*"><a href="../MyPage/MyPageView.do?idx=${ row.headnum }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
 				<td width="13%">${ row.postdate }</td>
 				<td width="15%">${ row.kcal }kcal</td>
 			</tr>

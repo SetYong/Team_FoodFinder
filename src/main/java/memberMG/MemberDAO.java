@@ -1,9 +1,11 @@
 package memberMG;
 
+import java.sql.SQLException;
+
 import  exffff.DBConnPool;
 
 public class MemberDAO extends DBConnPool {
-
+	
 	// 아이디 찾기
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
@@ -180,13 +182,10 @@ public class MemberDAO extends DBConnPool {
 			} else {
 				idCheck = 1;
 			}
-			
 		} catch (Exception e) {
 			System.out.println("회원가입 아이디 중복확인 중 예외 발생");
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return idCheck;	
 	}
 	
@@ -204,13 +203,10 @@ public class MemberDAO extends DBConnPool {
 			} else {
 				nickCheck = 1;
 			}
-			
 		} catch (Exception e) {
 			System.out.println("회원가입 닉네임 중복확인 중 예외 발생");
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return nickCheck;	
 	}
 	// 내정보 읽어오기

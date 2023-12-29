@@ -59,18 +59,17 @@ public class IntroDAO extends DBConnPool{
 			
 			while(rs.next()) {
 				IntroDTO dto = new IntroDTO();
-			
-				dto.setTitle(rs.getString(1));
-				dto.setText(rs.getString(2));
-				dto.setIdx(rs.getString(3));
-				dto.setImage(rs.getString(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setVisitcount(rs.getString(6));
+				dto.setHeadnum(rs.getString(1));
+				dto.setTitle(rs.getString(2));
+				dto.setText(rs.getString(3));
+				dto.setImage(rs.getString(5));
+				dto.setPostdate(rs.getDate(6));
+				dto.setVisitcount(rs.getString(7));
 				
 				board.add(dto);
 				System.out.println("1 "+dto.getTitle());
 				System.out.println("2 "+dto.getText());
-				System.out.println("3 "+dto.getIdx());
+				System.out.println("3 "+dto.getHeadnum());
 				System.out.println("4 "+dto.getImage());
 				System.out.println("5 "+dto.getPostdate());
 				System.out.println("6 "+dto.getVisitcount());
@@ -103,20 +102,21 @@ public class IntroDAO extends DBConnPool{
 	}
 	
 	//주어진 일련번호에 해당하는 게시물을 DTO에 담아서 반환합니다.
-	public IntroDTO selectView(String idx) {
+	public IntroDTO selectView(String headnum) {
 		IntroDTO dto = new IntroDTO();
-		String query = "SELECT * FROM C##foodfinder.introboard WHERE idx=?";
+		String query = "SELECT * FROM C##foodfinder.introboard WHERE headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
+			psmt.setString(1, headnum);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				dto.setTitle(rs.getString(1));
-				dto.setText(rs.getString(2));
-				dto.setIdx(rs.getString(3));
-				dto.setImage(rs.getString(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setVisitcount(rs.getString(6));
+				dto.setHeadnum(rs.getString(1));
+				dto.setTitle(rs.getString(2));
+				dto.setText(rs.getString(3));
+				//dto.setCate
+				dto.setImage(rs.getString(5));
+				dto.setPostdate(rs.getDate(6));
+				dto.setVisitcount(rs.getString(7));
 			}
 		}
 		catch(Exception e) {
@@ -127,13 +127,13 @@ public class IntroDAO extends DBConnPool{
 	}
 	
 	// 주어진 일련번호에 해당하는 게시물의 조회수를 1 증가시킵니다.
-	public void updateVisitCount(String idx) {
+	public void updateVisitCount(String headnum) {
 		String query = "UPDATE introboard set"
 				+" visitcount=visitcount+1"
-				+" WHERE idx=?";
+				+" WHERE headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
+			psmt.setString(1, headnum);
 			psmt.executeQuery();
 		}
 		catch (Exception e) {

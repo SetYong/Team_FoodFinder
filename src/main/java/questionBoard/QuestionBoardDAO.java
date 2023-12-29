@@ -19,7 +19,7 @@ public class QuestionBoardDAO extends DBConnPool{
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchField") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
-		query += " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+		query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		System.out.println(query);
 		try {
 			psmt = con.prepareStatement(query);
@@ -30,7 +30,7 @@ public class QuestionBoardDAO extends DBConnPool{
 			while(rs.next()) {
 				QuestionBoardDTO dto = new QuestionBoardDTO();
 				
-				dto.setHeadnum(rs.getInt("head_num"));
+				dto.setHeadnum(rs.getInt("headnum"));
 				dto.setQucate(rs.getString("Qucate"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
@@ -51,7 +51,7 @@ public class QuestionBoardDAO extends DBConnPool{
 	//관리자 페이지 문의사항 View
 	public QuestionBoardDTO selectView(String headnum) {
 		QuestionBoardDTO dto = new QuestionBoardDTO();
-		String query = "SELECT * FROM QUESTIONBOARD WHERE head_num=?";
+		String query = "SELECT * FROM QUESTIONBOARD WHERE headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);;
@@ -80,7 +80,7 @@ public class QuestionBoardDAO extends DBConnPool{
 		
 		String query = "SELECT  * FROM(SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM QUESTIONBOARD "
 					 + "WHERE mbnum = " + map.get("MBNUM")
-					 +  " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+					 +  " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		System.out.println("게시물 조회 : " + query);
 		
 		try {
@@ -155,7 +155,7 @@ public class QuestionBoardDAO extends DBConnPool{
 	public void UpdateAnswer(QuestionBoardDTO dto) {
 		String query = "UPDATE QuestionBoard SET "
 					 + "answer = ? "
-					 + "WHERE head_num = ?";
+					 + "WHERE headnum = ?";
 		System.out.println("관리자 답신 업데이트 쿼리 : " + query);
 		try {
 			psmt = con.prepareStatement(query);
@@ -172,7 +172,7 @@ public class QuestionBoardDAO extends DBConnPool{
 	public void updateReadAdmim(String headnum) {
 		String query = "UPDATE QuestionBoard SET "
 					 + " ReadAdmin = 1 "
-					 + " WHERE head_num = ?";
+					 + " WHERE headnum = ?";
 		System.out.println("관리자 읽음 업데이트 쿼리 : " + query);
 		try {
 			psmt = con.prepareStatement(query);

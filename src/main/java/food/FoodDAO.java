@@ -30,14 +30,14 @@ public class FoodDAO extends DBConnPool {
 	
 	public FoodDTO selectView(String headnum) {
 		FoodDTO dto = new FoodDTO();
-		String query = "SELECT * FROM Food WHERE head_num=?";
+		String query = "SELECT * FROM Food WHERE headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);;
 			rs= psmt.executeQuery();
 			
 			if(rs.next()) {
-				dto.setHead_num(rs.getInt(1));
+				dto.setHeadnum(rs.getInt(1));
 				dto.setTitle(rs.getString(2));
 				dto.setContent(rs.getString(3));
 				dto.setRecipe(rs.getString(4));
@@ -46,7 +46,8 @@ public class FoodDAO extends DBConnPool {
 				dto.setCate(rs.getString(7));
 				dto.setFooddate(rs.getDate(8));
 				dto.setHeartcount(rs.getInt(9));
-				dto.setAdminassent(rs.getInt(10));
+				//dto.setVistcount
+				dto.setAdminassent(rs.getInt(11));
 			}
 		} catch (Exception e) {
 			System.out.println("푸드 게시물 상세보기 중 예외 발생");
@@ -129,7 +130,7 @@ public class FoodDAO extends DBConnPool {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
 		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food WHERE ADMINASSENT = 1";
-			   query += " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+			   query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
@@ -138,7 +139,7 @@ public class FoodDAO extends DBConnPool {
 
 			while (rs.next()) {
 				FoodDTO dto = new FoodDTO();
-				dto.setHead_num(rs.getInt("Head_num"));
+				dto.setHeadnum(rs.getInt("Headnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setCate(rs.getNString("cate"));
 				dto.setFooddate(rs.getDate("fooddate"));
@@ -158,7 +159,7 @@ public class FoodDAO extends DBConnPool {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
 		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food";
-			   query += " ORDER BY head_num desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+			   query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
@@ -167,7 +168,7 @@ public class FoodDAO extends DBConnPool {
 
 			while (rs.next()) {
 				FoodDTO dto = new FoodDTO();
-				dto.setHead_num(rs.getInt("Head_num"));
+				dto.setHeadnum(rs.getInt("Headnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setCate(rs.getNString("cate"));
 				dto.setFooddate(rs.getDate("fooddate"));
@@ -204,7 +205,7 @@ public class FoodDAO extends DBConnPool {
 
 	public List<FoodDTO> Reple(Map<String, Object>map){
 		List<FoodDTO> repleList = new Vector<FoodDTO>();
-		String query = "SELECT * FROM Reply Where head_num = ? ORDER BY replydate ASC";
+		String query = "SELECT * FROM Reply Where headnum = ? ORDER BY replydate ASC";
 		System.out.println(query);
 		
 		try {
@@ -232,7 +233,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public int ReplyWrite(FoodDTO dto, String headnum) {
 		int result = 0;
-		String query = "Insert INTO REPLY (head_num, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
+		String query = "Insert INTO REPLY (headnum, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
 		try {
 			System.out.println(query);
 			psmt = con.prepareStatement(query);
@@ -250,7 +251,7 @@ public class FoodDAO extends DBConnPool {
 	}
 	
 	public void updateAssentYes(String headnum) {
-		String query = "UPDATE FOOD SET ADMINASSENT = 1 WHERE HEAD_NUM = " + headnum;
+		String query = "UPDATE FOOD SET ADMINASSENT = 1 WHERE HEADNUM = " + headnum;
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.executeQuery();
@@ -261,7 +262,7 @@ public class FoodDAO extends DBConnPool {
 		}
 	}
 	public void updateAssentNo(String headnum) {
-		String query = "UPDATE FOOD SET ADMINASSENT = 0 WHERE HEAD_NUM = " + headnum;
+		String query = "UPDATE FOOD SET ADMINASSENT = 0 WHERE HEADNUM = " + headnum;
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.executeQuery();

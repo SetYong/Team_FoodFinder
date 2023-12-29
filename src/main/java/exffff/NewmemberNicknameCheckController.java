@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import memberMG.MemberDAO;
 
-public class NewmemberCheckController extends HttpServlet{
+public class NewmemberNicknameCheckController extends HttpServlet{
 	MemberDAO dao;
 	@Override
 	public void init() throws ServletException {
@@ -32,13 +32,13 @@ public class NewmemberCheckController extends HttpServlet{
 		String phone3 =	req.getParameter("memberPhone3");
 		String mail = req.getParameter("mail");
 		String nickname = req.getParameter("Nickname");
-		String nickpass = req.getParameter("nickpass");
 		PrintWriter out = resp.getWriter();
-		int idCheck = dao.checkId(userId);
+		String checkpass = req.getParameter("checkpass");
+		int nickCheck = dao.checkNick(nickname);
 		
-		if(idCheck == 0) {
-			req.setAttribute("checkpass", "0");
-			req.setAttribute("nickpass", nickpass);
+		if(nickCheck == 0) {
+			req.setAttribute("checkpass", checkpass);
+			req.setAttribute("nickpass", "0");
 			req.setAttribute("id", userId);
 			req.setAttribute("pass", pwd);
 			req.setAttribute("passcheck", pwdcheck);
@@ -50,10 +50,10 @@ public class NewmemberCheckController extends HttpServlet{
 			req.setAttribute("memberPhone3", phone3);
 			req.setAttribute("mail", mail);
 			req.setAttribute("Nickname", nickname);
-			System.out.println("NewmemberCheckController : 이미 사용중인 아이디입니다.");
-		} else if (idCheck ==1) {
-			req.setAttribute("checkpass", "1");
-			req.setAttribute("nickpass", nickpass);
+			System.out.println("NewmemberNicknameCheckController : 이미 사용중인 닉네임입니다.");
+		} else if (nickCheck ==1) {
+			req.setAttribute("checkpass", checkpass);
+			req.setAttribute("nickpass", "1");
 			req.setAttribute("id", userId);
 			req.setAttribute("pass", pwd);
 			req.setAttribute("passcheck", pwdcheck);
@@ -65,9 +65,9 @@ public class NewmemberCheckController extends HttpServlet{
 			req.setAttribute("memberPhone3", phone3);
 			req.setAttribute("mail", mail);
 			req.setAttribute("Nickname", nickname);
-			System.out.println("NewmemberCheckController : 사용 가능한 아이디입니다.");
+			System.out.println("NewmemberNicknameCheckController : 사용 가능한 닉네임입니다.");
 		}
-		out.write(idCheck+"");
+		out.write(nickCheck+"");
 		
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/Newmembercheckresult.jsp").forward(req, resp);
 	}

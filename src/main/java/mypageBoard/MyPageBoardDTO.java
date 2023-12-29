@@ -28,10 +28,10 @@ public class MyPageBoardDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public String getTimacate() {
+	public String getTimecate() {
 		return timecate;
 	}
-	public void setTimacate(String timecate) {
+	public void setTimecate(String timecate) {
 		this.timecate = timecate;
 	}
 	public String getKcal() {

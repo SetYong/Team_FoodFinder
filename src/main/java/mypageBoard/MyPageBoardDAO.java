@@ -35,7 +35,7 @@ public class MyPageBoardDAO extends DBConnPool{
 		return totalCount;
 	}
 	
-	// 검색 조건에 맞는 게시물 목록을 반환합니다.
+	// 내가 작성한 일기 조회
 	public List<MyPageBoardDTO> selectListPage(Map<String, Object> map, String mbnum) {
 		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
 		String query = " "
@@ -88,6 +88,65 @@ public class MyPageBoardDAO extends DBConnPool{
 			e.printStackTrace();
 		}
 		return board;
+	}
+	
+	// 내가 작성한 레시피 조회
+	public List<MyPageBoardDTO> selectfoodListPage(Map<String, Object> map, String mbnum) {
+		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
+		String query = " "
+				+ "SELECT * FROM ( "
+				+ " 	SELECT Tb.*, rownum rNum FROM ( "
+				+ "			SELECT * FROM C##foodfinder.food where mbnum=?";
+		
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchField")
+				+ " LIKE '%"+ map.get("searchWord") + "%' ";
+		}
+		
+		query += "			ORDER BY fooddate DESC "
+				+"		) Tb "
+				+"	) "
+				+" WHERE rNum BETWEEN ? AND ?";
+		System.out.println(query);
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			psmt.setString(2, map.get("start").toString());
+			psmt.setString(3, map.get("end").toString());
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				MyPageBoardDTO dto = new MyPageBoardDTO();
+				// head_num title content(재료) recipe mbnum image cate fooddate heartcount adminassent visitcount
+				
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return board;
+	}
+	
+	public int selectfoodCount(Map<String, Object> map, String mbnum) {
+		int totalCount = 0;
+		String query = "SELECT COUNT(*) FROM C##foodfinder.food WHERE mbnum=?";
+	// 검색 조건이 있다면 WHERE 절 추가
+		if (map.get("searchWord") != null) {
+			query += " AND " + map.get("searchField") + " "
+					+ " LIKE '%" + map.get("searchWord") + "%'";
+		}
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			rs = psmt.executeQuery();
+			rs.next();
+			totalCount = rs.getInt(1);
+		}
+		catch(Exception e) {
+			System.out.println("내가 작성한 레시피 게시물 카운트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
 	}
 	
 	// 게시물 입력

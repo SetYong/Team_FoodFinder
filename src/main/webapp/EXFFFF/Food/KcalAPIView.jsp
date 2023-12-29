@@ -17,10 +17,20 @@
                         keyword: $('#keyword').val(),
                         startNum: $('#startNum option:selected').val()
                     },
-                    dataType: "html",  // JSP에서 HTML 형식의 응답을 받음
+                    dataType: "json",  // JSP에서 HTML 형식의 응답을 받음
                     success: function(response) {
-                        // JSP 서버 프로그램의 응답을 사용하여 화면에 뿌려줍니다.
-                        $('#searchResult').html(response);
+                        var items = response.body.items;
+                        var resultHtml ='<ul>';
+                        for(var i =0; i< items.length; i++){
+                        var item = items[i];
+                        var foodName = item.DESC_KOR;
+                        var calorie = item.NUTR_CONT1;
+                        
+                        resultHtml +='<li>' + foodName + ' - ' + calorie + 'kcal</li>';
+                    }
+                    resultHtml += '</ul>';
+                        
+                        $('#searchResult').html(resultHtml);
                     },
                     error: function(xhr, status, error) {
                         alert("실패: " + status);
@@ -37,13 +47,8 @@
     <div>
         <div>
             <form id="searchFrm">
-                한 페이지에 10개씩 출력됨 <br />
                 <select id="startNum">
                     <option value="1">1페이지</option>
-                    <option value="11">2페이지</option>
-                    <option value="21">3페이지</option>
-                    <option value="31">4페이지</option>
-                    <option value="41">5페이지</option>
                 </select>
                 <input type="text" id="keyword" placeholder="검색어를 입력하세요." />
                 <button type="button" id="searchBtn">검색 요청</button>

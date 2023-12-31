@@ -10,15 +10,17 @@ public class FoodDAO extends DBConnPool {
 	
 	public int insertWrite(FoodDTO dto) {
 		int result = 0;
-		String query = "Insert INTO C##foodfinder.Food (title, content, recipe, mbnum, cate) VALUES (?,?,?,?,?)";
+		String query = "Insert INTO C##foodfinder.Food (title, content, recipe, mbnum, image, cate) VALUES (?,?,?,?,?,?)";
+
 		try {
-			System.out.println(query);
+			System.out.println("푸드 게시판 INSERT Query : " + query);
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getTitle());
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getRecipe());
 			psmt.setString(4, dto.getMbnum());
-			psmt.setString(5, dto.getCate());
+			psmt.setString(5, dto.getImage());
+			psmt.setString(6, dto.getCate());
 			result = psmt.executeUpdate();
 			
 		} catch(Exception e) {
@@ -142,6 +144,7 @@ public class FoodDAO extends DBConnPool {
 				dto.setHeadnum(rs.getInt("Headnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setCate(rs.getNString("cate"));
+				dto.setImage(rs.getString("image"));
 				dto.setFooddate(rs.getDate("fooddate"));
 				dto.setHeartcount(rs.getInt("heartcount"));
 				dto.setAdminassent(rs.getInt("adminassent"));
@@ -187,7 +190,7 @@ public class FoodDAO extends DBConnPool {
 	public String checkNickname(String mbnum) {
 		String nickName = "";
 		String query = "SELECT NICKNAME FROM C##foodfinder.MEMBER_PROFILE WHERE mbnum = "+ mbnum + " ";
-		System.out.println(query + " : : " + mbnum);
+
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
@@ -198,8 +201,6 @@ public class FoodDAO extends DBConnPool {
 			System.out.println("닉네임 체크 중 예외 발생");
 			e.printStackTrace();
 		}
-
-		System.out.println(nickName + mbnum);
 		return nickName;
 	}
 

@@ -33,7 +33,7 @@ public class NewmemberCheckController extends HttpServlet{
 		String mail = req.getParameter("mail");
 		String nickname = req.getParameter("Nickname");
 		String nickpass = req.getParameter("nickpass");
-		PrintWriter out = resp.getWriter();
+
 		int idCheck = dao.checkId(userId);
 		
 		if(idCheck == 0) {
@@ -67,7 +67,6 @@ public class NewmemberCheckController extends HttpServlet{
 			req.setAttribute("Nickname", nickname);
 			System.out.println("NewmemberCheckController : 사용 가능한 아이디입니다.");
 		}
-		out.write(idCheck+"");
 		
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/Newmembercheckresult.jsp").forward(req, resp);
 	}

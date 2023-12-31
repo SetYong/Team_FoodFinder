@@ -28,13 +28,14 @@
 				</tr>
 				<c:forEach items="${boardLists}" var="row" varStatus="loop">
 					<tr>
-                		<td style = "text-align:center;"> ${ row.head_num } </td>
-						<td> <a href="../Admin/AdminMain.jsp?contentPage=FoodViewAdmin.do?headnum=${ row.head_num }"> ${ row.title }  </a> </td>
+                		<td style = "text-align:center;"> ${ row.headnum } </td>
+						<td> <a href="../Admin/AdminMain.jsp?contentPage=FoodViewAdmin.do?headnum=${ row.headnum }"> ${ row.title }  </a> </td>
 						<td style = "text-align:center;"> ${ row.cate } </td>
 						<td style = "text-align:center;"> ${ row.fooddate }
 						<td style = "text-align:center;">
 							<c:if test="${row.adminassent ==  '0' }"> <font color="#F15F5F">미승인</font> </c:if>
                         	<c:if test="${row.adminassent ==  '1' }"> <font color="#4194DD">승인완료</font> </c:if>
+                    		<c:if test="${row.adminassent ==  '2' }"> <font color="FF3399">탈락</font> </c:if>
                     	</td>
                     </tr>
                 </c:forEach>

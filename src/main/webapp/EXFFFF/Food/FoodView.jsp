@@ -58,7 +58,7 @@
 	</table>
 	<c:if test="${ mbnumcheck != null }">
 	<form name = "replyForm" >
-		<input type = "hidden" name = "headnum" value = " ${ dto.head_num }">
+		<input type = "hidden" name = "headnum" value = " ${ dto.headnum }">
 		<table>
 			<tr>
 				<td colspan ="2" style = "float:right"> <input type = "button"  value = "공감"> </td> 

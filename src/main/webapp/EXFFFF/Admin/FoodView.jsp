@@ -41,12 +41,29 @@
 					return false;   
 				} 
 		}
+			function updateAdminAssentFail(){
+				var assent = document.getElementById("AssentFail").value;
+				console.log(assent);
+				if(assent == "탈락"){
+					if(confirm("이 게시물을 탈락처리 하시겠습니까?")){
+						alert("탈락 처리 되었습니다.");
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+				else {
+					console.log("탈락 처리 오류");
+					return false;
+				}
+			}
 	</script>
 </head>
 <body>
 	<h2>푸드 게시판 관리자 상세보기</h2>
 	<form action="../Admin/AdminAssent.do">
-		<input type="hidden" name="headnum" value="${ dto.head_num }">
+		<input type="hidden" name="headnum" value="${ dto.headnum }">
 		<table>
 			<tr>
 				<td>제목 : ${ dto.title }</td>
@@ -60,6 +77,7 @@
 				<td colspan="2">승인 상태 : 
 					<c:if test="${dto.adminassent ==  '0' }"> <font color="#F15F5F">미승인</font> </c:if> 
 					<c:if test="${dto.adminassent ==  '1' }"> <font color="#4194DD">승인완료</font> </c:if>
+					<c:if test="${dto.adminassent ==  '2' }"> <font color="FF3399">탈락</font></c:if>
 				</td>
 			</tr>
 			<tr>
@@ -73,6 +91,7 @@
 			<tr>
 				<td><input type="submit" id="AssentYes" name="adminAssent" value="승인" onclick="return updateAdminAssentYes()"> </td>
 				<td><input type="submit" id="AssentNo" name="adminAssent" value="미승인" onclick="return updateAdminAssentNo()"> </td>
+				<td><input type="submit" id="AssentFail" name="adminAssent" value="탈락" onclick="return updateAdminAssentFail()"> </td>
 			</tr>
 		</table>
 	</form>

@@ -1,9 +1,11 @@
 package memberMG;
 
+import java.sql.SQLException;
+
 import  exffff.DBConnPool;
 
 public class MemberDAO extends DBConnPool {
-
+	
 	// 아이디 찾기
 	public MemberDTO getMemberId(String name, String cn, String phone) {
 		MemberDTO dto = new MemberDTO();
@@ -180,13 +182,10 @@ public class MemberDAO extends DBConnPool {
 			} else {
 				idCheck = 1;
 			}
-			
 		} catch (Exception e) {
 			System.out.println("회원가입 아이디 중복확인 중 예외 발생");
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return idCheck;	
 	}
 	
@@ -204,13 +203,10 @@ public class MemberDAO extends DBConnPool {
 			} else {
 				nickCheck = 1;
 			}
-			
 		} catch (Exception e) {
 			System.out.println("회원가입 닉네임 중복확인 중 예외 발생");
 			e.printStackTrace();
-		} finally {
-			close();
-		}
+		} 
 		return nickCheck;	
 	}
 	// 내정보 읽어오기
@@ -261,5 +257,39 @@ public class MemberDAO extends DBConnPool {
 			e.printStackTrace();
 		}
 		return dto;
+	}
+	
+	//회원탈퇴
+	public void deleteMember(int mbnum) {
+		String query1 = "DELETE FROM C##FOODFINDER.MEMBER_LOGIN WHERE MBNUM=?";
+		String query2 = "DELETE FROM C##FOODFINDER.MEMBER_PROFILE WHERE MBNUM=?";
+		String query3 = "DELETE FROM C##FOODFINDER.DIARYBOARD WHERE MBNUM=?";
+		String query4 = "DELETE FROM C##FOODFINDER.FOOD WHERE MBNUM=?";
+		String query5 = "DELETE FROM C##FOODFINDER.REPLY WHERE MBNUM=?";
+		try {
+			psmt = con.prepareStatement(query1);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query5);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query3);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query4);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query2);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println("회원탈퇴 중 예외 발생");
+			e.printStackTrace();
+		}
 	}
 }

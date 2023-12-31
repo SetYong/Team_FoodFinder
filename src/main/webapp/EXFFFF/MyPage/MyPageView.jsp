@@ -8,9 +8,33 @@
 <title>FoodFinder - mypage</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script>
+function MyPageEdit(){
+	var form = document.mypageform;
+	var MBNUM = form.MBNUM.value;
+	var Headnum = form.Headnum.value;
+	
+	form.method = "post";
+	form.action = "../MyPage/MyPageEdit.do";
+	form.submit();
+}
+function MyPageDelete(){
+	var form = document.mypageform;
+	var MBNUM = form.MBNUM.value;
+	var Headnum = form.Headnum.value;
+	
+	form.method = "post";
+	form.action = "../MyPage/MyPageDelete.do";
+	form.submit();
+}
+</script>
 </head>
 <body>
 	<h2>mypage view</h2>
+	<form name="mypageform">
+	<input type="hidden" name="MBNUM" value="<%=session.getAttribute("MBNUM")%>"/>
+	<input type="hidden" name="Headnum" value="${ dto.headnum }"/>
+	</form>
 	<table border="1" width="90%" class="table">
 		<colgroup>
 			<col width="15%" />
@@ -22,7 +46,7 @@
 		<!-- 게시글 정보 -->
 		<tr>
 			<td>번호</td>
-			<td>${ dto.idx }</td>
+			<td>${ dto.headnum }</td>
 			<td>작성자</td>
 			<td><%=session.getAttribute("nickname")%></td>
 		</tr>
@@ -42,7 +66,9 @@
 			<td colspan="4" align="center">
 				<button type="button"
 					onclick="location.href='../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>';">일기장으로 돌아가기</button>
-			<button type="button">수정하기</button>&nbsp;<button type="button">삭제하기</button>
+			<button type="button" onclick="MyPageEdit()">수정하기</button>
+			&nbsp;
+			<button type="button" onclick="MyPageDelete()">삭제하기</button>
 			</td>
 		</tr>
 	</table>

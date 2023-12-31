@@ -12,12 +12,12 @@ public class IntroViewController extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IntroDAO dao = new IntroDAO();
 		// 게시물 불러오기
-		String idx = req.getParameter("idx");
-		dao.updateVisitCount(idx);
-		IntroDTO dto = dao.selectView(idx);
+		String headnum = req.getParameter("headnum");
+		dao.updateVisitCount(headnum);
+		IntroDTO dto = dao.selectView(headnum);
 		dao.close();
 		
-		dto.setText(dto.getText().replaceAll("\r\n", "<br/>"));
+//		dto.setText(dto.getText().replaceAll("\r\n", "<br/>"));
 		
 		req.setAttribute("dto", dto);
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroView.jsp").forward(req, resp);

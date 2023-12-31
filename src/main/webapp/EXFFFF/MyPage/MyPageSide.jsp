@@ -33,6 +33,8 @@ a:hover {
 	<label
 		onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp'"
 		>정보 수정</label>
+	<br>
+	<a href="../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageExit.jsp">회원탈퇴</a>
 
 </body>
 </html>

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import questionBoard.QuestionPage;
 
 public class FoodBoard extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	FoodDAO dao;
     
     public void init() throws ServletException{

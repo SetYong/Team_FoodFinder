@@ -37,7 +37,7 @@ color: black;}</style>
 			<th width="10%">번호</th>
 			<th width="20%">제목</th>
 			<th width="*">내용</th>
-			<th width="13%">날짜</th>
+			<th width="23%">날짜</th>
 			<th width="15%">kcal</th>
 		</tr>
 	</table>
@@ -57,10 +57,11 @@ color: black;}</style>
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
 				<td align="left" width="20%">
-					<a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
+					<a href="../MyPage/MyPageView.do?headnum=${ row.headnum }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
 				</td>
-				<td width="*"><a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
+				<td width="*"><a href="../MyPage/MyPageView.do?headnum=${ row.headnum }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
 				<td width="13%">${ row.postdate }</td>
+				<td width="10%">${ row.timecate }</td>
 				<td width="15%">${ row.kcal }kcal</td>
 			</tr>
 			</c:forEach>

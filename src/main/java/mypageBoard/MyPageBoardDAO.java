@@ -62,13 +62,13 @@ public class MyPageBoardDAO extends DBConnPool{
 			
 			while(rs.next()) {
 				MyPageBoardDTO dto = new MyPageBoardDTO();
-				// mbnum title kcal timecate diarydate dno text image rnum
-				dto.setMbnum(rs.getString(1));
-				dto.setTitle(rs.getString(2));
-				dto.setKcal(rs.getString(3));
-				dto.setTimacate(rs.getString(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setIdx(rs.getString(6));
+				// headnum mbnum title kcal timecate diarydate dno text image rnum
+				dto.setHeadnum(rs.getString(1));
+				dto.setMbnum(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setKcal(rs.getString(4));
+				dto.setTimecate(rs.getString(5));
+				dto.setPostdate(rs.getDate(6));
 				dto.setContent(rs.getString(7));
 				dto.setImage(rs.getString(8));
 				dto.setRnum(rs.getString(9));
@@ -77,8 +77,8 @@ public class MyPageBoardDAO extends DBConnPool{
 				System.out.println("1 "+dto.getMbnum());
 				System.out.println("2 "+dto.getTitle());
 				System.out.println("3 "+dto.getKcal());
-				System.out.println("4 "+dto.getTimacate());
-				System.out.println("5 "+dto.getIdx());
+				System.out.println("4 "+dto.getTimecate());
+				System.out.println("5 "+dto.getHeadnum());
 				System.out.println("6 "+dto.getContent());
 				System.out.println("7 "+dto.getImage());
 				System.out.println("8 "+dto.getRnum());
@@ -171,21 +171,21 @@ public class MyPageBoardDAO extends DBConnPool{
 		}
 	}
 	//주어진 일련번호에 해당하는 게시물을 DTO에 담아서 반환합니다.
-		public MyPageBoardDTO selectView(String idx, String mbnum) {
+		public MyPageBoardDTO selectView(int idx, String mbnum) {
 			MyPageBoardDTO dto = new MyPageBoardDTO();
-			String query = "SELECT * FROM C##foodfinder.diaryboard WHERE dno=? and mbnum=?";
+			String query = "SELECT * FROM C##foodfinder.diaryboard WHERE headnum=? and mbnum=?";
 			try {
 				psmt = con.prepareStatement(query);
-				psmt.setString(1, idx);
+				psmt.setInt(1, idx);
 				psmt.setString(2, mbnum);
 				rs = psmt.executeQuery();
 				if(rs.next()) {
-					dto.setMbnum(rs.getString(1));
-					dto.setTitle(rs.getString(2));
-					dto.setKcal(rs.getString(3));
-					dto.setTimacate(rs.getString(4));
-					dto.setPostdate(rs.getDate(5));
-					dto.setIdx(rs.getString(6));
+					dto.setHeadnum(rs.getString(1));
+					dto.setMbnum(rs.getString(2));
+					dto.setTitle(rs.getString(3));
+					dto.setKcal(rs.getString(4));
+					dto.setTimecate(rs.getString(5));
+					dto.setPostdate(rs.getDate(6));
 					dto.setContent(rs.getString(7));
 					dto.setImage(rs.getString(8));
 				}
@@ -195,5 +195,45 @@ public class MyPageBoardDAO extends DBConnPool{
 				e.printStackTrace();
 			}
 			return dto;
+		}
+		
+	// 밥일기 수정
+		public void updateDiaryWrtie(int mbnum, int headnum, int kcal, String title, String timecate, String text, String image) {
+			String query = "UPDATE c##foodfinder.DIARYBOARD SET"
+					+ " title=?, timecate=?, kcal=?, diarydate=sysdate, text=?, image=?"
+					+ " WHERE mbnum=? AND headnum=?";
+			try {
+				psmt = con.prepareStatement(query);
+				psmt.setString(1, title);
+				psmt.setString(2, timecate);
+				psmt.setInt(3, kcal);
+				psmt.setString(4, text);
+				psmt.setString(5, image);
+				psmt.setInt(6, mbnum);
+				psmt.setInt(7, headnum);
+				
+				psmt.executeUpdate();
+				
+			}
+			catch (Exception e) {
+				System.out.println("다이어리 게시물 수정 중 예외 발생");
+				e.printStackTrace();
+			}
+		} 
+	// 밥일기 삭제
+		public void deleteDiaryWrtie(int mbnum, int headnum) {
+			String query = "DELETE FROM C##FOODFINDER.DIARYBOARD"
+					+ " WHERE MBNUM=? AND HEADNUM=?";
+			try {	
+				psmt=con.prepareStatement(query);
+				psmt.setInt(1, mbnum);
+				psmt.setInt(2, headnum);
+				
+				psmt.executeUpdate();
+			}
+			catch (Exception e) {
+				System.out.println("다이어리 게시물 삭제 중 예외 발생");
+				e.printStackTrace();
+			}
 		}
 }

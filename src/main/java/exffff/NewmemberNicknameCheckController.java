@@ -32,8 +32,8 @@ public class NewmemberNicknameCheckController extends HttpServlet{
 		String phone3 =	req.getParameter("memberPhone3");
 		String mail = req.getParameter("mail");
 		String nickname = req.getParameter("Nickname");
-		PrintWriter out = resp.getWriter();
 		String checkpass = req.getParameter("checkpass");
+		
 		int nickCheck = dao.checkNick(nickname);
 		
 		if(nickCheck == 0) {
@@ -67,7 +67,6 @@ public class NewmemberNicknameCheckController extends HttpServlet{
 			req.setAttribute("Nickname", nickname);
 			System.out.println("NewmemberNicknameCheckController : 사용 가능한 닉네임입니다.");
 		}
-		out.write(nickCheck+"");
 		
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?contentPage=../Member/Newmembercheckresult.jsp").forward(req, resp);
 	}

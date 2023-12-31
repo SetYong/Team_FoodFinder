@@ -3,7 +3,7 @@ package food;
 import java.sql.Date;
 
 public class FoodDTO {
-private int head_num;
+private int headnum;
 private String title;
 private String content;
 private String recipe;
@@ -18,11 +18,11 @@ private Date replydate;
 private int heartcount;
 private int adminassent;
 
-public int getHead_num() {
-	return head_num;
+public int getHeadnum() {
+	return headnum;
 }
-public void setHead_num(int head_num) {
-	this.head_num = head_num;
+public void setHeadnum(int headnum) {
+	this.headnum = headnum;
 }
 public String getTitle() {
 	return title;

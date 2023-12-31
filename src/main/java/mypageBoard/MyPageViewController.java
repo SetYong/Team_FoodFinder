@@ -16,9 +16,9 @@ public class MyPageViewController extends HttpServlet {
 	   protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	      MyPageBoardDAO dao = new MyPageBoardDAO();
 	      // 게시물 불러오기
-	      String idx = req.getParameter("idx");
+	      int headnum = Integer.parseInt(req.getParameter("headnum"));
 	      String mbnum = req.getParameter("MBNUM");
-	      MyPageBoardDTO dto = dao.selectView(idx, mbnum);
+	      MyPageBoardDTO dto = dao.selectView(headnum, mbnum);
 	      dao.close();
 	      
 	      req.setAttribute("dto", dto);

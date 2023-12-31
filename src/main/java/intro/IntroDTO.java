@@ -5,7 +5,7 @@ import java.sql.Date;
 public class IntroDTO {
 	private String title;
 	private String text;
-	private String idx;
+	private String headnum;
 	private String image;
 	private String visitcount;
 	private Date postdate;
@@ -27,11 +27,11 @@ public class IntroDTO {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public String getIdx() {
-		return idx;
+	public String getHeadnum() {
+		return headnum;
 	}
-	public void setIdx(String idx) {
-		this.idx = idx;
+	public void setHeadnum(String headnum) {
+		this.headnum = headnum;
 	}
 	public String getVisitcount() {
 		return visitcount;

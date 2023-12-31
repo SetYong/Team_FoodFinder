@@ -23,6 +23,8 @@ public class AdminAssent extends HttpServlet {
     		dao.updateAssentYes(headnum);
     	} else if(assent.equals("미승인")) {
     		dao.updateAssentNo(headnum);
+    	} else if(assent.equals("탈락")) {
+    		dao.updateAssentFail(headnum);
     	}
     	request.getRequestDispatcher("/EXFFFF/Admin/AdminMain.jsp?contentPage=AdminFoodList.do").forward(request, response);
     }

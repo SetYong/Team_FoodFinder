@@ -258,4 +258,38 @@ public class MemberDAO extends DBConnPool {
 		}
 		return dto;
 	}
+	
+	//회원탈퇴
+	public void deleteMember(int mbnum) {
+		String query1 = "DELETE FROM C##FOODFINDER.MEMBER_LOGIN WHERE MBNUM=?";
+		String query2 = "DELETE FROM C##FOODFINDER.MEMBER_PROFILE WHERE MBNUM=?";
+		String query3 = "DELETE FROM C##FOODFINDER.DIARYBOARD WHERE MBNUM=?";
+		String query4 = "DELETE FROM C##FOODFINDER.FOOD WHERE MBNUM=?";
+		String query5 = "DELETE FROM C##FOODFINDER.REPLY WHERE MBNUM=?";
+		try {
+			psmt = con.prepareStatement(query1);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query5);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query3);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query4);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+			psmt = con.prepareStatement(query2);
+			psmt.setInt(1, mbnum);
+			psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println("회원탈퇴 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
 }

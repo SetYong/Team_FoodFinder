@@ -35,6 +35,7 @@
 						<td style = "text-align:center;">
 							<c:if test="${row.adminassent ==  '0' }"> <font color="#F15F5F">미승인</font> </c:if>
                         	<c:if test="${row.adminassent ==  '1' }"> <font color="#4194DD">승인완료</font> </c:if>
+                    		<c:if test="${row.adminassent ==  '2' }"> <font color="FF3399">탈락</font> </c:if>
                     	</td>
                     </tr>
                 </c:forEach>

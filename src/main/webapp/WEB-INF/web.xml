@@ -243,8 +243,52 @@
 		<servlet-name>MyPageViewController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageView.do</url-pattern>
 	</servlet-mapping> 
+	
+	<servlet>
+		<servlet-name>MyPageEditController</servlet-name>
+		<servlet-class>mypageBoard.MyPageEditController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageEditController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageEdit.do</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>MyPageDeleteController</servlet-name>
+		<servlet-class>mypageBoard.MyPageDeleteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageDeleteController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageDelete.do</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>MyPageEditresultController</servlet-name>
+		<servlet-class>mypageBoard.MyPageEditresultController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageEditresultController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageeditresult.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageExitpassController</servlet-name>
+		<servlet-class>mypageBoard.MyPageExitpassController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageExitpassController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageExitpass.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageExitController</servlet-name>
+		<servlet-class>mypageBoard.MyPageExitController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageExitController</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageExit.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 관리자 푸드 -->
 	<servlet>
 		<servlet-name>FoodListAdmin</servlet-name>
@@ -272,7 +316,6 @@
 		<servlet-name>AdminAssent</servlet-name>
 		<url-pattern>/EXFFFF/Admin/AdminAssent.do</url-pattern>
 	</servlet-mapping>
-	
 	
 	<!-- 관리자 문의사항 -->
 	<servlet>

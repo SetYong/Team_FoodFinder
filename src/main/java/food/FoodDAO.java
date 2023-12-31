@@ -10,7 +10,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public int insertWrite(FoodDTO dto) {
 		int result = 0;
-		String query = "Insert INTO Food (title, content, recipe, mbnum, cate) VALUES (?,?,?,?,?)";
+		String query = "Insert INTO C##foodfinder.Food (title, content, recipe, mbnum, cate) VALUES (?,?,?,?,?)";
 		try {
 			System.out.println(query);
 			psmt = con.prepareStatement(query);
@@ -30,7 +30,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public FoodDTO selectView(String headnum) {
 		FoodDTO dto = new FoodDTO();
-		String query = "SELECT * FROM Food WHERE headnum=?";
+		String query = "SELECT * FROM C##foodfinder.Food WHERE headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);;
@@ -59,7 +59,7 @@ public class FoodDAO extends DBConnPool {
 	public FoodDTO getEdit( String content, String image, String text, String title, String heartcount, String cate) {
 		FoodDTO vo = new FoodDTO();
 		try {
-			String updateQuery = "UPDATE FOOD set visitcount=?, image=?, text=?, title=?, heartcount=?, cate=?";
+			String updateQuery = "UPDATE C##foodfinder.FOOD set visitcount=?, image=?, text=?, title=?, heartcount=?, cate=?";
 
 			System.out.println(updateQuery);
 			psmt = con.prepareStatement(updateQuery);
@@ -96,7 +96,7 @@ public class FoodDAO extends DBConnPool {
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
 
-		String query = "SElECT COUNT(*) FROM Food WHERE ADMINASSENT = 1";
+		String query = "SElECT COUNT(*) FROM C##foodfinder.Food WHERE ADMINASSENT = 1";
 
 		try {
 			stmt = con.createStatement();
@@ -112,7 +112,7 @@ public class FoodDAO extends DBConnPool {
 	public int selectCountAdmin(Map<String, Object> map) {
 		int totalCount = 0;
 
-		String query = "SElECT COUNT(*) FROM Food ";
+		String query = "SElECT COUNT(*) FROM C##foodfinder.Food ";
 
 		try {
 			stmt = con.createStatement();
@@ -129,7 +129,7 @@ public class FoodDAO extends DBConnPool {
 	public List<FoodDTO> selectList(Map<String, Object> map) {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
-		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food WHERE ADMINASSENT = 1";
+		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM C##foodfinder.Food WHERE ADMINASSENT = 1";
 			   query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {
 			psmt = con.prepareStatement(query);
@@ -158,7 +158,7 @@ public class FoodDAO extends DBConnPool {
 	public List<FoodDTO> selectListAdmin(Map<String, Object> map) {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
-		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM Food";
+		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM C##foodfinder.Food";
 			   query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {
 			psmt = con.prepareStatement(query);
@@ -186,7 +186,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public String checkNickname(String mbnum) {
 		String nickName = "";
-		String query = "SELECT NICKNAME FROM MEMBER_PROFILE WHERE mbnum = "+ mbnum + " ";
+		String query = "SELECT NICKNAME FROM C##foodfinder.MEMBER_PROFILE WHERE mbnum = "+ mbnum + " ";
 		System.out.println(query + " : : " + mbnum);
 		try {
 			stmt = con.createStatement();
@@ -205,7 +205,7 @@ public class FoodDAO extends DBConnPool {
 
 	public List<FoodDTO> Reple(Map<String, Object>map){
 		List<FoodDTO> repleList = new Vector<FoodDTO>();
-		String query = "SELECT * FROM Reply Where headnum = ? ORDER BY replydate ASC";
+		String query = "SELECT * FROM C##foodfinder.Reply Where headnum = ? ORDER BY replydate ASC";
 		System.out.println(query);
 		
 		try {
@@ -233,7 +233,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public int ReplyWrite(FoodDTO dto, String headnum) {
 		int result = 0;
-		String query = "Insert INTO REPLY (headnum, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
+		String query = "Insert INTO C##foodfinder.REPLY (headnum, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
 		try {
 			System.out.println(query);
 			psmt = con.prepareStatement(query);
@@ -251,7 +251,7 @@ public class FoodDAO extends DBConnPool {
 	}
 	
 	public void updateAssentYes(String headnum) {
-		String query = "UPDATE FOOD SET ADMINASSENT = 1 WHERE HEADNUM = " + headnum;
+		String query = "UPDATE C##foodfinder.FOOD SET ADMINASSENT = 1 WHERE HEADNUM = " + headnum;
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.executeQuery();
@@ -262,13 +262,24 @@ public class FoodDAO extends DBConnPool {
 		}
 	}
 	public void updateAssentNo(String headnum) {
-		String query = "UPDATE FOOD SET ADMINASSENT = 0 WHERE HEADNUM = " + headnum;
+		String query = "UPDATE c##foodfinder.FOOD SET ADMINASSENT = 0 WHERE HEADNUM = " + headnum;
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.executeQuery();
 			
 		} catch(Exception e) {
-			System.out.println("푸드게시판 관리자 승인 처리 중 예외 발생");
+			System.out.println("푸드게시판 관리자 미승인 처리 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
+	public void updateAssentFail(String headnum) {
+		String query = "UPDATE C##foodfinder.FOOD SET ADMINASSENT = 2 WHERE HEADNUM = " + headnum;
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.executeQuery();
+			
+		} catch(Exception e) {
+			System.out.println("푸드게시판 관리자 탈락 처리 중 예외 발생");
 			e.printStackTrace();
 		}
 	}

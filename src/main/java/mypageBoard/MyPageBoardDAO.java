@@ -67,7 +67,7 @@ public class MyPageBoardDAO extends DBConnPool{
 				dto.setMbnum(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setKcal(rs.getString(4));
-				dto.setTimacate(rs.getString(5));
+				dto.setTimecate(rs.getString(5));
 				dto.setPostdate(rs.getDate(6));
 				dto.setContent(rs.getString(7));
 				dto.setImage(rs.getString(8));
@@ -77,7 +77,7 @@ public class MyPageBoardDAO extends DBConnPool{
 				System.out.println("1 "+dto.getMbnum());
 				System.out.println("2 "+dto.getTitle());
 				System.out.println("3 "+dto.getKcal());
-				System.out.println("4 "+dto.getTimacate());
+				System.out.println("4 "+dto.getTimecate());
 				System.out.println("5 "+dto.getHeadnum());
 				System.out.println("6 "+dto.getContent());
 				System.out.println("7 "+dto.getImage());
@@ -184,7 +184,7 @@ public class MyPageBoardDAO extends DBConnPool{
 					dto.setMbnum(rs.getString(2));
 					dto.setTitle(rs.getString(3));
 					dto.setKcal(rs.getString(4));
-					dto.setTimacate(rs.getString(5));
+					dto.setTimecate(rs.getString(5));
 					dto.setPostdate(rs.getDate(6));
 					dto.setContent(rs.getString(7));
 					dto.setImage(rs.getString(8));
@@ -195,5 +195,45 @@ public class MyPageBoardDAO extends DBConnPool{
 				e.printStackTrace();
 			}
 			return dto;
+		}
+		
+	// 밥일기 수정
+		public void updateDiaryWrtie(int mbnum, int headnum, int kcal, String title, String timecate, String text, String image) {
+			String query = "UPDATE c##foodfinder.DIARYBOARD SET"
+					+ " title=?, timecate=?, kcal=?, diarydate=sysdate, text=?, image=?"
+					+ " WHERE mbnum=? AND headnum=?";
+			try {
+				psmt = con.prepareStatement(query);
+				psmt.setString(1, title);
+				psmt.setString(2, timecate);
+				psmt.setInt(3, kcal);
+				psmt.setString(4, text);
+				psmt.setString(5, image);
+				psmt.setInt(6, mbnum);
+				psmt.setInt(7, headnum);
+				
+				psmt.executeUpdate();
+				
+			}
+			catch (Exception e) {
+				System.out.println("다이어리 게시물 수정 중 예외 발생");
+				e.printStackTrace();
+			}
+		} 
+	// 밥일기 삭제
+		public void deleteDiaryWrtie(int mbnum, int headnum) {
+			String query = "DELETE FROM C##FOODFINDER.DIARYBOARD"
+					+ " WHERE MBNUM=? AND HEADNUM=?";
+			try {	
+				psmt=con.prepareStatement(query);
+				psmt.setInt(1, mbnum);
+				psmt.setInt(2, headnum);
+				
+				psmt.executeUpdate();
+			}
+			catch (Exception e) {
+				System.out.println("다이어리 게시물 삭제 중 예외 발생");
+				e.printStackTrace();
+			}
 		}
 }

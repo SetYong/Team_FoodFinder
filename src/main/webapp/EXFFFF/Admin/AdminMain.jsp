@@ -56,7 +56,7 @@ background-color:gray;}
 				<p style="margin:auto;"> 관리자님
 			</div>
 		<div style="line-height: 30px">
-			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminNotice.jsp'">공지사항</label> <br>
+			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminNotice.do'">공지사항</label> <br>
 			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminQuestion.do'">문의 사항</label> <br>
 			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminFoodList.do'">권한 관련</label>
 		</div>

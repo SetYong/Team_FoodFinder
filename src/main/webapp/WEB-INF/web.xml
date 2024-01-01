@@ -289,6 +289,26 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageExit.do</url-pattern>
 	</servlet-mapping>
 	
+	
+	<!-- 관리자 인트로 -->
+	<servlet>
+		<servlet-name>IntroListAdmin</servlet-name>
+		<servlet-class>intro.IntroBoardListAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroListAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminNotice.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>IntroWriteAdmin</servlet-name>
+		<servlet-class>intro.IntroBoardWriteAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroWriteAdmin</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminNoticeWrite.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 관리자 푸드 -->
 	<servlet>
 		<servlet-name>FoodListAdmin</servlet-name>

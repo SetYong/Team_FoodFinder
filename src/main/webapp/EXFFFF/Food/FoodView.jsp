@@ -43,7 +43,7 @@
 		</tr>
 		<c:if test = "${ dto.image != null }">
 		<tr>
-			<td colspan = "2"> <img class ="foodimg" src="../img/${ dto.image }" alt="푸드 이미지" /> </td>
+			<td colspan = "2"> <img class ="foodimg" src="../img/FoodImg/${ dto.image }" alt="푸드 이미지" /> </td>
 		</tr>
 		</c:if>
 		<tr>

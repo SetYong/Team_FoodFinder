@@ -57,8 +57,8 @@ a:hover{color: gray}
             	<table>
                 <tr>
             	<c:forEach items="${boardLists}" var="row" end = "3" varStatus="loop">
-                		<td style="width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.head_num }"> 
-                		<c:if test="${ row.image != null }"> <img src="../img/${ row.image }" alt="푸드게시판" /> </c:if>
+                		<td style="width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> 
+                		<c:if test="${ row.image != null }"> <img src="../img/FoodImg/${ row.image }" alt="푸드게시판" /> </c:if>
                 		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a> </td>
                 </c:forEach>
                 </tr>

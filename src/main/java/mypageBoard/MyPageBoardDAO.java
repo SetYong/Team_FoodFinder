@@ -12,7 +12,7 @@ public class MyPageBoardDAO extends DBConnPool{
 		super();
 	}
 	
-	// 검색 조건에 맞는 게시물의 개수를 반환합니다.
+	// 검색 조건에 맞는 다이어리게시물의 개수를 반환합니다.
 	public int selectCount(Map<String, Object> map, String mbnum) {
 		int totalCount = 0;
 		String query = "SELECT COUNT(*) FROM C##foodfinder.diaryBoard WHERE mbnum=?";

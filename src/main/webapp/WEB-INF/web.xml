@@ -151,6 +151,24 @@
 		<url-pattern>/EXFFFF/Food/Reply.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FoodEdit</servlet-name>
+		<servlet-class>food.FoodEdit</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodEdit</servlet-name>
+		<url-pattern>/EXFFFF/Food/Edit.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FoodDelete</servlet-name>
+		<servlet-class>food.FoodDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodDelete</servlet-name>
+		<url-pattern>/EXFFFF/Food/Delete.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 문의사항 -->
 	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>

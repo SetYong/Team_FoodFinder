@@ -294,4 +294,17 @@ public class FoodDAO extends DBConnPool {
 			e.printStackTrace();
 		}
 	}
+	
+	public void delete(String headnum) {
+		String query = "DELETE FROM C##FOODFINDER.FOOD WHERE HEADNUM=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.executeQuery();
+			
+		} catch (Exception e) {
+			System.out.println("푸드게시판 게시글 삭제 처리 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
 }

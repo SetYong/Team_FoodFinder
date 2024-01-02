@@ -30,7 +30,7 @@ public class FoodWrite extends HttpServlet {
 		FoodDTO dto = new FoodDTO();
 		
 		int maxPostSize = 1024000;
-		String saveDirectory = request.getServletContext().getRealPath("/EXFFFF/img");
+		String saveDirectory = request.getServletContext().getRealPath("/EXFFFF/img/FoodImg");
 		System.out.println("실제 저장소 : " + saveDirectory);
 		MultipartRequest mr = FileUpload.Upload(request, saveDirectory, maxPostSize);
 		String imgName = mr.getFilesystemName("image");

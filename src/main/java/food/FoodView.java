@@ -31,7 +31,8 @@ public class FoodView extends HttpServlet {
 		String headnum = request.getParameter("headnum");
 		map.put("headnum", headnum);
 		System.out.println(headnum + "번 푸드게시판 View");
-		
+
+		dao.updateVisitcount(headnum);
 		FoodDTO dto = dao.selectView(headnum);
 		String nickname = dao.checkNickname(dto.getMbnum().toString());
 		 List<FoodDTO> replyList = dao.Reple(map);

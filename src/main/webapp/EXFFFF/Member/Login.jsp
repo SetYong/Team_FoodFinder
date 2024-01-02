@@ -6,7 +6,13 @@
 
 <!DOCTYPE html>
 <html>
-<head><title>Login</title><style></style></head>
+<head><title>Login</title>
+<style>
+input[type=text]{
+
+}
+</style>
+</head>
 <meta charset="UTF-8">
 <body>
 <h2 align="center">로그인</h2>

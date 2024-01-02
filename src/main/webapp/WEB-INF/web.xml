@@ -373,32 +373,4 @@
 		<url-pattern>/EXFFFF/Admin/AdminNoticewrite.do</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 관리자 이벤트 관리 -->
-	<servlet>
-		<servlet-name>AdminEvent</servlet-name>
-		<servlet-class>intro.AdminEvent</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AdminEvent</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminEvent.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>AdminEventView</servlet-name>
-		<servlet-class>intro.AdminEventView</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AdminEventView</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminEventView.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>AdminEventController</servlet-name>
-		<servlet-class>intro.AdminEventController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AdminEventController</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminEventwrite.do</url-pattern>
-	</servlet-mapping>
-	
 </web-app>

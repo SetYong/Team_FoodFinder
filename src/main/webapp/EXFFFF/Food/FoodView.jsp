@@ -38,12 +38,12 @@
 			<td> 작성일 : ${ dto.fooddate } </td>
 		</tr>
 		<tr>
-			<td> 조회 수 : </td>
+			<td> 조회 수 : ${ dto.visitcount }</td>
 			<td> 공감 수 : ${ dto.heartcount } </td>
 		</tr>
 		<c:if test = "${ dto.image != null }">
 		<tr>
-			<td colspan = "2"> <img class ="foodimg" src="../img/${ dto.image }" alt="푸드 이미지" /> </td>
+			<td colspan = "2"> <img class ="foodimg" src="../img/FoodImg/${ dto.image }" alt="푸드 이미지" /> </td>
 		</tr>
 		</c:if>
 		<tr>

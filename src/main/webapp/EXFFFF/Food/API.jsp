@@ -9,7 +9,7 @@
     urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=ZOyrleH0fOWPAKLTQNvktU3QszG232aYaSZ8NcusR5YE7EoNRXDz2yZEPmtCDwxKX7HjG8MNF4WqN9XrCNUEhg%3D%3D");
     urlBuilder.append("&" + URLEncoder.encode("desc_kor", "UTF-8") + "=" + URLEncoder.encode(keyword, "UTF-8"));
     urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode(startNum, "UTF-8"));
-    urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("5", "UTF-8"));
+    urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("13", "UTF-8"));
     urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
     
     URL url = new URL(urlBuilder.toString());

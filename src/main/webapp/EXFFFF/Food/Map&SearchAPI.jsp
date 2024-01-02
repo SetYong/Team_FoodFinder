@@ -8,7 +8,43 @@
     <title>검색 API</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l6gbu2evid"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+       <style>
+        body {
+            display: flex;
+            flex-direction: row-reverse; 
+            justify-content:space-between;
+        }
+
+        #mapContainer {
+            width: 45%;
+            height:1024%;
+        }
+
+        #searchContainer {
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+      ul {
+    border: 1px #cccccc solid;
+    list-style: none;
+    padding: 0;
+    max-height: 80px;
+      
+    overflow-y: auto;  
+}
+
+ul li {
+    margin: 5px 0;
+    padding: 5px;  
+}
+    </style>
     <script>
         // [검색 요청] 버튼 클릭 시 실행할 메서드를 정의합니다.
         $(function() {
@@ -32,7 +68,6 @@
             var str = "";
             $.each(d.items, function(index, item) {
                 str += "<ul>";
-                str += "    <li>" + (index + 1) + "</li>";
                 str += "    <li>" + item.title + "</li>";
                 str += "    <li>" + item.category + "</li>";
                 str +="     <li>" + item.address + "</li>";
@@ -48,23 +83,16 @@
         }
         
     </script>
+
     
-    <style>
-        ul{border:2px #cccccc solid;}
-    </style>
 </head>
 <body>
 <div id="map" style="width:100%;height:400px;"></div>
     <div>
         <div>
             <form id="searchFrm">
-                여기에서 검색해 주세요. <br />
                 <select id="startNum">
-                    <option value="1">1페이지</option>
-                    <option value="11">2페이지</option>
-                    <option value="21">3페이지</option>
-                    <option value="31">4페이지</option>
-                    <option value="41">5페이지</option>
+                    <option value="1">검색</option>
                 </select>
                 <input type="text" id="keyword" placeholder="검색어를 입력하세요." />
                 <button type="button" id="searchBtn">검색 요청</button>

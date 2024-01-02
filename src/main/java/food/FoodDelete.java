@@ -23,7 +23,7 @@ public class FoodDelete extends HttpServlet{
 		} else if (check.equals("수정하기")){
 			FoodDTO dto = dao.selectView(headnum);
 			request.setAttribute("dto", dto);
-			request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/FoodSide.jsp&contentPage=../Food/FoodEdit.jsp").forward(request, response);
+			request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodEdit.jsp").forward(request, response);
 		} 
 		
 	}

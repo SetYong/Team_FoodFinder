@@ -1,66 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FoodFinder</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<style>a{text-decoration:none;
-color: black;}</style>
+<title>Insert title here</title>
+<style>
+table{
+width:100%;
+}
+.foodbody{
+}
+input[type=button]{
+    margin-left: 40%;
+    border-radius: 10px;
+    width: 120px;
+    height: 30px;
+    background-color: lightsteelblue;
+    border: none;
+}
+.foodBoard{
+text-align: center;
+line-height: 20px;
+}
+img{
+width:100%;
+height: 250px;
+}
+a{text-decoration:none;}
+a:link{color : black}
+a:visited{color: black}
+a:hover{color: gray}
+</style>
 </head>
 <body>
-	<br>
-	<h2 class="text-left" >나의 레시피</h2>
-	<br>
-	<!-- 검색 폼 -->
-	<form method="get">
-	<table border="1" width="90%" class="table">
-	<tr>
-		<td align="center">
-			<select name="searchField">
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="text" name="searchWord"/>
-			<input type="submit" value="검색하기" />
-		</td>
-	</tr>
-	</table>
-	</form>
-	<table border="1" width="90%" class="table table-hover table-striped">
-	<c:choose>
-		<c:when test="${empty boardLists }">
-			<tr>
-				<td colspan="5" align="center">
+	<form name = "Foodform" action = "">
+		<table>
+			<tr> <td colspan ="4"> <h3 style = "text-align:center">내가 작성한 레시피</h3> </td> </tr>
+			<c:choose>
+        	<c:when test="${empty boardLists}">
+        		<tr>
+					<td colspan="6" style="text-align: center;">
 					등록된 레시피가 없습니다.
-				</td>
-			</tr>
-		</c:when>
-		<c:otherwise>
-			<c:forEach items="${ boardLists }" var="row" varStatus="loop">
-			<tr align="center">
-				<td width="10%">
-					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
-				</td>
-				<td align="left" width="20%">
-					<a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${row.title }</a>
-				</td>
-				<td width="*"><a href="../MyPage/MyPageView.do?idx=${ row.idx }&MBNUM=<%=session.getAttribute("MBNUM")%>">${ row.content }</a></td>
-				<td width="13%">${ row.postdate }</td>
-			</tr>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
-	</table>
-	<table border="1" width="90%" class="table">
-		<tr align="center">
-			<td>
-				${ map.pagingImg }
-			</td>
-		</tr>
-	</table>
+					</td>
+				</tr>
+        	</c:when>
+        	<c:otherwise>
+            	<table>
+                <tr>
+            	<c:forEach items="${boardLists}" var="row" end = "3" varStatus="loop">
+                		<td style="width:300px;"> 
+                		<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> 
+                		<img src="../img/test2.jpeg" alt="푸드게시판 }" /> </a> </td>
+                </c:forEach>
+                </tr>
+               	<tr>
+                <c:forEach items="${boardLists}" var="row" end = "3" varStatus="loop">
+                	<td class="foodBoard"> 
+                	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
+                    </a>
+					</td>
+                </c:forEach>
+                </tr>
+                <tr>
+            	<c:forEach items="${boardLists}" var="row" begin = "4" varStatus="loop">
+                		<td style = "width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> <img src="../img/test2.jpeg" alt="푸드게시판 }" /> </a> </td>
+                </c:forEach>
+                </tr>
+               	<tr>
+                <c:forEach items="${boardLists}" var="row" begin = "4" varStatus="loop">
+                	<td  class="foodBoard"> 
+                	<a href="../Main/Main.jsp?sidePage=../MyPage/MyPageside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
+                    </a>
+					</td>
+                </c:forEach>
+                </tr>
+            </table>
+    		<table border="1" width="90%">
+				<tr align="center" >
+					<td colspan = "2">
+						${ map.pagingImg }
+					</td>
+				</tr>
+			</table>
+        	</c:otherwise>
+   			 </c:choose>
+		</table>
+	</form>
 </body>
 </html>

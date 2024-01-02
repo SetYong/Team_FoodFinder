@@ -62,6 +62,7 @@ public class IntroDAO extends DBConnPool{
 				dto.setHeadnum(rs.getString(1));
 				dto.setTitle(rs.getString(2));
 				dto.setText(rs.getString(3));
+				dto.setCate(rs.getString(4));
 				dto.setImage(rs.getString(5));
 				dto.setPostdate(rs.getDate(6));
 				dto.setVisitcount(rs.getString(7));
@@ -82,15 +83,16 @@ public class IntroDAO extends DBConnPool{
 	}
 	
 	// 게시물 입력
-	public void insertintroWrite(String title,String text, String image) {
+	public void insertintroWrite(IntroDTO dto) {
 		String query = "INSERT INTO c##foodfinder.introBOARD("
-				+ "title, text, image)"
-				+ " VALUES(?, ?, ?)";
+				+ "title, text, cate,image)"
+				+ " VALUES(?, ?, ?, ?)";
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, title);
-			psmt.setString(2, text);
-			psmt.setString(3, image);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getText());
+			psmt.setString(3, dto.getCate());
+			psmt.setString(4, dto.getImage());
 			System.out.println(query);
 			psmt.executeUpdate();
 			
@@ -113,10 +115,11 @@ public class IntroDAO extends DBConnPool{
 				dto.setHeadnum(rs.getString(1));
 				dto.setTitle(rs.getString(2));
 				dto.setText(rs.getString(3));
-				//dto.setCate
+				dto.setCate(rs.getString(4));
 				dto.setImage(rs.getString(5));
 				dto.setPostdate(rs.getDate(6));
 				dto.setVisitcount(rs.getString(7));
+				System.out.println(dto.getPostdate());
 			}
 		}
 		catch(Exception e) {

@@ -289,26 +289,6 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageExit.do</url-pattern>
 	</servlet-mapping>
 	
-	
-	<!-- 관리자 인트로 -->
-	<servlet>
-		<servlet-name>IntroListAdmin</servlet-name>
-		<servlet-class>intro.IntroBoardListAdmin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>IntroListAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminNotice.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>IntroWriteAdmin</servlet-name>
-		<servlet-class>intro.IntroBoardWriteAdmin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>IntroWriteAdmin</servlet-name>
-		<url-pattern>/EXFFFF/Admin/AdminNoticeWrite.do</url-pattern>
-	</servlet-mapping>
-	
 	<!-- 관리자 푸드 -->
 	<servlet>
 		<servlet-name>FoodListAdmin</servlet-name>
@@ -363,6 +343,34 @@
 	<servlet-mapping>
 		<servlet-name>QuestionViewAdmin</servlet-name>
 		<url-pattern>/EXFFFF/Admin/QuestionView.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 관리자 공지사항 관리 -->
+	<servlet>
+		<servlet-name>AdminNotice</servlet-name>
+		<servlet-class>intro.AdminNotice</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminNotice</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminNotice.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminNoticeView</servlet-name>
+		<servlet-class>intro.AdminNoticeView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminNoticeView</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminNoticeView.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminNoticeController</servlet-name>
+		<servlet-class>intro.AdminNoticeController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminNoticeController</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminNoticewrite.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

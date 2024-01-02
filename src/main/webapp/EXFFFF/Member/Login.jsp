@@ -6,7 +6,13 @@
 
 <!DOCTYPE html>
 <html>
-<head><title>Login</title><style></style></head>
+<head><title>Login</title>
+<style>
+input[type=text]{
+
+}
+</style>
+</head>
 <meta charset="UTF-8">
 <body>
 <h2 align="center">로그인</h2>
@@ -23,10 +29,12 @@ if(session.getAttribute("user_Id") == null){
 function validateForm(form){
 if(!form.id.value){
 	alert("아이디를 입력하세요.");
+	form.id.focus();
 	return false;
 	}
 if(form.password.value == ""){
 	alert("비밀번호를 입력하세요.");
+	form.password.focus();
 	return false;
 	}	
 }

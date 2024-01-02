@@ -16,6 +16,7 @@ private String replembnum;
 private String replenickname;
 private Date replydate;
 private int heartcount;
+private int visitcount;
 private int adminassent;
 
 public int getHeadnum() {
@@ -96,6 +97,12 @@ public int getHeartcount() {
 }
 public void setHeartcount(int heartcount) {
 	this.heartcount = heartcount;
+}
+public int getVisitcount() {
+	return visitcount;
+}
+public void setVisitcount(int visitcount) {
+	this.visitcount = visitcount;
 }
 public int getAdminassent() {
 	return adminassent;

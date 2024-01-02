@@ -3,10 +3,11 @@ package intro;
 import java.sql.Date;
 
 public class IntroDTO {
+	private String headnum;
 	private String title;
 	private String text;
-	private String headnum;
 	private String image;
+	private String cate;
 	private String visitcount;
 	private Date postdate;
 	public String getImage() {
@@ -26,6 +27,12 @@ public class IntroDTO {
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	public String getCate() {
+		return cate;
+	}
+	public void setCate(String cate) {
+		this.cate = cate;
 	}
 	public String getHeadnum() {
 		return headnum;

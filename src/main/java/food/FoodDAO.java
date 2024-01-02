@@ -48,7 +48,7 @@ public class FoodDAO extends DBConnPool {
 				dto.setCate(rs.getString(7));
 				dto.setFooddate(rs.getDate(8));
 				dto.setHeartcount(rs.getInt(9));
-				//dto.setVistcount
+				dto.setVisitcount(rs.getInt(10));
 				dto.setAdminassent(rs.getInt(11));
 			}
 		} catch (Exception e) {
@@ -285,15 +285,12 @@ public class FoodDAO extends DBConnPool {
 		}
 	}
 	
-	public void delete(String headnum) {
-		String query = "DELETE FROM C##FOODFINDER.FOOD WHERE HEADNUM=?";
+	public void updateVisitcount(String headnum) {
+		String query = "UPDATE C##foodfinder.FOOD SET visitcount=visitcount+1 WHERE HEADNUM =" + headnum;
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, headnum);
 			psmt.executeQuery();
-			
-		} catch (Exception e) {
-			System.out.println("푸드게시판 게시글 삭제 처리 중 예외 발생");
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import exffff.DBConnPool;
+import food.FoodDTO;
 import intro.IntroDTO;
 
 public class MyPageBoardDAO extends DBConnPool{
@@ -91,8 +92,8 @@ public class MyPageBoardDAO extends DBConnPool{
 	}
 	
 	// 내가 작성한 레시피 조회
-	public List<MyPageBoardDTO> selectfoodListPage(Map<String, Object> map, String mbnum) {
-		List<MyPageBoardDTO> board = new Vector<MyPageBoardDTO>();
+	public List<FoodDTO> selectfoodListPage(Map<String, Object> map, String mbnum) {
+		List<FoodDTO> board = new Vector<FoodDTO>();
 		String query = " "
 				+ "SELECT * FROM ( "
 				+ " 	SELECT Tb.*, rownum rNum FROM ( "
@@ -116,9 +117,19 @@ public class MyPageBoardDAO extends DBConnPool{
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				MyPageBoardDTO dto = new MyPageBoardDTO();
-				// head_num title content(재료) recipe mbnum image cate fooddate heartcount adminassent visitcount
-				
+				FoodDTO dto = new FoodDTO();
+				dto.setHeadnum(rs.getInt("Headnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRecipe(rs.getString("recipe"));
+				dto.setCate(rs.getNString("cate"));
+				dto.setImage(rs.getString("image"));
+				dto.setFooddate(rs.getDate("fooddate"));
+				dto.setHeartcount(rs.getInt("heartcount"));
+				dto.setAdminassent(rs.getInt("adminassent"));
+				dto.setVisitcount(rs.getInt("visitcount"));
+
+				board.add(dto);
 			}
 		}
 		catch (Exception e) {

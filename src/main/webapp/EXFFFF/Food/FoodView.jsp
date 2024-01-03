@@ -29,6 +29,7 @@
 			return true;
 		}
 	}
+	
 	function heartcheck(){
 		var form = document.replyForm;
 		var heartstate = document.getElementById("replytextfield").value;
@@ -42,10 +43,35 @@
 			document.getElementById("replycate").value = "heartoff";
 		}
 	}
+
+	function foodedit(){
+		var check = document.getElementById("edit").value;
+		if(confirm("게시글을 수정하시겠습니까?")){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	function fooddelete(){
+		var check = document.getElementById("delete").value;
+		if(confirm("게시글을 삭제하시겠습니까?")){
+			alert("삭제되었습니다.");
+			return true;
+		} else {
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
 	<h2 style="text-align: center;"> ${ dto.title }</h2>
+	<c:if test="${mbnumcheck == dto.mbnum }">
+	<form action="../Food/Delete.do" >
+		<input type="hidden" name="HEADNUM" value="${dto.headnum }"/>
+		<input type="submit" id="delete" name="editordelete" value="삭제하기" onclick="return fooddelete()"/>
+		<input type="submit" id="edit" name="editordelete" value="수정하기" onclick="return foodedit()"/>
+	</form>
+	</c:if>
 	<table style = "width:100%">
 		<tr>
 			<td style = "width:80%"> 작성자 :${ nickName } </td>

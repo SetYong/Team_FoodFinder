@@ -11,6 +11,7 @@ private String mbnum;
 private String image;
 private String cate;
 private Date fooddate;
+private String replecate;
 private String repletext;
 private String replembnum;
 private String replenickname;
@@ -68,6 +69,12 @@ public void setFooddate(Date fooddate) {
 	this.fooddate = fooddate;
 }
 
+public String getReplecate() {
+	return replecate;
+}
+public void setReplecate(String replecate) {
+	this.replecate = replecate;
+}
 public String getRepletext() {
 	return repletext;
 }

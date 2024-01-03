@@ -206,7 +206,7 @@ public class FoodDAO extends DBConnPool {
 
 	public List<FoodDTO> Reple(Map<String, Object>map){
 		List<FoodDTO> repleList = new Vector<FoodDTO>();
-		String query = "SELECT * FROM C##foodfinder.Reply Where headnum = ? ORDER BY replydate ASC";
+		String query = "SELECT * FROM C##foodfinder.Reply Where headnum = ?  AND cate ='reply' ORDER BY replydate ASC";
 		System.out.println(query);
 		
 		try {
@@ -219,6 +219,7 @@ public class FoodDAO extends DBConnPool {
 				dto.setReplembnum(rs.getString("MBNUM"));
 				dto.setRepletext(rs.getString("Text"));
 				dto.setReplydate(rs.getDate("replydate"));
+				dto.setReplecate(rs.getString("cate"));
 				dto.setReplenickname(rs.getString("nickname"));
 
 				repleList.add(dto);
@@ -234,14 +235,15 @@ public class FoodDAO extends DBConnPool {
 	
 	public int ReplyWrite(FoodDTO dto, String headnum) {
 		int result = 0;
-		String query = "Insert INTO C##foodfinder.REPLY (headnum, mbnum, TEXT, nickname) VALUES (?,?,?, ?)";
+		String query = "Insert INTO C##foodfinder.REPLY (headnum, mbnum, TEXT, cate, nickname) VALUES (?,?,?,?,?)";
 		try {
 			System.out.println(query);
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
 			psmt.setString(2, dto.getReplembnum());
 			psmt.setString(3, dto.getRepletext());
-			psmt.setString(4, dto.getReplenickname());
+			psmt.setString(4, dto.getReplecate());
+			psmt.setString(5, dto.getReplenickname());
 			result = psmt.executeUpdate();
 			
 		} catch(Exception e) {
@@ -249,6 +251,50 @@ public class FoodDAO extends DBConnPool {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public String selectheart(String headnum, String mbnum) {
+		String heartstate = "";
+		String query = "SELECT * FROM REPLY WHERE HEADNUM = ? AND mbnum = ? AND cate LIKE '%heart%'";
+		System.out.println("selectheart DAO 실행");
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.setString(2, mbnum);
+			rs = psmt.executeQuery();
+			System.out.println("heart dao query : " + query);
+			
+			if (rs.next()) {
+	            heartstate = rs.getString("cate").toString();
+	            System.out.println("하트 상태 DAO : " + heartstate);
+	        }
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return heartstate;
+	}
+	
+	public void deletehearton(String headnum, String mbnum) {
+		String query = "DELETE FROM REPLY WHERE headnum = ? AND mbnum = ? AND TEXT = 'hearton'";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.setString(2, mbnum);
+			psmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void deleteheartoff(String headnum, String mbnum) {
+		String query = "DELETE FROM REPLY WHERE headnum = ? AND mbnum = ? AND TEXT = 'heartoff'";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.setString(2, mbnum);
+			psmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void updateAssentYes(String headnum) {

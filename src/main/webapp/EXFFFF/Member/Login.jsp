@@ -9,7 +9,35 @@
 <head><title>Login</title>
 <style>
 input[type=text]{
-
+	width: 20%;
+	height: 30px;
+}
+input[type=password]{
+	width: 20%;
+	height: 30px;
+	margin-bottom: 5px;
+}
+label{
+	cursor: pointer;
+	font-size: 9pt;
+}
+span{
+	font-size: 9pt;
+}
+.FindID{
+	margin-left:10%;
+}
+.LoginBtn{
+	cursor: pointer;
+    width: 20%;
+    height: 40px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.RegisterBtn{
+	cursor: pointer;
+    width: 20%;
+    height: 40px;
 }
 </style>
 </head>
@@ -40,12 +68,27 @@ if(form.password.value == ""){
 }
 </script>
 <form align=center action="../Member/Login.do" method="post" name="loginFrm" onsubmit="return validateForm(this);">
-아이디 : &nbsp;&nbsp;&nbsp;<input type = "text" name="id"/><br/>
-비밀번호 : <input type = "password" name="password"/><br/>
-<label class=Find onclick="location.href='Main.jsp?contentPage=../Member/FindIdHome.jsp'">아이디찾기</label>
-<label class=Find onclick="location.href='Main.jsp?contentPage=../Member/FindPassHome.jsp'">비밀번호찾기</label>
-<br>
-<input type = "submit" value="로그인"/>
+	<table style="width: 100%;">
+		<tr>
+			<td> <input type = "text" name="id" placeholder="아이디를 입력해주세요"/> </td>
+		</tr>
+		<tr>
+			<td> <input type = "password" name="password" placeholder="비밀번호를 입력해주세요"/> </td>
+		</tr>
+		<tr>
+			<td> 
+				<label class = "FindID" onclick="location.href='Main.jsp?contentPage=../Member/FindIdHome.jsp'">아이디찾기</label>
+				<span style = "width:1px; height:10px; margin: 3px 6px 0; backgorund-color:#333;">|</span>
+				<label class = "FindPWD" onclick="location.href='Main.jsp?contentPage=../Member/FindPassHome.jsp'">비밀번호찾기</label>
+			</td>
+		</tr>
+		<tr>
+			<td> <input class = "LoginBtn" type = "submit" value = "로그인"> </td>
+		</tr>
+		<tr>
+			<td> <input class = "RegisterBtn" type = "button" value = "회원가입" onclick = "location.href = '../Main/Main.jsp?contentPage=../Member/Newmember.jsp'"> </td>
+		</tr>
+	</table>
 </form>
 <%
 }

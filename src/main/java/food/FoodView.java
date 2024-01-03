@@ -35,6 +35,11 @@ public class FoodView extends HttpServlet {
 		dao.updateVisitcount(headnum);
 		FoodDTO dto = dao.selectView(headnum);
 		String nickname = dao.checkNickname(dto.getMbnum().toString());
+		if(session.getAttribute("MBNUM") != null) {
+			String replyheart = dao.selectheart(headnum, session.getAttribute("MBNUM").toString());
+			request.setAttribute("heartstate", replyheart);
+		}
+		
 		 List<FoodDTO> replyList = dao.Reple(map);
 		
 		dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));

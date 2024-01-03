@@ -22,12 +22,28 @@
 			return false;
 		}
 		else {
+			document.getElementById("replycate").value = "reply";
 			form.method = "post";
 			form.action = "../Food/Reply.do";
 			form.submit();
 			return true;
 		}
 	}
+	
+	function heartcheck(){
+		var form = document.replyForm;
+		var heartstate = document.getElementById("replytextfield").value;
+		
+		if(heartstate == "heartoff"){
+			document.getElementById("replycate").value = "heartoff";
+		} else if (heartstate == "hearton"){
+			document.getElementById("replycate").value = "hearton";
+		}
+		else{
+			document.getElementById("replycate").value = "heartoff";
+		}
+	}
+
 	function foodedit(){
 		var check = document.getElementById("edit").value;
 		if(confirm("게시글을 수정하시겠습니까?")){
@@ -83,9 +99,13 @@
 	<c:if test="${ mbnumcheck != null }">
 	<form name = "replyForm" >
 		<input type = "hidden" name = "headnum" value = " ${ dto.headnum }">
+		<input type = "hidden" id = "replycate" name = "replycate" value ="">
 		<table>
 			<tr>
-				<td colspan ="2" style = "float:right"> <input type = "button"  value = "공감"> </td> 
+				<td colspan ="2" style = "float:right"> asd ${ heartstate } :
+					<c:if test = "${ empty heartstate }"> 빈 <input type = "button" id = "heart" value = "공감" onclick = "heartcheck()"> </c:if>
+					<c:if test = " ${ heartstate == 'hearton' }"> 찬 <input type = "image" src="../img/heartOn.png" alt = "공감" width ="16px;" id = "heart" onclick = "return heartcheck()"> </c:if>
+				</td> 
 			</tr>
 			<tr>
 				<td> <input type = "text" name = "replyText" id = "replytextfield"> </td>

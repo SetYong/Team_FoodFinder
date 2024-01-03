@@ -5,7 +5,9 @@ import java.io.PrintWriter;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * Servlet implementation class JSFunction
+ */
 @WebServlet("/JSFunction")
 public class JSFunction  {
 public static void alertLocation(HttpServletResponse resp, String msg, String url) {

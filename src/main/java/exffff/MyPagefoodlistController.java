@@ -5,15 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import food.FoodDTO;
 import mypageBoard.BoardPage;
 import mypageBoard.MyPageBoardDAO;
-import mypageBoard.MyPageBoardDTO;
 
 public class MyPagefoodlistController extends HttpServlet{
 	@Override
@@ -43,7 +42,7 @@ public class MyPagefoodlistController extends HttpServlet{
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("end", end);
-		List<MyPageBoardDTO> boardLists = dao.selectfoodListPage(map,mbnum);
+		List<FoodDTO> boardLists = dao.selectfoodListPage(map,mbnum);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가

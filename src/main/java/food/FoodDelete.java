@@ -20,6 +20,7 @@ public class FoodDelete extends HttpServlet{
 		String headnum = request.getParameter("HEADNUM");
 		if(check.equals("삭제하기")) {
 			dao.delete(headnum);
+			request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do").forward(request, response);
 		} else if (check.equals("수정하기")){
 			FoodDTO dto = dao.selectView(headnum);
 			request.setAttribute("dto", dto);

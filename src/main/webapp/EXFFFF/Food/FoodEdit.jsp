@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,19 +60,21 @@ textarea {
 	<form name="FoodWriteFrom" enctype="multipart/form-data"
 		action="../Food/FoodEdit.do" method="post" onsubmit="return Check()">
 		<input type="hidden" name="MBNUM"
-			value="<%=session.getAttribute("MBNUM")%>">
+			value="<%=session.getAttribute("MBNUM")%>"/>
+		<input type="hidden" name="HEADNUM" value="${dto.headnum}"/>
 		<table>
 			<tr>
 				<td colspan="2" style="padding-left: 50px;">제목 : <input
-					type="text" name="title" size="100px">${dto.Title }
+					type="text" name="title" size="100px" value="${dto.title }">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" style="padding-left: 35px;">이미지 : 
-				<input type="file" name="image">${dto.Image }
+				<input type="file" name="image" value="${dto.image }">
 				</td>
 			</tr>
 			<tr>
+			<c:if test="${dto.cate eq '메인요리'}">
 				<td colspan="2" style="padding-left: 20px;">카테고리 : 
 				메인요리<input type="checkbox" name="cate" value="메인요리" checked> 
 				식전요리<input type="checkbox" name="cate" value="식전요리"> 
@@ -79,20 +82,56 @@ textarea {
 				한중일식<input type="checkbox" name="cate" value="한중일식"> 
 				다이어트식<input type="checkbox" name="cate" value="다이어트식">
 				</td>
+			</c:if>
+			<c:if test="${dto.cate eq '식전요리'}">
+				<td colspan="2" style="padding-left: 20px;">카테고리 : 
+				메인요리<input type="checkbox" name="cate" value="메인요리"> 
+				식전요리<input type="checkbox" name="cate" value="식전요리" checked> 
+				디저트<input type="checkbox" name="cate" value="디저트"> 
+				한중일식<input type="checkbox" name="cate" value="한중일식"> 
+				다이어트식<input type="checkbox" name="cate" value="다이어트식">
+				</td>
+			</c:if>
+			<c:if test="${dto.cate eq '디저트'}">
+				<td colspan="2" style="padding-left: 20px;">카테고리 : 
+				메인요리<input type="checkbox" name="cate" value="메인요리"> 
+				식전요리<input type="checkbox" name="cate" value="식전요리"> 
+				디저트<input type="checkbox" name="cate" value="디저트" checked> 
+				한중일식<input type="checkbox" name="cate" value="한중일식"> 
+				다이어트식<input type="checkbox" name="cate" value="다이어트식">
+				</td>
+			</c:if>
+			<c:if test="${dto.cate eq '한중일식'}">
+				<td colspan="2" style="padding-left: 20px;">카테고리 : 
+				메인요리<input type="checkbox" name="cate" value="메인요리"> 
+				식전요리<input type="checkbox" name="cate" value="식전요리"> 
+				디저트<input type="checkbox" name="cate" value="디저트"> 
+				한중일식<input type="checkbox" name="cate" value="한중일식" checked> 
+				다이어트식<input type="checkbox" name="cate" value="다이어트식">
+				</td>
+			</c:if>
+			<c:if test="${dto.cate eq '다이어트식'}">
+				<td colspan="2" style="padding-left: 20px;">카테고리 : 
+				메인요리<input type="checkbox" name="cate" value="메인요리"> 
+				식전요리<input type="checkbox" name="cate" value="식전요리"> 
+				디저트<input type="checkbox" name="cate" value="디저트"> 
+				한중일식<input type="checkbox" name="cate" value="한중일식"> 
+				다이어트식<input type="checkbox" name="cate" value="다이어트식" checked>
+				</td>
+			</c:if>
 			</tr>
 			<tr>
 				<td class="content">기본재료 :</td>
-				<td><textarea name="content" rows="10">${dto.Content }</textarea></td>
+				<td><textarea name="content" rows="10">${dto.content }</textarea></td>
 			</tr>
 			<tr>
 				<td class="content">만드는 방법 :</td>
-				<td><textarea name="recipe" rows="10">${dto.Recipe }</textarea></td>
+				<td><textarea name="recipe" rows="10">${dto.recipe }</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="작성 완료"
-					style="float: right; margin-left: 20px;"> <input
-					type="reset" value="다시 입력" style="float: right"
-					onclick="return resetcontent(this)"></td>
+				<td colspan="2">
+				<input type="submit" value="작성 완료" style="float: right; margin-left: 20px;"> 
+				<input type="reset" value="다시 입력" style="float: right" onclick="return resetcontent(this)"></td>
 			</tr>
 		</table>
 	</form>

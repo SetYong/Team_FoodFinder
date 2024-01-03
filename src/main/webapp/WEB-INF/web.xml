@@ -157,7 +157,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FoodEdit</servlet-name>
-		<url-pattern>/EXFFFF/Food/Edit.do</url-pattern>
+		<url-pattern>/EXFFFF/Food/FoodEdit.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

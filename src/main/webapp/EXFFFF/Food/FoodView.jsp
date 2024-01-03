@@ -50,11 +50,11 @@
 <body>
 	<h2 style="text-align: center;"> ${ dto.title }</h2>
 	<c:if test="${mbnumcheck == dto.mbnum }">
-	<form action="../Food/Delete.do">
+	<form action="../Food/Delete.do" >
 		<input type="hidden" name="HEADNUM" value="${dto.headnum }"/>
-		<input type="submit" id="delete" name="editordelete" value="삭제하기" onsubmit="return fooddelete()"/>
+		<input type="submit" id="delete" name="editordelete" value="삭제하기" onclick="return fooddelete()"/>
+		<input type="submit" id="edit" name="editordelete" value="수정하기" onclick="return foodedit()"/>
 	</form>
-		<input type="submit" id="edit" name="editordelete" value="수정하기" onsubmit="return foodedit()"/>
 	</c:if>
 	<table style = "width:100%">
 		<tr>

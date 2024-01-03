@@ -307,4 +307,28 @@ public class FoodDAO extends DBConnPool {
 			e.printStackTrace();
 		}
 	}
+	
+	public int updatefood(FoodDTO dto, String headnum) {
+		int result = 0;
+		String query = "UPDATE C##foodfinder.Food SET "
+				+ "title=?, content=?, recipe=?, image=?, cate=?"
+				+ "WHERE headnum=?";
+
+		try {
+			System.out.println("푸드 게시판 UPDATE Query : " + query);
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getRecipe());
+			psmt.setString(4, dto.getImage());
+			psmt.setString(5, dto.getCate());
+			psmt.setString(6, headnum);
+			result = psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println("푸드 게시판 작성 중 예외 발생");
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

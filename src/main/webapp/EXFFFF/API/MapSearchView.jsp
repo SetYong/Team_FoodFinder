@@ -9,12 +9,6 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l6gbu2evid"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        <style>
-        body {
-            display: flex;
-            flex-direction: row-reverse; 
-            justify-content:space-between;
-        }
-
         #mapContainer {
             width: 45%;
             height:15%;

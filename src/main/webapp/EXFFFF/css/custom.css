@@ -22,10 +22,11 @@
 }
 
 .logo_img {
-	width: 5%;
+	width: 10%;
 	height: 5%;
-	padding-left: 30px;
+	padding-left: 50px;
 	text-decoration-line: none;
+	margin-top: -20px;
 	margin-right: 50px;
 }
 

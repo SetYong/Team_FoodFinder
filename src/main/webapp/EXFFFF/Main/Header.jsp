@@ -42,7 +42,7 @@ label:hover {
 	&nbsp;&nbsp;&nbsp;
 	<div align="left">
 		<a href="../Main/Main.jsp">
-		<img class="logo_img" src="../img/test2.jpeg">
+		<img class="logo_img" src="../img/foodfinder_title.png">
 		</a>
 		
 		<a href="../Intro/IntroList.do" class="menu_intro">소식</a>

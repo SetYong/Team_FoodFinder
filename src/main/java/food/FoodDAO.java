@@ -111,6 +111,7 @@ public class FoodDAO extends DBConnPool {
 		}
 		return totalCount;
 	}
+	
 	public int selectCountAdmin(Map<String, Object> map) {
 		int totalCount = 0;
 
@@ -233,7 +234,7 @@ public class FoodDAO extends DBConnPool {
 		return repleList;
 	}
 	
-	public int ReplyWrite(FoodDTO dto, String headnum) {
+	public void ReplyWrite(FoodDTO dto, String headnum) {
 		int result = 0;
 		String query = "Insert INTO C##foodfinder.REPLY (headnum, mbnum, TEXT, cate, nickname) VALUES (?,?,?,?,?)";
 		try {
@@ -250,7 +251,6 @@ public class FoodDAO extends DBConnPool {
 			System.out.println("푸드 게시판 댓글 작성 중 예외 발생");
 			e.printStackTrace();
 		}
-		return result;
 	}
 	
 	public String selectheart(String headnum, String mbnum) {
@@ -262,7 +262,6 @@ public class FoodDAO extends DBConnPool {
 			psmt.setString(1, headnum);
 			psmt.setString(2, mbnum);
 			rs = psmt.executeQuery();
-			System.out.println("heart dao query : " + query);
 			
 			if (rs.next()) {
 	            heartstate = rs.getString("cate").toString();
@@ -274,8 +273,22 @@ public class FoodDAO extends DBConnPool {
 		return heartstate;
 	}
 	
-	public void deletehearton(String headnum, String mbnum) {
-		String query = "DELETE FROM REPLY WHERE headnum = ? AND mbnum = ? AND TEXT = 'hearton'";
+	public void insertHeart(String headnum, String mbnum, String nickname) {
+		String query = "Insert INTO Reply (headnum, mbnum, nickname, text, cate) values (?,?,?,'heart','hearton')";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.setString(2, mbnum);
+			psmt.setString(3, nickname);
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void Updatehearton(String headnum, String mbnum) {
+		String query = "UPDATE Reply SET cate = 'heartoff' WHERE headnum = ? and mbnum = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
@@ -285,8 +298,9 @@ public class FoodDAO extends DBConnPool {
 			e.printStackTrace();
 		}
 	}
-	public void deleteheartoff(String headnum, String mbnum) {
-		String query = "DELETE FROM REPLY WHERE headnum = ? AND mbnum = ? AND TEXT = 'heartoff'";
+
+	public void Updateheartoff(String headnum, String mbnum) {
+		String query = "UPDATE Reply SET cate = 'hearton' WHERE headnum = ? and mbnum = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
@@ -333,6 +347,16 @@ public class FoodDAO extends DBConnPool {
 	
 	public void updateVisitcount(String headnum) {
 		String query = "UPDATE C##foodfinder.FOOD SET visitcount=visitcount+1 WHERE HEADNUM =" + headnum;
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.executeQuery();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void downVisitcount(String headnum) {
+		String query = "UPDATE C##foodfinder.FOOD SET visitcount=visitcount-1 WHERE HEADNUM =" + headnum;
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.executeQuery();

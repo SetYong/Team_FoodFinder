@@ -23,50 +23,45 @@ public class ReplyWrite extends HttpServlet {
 		HttpSession session = request.getSession();
 		String headnum = request.getParameter("headnum");
 		String mbnum = session.getAttribute("MBNUM").toString();
-		int iResult = 0;
+		String nickname = dao.checkNickname(mbnum);
+		System.out.println("받은 하트값 : " + request.getParameter("replycate"));
 		
 		try {
 			FoodDTO dto = new FoodDTO();
 			String cate = request.getParameter("replycate");
-			
+
 			if(cate == null) {
 				System.out.println("카테고리 에러 : " + cate);
 			}
 			else if (cate.equals("reply")) {
 				System.out.println("댓글 온");
 				dto.setRepletext(request.getParameter("replyText"));
+				
 				dto.setReplecate(cate);
-
-				if (session.getAttribute("MBNUM") != "") {
-					dto.setReplembnum(session.getAttribute("MBNUM").toString());
-					dto.setReplenickname(dao.checkNickname(session.getAttribute("MBNUM").toString()));
-					iResult = dao.ReplyWrite(dto, headnum);
-				}
+				dto.setReplembnum(mbnum);
+				dto.setReplenickname(nickname);
+				dao.ReplyWrite(dto, headnum);
 			}
 			else {
-				if(cate.equals("heartoff")) {
-					System.out.println("하트오프");
-					dto.setRepletext("heartoff");
-					dao.deletehearton(headnum, mbnum);
+				if(cate.equals("hearton")) {
+					System.out.println("하트 온");
+					dao.Updatehearton(headnum, mbnum);
 				}
 				else {
-					System.out.println("하트 온");
-					dto.setRepletext("hearton");
-					dao.deleteheartoff(headnum, mbnum);
+					if(dao.selectheart(headnum, mbnum).equals("")) {
+						System.out.println("하트 오프 + 첫 공감");
+						dao.insertHeart(headnum, mbnum, nickname);
+					}
+					else {
+						System.out.println("하트 오프");
+						dao.Updateheartoff(headnum, mbnum);
+					}	
 				}
-				dto.setReplecate(cate);
-				
-				dto.setReplembnum(session.getAttribute("MBNUM").toString());
-				dto.setReplenickname(dao.checkNickname(session.getAttribute("MBNUM").toString()));
-				iResult = dao.ReplyWrite(dto, headnum);
 			}
-			if (iResult == 1) {
-				response.sendRedirect("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum="+headnum);
-				return;
-			} else {
-				response.sendRedirect("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do");
-				return;
-			}
+
+			dao.downVisitcount(headnum);
+			response.sendRedirect("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum="+headnum);
+			return;
 		} catch (Exception e) {
 			System.out.println("푸드 게시판 댓글 작성 서블릿 예외 발생");
 			e.printStackTrace();

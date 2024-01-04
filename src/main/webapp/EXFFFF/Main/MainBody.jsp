@@ -18,13 +18,20 @@
 	<div align="center">
 		<table>
 			<tr>
-				<td class="main_post">공지사항</td>
-				<td class="main_event" rowspan="2">이벤트</td>
-			</tr>
-			<tr>
-			<td>
-			<label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../API/MapSearchView.jsp';" class="main_map">마트찾기</label>
-			</td>
+				<td class="main_post">공지사항
+					<div>
+						<jsp:include page="../Intro/IntroBody.jsp" />
+					</div>
+				</td>
+				<td class="main_event" rowspan="2">이벤트<div>
+						<jsp:include page="../Intro/Introevent.jsp" />
+					</div>
+				</td>
+      </tr>
+      <tr>
+        <td>
+			  <label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../API/MapSearchView.jsp';" class="main_map">마트찾기</label>
+			  </td>
 			</tr>
 		</table>
 	</div>

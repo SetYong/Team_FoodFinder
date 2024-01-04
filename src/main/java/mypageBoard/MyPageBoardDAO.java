@@ -138,6 +138,47 @@ public class MyPageBoardDAO extends DBConnPool{
 		return board;
 	}
 	
+	//내가 공감한 레시피 조회
+	public List<FoodDTO> selectHeartlist(Map<String, Object> map, String mbnum) {
+		List<FoodDTO> board = new Vector<FoodDTO>();
+		String query = "SELECT * FROM ( "
+				+ "SELECT Tb.*, rownum rNum FROM ( "
+				+ "SELECT * FROM C##FOODFINDER.food f LEFT OUTER JOIN C##FOODFINDER.reply "
+				+ "ON f.headnum = reply.HEADNUM "
+				+ "WHERE reply.mbnum=? AND reply.cate='hearton' "
+				+ "ORDER BY fooddate DESC ) Tb ) "
+				+ "WHERE rNum BETWEEN ? AND ?";
+
+		System.out.println(query);
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			psmt.setString(2, map.get("start").toString());
+			psmt.setString(3, map.get("end").toString());
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				FoodDTO dto = new FoodDTO();
+				dto.setHeadnum(rs.getInt("Headnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRecipe(rs.getString("recipe"));
+				dto.setCate(rs.getNString("cate"));
+				dto.setImage(rs.getString("image"));
+				dto.setFooddate(rs.getDate("fooddate"));
+				dto.setHeartcount(rs.getInt("heartcount"));
+				dto.setAdminassent(rs.getInt("adminassent"));
+				dto.setVisitcount(rs.getInt("visitcount"));
+
+				board.add(dto);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return board;
+	}
+	
 	public int selectfoodCount(Map<String, Object> map, String mbnum) {
 		int totalCount = 0;
 		String query = "SELECT COUNT(*) FROM C##foodfinder.food WHERE mbnum=?";

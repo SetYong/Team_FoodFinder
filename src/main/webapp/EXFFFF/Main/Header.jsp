@@ -42,7 +42,7 @@ label:hover {
 	&nbsp;&nbsp;&nbsp;
 	<div align="left">
 		<a href="../Main/Main.jsp">
-		<img class="logo_img" src="../img/test2.jpeg">
+		<img class="logo_img" src="../img/foodfinder_title.png">
 		</a>
 		
 		<a href="../Intro/IntroList.do" class="menu_intro">소식</a>
@@ -57,7 +57,7 @@ if(session.getAttribute("MBNUM")==null){
 } else {
 System.out.println("header jsp 로그인 성공 : " + session.getAttribute("MBNUM"));
 %>
-<label onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
+<label onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageHeart.do'" class="menu_mypage">마이페이지</label>
 <%
 }
 %>

@@ -30,18 +30,28 @@
 		}
 	}
 	
+	function preventEnterSubmit(event) {
+        if (event.keyCode === 13) { // Enter key의 keyCode는 13입니다.
+            event.preventDefault(); // 기본 동작인 submit을 막습니다.
+            return false;
+        }
+    }
 	function heartcheck(){
 		var form = document.replyForm;
-		var heartstate = document.getElementById("replytextfield").value;
+		var heartstate = document.getElementById("heart").value;
 		
 		if(heartstate == "heartoff"){
 			document.getElementById("replycate").value = "heartoff";
-		} else if (heartstate == "hearton"){
-			document.getElementById("replycate").value = "hearton";
 		}
 		else{
-			document.getElementById("replycate").value = "heartoff";
+			document.getElementById("replycate").value = "hearton";
 		}
+		
+		
+		form.method = "post";
+		form.action = "../Food/Reply.do";
+		form.submit();
+		return true;
 	}
 
 	function foodedit(){
@@ -102,14 +112,18 @@
 		<input type = "hidden" id = "replycate" name = "replycate" value ="">
 		<table>
 			<tr>
-				<td colspan ="2" style = "float:right"> asd ${ heartstate } :
-					<c:if test = "${ empty heartstate }"> 빈 <input type = "button" id = "heart" value = "공감" onclick = "heartcheck()"> </c:if>
-					<c:if test = " ${ heartstate == 'hearton' }"> 찬 <input type = "image" src="../img/heartOn.png" alt = "공감" width ="16px;" id = "heart" onclick = "return heartcheck()"> </c:if>
+				<td colspan ="2" style = "float:right">
+					<c:if test = "${ empty heartstate or heartstate eq 'heartoff'}"> 
+					<input type = "image" src="../img/heartOff.png" alt = "hearton" width ="16px;" id = "heart" value = "heartoff" onclick = "return heartcheck()" onkeypress="preventEnterSubmit(event)"> 
+					</c:if>
+					<c:if test = "${ heartstate eq 'hearton' }"> 
+					<input type = "image" src="../img/heartOn.png" alt = "hearton" width ="16px;" id = "heart" value = "hearton" onclick = "return heartcheck()" onkeypress="preventEnterSubmit(event)"> 
+					</c:if>
 				</td> 
 			</tr>
 			<tr>
 				<td> <input type = "text" name = "replyText" id = "replytextfield"> </td>
-				<td> <input type = "submit" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()"> </td>
+				<td> <input type = "submit" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()" > </td>
 			</tr>
 		</table>
 	</form>

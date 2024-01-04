@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import food.FoodDTO;
 
-public class MyPagefoodlistController extends HttpServlet{
+public class MyPageHeart extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		MyPageBoardDAO dao = new MyPageBoardDAO();
@@ -42,12 +42,12 @@ public class MyPagefoodlistController extends HttpServlet{
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("end", end);
-		List<FoodDTO> boardLists = dao.selectfoodListPage(map,mbnum);
+		List<FoodDTO> boardLists = dao.selectHeartlist(map,mbnum);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가
 		String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
-				blockPage, pageNum, "../MyPage/MyPagefoodlist.do?MBNUM="+mbnum); 
+				blockPage, pageNum, "../MyPage/MyPageHeart.do?MBNUM="+mbnum); 
 		map.put("pagingImg", pagingImg);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);
@@ -56,6 +56,6 @@ public class MyPagefoodlistController extends HttpServlet{
 		// 전달할 데이터를 request 영역에 저장 후 list.jsp 로 포워드
 		req.setAttribute("boardLists", boardLists);
 		req.setAttribute("map", map);
-		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPagefoodlist.jsp").forward(req, resp);
+		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp").forward(req, resp);
 	}
 }

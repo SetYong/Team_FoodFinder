@@ -209,6 +209,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>MyPageHeart</servlet-name>
+		<servlet-class>mypageBoard.MyPageHeart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageHeart</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageHeart.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>MyPagewriteController</servlet-name>
 		<servlet-class>exffff.MyPagewriteController</servlet-class>
 	</servlet>

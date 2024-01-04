@@ -54,7 +54,7 @@ a:hover{color: gray}
 				</tr>
         	</c:when>
         	<c:otherwise>
-            	<table>
+            	<table style="width: auto;">
                 <tr>
             	<c:forEach items="${boardLists}" var="row" end = "3" varStatus="loop">
                 		<td style="width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> 

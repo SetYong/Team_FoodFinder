@@ -391,4 +391,13 @@
 		<url-pattern>/EXFFFF/Admin/AdminNoticewrite.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+	<servlet-name>searchAPI</servlet-name>
+	<servlet-class>foodDB.SearchAPI</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>searchAPI</servlet-name>
+	<url-pattern>/NaverSearchAPI.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

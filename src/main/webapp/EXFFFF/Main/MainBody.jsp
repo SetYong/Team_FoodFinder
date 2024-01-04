@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 			<td>
-			<label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../Intro/IntroBody.jsp';" class="main_map">마트찾기</label>
+			<label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../API/MapSearchView.jsp';" class="main_map">마트찾기</label>
 			</td>
 			</tr>
 		</table>

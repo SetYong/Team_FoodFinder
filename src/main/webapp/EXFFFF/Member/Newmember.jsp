@@ -32,6 +32,15 @@ function maxLengthCheck(object){
       object.value = object.value.slice(0, object.maxLength);
     }
   } 
+function checkSpecialCharacters(inputElement) {
+    var inputValue = inputElement.value;
+    var regex = /^[a-zA-Z0-9]*$/;
+
+    if (!regex.test(inputValue)) {
+        alert("특수문자는 입력할 수 없습니다.");
+        inputElement.value = inputValue.replace(/[^\w]/gi, ''); // 특수문자 제거
+    }
+}
 function validateform(){
 	var form = document.newform;
 	var checkpass = document.getElementById("checkpass").value;
@@ -144,7 +153,7 @@ function togglePasswordVisibility() {
 				<tr height="50">
 					<td height="50">아이디</td>
 					<td height="50"><input type="text" id="userid" name="id"
-						class="input_id"></td>
+						class="input_id" oninput="checkSpecialCharacters(this)"></td>
 					<td height="50">
 					<input type="hidden" id="checkpass" name="checkpass" value="<%=checkpass%>"/>
 					<input type="hidden" id="nickpass" name="nickpass" value="<%=nickpass%>"/>

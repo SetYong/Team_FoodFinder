@@ -27,6 +27,11 @@
 						<jsp:include page="../Intro/Introevent.jsp" />
 					</div>
 				</td>
+      </tr>
+      <tr>
+        <td>
+			  <label onclick="location.href='Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../API/MapSearchView.jsp';" class="main_map">마트찾기</label>
+			  </td>
 			</tr>
 		</table>
 	</div>

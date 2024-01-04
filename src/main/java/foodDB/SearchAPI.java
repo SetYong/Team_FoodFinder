@@ -18,14 +18,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/NaverSearchAPI.do")
+
 public class SearchAPI extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         // 1. 인증 정보 설정
         String clientId = "_fJD36HFrL_MT6TGUxik";
-        String clientSecret = "Rhr5ZJ3Mun";
+        String clientSecret = "0U4eOYQDXg";
 
         // 2. 검색 조건 설정
         int startNum = 0;    // 검색 시작 위치

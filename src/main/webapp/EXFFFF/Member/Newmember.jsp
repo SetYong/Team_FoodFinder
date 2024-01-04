@@ -19,7 +19,13 @@ if(request.getAttribute("nickpass")==null){
 <head>
 <meta charset="UTF-8">
 <title>New Member</title>
-
+<style>
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+-webkit-appearance: none;
+}
+.password{ -webkit-text-security: disc;}
+</style>
 <script type="text/javascript">
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
@@ -108,11 +114,24 @@ function idcheck(){
 	if(id.length == 0 || id == ""){
 		msg.innerHTML = "아이디를 입력하세요.";
 		msg.style.color = "red";
-	} else {
+	} 
+	else {
 		form.method = "post";
 		form.action = "../Member/Newmembercheck.do";
 		form.submit();
-	}
+		}
+    }
+function togglePasswordVisibility() {
+    var membercnInput = document.getElementById("membercn2");
+    var toggleButton = document.getElementById("toggleBtn");
+
+    if (membercnInput.type === "password") {
+    	membercnInput.type = "text";
+        toggleButton.innerHTML = "가리기";
+    } else {
+    	membercnInput.type = "password";
+        toggleButton.innerHTML = "보이기";
+    }
 }
 </script>
 </head>
@@ -158,8 +177,10 @@ function idcheck(){
 					<td height="50">주민등록번호</td>
 					<td><input type="number" name="memberCn1" maxlength=6
 						oninput="maxLengthCheck(this)"> -</td>
-					<td><input type="number" name="memberCn2" class=password
-						maxlength=7 oninput="maxLengthCheck(this)"></td>
+					<td><input type="password" name="memberCn2"
+						maxlength=7 id = "membercn2" oninput="maxLengthCheck(this)"></td>
+					<td><button type="button" id="toggleBtn" onclick="togglePasswordVisibility()">보이기</button>
+</td>
 				</tr>
 				<tr height="50">
 					<td height="50">핸드폰 번호</td>

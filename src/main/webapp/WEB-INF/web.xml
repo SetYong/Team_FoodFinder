@@ -169,6 +169,15 @@
 		<url-pattern>/EXFFFF/Food/Delete.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FoodRecommand</servlet-name>
+		<servlet-class>food.Recommand</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodRecommand</servlet-name>
+		<url-pattern>/EXFFFF/Main/Recommand.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 문의사항 -->
 	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>

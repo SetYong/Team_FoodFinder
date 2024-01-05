@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 textarea {
-	width: 1000px;
+	width: 100%;
 	height: 200px;
 	resize: none;
 }
@@ -16,6 +16,17 @@ textarea {
 .content {
 	width: 100px;
 	text-align: center;
+}
+img {
+width:100px;
+height: 100px;
+}
+table {
+width: 90%;
+}
+.title{
+width: 90%;
+height: 30px;
 }
 </style>
 </head>
@@ -56,23 +67,26 @@ textarea {
 			}
 		}
 	</script>
-	<h2 style="margin-left: 30px;">Food Write</h2>
+	<h2 style="margin-left: 30px;">게시글 수정하기</h2>
 	<form name="FoodWriteFrom" enctype="multipart/form-data"
 		action="../Food/FoodEdit.do" method="post" onsubmit="return Check()">
 		<input type="hidden" name="MBNUM"
 			value="<%=session.getAttribute("MBNUM")%>"/>
 		<input type="hidden" name="HEADNUM" value="${dto.headnum}"/>
-		<table>
+		<table >
 			<tr>
-				<td colspan="2" style="padding-left: 50px;">제목 : <input
-					type="text" name="title" size="100px" value="${dto.title }">
+				<td colspan="2" style="padding-left: 50px;">제목 : 
+				<input type="text" name="title" class="title" value="${dto.title }">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" style="padding-left: 35px;">이미지 : 
-				<input type="file" name="image" value="${dto.image }">
+				<input type="file" name="image">
 				</td>
 			</tr>
+		</table>
+		<img style="width: 100px; height: 100px; margin-left:100px;" src="../img/FoodImg/${dto.image }" alt="이미지">
+		<table>
 			<tr>
 			<c:if test="${dto.cate eq '메인요리'}">
 				<td colspan="2" style="padding-left: 20px;">카테고리 : 
@@ -122,11 +136,11 @@ textarea {
 			</tr>
 			<tr>
 				<td class="content">기본재료 :</td>
-				<td><textarea name="content" rows="10">${dto.content }</textarea></td>
+				<td><textarea name="content" rows="7">${dto.content }</textarea></td>
 			</tr>
 			<tr>
 				<td class="content">만드는 방법 :</td>
-				<td><textarea name="recipe" rows="10">${dto.recipe }</textarea></td>
+				<td><textarea name="recipe" rows="7" style="width: 100%">${dto.recipe }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">

@@ -22,10 +22,7 @@
 		<c:otherwise>
 			<c:forEach items="${ boardLists }" var="row" varStatus="loop">
 			<tr align="center">
-				<td>
-					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
-				</td>
-				<td>${ row.name }</td>
+				<td> <img src="../img/Event/${ row.titleimage }" alt="${ row.titleimage }"></td>
 				<td>${ row.visitcount }</td>
 				<td>${ row.postdate }</td>
 			</tr>

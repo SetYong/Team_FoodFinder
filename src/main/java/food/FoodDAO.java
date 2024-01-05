@@ -287,8 +287,25 @@ public class FoodDAO extends DBConnPool {
 		}
 	}
 	
+	public int heartCount(String headnum) {
+		String query = "SELECT count(*) FROM C##foodfinder.reply Where headnum = ? AND cate = 'hearton'";
+		int heart = 0;
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				heart = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return heart;
+	}
+	
 	public void Updatehearton(String headnum, String mbnum) {
-		String query = "UPDATE Reply SET cate = 'heartoff' WHERE headnum = ? and mbnum = ?";
+		String query = "UPDATE Reply SET cate = 'heartoff' WHERE headnum = ? and mbnum = ? and cate != 'reply'";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
@@ -300,7 +317,7 @@ public class FoodDAO extends DBConnPool {
 	}
 
 	public void Updateheartoff(String headnum, String mbnum) {
-		String query = "UPDATE Reply SET cate = 'hearton' WHERE headnum = ? and mbnum = ?";
+		String query = "UPDATE Reply SET cate = 'hearton' WHERE headnum = ? and mbnum = ? and cate != 'reply'";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);

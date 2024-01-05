@@ -104,10 +104,10 @@
 		<url-pattern>/EXFFFF/Intro/IntroList.do</url-pattern>
 	</servlet-mapping>
 	
-	<servelt>
+	<servlet>
 		<servlet-name>IntroListEventController</servlet-name>
 		<servlet-class>intro.IntrolistEventController</servlet-class>
-	</servelt>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>IntroListEventController</servlet-name>
 		<url-pattern>/EXFFFF/Intro/IntroListEvent.do</url-pattern>

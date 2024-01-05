@@ -37,16 +37,19 @@
         }
     }
 	function heartcheck(){
-		var form = document.replyForm;
+		var form = document.heartForm;
 		var heartstate = document.getElementById("heart").value;
 		
 		if(heartstate == "heartoff"){
+			if(document.getElementById("replycate").value != "reply"){
 			document.getElementById("replycate").value = "heartoff";
+			}
 		}
-		else{
+		else if (heartstate == null || heartstate == "hearton"){
+			if(document.getElementById("replycate").value != "reply"){
 			document.getElementById("replycate").value = "hearton";
+			}
 		}
-		
 		
 		form.method = "post";
 		form.action = "../Food/Reply.do";
@@ -107,7 +110,7 @@
 		</tr>
 	</table>
 	<c:if test="${ mbnumcheck != null }">
-	<form name = "replyForm" >
+	<form name = "heartForm" >
 		<input type = "hidden" name = "headnum" value = " ${ dto.headnum }">
 		<input type = "hidden" id = "replycate" name = "replycate" value ="">
 		<table>
@@ -121,6 +124,12 @@
 					</c:if>
 				</td> 
 			</tr>
+		</table>
+	</form>
+	<form name="replyForm">
+		<input type = "hidden" name = "headnum" value = " ${ dto.headnum }">
+		<input type = "hidden" id = "replycate" name = "replycate" value ="reply">
+		<table>
 			<tr>
 				<td> <input type = "text" name = "replyText" id = "replytextfield"> </td>
 				<td> <input type = "submit" name ="replysubmit" value = "댓글 달기" onclick = "return textcheck()" > </td>

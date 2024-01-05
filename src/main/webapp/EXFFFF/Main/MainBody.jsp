@@ -16,17 +16,17 @@
 	</div>
 	
 	<div align="center">
-		<table>
+		<table style ="width: 70%;">
 			<tr>
-				<td class="main_post">공지사항
-					<div>
+				<td class="main_post">
 						<jsp:include page="../Intro/IntroBody.jsp" />
-					</div>
 				</td>
-				<td class="main_event" rowspan="2">이벤트<div>
+				<td class="main_event" rowspan="2">
 						<jsp:include page="../Intro/Introevent.jsp" />
-					</div>
 				</td>
+			</tr>
+			<tr>
+				<td> 마트 찾기</td>
 			</tr>
 		</table>
 	</div>

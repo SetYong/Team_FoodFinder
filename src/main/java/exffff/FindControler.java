@@ -20,15 +20,12 @@ public class FindControler extends HttpServlet {
 			   memberCn += "-";
 			   memberCn += req.getParameter("memberCn2");
 			   
-		String memberPhone = req.getParameter("memberPhone1");
-		       memberPhone += "-";
-			   memberPhone += req.getParameter("memberPhone2");
-		       memberPhone += "-";
-			   memberPhone += req.getParameter("memberPhone3");
+		String memberPhone = req.getParameter("memberPhone");
+		String memberPhoneformat = memberPhone.substring(0, 3) + "-" + memberPhone.substring(3, 7) + "-" + memberPhone.substring(7);
 		
-		System.out.println(memberName + " : " + memberCn + " : " + memberPhone);
+		System.out.println(memberName + " : " + memberCn + " : " + memberPhoneformat);
 		MemberDAO dao = new MemberDAO();
-		MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhone);
+		MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhoneformat);
 		memberDTO.setName(memberName);
 		dao.close();
 		System.out.println("가져온 ID " + memberDTO.getId());

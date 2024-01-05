@@ -25,20 +25,22 @@ span{
 </style>
 </head>
 <body>
-<br>
-	<br>
-	<h2 class="text-center" >공지사항</h2>
-	<br>
+	<h2 class="text-center" style = "margin:3%">공지사항</h2>
 	<!-- 검색 폼 -->
-	<form method="get">
-	<table border="1" width="90%" class="table">
+	<form method="post" action = "../Admin/AdminMain.jsp?contentPage=AdminNotice.do">
+	<table border="1" style ="width:100%" class="table">
 	<tr>
-		<td align="center">
-			<select name="searchField">
+		<td style = "width:33%; text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=notice" > 공지 </a> </td>
+		<td style = "text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=check"> 점검 </a> </td>
+		<td style = "text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=event"> 이벤트 </a> </td>
+	</tr>
+	<tr>
+		<td colspan = "3" align="center">
+			<select name="searchField" style="width: 10%;height: 29px;text-align: center;">
 				<option value="title">제목</option>
 				<option value="content">내용</option>
 			</select>
-			<input type="text" name="searchWord"/>
+			<input type="text" name="searchWord" style="width: 30%;"/>
 			<input type="submit" value="검색하기" />
 		</td>
 	</tr>
@@ -72,7 +74,7 @@ span{
 				</td>
 				<td align="center" width="15%"> 
 				<c:if test = "${row.cate == 'notice'}"> <Span> 공지 </Span></c:if> 
-				<c:if test = "${row.cate == 'noticecheck' }"> <Span> <font color = "#858FDE"> 점검 </font> </Span></c:if>
+				<c:if test = "${row.cate == 'check' }"> <Span> <font color = "#858FDE"> 점검 </font> </Span></c:if>
 				<c:if test = "${row.cate == 'event' }"> <Span> <font color = "#CF9ED2"> 이벤트 </font> </Span></c:if>
 				</td>
 				<td align="left" width="50%">

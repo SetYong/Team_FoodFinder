@@ -24,7 +24,7 @@ public class IntrolistController extends HttpServlet{
 			map.put("searchField", searchField);
 			map.put("searchWord", searchWord);
 		}
-		int totalCount = dao.selectCount(map);
+		int totalCount = dao.selectCountNotice(map);
 		// 페이지 처리
 		ServletContext application = getServletContext();
 		int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
@@ -41,9 +41,7 @@ public class IntrolistController extends HttpServlet{
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<IntroDTO> boardLists = dao.selectListPage(map);
-		System.out.println(dao.selectListPage(map));
-		System.out.println("받은 리스트 : " + boardLists);
+		List<IntroDTO> boardLists = dao.selectListPageNotice(map);
 		dao.close();
 		
 		// 뷰에 전달할 매개변수 추가

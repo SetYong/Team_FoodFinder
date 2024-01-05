@@ -21,8 +21,9 @@ function validateForm(form){
 		alert("주민등록번호를 입력해주세요.");
 		return false;
 	}
-	if(form.memberPhone1.value =="" && form.memberPhone2.value =="" && form.memberPhone3.value==""){
-		alert("핸드폰 번호를 입력해주세요.");
+	var memberPhone = form.memberPhone.value;
+	if(memberPhone == "" || memberPhone.length !== 11){
+		alert("핸드폰 번호를 11자리로 입력해주세요.");
 		return false;
 	}
 }
@@ -30,6 +31,7 @@ function validateForm(form){
 <Style>
 
 .smbt{
+  width: 100%;
   color: black; 
   padding: 10px 25px;
   display: inline-block;
@@ -40,22 +42,31 @@ function validateForm(form){
               0 2px 0 -1px rgba(0,0,0,0.13), 
               0 3px 0 -1px rgba(0,0,0,0.08), 
               0 3px 13px -1px rgba(0,0,0,0.21);
- margin: 9px;
  border-radius: 10px;
- align: center;
-}
-.text{
-text-align: right;
+ margin-top: 10px;
+ margin-left: 5px;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button{
 -webkit-appearance: none;
 }
-
-input[type="number"]{
-width: 8em;
+.password{ 
+	-webkit-text-security: disc;
+	width: 100%;
+	height: 40px;
+	text-align:center;
 }
-.password{ -webkit-text-security: disc;}
+
+.FindIDnameAndPhone{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    }
+.FindIDmemberCn{
+    width: 98%;
+    height: 40px;
+    text-align: center;
+}
 </Style>
 </head>
 <body>
@@ -64,22 +75,29 @@ width: 8em;
 	<form name="findIdForm" action="../Member/FindIdHome.do" onsubmit="return validateForm(this);">
 		<table>
 			<tr>
-				<td><input type="text" name="memberName" placeholder="이름" size="20" maxlength=5 autofocus></td>
+				<td colspan = "3"><input type="text"  name="memberName" class = "FindIDnameAndPhone" placeholder="이름을 입력해 주세요." size="20" maxlength=5 autofocus></td>
 			</tr>
 			<tr>
-				<td><input type="number" name="memberCn1" placeholder="주민등록번호" maxlength=6 oninput="maxLengthCheck(this)"> - </td>
-				<td><input type="number" name="memberCn2" class=password maxlength=7 oninput="maxLengthCheck(this)"> </td>
+				<td><input type="number" name="memberCn1" class = "FindIDmemberCn" placeholder="주민등록번호를" maxlength=6 oninput="maxLengthCheck(this)"></td>
+				<td><span style="padding-left: 4px; font-size:15pt;">-</span></td>
+				<td><input type="number" name="memberCn2" class=password placeholder ="입력해 주세요." maxlength=7 oninput="maxLengthCheck(this)"> </td>
 			</tr>
 			<tr>
-				<td><input type="number" name="memberPhone1" placeholder="핸드폰" maxlength="3" oninput="maxLengthCheck(this)"> - </td>
-				<td><input type="number" name="memberPhone2" maxlength="4" oninput="maxLengthCheck(this)"> - </td>
-				<td><input type="number" name="memberPhone3" maxlength="4" oninput="maxLengthCheck(this)"> </td>
+				<td colspan = "3"><input type="number" name="memberPhone" class="FindIDnameAndPhone" placeholder="핸드폰 번호를 입력해 주세요." maxlength="11" oninput="maxLengthCheck(this)"></td>
 			</tr>
-		</table> <br>
-		<span style = "font-size: 1.2em;">
-		<%= request.getAttribute("LoginErrMsg") == null ? "" : request.getAttribute("LoginErrMsg") %>
-		</span> <br>
-		<input class="smbt" type="submit" value="아이디찾기">
+			<tr>
+				<td colspan ="3"> <input class="smbt" type="submit" value="아이디찾기"> </td>
+			</tr>
+		</table>
+		<table style="margin-top: 1%; margin-left: 1%;">
+			<tr>
+				<td> 
+					<span style = "font-size: 1.2em;">
+					<%= request.getAttribute("LoginErrMsg") == null ? "" : request.getAttribute("LoginErrMsg") %>
+					</span>
+				</td>
+			</tr>
+		</table>
 	</form>
 </div>
 </body>

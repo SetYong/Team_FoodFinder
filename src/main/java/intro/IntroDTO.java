@@ -9,6 +9,7 @@ public class IntroDTO {
 	private String image;
 	private String cate;
 	private String visitcount;
+	private String titleimage;
 	private Date postdate;
 	public String getImage() {
 		return image;
@@ -45,6 +46,12 @@ public class IntroDTO {
 	}
 	public void setVisitcount(String visitcount) {
 		this.visitcount = visitcount;
+	}
+	public String getTitleimage() {
+		return titleimage;
+	}
+	public void setTitleimage(String titleimage) {
+		this.titleimage = titleimage;
 	}
 	public java.sql.Date getPostdate() {
 		return postdate;

@@ -9,36 +9,13 @@
 </head>
 <body>
 	<h2>이벤트</h2>
-	<br><br>
 	
-	<form method="get">
-	<table border="1" width="90%">
-	<tr>
-		<td align="center">
-			<select name="searchField">
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="text" name="searchWord"/>
-			<input type="submit" name="검색하기"/>
-		</td>
-	</tr>
-	</table>
-	</form>
-	
-	<table border="1" width="90%">
-		<tr>
-			<th width="10%">번호</th>
-			<th width="*">제목</th>
-			<th width="15%">작성자</th>
-			<th width="10%">조회수</th>
-			<th width="15%">작성일</th>
-		</tr>
+	<table border="1" style = "width: 100%">
 	<c:choose>
 		<c:when test="${ empty boardLists }">
 			<tr>
 				<td colspan="6" align="center">
-					등록된 게시물이 없습니다.
+					등록된 이벤트가 없습니다.
 				</td>
 			</tr>
 		</c:when>

@@ -255,7 +255,7 @@ public class FoodDAO extends DBConnPool {
 	
 	public String selectheart(String headnum, String mbnum) {
 		String heartstate = "";
-		String query = "SELECT * FROM REPLY WHERE HEADNUM = ? AND mbnum = ? AND cate LIKE '%heart%'";
+		String query = "SELECT * FROM C##FOODFINDER.REPLY WHERE HEADNUM = ? AND mbnum = ? AND cate LIKE '%heart%'";
 		System.out.println("selectheart DAO 실행");
 		try {
 			psmt = con.prepareStatement(query);
@@ -274,7 +274,7 @@ public class FoodDAO extends DBConnPool {
 	}
 	
 	public void insertHeart(String headnum, String mbnum, String nickname) {
-		String query = "Insert INTO Reply (headnum, mbnum, nickname, text, cate) values (?,?,?,'heart','hearton')";
+		String query = "Insert INTO C##FOODFINDER.Reply (headnum, mbnum, nickname, text, cate) values (?,?,?,'heart','hearton')";
 		
 		try {
 			psmt = con.prepareStatement(query);
@@ -288,7 +288,7 @@ public class FoodDAO extends DBConnPool {
 	}
 	
 	public void Updatehearton(String headnum, String mbnum) {
-		String query = "UPDATE Reply SET cate = 'heartoff' WHERE headnum = ? and mbnum = ?";
+		String query = "UPDATE C##FOODFINDER.Reply SET cate = 'heartoff' WHERE headnum = ? and mbnum = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
@@ -300,7 +300,7 @@ public class FoodDAO extends DBConnPool {
 	}
 
 	public void Updateheartoff(String headnum, String mbnum) {
-		String query = "UPDATE Reply SET cate = 'hearton' WHERE headnum = ? and mbnum = ?";
+		String query = "UPDATE C##FOODFINDER.Reply SET cate = 'hearton' WHERE headnum = ? and mbnum = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);
@@ -381,7 +381,7 @@ public class FoodDAO extends DBConnPool {
 	public int updatefood(FoodDTO dto, String headnum) {
 		int result = 0;
 		String query = "UPDATE C##foodfinder.Food SET "
-				+ "title=?, content=?, recipe=?, image=?, cate=?"
+				+ "title=?, content=?, recipe=?, cate=?"
 				+ "WHERE headnum=?";
 
 		try {
@@ -390,15 +390,65 @@ public class FoodDAO extends DBConnPool {
 			psmt.setString(1, dto.getTitle());
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getRecipe());
-			psmt.setString(4, dto.getImage());
-			psmt.setString(5, dto.getCate());
-			psmt.setString(6, headnum);
+			psmt.setString(4, dto.getCate());
+			psmt.setString(5, headnum);
 			result = psmt.executeUpdate();
 			
 		} catch(Exception e) {
-			System.out.println("푸드 게시판 작성 중 예외 발생");
+			System.out.println("푸드 게시판 수정 중 예외 발생");
 			e.printStackTrace();
 		}
 		return result;
+	}
+	// 이미지 업데이트 
+	public int updatefoodimage(FoodDTO dto, String headnum) {
+		int result = 0;
+		String query = "UPDATE C##foodfinder.Food SET "
+				+ "image=? WHERE headnum=?";
+
+		try {
+			System.out.println("푸드 게시판 image UPDATE Query : " + query);
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getImage());
+			psmt.setString(2, headnum);
+			result = psmt.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println("푸드 게시판 image 수정 중 예외 발생");
+			e.printStackTrace();
+		}
+		return result;
+	}
+	// 추천게시글
+	public FoodDTO RecommandView(String rownum) {
+		FoodDTO dto = new FoodDTO();
+		String query = "SELECT * FROM ("
+				+ "SELECT Tb.*, rownum rNum FROM( "
+				+ "SELECT * FROM C##FOODFINDER.FOOD WHERE adminassent = '1' "
+				+ "ORDER BY fooddate DESC ) Tb )"
+				+ "WHERE rNum=?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, rownum);;
+			rs= psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setHeadnum(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setRecipe(rs.getString(4));
+				dto.setMbnum(rs.getString(5));
+				dto.setImage(rs.getString(6));
+				dto.setCate(rs.getString(7));
+				dto.setFooddate(rs.getDate(8));
+				dto.setHeartcount(rs.getInt(9));
+				dto.setVisitcount(rs.getInt(10));
+				dto.setAdminassent(rs.getInt(11));
+			}
+		} catch (Exception e) {
+			System.out.println("푸드 게시물 추천하기 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
 	}
 }

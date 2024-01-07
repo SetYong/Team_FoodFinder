@@ -137,6 +137,23 @@ public class MyPageBoardDAO extends DBConnPool{
 		}
 		return board;
 	}
+	// 내가 공감한 레시피 카운트
+	public int heartcount(Map<String, Object> map, String mbnum) {
+		int totalCount = 0;
+		String query = "SELECT COUNT(*) FROM C##foodfinder.reply WHERE mbnum=? and cate='hearton'";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			rs = psmt.executeQuery();
+			rs.next();
+			totalCount = rs.getInt(1);
+		}
+		catch(Exception e) {
+			System.out.println("공감한 게시물 카운트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
+	}
 	
 	//내가 공감한 레시피 조회
 	public List<FoodDTO> selectHeartlist(Map<String, Object> map, String mbnum) {
@@ -150,6 +167,7 @@ public class MyPageBoardDAO extends DBConnPool{
 				+ "WHERE rNum BETWEEN ? AND ?";
 
 		System.out.println(query);
+		System.out.println(mbnum + " " + map.get("start") +" "+ map.get("end"));
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, mbnum);
@@ -159,17 +177,19 @@ public class MyPageBoardDAO extends DBConnPool{
 			
 			while(rs.next()) {
 				FoodDTO dto = new FoodDTO();
-				dto.setHeadnum(rs.getInt("Headnum"));
-				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
-				dto.setRecipe(rs.getString("recipe"));
-				dto.setCate(rs.getNString("cate"));
-				dto.setImage(rs.getString("image"));
-				dto.setFooddate(rs.getDate("fooddate"));
-				dto.setHeartcount(rs.getInt("heartcount"));
-				dto.setAdminassent(rs.getInt("adminassent"));
-				dto.setVisitcount(rs.getInt("visitcount"));
+				dto.setHeadnum(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setRecipe(rs.getString(4));
+				dto.setCate(rs.getNString(7));
+				dto.setImage(rs.getString(6));
+				dto.setFooddate(rs.getDate(8));
+				dto.setHeartcount(rs.getInt(9));
+				dto.setAdminassent(rs.getInt(11));
+				dto.setVisitcount(rs.getInt(10));
 
+				System.out.println(dto.getHeadnum());
+				System.out.println(dto.getContent());
 				board.add(dto);
 			}
 		}

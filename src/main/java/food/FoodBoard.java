@@ -33,6 +33,12 @@ public class FoodBoard extends HttpServlet {
             
             Map<String, Object> map = new HashMap<>();
             int totalCount = dao.selectCount(map);
+            String searchField = request.getParameter("searchField");
+    		String searchWord = request.getParameter("searchWord");
+    		if (searchField != null) {
+    			map.put("searchField", searchField);
+    			map.put("searchWord", searchWord);
+    		}
             
             int pageSize = 8;
             int blockPage = 5;

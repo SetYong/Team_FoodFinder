@@ -25,7 +25,7 @@ public class NewmemberController extends HttpServlet{
 		String name = req.getParameter("username");
 		String cn = req.getParameter("memberCn1") + "-" + req.getParameter("memberCn2");
 		String phone = req.getParameter("memberPhone1")+ "-" + req.getParameter("memberPhone2") + "-" +req.getParameter("memberPhone3");
-		String mail = req.getParameter("mail");
+		String mail = req.getParameter("mail1") + "@" + req.getParameter("mail2");
 		String nickname = req.getParameter("Nickname");
 
 		dao.insertRegister(name, cn, mail, phone, nickname);

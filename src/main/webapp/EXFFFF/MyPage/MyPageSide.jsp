@@ -60,18 +60,18 @@
     </script>
 </head>
 <body>
-	<button type="button" class="collapsible" onclick="collapse(this);">내가 쓴 글</button>
+	<button type="button" class="collapsible" onclick="collapse(this);">게시글</button>
 	<div class="content">
 	<a href="../MyPage/MyPagelist.do?MBNUM=<%=session.getAttribute("MBNUM")%>">밥 일기</a>
 	<br>
-	<a href="../MyPage/MyPagefoodlist.do?MBNUM=<%=session.getAttribute("MBNUM")%>">레시피</a>
+	<a href="../MyPage/MyPagefoodlist.do?MBNUM=<%=session.getAttribute("MBNUM")%>">작성한 레시피</a>
+	<br>
+	<a href="../MyPage/MyPageHeart.do?MBNUM=<%=session.getAttribute("MBNUM")%>">공감한 레시피</a>
 	<br>
 	</div>
 	<button type="button" class="collapsible" onclick="collapse(this);">내 정보</button>
 	<div class="content">
-	<label
-		onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp'"
-		>프로필</label>
+	<a href="../MyPage/MyPageProfile.do?MBNUM=<%=session.getAttribute("MBNUM")%>">프로필</a>
 	<br>
 	<label
 		onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp'"

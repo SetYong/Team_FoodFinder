@@ -19,7 +19,7 @@ public class MyPageController extends HttpServlet {
 		dao = new MemberDAO();
 	}
 	@Override 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String MBNUMstr = req.getParameter("MBNUM");
 		int MBNUM = Integer.parseInt(MBNUMstr);
 		MemberDTO memberDTO = dao.getProfile(MBNUM);

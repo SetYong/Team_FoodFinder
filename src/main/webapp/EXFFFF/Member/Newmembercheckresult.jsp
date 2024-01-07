@@ -20,15 +20,35 @@ if(request.getAttribute("nickpass")==null){
 <head>
 <meta charset="UTF-8">
 <title>New Member</title>
-
+<style>
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+-webkit-appearance: none;
+}
+.password{ -webkit-text-security: disc;}
+</style>
 <script type="text/javascript">
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
       object.value = object.value.slice(0, object.maxLength);
     }
   } 
+function checkSpecialCharacters(inputElement) {
+    var inputValue = inputElement.value;
+    var regex = /[ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅔ]/;
+	var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+    
+    if (regExp.test(inputValue)) {
+        alert("특수문자는 입력할 수 없습니다.");
+        inputElement.value = inputValue.replace(/[^\w]/gi, ''); // 특수문자 제거
+    }
+    if (regex.test(inputValue)){
+        alert("한글 입력할 수 없습니다.");
+        inputElement.value = inputValue.replace(/[^\w]/gi, ''); // 특수문자 제거	
+    }
+}
 function validateform(){
-	var form = document.newform; 
+	var form = document.newform;
 	var checkpass = document.getElementById("checkpass").value;
 	var nickpass = document.getElementById("nickpass").value;
 	if (form.id.value.length==0 || form.id.value==""){
@@ -109,11 +129,24 @@ function idcheck(){
 	if(id.length == 0 || id == ""){
 		msg.innerHTML = "아이디를 입력하세요.";
 		msg.style.color = "red";
-	} else {
+	} 
+	else {
 		form.method = "post";
 		form.action = "../Member/Newmembercheck.do";
 		form.submit();
-	}
+		}
+    }
+function togglePasswordVisibility() {
+    var membercnInput = document.getElementById("membercn2");
+    var toggleButton = document.getElementById("toggleBtn");
+
+    if (membercnInput.type === "password") {
+    	membercnInput.type = "text";
+        toggleButton.innerHTML = "가리기";
+    } else {
+    	membercnInput.type = "password";
+        toggleButton.innerHTML = "보이기";
+    }
 }
 </script>
 </head>
@@ -247,14 +280,16 @@ if(request.getAttribute("memberCn1")==null) {
 <%
 if(request.getAttribute("memberCn2")==null){
 %>
-<td><input type="number" name="memberCn2" class=password maxlength=7 oninput="maxLengthCheck(this)"></td>
+<td><input type="password" name="memberCn2" id = "membercn2" maxlength=7 oninput="maxLengthCheck(this)"></td>
 <%
 } else {
 %>
-<td><input type="number" name="memberCn2" class=password maxlength=7 oninput="maxLengthCheck(this)" value="<%=request.getAttribute("memberCn2")%>"></td>
+<td><input type="password" name="memberCn2" id = "membercn2" maxlength=7 oninput="maxLengthCheck(this)" value="<%=request.getAttribute("memberCn2")%>"></td>
 <%
 }
 %>
+<td><button type="button" id="toggleBtn" onclick="togglePasswordVisibility()">보이기</button>
+</td>
 				</tr>
 				<tr height="50">
 					<td height="50">핸드폰 번호</td>
@@ -293,20 +328,31 @@ if(request.getAttribute("memberPhone3")==null){
 %>
 
 				</tr>
-				<tr height="50">
-					<td height="50">이메일</td>
+<tr height="50">
+<td height="50">이메일</td>
 <%
-if(request.getAttribute("mail")==null){
+if(request.getAttribute("mail1")==null){
 %>
-<td height="50"><input type="text" name="mail"></td>
+<td height="50"><input type="text" name="mail1">@</td>
 <%
 } else {
 %>
-<td height="50"><input type="text" name="mail" value="<%=request.getAttribute("mail")%>"></td>
+<td height="50"><input type="text" name="mail1" value="<%=request.getAttribute("mail1")%>">@</td>
 <%
 }
 %>
-				</tr>
+<%
+if(request.getAttribute("mail2")==null){
+%>
+<td height="50"><input type="text" name="mail2"></td>
+<%
+} else {
+%>
+<td height="50"><input type="text" name="mail2" value="<%=request.getAttribute("mail2")%>"></td>
+<%
+}
+%>
+</tr>
 				<tr height="50">
 					<td height="50"><input type="submit" value="회원가입" id="targetbtn"></td>
 				</tr>

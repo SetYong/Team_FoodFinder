@@ -21,15 +21,15 @@ public class MyPageSetprofile extends HttpServlet {
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nickname = req.getParameter("nickname");
-		String email = req.getParameter("email");
-		String phone = req.getParameter("phone");
+		String phone = req.getParameter("memberPhone1")+ "-" + req.getParameter("memberPhone2") + "-" +req.getParameter("memberPhone3");
+		String mail = req.getParameter("mail1") + "@" + req.getParameter("mail2");
 		String MBnumstr = req.getParameter("MBNUM");
 		int MBNUM = Integer.parseInt(MBnumstr);
-		dao.setProfile(nickname, email, phone, MBNUM);
+		dao.setProfile(nickname, mail, phone, MBNUM);
 		
 		req.setAttribute("change", "profile");
 		req.setAttribute("nickname", nickname);
-		req.setAttribute("email", email);
+		req.setAttribute("email", mail);
 		req.setAttribute("phone", phone);
 		req.getRequestDispatcher("/EXFFFF/Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp").forward(req, resp);
 	}

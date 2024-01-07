@@ -62,7 +62,7 @@ public class FoodEdit extends HttpServlet {
 			String headnum = request.getParameter("HEADNUM");
 
 			int iResult = dao.updatefood(dto, headnum);
-
+			int imResult = dao.updatefoodimage(dto, headnum);
 			if (iResult == 1) {
 				response.sendRedirect("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do");
 				return;
@@ -71,7 +71,7 @@ public class FoodEdit extends HttpServlet {
 				return;
 			}
 		} catch (Exception e) {
-			System.out.println("푸드 게시판 작성 서블릿 예외 발생");
+			System.out.println("푸드 게시판 수정 서블릿 예외 발생");
 			e.printStackTrace();
 		}
 

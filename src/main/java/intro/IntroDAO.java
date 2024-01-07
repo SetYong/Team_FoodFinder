@@ -195,14 +195,9 @@ public class IntroDAO extends DBConnPool{
 				dto.setImage(rs.getString(5));
 				dto.setPostdate(rs.getDate(6));
 				dto.setVisitcount(rs.getString(7));
+				dto.setTitleimage(rs.getString(8));
 				
 				board.add(dto);
-				System.out.println("1 "+dto.getTitle());
-				System.out.println("2 "+dto.getText());
-				System.out.println("3 "+dto.getHeadnum());
-				System.out.println("4 "+dto.getImage());
-				System.out.println("5 "+dto.getPostdate());
-				System.out.println("6 "+dto.getVisitcount());
 			}
 		}
 		catch (Exception e) {
@@ -250,7 +245,6 @@ public class IntroDAO extends DBConnPool{
 				dto.setPostdate(rs.getDate(6));
 				dto.setVisitcount(rs.getString(7));
 				dto.setTitleimage(rs.getString(8));
-				System.out.println(dto.getPostdate());
 			}
 		}
 		catch(Exception e) {
@@ -272,6 +266,18 @@ public class IntroDAO extends DBConnPool{
 		}
 		catch (Exception e) {
 			System.out.println("introdao 게시물 조회수 증가 중 예외 발생");
+			e.printStackTrace();
+		}
+	}
+	
+	//게시물 삭제
+	public void deleteBoard(String headnum) {
+		String query = "DELETE FROM C##foodfinder.IntroBoard WHERE headnum = ?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, headnum);
+			psmt.executeUpdate();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

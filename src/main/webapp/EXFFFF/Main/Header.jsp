@@ -57,7 +57,7 @@ if(session.getAttribute("MBNUM")==null){
 } else {
 System.out.println("header jsp 로그인 성공 : " + session.getAttribute("MBNUM"));
 %>
-<label onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageBody.jsp'" class="menu_mypage">마이페이지</label>
+<label onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageHeart.do?MBNUM=<%=session.getAttribute("MBNUM")%>'" class="menu_mypage">마이페이지</label>
 <%
 }
 %>

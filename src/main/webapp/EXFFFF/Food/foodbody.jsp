@@ -54,6 +54,7 @@ a:hover{color: gray}
 				</tr>
         	</c:when>
         	<c:otherwise>
+
             	<table style = "width:auto;">
                 <tr>
             	<c:forEach items="${boardLists}" var="row" end = "3" varStatus="loop">
@@ -86,7 +87,7 @@ a:hover{color: gray}
                 </c:forEach>
                 </tr>
             </table>
-    		<table border="1" width="90%">
+    		<table border="1" width="100%">
 				<tr align="center" >
 					<td colspan = "2">
 						${ map.pagingImg }

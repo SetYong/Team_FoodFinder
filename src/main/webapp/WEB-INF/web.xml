@@ -68,6 +68,24 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>FindPwdCheck</servlet-name>
+		<servlet-class>memberMG.FindPwdCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPwdCheck</servlet-name>
+		<url-pattern>/EXFFFF/Member/FindPassCheck.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindPwdChange</servlet-name>
+		<servlet-class>memberMG.FindPwdChange</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPwdChange</servlet-name>
+		<url-pattern>/EXFFFF/Member/FindPassChange.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>FoodNewMember</servlet-name>
 		<servlet-class>exffff.NewmemberController</servlet-class>
 	</servlet>
@@ -122,6 +140,14 @@
 		<url-pattern>/EXFFFF/Intro/IntroView.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>EventViewController</servlet-name>
+		<servlet-class>intro.IntroViewEventController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EventViewController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/EventView.do</url-pattern>
+	</servlet-mapping>
 	
 	<!-- 푸드게시판 -->
 	<servlet>
@@ -178,6 +204,15 @@
 		<url-pattern>/EXFFFF/Food/Delete.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FoodRecommand</servlet-name>
+		<servlet-class>food.Recommand</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FoodRecommand</servlet-name>
+		<url-pattern>/EXFFFF/Main/Recommand.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 문의사항 -->
 	<servlet>
 		<servlet-name>QuestionWrite</servlet-name>
@@ -215,6 +250,15 @@
 	<servlet-mapping>
 		<servlet-name>MyPageController</servlet-name>
 		<url-pattern>/EXFFFF/MyPage/MyPageProfile.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyPageHeart</servlet-name>
+		<servlet-class>mypageBoard.MyPageHeart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageHeart</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageHeart.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -398,6 +442,24 @@
 	<servlet-mapping>
 		<servlet-name>AdminNoticeController</servlet-name>
 		<url-pattern>/EXFFFF/Admin/AdminNoticewrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminNoticeDELETE</servlet-name>
+		<servlet-class>intro.IntroBoardDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminNoticeDELETE</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminBoardDelete.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>searchAPI</servlet-name>
+	<servlet-class>foodDB.SearchAPI</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>searchAPI</servlet-name>
+	<url-pattern>/NaverSearchAPI.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

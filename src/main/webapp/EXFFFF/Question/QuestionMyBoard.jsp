@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <title>고객문의</title>
     <style>
-    a{
-    text-decoration-line: none;
-    }</style>
+	a{text-decoration:none;}
+	a:link{ color: black; }
+	a:visited {color: black;}
+	</style>
 </head>
 <body>
 <% if(session.getAttribute("MBNUM") == null) {

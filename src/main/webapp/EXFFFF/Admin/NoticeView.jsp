@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function checkDelete(form) {
+		if(confirm("정말 삭제하겠습니까?")){
+			alert("삭제 되었습니다.");
+		}
+		else{
+			return false;
+		}
+	}
+</script>
 <style>
 .evnetImg{
 	margin-left: 8%;
@@ -46,9 +56,12 @@
 		</c:otherwise>
 		</c:choose>
 		<tr>
-			<td colspan = "2"> 
+			<td colspan = "2">
 				<input type = "button" value = "목록 바로가기" onclick = "history.back()"> 
-				<input type = "button" value = "삭제하기" onclick = ""> 
+				<form name ="DELETEboard" action = "../Admin/AdminBoardDelete.do" onsubmit = "return checkDelete(this)">
+					<input type ="hidden"  name = "headnum" value =  ${ dto.headnum }>
+					<input type = "submit" value = "삭제하기"> 
+				</form>
 			</td>
 		</tr>
 	</table>

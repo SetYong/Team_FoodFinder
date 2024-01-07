@@ -6,15 +6,14 @@
 <meta charset="UTF-8">
 <title>FoodFinder - IntroSide</title>
 <style>
-label:hover {
-	color: white;
-	background-color: gray;
-}
+a{text-decoration: none;}
 </style>
 </head>
 <body>
 	<a class="intro_1" href="../Intro/IntroList.do">공지사항</a>
 	<br>
-	<label class="intro_2" onclick="location.href='../Intro/IntroListEvent.do';">이벤트</label>
+	<a class="intro_2" href="../Intro/IntroListEvent.do">이벤트</a>
+	<br>
+	<a class="intro_3" href="../Main/Main.jsp?sidePage=../Intro/IntroSide.jsp&contentPage=../API/MapSearchView.jsp">마트찾기</a>
 </body>
 </html>

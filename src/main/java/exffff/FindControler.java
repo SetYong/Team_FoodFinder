@@ -23,7 +23,6 @@ public class FindControler extends HttpServlet {
 		String memberPhone = req.getParameter("memberPhone");
 		String memberPhoneformat = memberPhone.substring(0, 3) + "-" + memberPhone.substring(3, 7) + "-" + memberPhone.substring(7);
 		
-		System.out.println(memberName + " : " + memberCn + " : " + memberPhoneformat);
 		MemberDAO dao = new MemberDAO();
 		MemberDTO memberDTO = dao.getMemberId(memberName, memberCn, memberPhoneformat);
 		memberDTO.setName(memberName);

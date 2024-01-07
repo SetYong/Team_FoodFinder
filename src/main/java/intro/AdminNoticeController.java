@@ -40,22 +40,27 @@ public class AdminNoticeController extends HttpServlet {
 			if(imgName != null) {
 				String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
 				String ext = imgName.substring(imgName.lastIndexOf("."));
-				String extT = imgTitle.substring(imgTitle.lastIndexOf("."));
 				
 				String imgNewName = now + ext;
-				String imgNewNameTitle = now + extT;
 				
 				File oldFile = new File(saveDirectory + File.separator + imgName);
 				File newFile = new File(saveDirectory + File.separator + imgNewName);
-				
-				File oldFileTitle = new File(saveDirectory + File.separator + imgTitle);
-				File newFileTitle = new File(saveDirectory + File.separator + imgNewNameTitle);
-				
+
+
 				oldFile.renameTo(newFile);
-				oldFileTitle.renameTo(newFileTitle);
-				
 				dto.setImage(imgNewName);
-				dto.setTitleimage(imgNewNameTitle);
+				
+				if(imgTitle != null){
+					String extT = imgTitle.substring(imgTitle.lastIndexOf("."));
+					
+					String imgNewNameTitle = now + extT;
+					
+					File oldFileTitle = new File(saveDirectory + File.separator + imgTitle);
+					File newFileTitle = new File(saveDirectory + File.separator + imgNewNameTitle);
+					
+					oldFileTitle.renameTo(newFileTitle);
+					dto.setTitleimage(imgNewNameTitle);
+				}
 			} else {
 				dto.setText(mr.getParameter("noticeContent"));
 			}

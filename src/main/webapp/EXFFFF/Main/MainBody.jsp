@@ -10,25 +10,9 @@
 <body>
 	<div align="center">
 	<h2 class="main_text">오늘의 추천 음식</h2>
-		<a href="Main.jsp">
+		<a href="../Main/Recommand.do">
 		<img class="main_img" src="../img/test2.jpeg" alt="테스트이미지"/>
 		</a>
-	</div>
-	
-	<div align="center">
-		<table style ="width: 70%;">
-			<tr>
-				<td class="main_post">
-						<jsp:include page="../Intro/IntroBody.jsp" />
-				</td>
-				<td class="main_event" rowspan="2">
-						<jsp:include page="../Intro/Introevent.jsp" />
-				</td>
-			</tr>
-			<tr>
-				<td> 마트 찾기</td>
-			</tr>
-		</table>
 	</div>
 </body>
 </html>

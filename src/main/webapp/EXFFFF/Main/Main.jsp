@@ -42,7 +42,7 @@ if (sidePage == null) {
 	float: left;
 	border: 1px solid;
 	width: 200px;
-	height: 500px;
+	height: 520px;
 	margin-left: 1%;
 	text-align: center;
 	display: inline-block;

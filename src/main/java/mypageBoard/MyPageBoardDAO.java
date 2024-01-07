@@ -137,6 +137,67 @@ public class MyPageBoardDAO extends DBConnPool{
 		}
 		return board;
 	}
+	// 내가 공감한 레시피 카운트
+	public int heartcount(Map<String, Object> map, String mbnum) {
+		int totalCount = 0;
+		String query = "SELECT COUNT(*) FROM C##foodfinder.reply WHERE mbnum=? and cate='hearton'";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			rs = psmt.executeQuery();
+			rs.next();
+			totalCount = rs.getInt(1);
+		}
+		catch(Exception e) {
+			System.out.println("공감한 게시물 카운트 중 예외 발생");
+			e.printStackTrace();
+		}
+		return totalCount;
+	}
+	
+	//내가 공감한 레시피 조회
+	public List<FoodDTO> selectHeartlist(Map<String, Object> map, String mbnum) {
+		List<FoodDTO> board = new Vector<FoodDTO>();
+		String query = "SELECT * FROM ( "
+				+ "SELECT Tb.*, rownum rNum FROM ( "
+				+ "SELECT * FROM C##FOODFINDER.food f LEFT OUTER JOIN C##FOODFINDER.reply "
+				+ "ON f.headnum = reply.HEADNUM "
+				+ "WHERE reply.mbnum=? AND reply.cate='hearton' "
+				+ "ORDER BY fooddate DESC ) Tb ) "
+				+ "WHERE rNum BETWEEN ? AND ?";
+
+		System.out.println(query);
+		System.out.println(mbnum + " " + map.get("start") +" "+ map.get("end"));
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, mbnum);
+			psmt.setString(2, map.get("start").toString());
+			psmt.setString(3, map.get("end").toString());
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				FoodDTO dto = new FoodDTO();
+				dto.setHeadnum(rs.getInt(1));
+				dto.setTitle(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setRecipe(rs.getString(4));
+				dto.setCate(rs.getNString(7));
+				dto.setImage(rs.getString(6));
+				dto.setFooddate(rs.getDate(8));
+				dto.setHeartcount(rs.getInt(9));
+				dto.setAdminassent(rs.getInt(11));
+				dto.setVisitcount(rs.getInt(10));
+
+				System.out.println(dto.getHeadnum());
+				System.out.println(dto.getContent());
+				board.add(dto);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return board;
+	}
 	
 	public int selectfoodCount(Map<String, Object> map, String mbnum) {
 		int totalCount = 0;

@@ -31,6 +31,7 @@
 			var title = document.getElementsByName("title")[0].value;
 			var content = document.getElementsByName("content")[0].value;
 			var recipe = document.getElementsByName("recipe")[0].value;
+			var image = document.getElementsByName("image")[0].value;
 			var cate = document.getElementsByName("cate");
 			var cate_checked = false;
 			
@@ -50,8 +51,16 @@
 				return false;
 			}
 			if(!cate_checked){
-				alert("카테고리은 필수 입력입니다.");
+				alert("카테고리은 필수 선택사항 입니다.");
 				return false;
+			}
+			if(form.image.value = ""){
+				if(confirm("이미지를 첨부하지 않으셨습니다. 이미지 없이 올리시겠습니까?")){
+					alert ("이미지 제외 레시피가 등록신청 완료되었습니다.")
+				}
+				else {
+					return false;
+				}
 			}
 		}
 		</script>

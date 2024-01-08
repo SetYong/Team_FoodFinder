@@ -40,7 +40,7 @@ public class FoodBoard extends HttpServlet {
     			map.put("searchWord", searchWord);
     		}
             
-            int pageSize = 8;
+            int pageSize = 10;
             int blockPage = 5;
 
             int pageNum = 1;

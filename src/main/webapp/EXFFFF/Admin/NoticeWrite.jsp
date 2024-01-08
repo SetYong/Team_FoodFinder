@@ -14,7 +14,7 @@
         if (selectedValue === "notice" || selectedValue === "check") {
             formContent.innerHTML = 
             	'<tr> <td style="width:5%;text-align: center;"> 제목 : </td> <td> <input type="text" name= "title" style="width: 95%; height: 30px;"> </td> </tr>' +
-                '<tr> <td style="width:5%;text-align: center;"> 내용 : </td> <td> <textarea name = "noticeContent"rows="10" cols="10" style = "resize:none; width: 95%; height: 600px;"> </textarea> </td> </tr>' +
+                '<tr> <td style="width:5%;text-align: center;"> 내용 : </td> <td><textarea name = "noticeContent"rows="10" cols="10" style = "resize:none; width: 95%; height: 600px;"></textarea> </td> </tr>' +
                 '<tr> <td colspan = "2"> <input type = "submit" value = "작성 완료" style=" margin-left: 40%; width: 20%; height: 35px; border-radius: 25%;border: 1px solid gray;"> </td> </tr>';
         } else if (selectedValue === "event") {
             formContent.innerHTML = 

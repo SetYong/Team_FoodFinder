@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>고객문의</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
 <% if(session.getAttribute("MBNUM") == null) {
@@ -22,15 +24,15 @@
         <c:when test="${empty boardLists}">
         	<table>
         		<tr>
-					<td colspan="6" style ="width:1190px; text-align: center;">
+					<td colspan="6" style ="width:100%; text-align: center;">
 						등록된 건의 사항이 없습니다.
 					</td>
 				</tr>
         	</table>
         </c:when>
         <c:otherwise>
-            <table border="1" style="width: 1195px;">
-                <tr>
+            <table border="1" style="width: 100%;" class="table table-hover table-striped table-bordered">
+                <tr class="table-default">
                     <th width="10%">번호</th>
                     <th width="50%">제목</th>
                     <th width="15%">카테고리</th>
@@ -54,7 +56,7 @@
                     </tr>
                 </c:forEach>
             </table>
-    <table border="1" width="90%">
+    <table border="1" width="100%" class="table">
 		<tr align="center">
 			<td>
 				${ map.pagingImg }

@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
-	<h2>View</h2>
+	<h2>문의사항</h2>
 	
-	<table border="1" width="90%">
+	<table border="1" width="90%" class="table table-hover table-striped">
 		<colgroup>
 			<col width="15%"/> <col width="35%"/>
 			<col width="15%"/> <col width="*"/>
@@ -33,7 +35,7 @@
 		</tr>
 		<tr>
 			<td colspan="4" align="center">
-				<button type="button" onclick="history.back()">목록 바로가기</button>
+				<button type="button" onclick="history.back()" class="btn btn-success">목록 바로가기</button>
 			</td>
 		</tr>
 	</table>

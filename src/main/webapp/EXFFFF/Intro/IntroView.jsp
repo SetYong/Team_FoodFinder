@@ -36,7 +36,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td colspan="3" height="100">${ dto.text }</td>
+			<td colspan="3" height="100"> <pre> ${ dto.text } </pre></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center">

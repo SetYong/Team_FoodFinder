@@ -29,6 +29,8 @@ public class FoodView extends HttpServlet {
 		Map<String, Object> map = new HashMap<>();
 		HttpSession session = request.getSession();
 		String headnum = request.getParameter("headnum");
+		int heartcount = (dao.heartCount(headnum));
+		
 		map.put("headnum", headnum);
 		System.out.println(headnum + "번 푸드게시판 View");
 
@@ -40,8 +42,9 @@ public class FoodView extends HttpServlet {
 			request.setAttribute("heartstate", replyheart);
 		}
 		
-		 List<FoodDTO> replyList = dao.Reple(map);
-		
+		List<FoodDTO> replyList = dao.Reple(map);
+
+		dto.setHeartcount(heartcount);
 		dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
 		dto.setRecipe(dto.getRecipe().replaceAll("\r\n", "<br/>"));
 		

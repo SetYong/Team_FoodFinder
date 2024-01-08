@@ -12,6 +12,7 @@ private String image;
 private String cate;
 private Date fooddate;
 private String replecate;
+private String heartstate;
 private String repletext;
 private String replembnum;
 private String replenickname;
@@ -74,6 +75,12 @@ public String getReplecate() {
 }
 public void setReplecate(String replecate) {
 	this.replecate = replecate;
+}
+public String getHeartstate() {
+	return heartstate;
+}
+public void setHeartstate(String heartstate) {
+	this.heartstate = heartstate;
 }
 public String getRepletext() {
 	return repletext;

@@ -10,19 +10,19 @@ String mbnum = session.getAttribute("MBNUM").toString();
 <title>FoodFinder - QuestionBoard</title>
 <style>
 textarea{
-Width: 1100px;
-height: 500px;
+Width: 99%;
+height: 420px;
 resize: none;
+margin-left: 3px;
 }
-input[type="button"]{
-padding: 10x;
-display: inline-block;
+input[type="submit"]{
+width: 10%;
+height: 50px;
+border-radius: 15px;
 }
 .mainborad{
 position: static;
-width: 800px;
-display: inlline-block;
-background-color:blue;
+width: 100%;
 }
 </style>
 </head>
@@ -40,19 +40,20 @@ function validateForm(form){
 <form name="QuestionForm" method="post" action="../Question/QuestionBoard.do" onsubmit="return validateForm(this);">
 	<table border ="1" class="mainborad">
 	<tr>
-		<td align = "center" colspan="2">
-			제목: <input type ="text" name="QuTitle"> <input type="hidden" name="MBNUM" value=<%= mbnum %>> 
+		<td style="text-align: center; width: 85%;">
+			제목: <input type ="text" name="QuTitle" style="width: 80%;height: 30px;"> <input type="hidden" name="MBNUM" value=<%= mbnum %>> 
 		</td>
-	</tr>
-	<tr>
-		<td >
+		<td style="text-align: center;">
 			<select name = "QuCate">
 				<option value = "이용문의">이용 문의</option>
 				<option value = "오류신고">오류 신고</option>
-			</select> </td>
-			<td><textarea name="QuContent" cols="30" placeholder="문의하실내용을 입력해주세요" required></textarea></td>
+			</select> 
+		</td>
 	</tr>
-	<tr> <td colspan="2"> <input type = "submit"  value = "문의하기"> </td> </tr>
+	<tr>
+		<td colspan ="2"><textarea name="QuContent" cols="30" placeholder="문의하실내용을 입력해주세요" required></textarea></td>
+	</tr>
+	<tr> <td colspan="2" style="text-align: center;"> <input type = "submit"  value = "문의하기"> </td> </tr>
 	</table>
 	</form>
 </body>

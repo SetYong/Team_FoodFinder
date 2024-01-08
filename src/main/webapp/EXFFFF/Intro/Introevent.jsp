@@ -6,52 +6,63 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder</title>
+<style>
+img{
+width: 100%;
+height: 300px;
+}
+a { text-decoration: none; }
+a:link{
+color:black;
+}
+a:visited{
+color:black;
+}
+a:hover{
+boder-color:gray;
+}
+</style>
 </head>
 <body>
-	<h2>이벤트</h2>
-	<br><br>
+	<h2 style="height: 70px; margin: 2%; text-align: center; font-size: 32pt; border-bottom: ridge; margin-bottom: 10px;">이벤트</h2>
 	
-	<form method="get">
-	<table border="1" width="90%">
-	<tr>
-		<td align="center">
-			<select name="searchField">
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-			<input type="text" name="searchWord"/>
-			<input type="submit" name="검색하기"/>
-		</td>
-	</tr>
-	</table>
-	</form>
-	
-	<table border="1" width="90%">
-		<tr>
-			<th width="10%">번호</th>
-			<th width="*">제목</th>
-			<th width="15%">작성자</th>
-			<th width="10%">조회수</th>
-			<th width="15%">작성일</th>
-		</tr>
+	<table style = "width: 100%; border-spacing:12px;">
 	<c:choose>
 		<c:when test="${ empty boardLists }">
 			<tr>
 				<td colspan="6" align="center">
-					등록된 게시물이 없습니다.
+					등록된 이벤트가 없습니다.
 				</td>
 			</tr>
 		</c:when>
 		<c:otherwise>
+			<c:set var='i' value='0' />
+			<c:set var='j' value='2' />
 			<c:forEach items="${ boardLists }" var="row" varStatus="loop">
-			<tr align="center">
-				<td>
-					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
-				</td>
-				<td>${ row.name }</td>
-				<td>${ row.visitcount }</td>
-				<td>${ row.postdate }</td>
-			</tr>
+				<c:if test ="${i%j == 0 }" >
+					<tr>
+					<td style="width:50%"> 
+						<div style="margin-bottom: 15px; border:1px solid; height: 400px; line-height:27px;"><a href="../Intro/EventView.do?headnum=${ row.headnum }">
+							<c:if test ="${ empty row.titleimage }"> <img src="../img/Event/EventTitle.png" alt="이미지 준비중"></c:if>
+							<c:if test ="${ row.titleimage != null}"> <img src="../img/Event/${ row.titleimage }" alt="${ row.titleimage }"></c:if>					
+							<br> <font style = "font-size:24pt; font-weight:bold;"> ${ row.title } </font>
+							<br> <font style = "color: #7638b1; font-weight:bold;"> 조회수 </font> : ${ row.visitcount }
+							<br> <font style = "color: #4c82db; font-weight:bold;"> 작성된 날짜 </font> : ${ row.postdate } 
+						</a></div>
+					</td>
+				</c:if>
+				<c:if test = "${i%j == 1 }">
+					<td style="width:50%"> 
+						<div style="margin-bottom: 15px; border:1px solid; height: 400px; line-height:27px;"><a href="../Intro/EventView.do?headnum=${ row.headnum }">
+							<c:if test ="${ empty row.titleimage }"> <img src="../img/Event/EventTitle.png" alt="이미지 준비중"></c:if>
+							<c:if test ="${ row.titleimage != null}"> <img src="../img/Event/${ row.titleimage }" alt="${ row.titleimage }"></c:if>					
+							<br> <font style = "font-size:24pt; font-weight:bold;"> ${ row.title } </font>
+							<br> <font style = "color: #7638b1; font-weight:bold;"> 조회수 </font> : ${ row.visitcount } 
+							<br> <font style = "color: #4c82db; font-weight:bold;"> 작성된 날짜 </font> : ${ row.postdate } 
+						</a></div>
+					</td>
+				</c:if>
+			<c:set var="i" value="${i+1 }" />
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>

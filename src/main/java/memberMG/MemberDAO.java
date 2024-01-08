@@ -1,7 +1,5 @@
 package memberMG;
 
-import java.sql.SQLException;
-
 import  exffff.DBConnPool;
 
 public class MemberDAO extends DBConnPool {
@@ -33,20 +31,41 @@ public class MemberDAO extends DBConnPool {
 	}
 
 	// 비밀번호 찾기
-	public int updatePwd(String pw, String id) {
-		int result = 0;
-		String query = "UPDATE c##foodfinder.MEMBER_LOGIN SET User_Pwd =? " + "WHERE User_id = ?";
+	public void updatePwd(String pw, String mbnum) {
+		String query = "UPDATE c##foodfinder.MEMBER_LOGIN SET User_Pwd =? WHERE mbnum = ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, pw);
-			psmt.setString(2, id);
-			result = psmt.executeUpdate();
+			psmt.setString(2, mbnum);
+			psmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return result;
+	}
+	
+	//비밀번호 찾기 유저 확인
+	public MemberDTO userfindpwdcheck(String id, String eamil, String phone) {
+		MemberDTO dto = new MemberDTO();
+		String query = "SELECT * FROM C##foodfinder.MEMBER_PROFILE WHERE name = ? AND MAIL = ? AND phone = ?";
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, id);
+			psmt.setString(2, eamil);
+			psmt.setString(3, phone);
+			rs = psmt.executeQuery();
+			
+			System.out.println("유저 확인 : " + query);
+			if(rs.next()) {
+				dto.setMbnum(rs.getInt("mbnum"));
+			}
+		} catch (Exception e) {
+			System.out.println("비밀번호 찾기 유저 확인 중 예외 발생");
+			e.printStackTrace();
+		}
+		return dto;
 	}
 
 	// 비밀번호 확인

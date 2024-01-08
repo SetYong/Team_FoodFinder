@@ -6,7 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder</title>
-<style>a{text-decoration:none;}</style>
+<style>
+a{text-decoration:none;}
+a:link{ color: black; }
+a:visited {color: black;}
+</style>
 </head>
 <body>
 	<h2>공지사항</h2>

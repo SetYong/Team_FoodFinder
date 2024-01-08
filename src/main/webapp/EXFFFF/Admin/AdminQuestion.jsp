@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 .board{
-width: 1100px;
+width: 100%;
 margin: 10px;
 margin-left:50px;
 border: solid 1px;
@@ -29,7 +29,7 @@ a{text-decoration:none;}
 			</tr>
         </c:when>
         <c:otherwise>
-            <table border="1" style="width: 1195px;">
+            <table border="1" style="width: 100%;">
                 <tr>
                     <th width="10%">번호</th>
                     <th width="40%">제목</th>
@@ -56,7 +56,7 @@ a{text-decoration:none;}
                     </tr>
                 </c:forEach>
             </table>
-    <table border="1" width="90%">
+    <table border="1" style="width:100%;">
 		<tr align="center">
 			<td>
 				${ map.pagingImg }

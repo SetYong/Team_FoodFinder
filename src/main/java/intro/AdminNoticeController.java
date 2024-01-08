@@ -28,21 +28,39 @@ public class AdminNoticeController extends HttpServlet {
 		try {
 			int maxPostSize = 5 * 1024 * 1024;
 			String saveDirectory = request.getServletContext().getRealPath("/EXFFFF/img/Event");
+			
 			MultipartRequest mr = FileUpload.Upload(request, saveDirectory, maxPostSize);
+			
 			String imgName = mr.getFilesystemName("eventImg");
+			String imgTitle = mr.getFilesystemName("eventTitleImg");
+			
 			String cate = mr.getParameter("cate");
 			System.out.println("게시물 카테고리 " + cate);
 			
 			if(imgName != null) {
 				String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
 				String ext = imgName.substring(imgName.lastIndexOf("."));
+				
 				String imgNewName = now + ext;
 				
 				File oldFile = new File(saveDirectory + File.separator + imgName);
 				File newFile = new File(saveDirectory + File.separator + imgNewName);
+
+
 				oldFile.renameTo(newFile);
-				
 				dto.setImage(imgNewName);
+				
+				if(imgTitle != null){
+					String extT = imgTitle.substring(imgTitle.lastIndexOf("."));
+					
+					String imgNewNameTitle = now + extT;
+					
+					File oldFileTitle = new File(saveDirectory + File.separator + imgTitle);
+					File newFileTitle = new File(saveDirectory + File.separator + imgNewNameTitle);
+					
+					oldFileTitle.renameTo(newFileTitle);
+					dto.setTitleimage(imgNewNameTitle);
+				}
 			} else {
 				dto.setText(mr.getParameter("noticeContent"));
 			}

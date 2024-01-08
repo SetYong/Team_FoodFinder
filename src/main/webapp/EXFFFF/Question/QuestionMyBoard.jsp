@@ -5,6 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>고객문의</title>
+    <style>
+	a{text-decoration:none;}
+	a:link{ color: black; }
+	a:visited {color: black;}
+	</style>
 </head>
 <body>
 <% if(session.getAttribute("MBNUM") == null) {
@@ -29,7 +34,7 @@
         	</table>
         </c:when>
         <c:otherwise>
-            <table border="1" style="width: 1195px;">
+            <table border="1" style="width: 100%;height: 120px;">
                 <tr>
                     <th width="10%">번호</th>
                     <th width="50%">제목</th>
@@ -54,7 +59,7 @@
                     </tr>
                 </c:forEach>
             </table>
-    <table border="1" width="90%">
+    <table border="1" style="width:100%;">
 		<tr align="center">
 			<td>
 				${ map.pagingImg }

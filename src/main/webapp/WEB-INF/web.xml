@@ -68,6 +68,24 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>FindPwdCheck</servlet-name>
+		<servlet-class>memberMG.FindPwdCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPwdCheck</servlet-name>
+		<url-pattern>/EXFFFF/Member/FindPassCheck.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindPwdChange</servlet-name>
+		<servlet-class>memberMG.FindPwdChange</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindPwdChange</servlet-name>
+		<url-pattern>/EXFFFF/Member/FindPassChange.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>FoodNewMember</servlet-name>
 		<servlet-class>exffff.NewmemberController</servlet-class>
 	</servlet>
@@ -105,6 +123,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>IntroListEventController</servlet-name>
+		<servlet-class>intro.IntrolistEventController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IntroListEventController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/IntroListEvent.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>IntroViewController</servlet-name>
 		<servlet-class>intro.IntroViewController</servlet-class>
 	</servlet>
@@ -113,6 +140,14 @@
 		<url-pattern>/EXFFFF/Intro/IntroView.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>EventViewController</servlet-name>
+		<servlet-class>intro.IntroViewEventController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EventViewController</servlet-name>
+		<url-pattern>/EXFFFF/Intro/EventView.do</url-pattern>
+	</servlet-mapping>
 	
 	<!-- 푸드게시판 -->
 	<servlet>
@@ -416,6 +451,15 @@
 	<servlet-mapping>
 		<servlet-name>AdminNoticeController</servlet-name>
 		<url-pattern>/EXFFFF/Admin/AdminNoticewrite.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminNoticeDELETE</servlet-name>
+		<servlet-class>intro.IntroBoardDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminNoticeDELETE</servlet-name>
+		<url-pattern>/EXFFFF/Admin/AdminBoardDelete.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

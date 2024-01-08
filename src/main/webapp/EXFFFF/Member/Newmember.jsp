@@ -34,11 +34,16 @@ function maxLengthCheck(object){
   } 
 function checkSpecialCharacters(inputElement) {
     var inputValue = inputElement.value;
-    var regex = /^[a-zA-Z0-9]*$/;
-
-    if (!regex.test(inputValue)) {
+    var regex = /[ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅔ]/;
+	var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+    
+    if (regExp.test(inputValue)) {
         alert("특수문자는 입력할 수 없습니다.");
         inputElement.value = inputValue.replace(/[^\w]/gi, ''); // 특수문자 제거
+    }
+    if (regex.test(inputValue)){
+        alert("한글 입력할 수 없습니다.");
+        inputElement.value = inputValue.replace(/[^\w]/gi, ''); // 특수문자 제거	
     }
 }
 function validateform(){
@@ -202,7 +207,8 @@ function togglePasswordVisibility() {
 				</tr>
 				<tr height="50">
 					<td height="50">이메일</td>
-					<td height="50"><input type="text" name="mail"></td>
+					<td height="50"><input type="text" name="mail1">@</td>
+					<td height="50"><input type="text" name="mail2"></td>
 				</tr>
 				<tr height="50">
 					<td height="50"><input type="submit" value="회원가입" id="targetbtn"></td>

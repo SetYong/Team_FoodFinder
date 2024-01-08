@@ -38,6 +38,7 @@ a:hover{color: gray}
 </style>
 </head>
 <body>
+<h2 align="left" class="setprofile_head">공감한 레시피</h2>
 	<form name = "Foodform" action = "">
 		<table>
 			<c:choose>

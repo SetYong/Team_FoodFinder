@@ -59,10 +59,13 @@ public class FoodEdit extends HttpServlet {
 			dto.setContent(mr.getParameter("content"));
 			dto.setRecipe(mr.getParameter("recipe"));
 			dto.setMbnum(mr.getParameter("MBNUM"));
-			String headnum = request.getParameter("HEADNUM");
-
-			int iResult = dao.updatefood(dto, headnum);
-			int imResult = dao.updatefoodimage(dto, headnum);
+			dto.setHeadnum(Integer.parseInt(mr.getParameter("HEADNUM")));
+			dto.setImage(mr.getParameter("image"));
+			
+			int iResult = dao.updatefood(dto);
+			if(dto.getImage()!=null) {
+			int imResult = dao.updatefoodimage(dto);
+			}
 			if (iResult == 1) {
 				response.sendRedirect("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do");
 				return;

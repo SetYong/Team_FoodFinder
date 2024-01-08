@@ -325,6 +325,15 @@
 		<url-pattern>/EXFFFF/MyPage/MyPageExit.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>MyPageHome</servlet-name>
+		<servlet-class>mypageBoard.MyPageHome</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyPageHome</servlet-name>
+		<url-pattern>/EXFFFF/MyPage/MyPageHome.do</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 관리자 푸드 -->
 	<servlet>
 		<servlet-name>FoodListAdmin</servlet-name>

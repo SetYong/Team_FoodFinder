@@ -133,7 +133,10 @@ public class FoodDAO extends DBConnPool {
 		List<FoodDTO> fbs = new Vector<FoodDTO>();
 
 		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM C##foodfinder.Food WHERE ADMINASSENT = 1";
-			   query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
+		if(map.get("searchField")!=null) {
+			query += " AND LIKE CATE='%"+ map.get("searchField").toString()+"%'";
+		}
+		query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
@@ -378,7 +381,7 @@ public class FoodDAO extends DBConnPool {
 		}
 	}
 	
-	public int updatefood(FoodDTO dto, String headnum) {
+	public int updatefood(FoodDTO dto) {
 		int result = 0;
 		String query = "UPDATE C##foodfinder.Food SET "
 				+ "title=?, content=?, recipe=?, cate=?"
@@ -391,8 +394,14 @@ public class FoodDAO extends DBConnPool {
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getRecipe());
 			psmt.setString(4, dto.getCate());
-			psmt.setString(5, headnum);
+			psmt.setInt(5, dto.getHeadnum());
 			result = psmt.executeUpdate();
+			
+			System.out.println("수정하기 dao title "+dto.getTitle());
+			System.out.println("수정하기 dao Content "+dto.getContent());
+			System.out.println("수정하기 dao Recipe "+dto.getRecipe());
+			System.out.println("수정하기 dao Cate "+dto.getCate());
+			System.out.println("수정하기 dao Headnum "+dto.getHeadnum());
 			
 		} catch(Exception e) {
 			System.out.println("푸드 게시판 수정 중 예외 발생");
@@ -401,7 +410,7 @@ public class FoodDAO extends DBConnPool {
 		return result;
 	}
 	// 이미지 업데이트 
-	public int updatefoodimage(FoodDTO dto, String headnum) {
+	public int updatefoodimage(FoodDTO dto) {
 		int result = 0;
 		String query = "UPDATE C##foodfinder.Food SET "
 				+ "image=? WHERE headnum=?";
@@ -410,7 +419,7 @@ public class FoodDAO extends DBConnPool {
 			System.out.println("푸드 게시판 image UPDATE Query : " + query);
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getImage());
-			psmt.setString(2, headnum);
+			psmt.setInt(2, dto.getHeadnum());
 			result = psmt.executeUpdate();
 			
 		} catch(Exception e) {

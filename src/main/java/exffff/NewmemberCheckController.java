@@ -30,7 +30,8 @@ public class NewmemberCheckController extends HttpServlet{
 		String phone1 = req.getParameter("memberPhone1");
 		String phone2 = req.getParameter("memberPhone2");
 		String phone3 =	req.getParameter("memberPhone3");
-		String mail = req.getParameter("mail");
+		String mail1 = req.getParameter("mail1");
+		String mail2 = req.getParameter("mail2");
 		String nickname = req.getParameter("Nickname");
 		String nickpass = req.getParameter("nickpass");
 
@@ -48,7 +49,8 @@ public class NewmemberCheckController extends HttpServlet{
 			req.setAttribute("memberPhone1", phone1);
 			req.setAttribute("memberPhone2", phone2);
 			req.setAttribute("memberPhone3", phone3);
-			req.setAttribute("mail", mail);
+			req.setAttribute("mail1", mail2);
+			req.setAttribute("mail2", mail2);
 			req.setAttribute("Nickname", nickname);
 			System.out.println("NewmemberCheckController : 이미 사용중인 아이디입니다.");
 		} else if (idCheck ==1) {
@@ -63,7 +65,8 @@ public class NewmemberCheckController extends HttpServlet{
 			req.setAttribute("memberPhone1", phone1);
 			req.setAttribute("memberPhone2", phone2);
 			req.setAttribute("memberPhone3", phone3);
-			req.setAttribute("mail", mail);
+			req.setAttribute("mail1", mail1);
+			req.setAttribute("mail2", mail2);
 			req.setAttribute("Nickname", nickname);
 			System.out.println("NewmemberCheckController : 사용 가능한 아이디입니다.");
 		}

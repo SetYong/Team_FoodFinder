@@ -12,7 +12,7 @@ public class QuestionBoardDTO {
 	private String answer;
 	private Date qudate;
 	private int readadmin;
-	
+	private String nickname;
 	
 	public int getHeadnum() {
 		return headnum;
@@ -67,5 +67,11 @@ public class QuestionBoardDTO {
 	}
 	public void setUserid(String user_id) {
 		this.userid = user_id;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 }

@@ -29,7 +29,7 @@ if (sidePage == null) {
 	sidePage = "";
 	contentPageSize = "";
 	sidebar ="";
-	mainbody = "";
+	mainbody = ""; 
 }
 %>
 <!DOCTYPE html>
@@ -42,16 +42,18 @@ if (sidePage == null) {
 	float: left;
 	border: 1px solid;
 	width: 200px;
-	height: 520px;
+	height: 500px;
 	margin-left: 1%;
 	text-align: center;
 	display: inline-block;
 	line-height: 30px;
+	border-radius: 7px;
 }
 .mainbody {
 	border: 1px solid;
 	margin-left: 250px;
-	margin-right: 75px;	
+	margin-right: 75px;
+	border-radius: 4px;	
 }
 </style>
 </head>

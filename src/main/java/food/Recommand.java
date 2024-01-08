@@ -26,7 +26,7 @@ public class Recommand extends HttpServlet {
 		Map<String, Object> map = new HashMap<>();
 		HttpSession session = request.getSession();
 		String rownum = Integer.toString((int)((Math.random()*dao.selectCount(map))+1));
-
+		if(!rownum.equals("0")) {
 		FoodDTO dto = dao.RecommandView(rownum);
 		String headnum = Integer.toString(dto.getHeadnum());
 		dao.updateVisitcount(headnum);
@@ -46,6 +46,10 @@ public class Recommand extends HttpServlet {
 		request.setAttribute("replyList", replyList);
 		request.setAttribute("mbnumcheck", session.getAttribute("MBNUM"));
 		request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.jsp").forward(request, response);
+		} else {
+			request.setAttribute("recommandmsg", "추천 게시글이 없습니다.");
+			request.getRequestDispatcher("../Main/Main.jsp").forward(request, response);
+		}
 		} catch (Exception e) {
 			System.out.println("푸드 게시판 추천하기 서블릿 예외 발생");
 			e.printStackTrace();

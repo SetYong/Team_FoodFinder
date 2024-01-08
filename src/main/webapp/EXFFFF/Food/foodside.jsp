@@ -73,6 +73,8 @@ String cate5 = "다이어트식";
 <body>
 	<button type="button" class="collapsible" onclick="collapse(this);">카테고리</button>
 	<div class="content">
+	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do">모두보기</a>
+	<br>
 	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do?searchField=<%=cate1%>">메인요리</a>
 	<br>
 	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodList.do?searchField=<%=cate2%>">식전요리</a>

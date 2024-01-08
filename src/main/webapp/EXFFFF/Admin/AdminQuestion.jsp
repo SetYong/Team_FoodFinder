@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <style>
 .board{
 width: 100%;
@@ -19,7 +21,7 @@ a{text-decoration:none;}
 </style>
 </head>
 <body>
-	<h2 style="text-align: center;">고객님의 문의 내역</h2>
+	<h2 style = "margin:3%; text-align:center">고객님의 문의 내역</h2>
 	<c:choose>
         <c:when test="${empty boardLists}">
         	<tr>
@@ -29,8 +31,8 @@ a{text-decoration:none;}
 			</tr>
         </c:when>
         <c:otherwise>
-            <table border="1" style="width: 100%;">
-                <tr>
+            <table border="1" style="width: 100%; text-align: center;" class="table">
+                <tr style="font-size: 17pt;">
                     <th width="10%">번호</th>
                     <th width="40%">제목</th>
                     <th width="10%">작성자</th>
@@ -39,7 +41,7 @@ a{text-decoration:none;}
                     <th width="10%">읽음</th>
                 </tr>
                 <c:forEach items="${boardLists}" var="row" varStatus="loop">
-                    <tr align="center">
+                    <tr style="text-align: center; font-size:14pt;">
                         <td>${row.headnum}</td>
                         <td><a href="../Admin/AdminMain.jsp?contentPage=QuestionView.do?headnum=${ row.headnum }">${row.title}</a></td>
                         <td>${row.mbnum }</td>

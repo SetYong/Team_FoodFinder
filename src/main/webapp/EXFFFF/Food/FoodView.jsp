@@ -12,6 +12,10 @@
 	width: 300px;
 	height: 300px;
 	}
+	a{
+text-decoration:none;
+color: black;
+}
 </style>
 <script type="text/javascript">
 	function textcheck() {

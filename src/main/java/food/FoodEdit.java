@@ -60,7 +60,6 @@ public class FoodEdit extends HttpServlet {
 			dto.setRecipe(mr.getParameter("recipe"));
 			dto.setMbnum(mr.getParameter("MBNUM"));
 			dto.setHeadnum(Integer.parseInt(mr.getParameter("HEADNUM")));
-			dto.setImage(mr.getParameter("image"));
 			
 			int iResult = dao.updatefood(dto);
 			if(dto.getImage()!=null) {

@@ -59,7 +59,7 @@ public class QuestionBoardDAO extends DBConnPool{
 			
 			if(rs.next()) {
 				dto.setHeadnum(rs.getInt(1));
-				dto.setQucate(rs.getString(1));
+				dto.setQucate(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setContent(rs.getString(4));
 				dto.setMbnum(rs.getInt(5));

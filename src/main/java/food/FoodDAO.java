@@ -134,7 +134,7 @@ public class FoodDAO extends DBConnPool {
 
 		String query = "SELECT * FROM (SELECT Tb.*, ROWNUM rNUM FROM(SELECT * FROM C##foodfinder.Food WHERE ADMINASSENT = 1";
 		if(map.get("searchField")!=null) {
-			query += " AND LIKE CATE='%"+ map.get("searchField").toString()+"%'";
+			query += " AND  CATE LIKE '%"+ map.get("searchField").toString()+"%'";
 		}
 		query += " ORDER BY headnum desc  ) Tb ) WHERE rNUM BETWEEN ? AND ?";
 		try {

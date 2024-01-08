@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String mbnumstr = (String)session.getAttribute("MBNUM");
+String mbnumstr = (String) session.getAttribute("MBNUM");
 int mbnum = Integer.parseInt(mbnumstr);
 MemberDAO dao = new MemberDAO();
 MemberDTO dto = dao.getProfile(mbnum);
@@ -21,12 +21,11 @@ String phone = dto.getPhone();
 <title>FoodFinder - MyPage(profile)</title>
 </head>
 <body>
-	<table class="setprofile_table">
-		<tr>
-			<td width="85%"><h2 align="left" class="setprofile_head">내
-					정보</h2>
-				<div class="setprofile_box">
-					<img class="setprofile_img" src="../img/test2.jpeg">
+	<div class="setprofile_box">
+		<table class="setprofile_table">
+			<tr>
+				<td width="85%"><h2 align="left" class="setprofile_head">내 정보</h2> 
+				<img class="setprofile_img" src="../img/test2.jpeg">
 					<p align="left">
 						<br>별명 :
 						<%=nickname%>
@@ -34,9 +33,9 @@ String phone = dto.getPhone();
 						<%=mail%>
 						<br> <br> 핸드폰 :
 						<%=phone%>
-					</p>
-				</div></td>
-		</tr>
-	</table>
+					</p></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

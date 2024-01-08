@@ -38,7 +38,7 @@
 ul li {
     margin: 5px 0;
     padding: 5px;  
-    background-color: #F5F5DC;
+    background-color: #F1F1F1;
     border-radius: 10px;
     }
 #searchResult {
@@ -55,7 +55,7 @@ ul li {
         $(function() {
             $('#searchBtn').click(function() {
                 $.ajax({
-                    url: "http://localhost:8081/Team_FoodFinder/NaverSearchAPI.do",  // 요청 URL
+                    url: "http://localhost:8080/Team_FoodFinder/NaverSearchAPI.do",  // 요청 URL
                     type: "get",                  // HTTP 메서드
                     data: {                       // 매개변수로 전달할 데이터
                         keyword: $('#keyword').val(),                   // 검색어

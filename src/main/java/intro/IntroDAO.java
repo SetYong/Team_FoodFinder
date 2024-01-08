@@ -151,8 +151,8 @@ public class IntroDAO extends DBConnPool{
 				dto.setText(rs.getString(3));
 				dto.setCate(rs.getString(4));
 				dto.setImage(rs.getString(5));
-				dto.setPostdate(rs.getDate(6));
-				dto.setVisitcount(rs.getString(7));
+				dto.setPostdate(rs.getDate(7));
+				dto.setVisitcount(rs.getString(8));
 				
 				board.add(dto);
 				System.out.println("1 "+dto.getTitle());
@@ -193,9 +193,9 @@ public class IntroDAO extends DBConnPool{
 				dto.setText(rs.getString(3));
 				dto.setCate(rs.getString(4));
 				dto.setImage(rs.getString(5));
-				dto.setPostdate(rs.getDate(6));
-				dto.setVisitcount(rs.getString(7));
-				dto.setTitleimage(rs.getString(8));
+				dto.setTitleimage(rs.getString(6));
+				dto.setPostdate(rs.getDate(7));
+				dto.setVisitcount(rs.getString(8));
 				
 				board.add(dto);
 			}
@@ -242,9 +242,10 @@ public class IntroDAO extends DBConnPool{
 				dto.setText(rs.getString(3));
 				dto.setCate(rs.getString(4));
 				dto.setImage(rs.getString(5));
-				dto.setPostdate(rs.getDate(6));
-				dto.setVisitcount(rs.getString(7));
-				dto.setTitleimage(rs.getString(8));
+				dto.setTitleimage(rs.getString(6));
+				dto.setPostdate(rs.getDate(7));
+				dto.setVisitcount(rs.getString(8));
+				
 			}
 		}
 		catch(Exception e) {

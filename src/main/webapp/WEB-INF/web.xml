@@ -229,7 +229,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>QuestionListUesr</servlet-name>
-		<url-pattern>/EXFFFF/Question/QeustionListUser.do</url-pattern>
+		<url-pattern>/EXFFFF/Question/QuestionListUser.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

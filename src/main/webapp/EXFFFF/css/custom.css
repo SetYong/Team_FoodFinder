@@ -5,7 +5,20 @@
 * {
 	font-family: 'Nanum Gothic';
 }
-
+a{
+text-decoration-line: none;
+color: black;
+}
+a:link{
+text-decoration-line: none;
+color: black;
+}
+a:visited{
+	color:#000;
+}
+a:hover{
+	cursor: pointer;
+}
 .main_text {
 	font-family: 'Hanna';
 }
@@ -17,10 +30,14 @@
 
 .menu_login {
 	font-family: 'Hanna';
-	font-size: 15px;
+	font-size: 20px;
 	text-decoration-line: none;
+	margin-right: 2%;
+    margin-top: 10px;
 }
-
+.menu_login:hover{
+	cursor: pointer;
+}
 .logo_img {
 	width: 10%;
 	height: 5%;
@@ -43,7 +60,14 @@
 	width: 10%;
 	border-radius: 30px 30px 30px 30px;
 }
-
+.menu_intro:visited{
+	color:#000;
+}
+.menu_intro:hover{
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+}
 .menu_food {
 	position: absolute;
 	left: 40%;
@@ -56,6 +80,14 @@
 	box-sizing: border-box;
 	width: 10%;
 	border-radius: 30px 30px 30px 30px;
+}
+.menu_food:visited{
+	color: #000;
+}
+.menu_food:hover{
+	background-color: #777;
+	color: white;
+	cursor: pointer;
 }
 
 .menu_qna {
@@ -71,7 +103,14 @@
 	width: 10%;
 	border-radius: 30px 30px 30px 30px;
 }
-
+.menu_qna:visited{
+	color: #000;
+}
+.menu_qna:hover{
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+}
 .menu_mypage {
 	position: absolute;
 	left: 70%;
@@ -85,7 +124,14 @@
 	width: 10%;
 	border-radius: 30px 30px 30px 30px;
 }
-
+.menu_mypage:visited{
+	color: #000;
+}
+.menu_mypage:hover{
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+}
 .main_post {
 	font-family: 'Hanna';
 	text-align: left;
@@ -172,7 +218,6 @@
 }
 
 .setprofile_box {
-	width: 100%;
 	height: 300px;
 	border: 2px solid lightgray;
 	box-sizing: border-box;

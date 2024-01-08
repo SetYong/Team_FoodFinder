@@ -7,12 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.foodimg{
+.foodimg{
 	margin-left: 30%;
 	width: 300px;
 	height: 300px;
-	}
-	a{
+}
+a{
 text-decoration:none;
 color: black;
 }

@@ -28,6 +28,7 @@
             overflow: hidden;
             transition: max-height 0.2s ease-out;
             background-color: #f1f1f1;
+            color: black;
         }
         .collapsible:after {
             content: '\002B';
@@ -73,9 +74,7 @@
 	<div class="content">
 	<a href="../MyPage/MyPageProfile.do?MBNUM=<%=session.getAttribute("MBNUM")%>">프로필</a>
 	<br>
-	<label
-		onclick="location.href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp'"
-		>정보 수정</label>
+	<a href='../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageSetprofilepass.jsp'">정보 수정</a>
 	<br>
 	<a href="../Main/Main.jsp?sidePage=../MyPage/MyPageSide.jsp&contentPage=../MyPage/MyPageExit.jsp">회원탈퇴</a>
 </div>

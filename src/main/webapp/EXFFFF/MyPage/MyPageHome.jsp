@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../css/custom.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <style>
 table{
 width:100%;
@@ -51,7 +53,7 @@ a:hover{color: gray}
 				</div></td>
 		</tr>
 	</table>
-	<div>
+	<div style="border: 2px solid lightgray;">
 	<h2 align="left" class="setprofile_head">작성한 레시피</h2>
 		<table>
 			<c:choose>
@@ -95,7 +97,7 @@ a:hover{color: gray}
                 </c:forEach>
                 </tr>
             </table>
-    		<table border="1" width="90%">
+    		<table width="90%">
 				<tr align="center" >
 					<td colspan = "2">
 						${ map.pagingImg }
@@ -106,7 +108,8 @@ a:hover{color: gray}
    			 </c:choose>
 		</table>
 	</div>
-	<div>
+	<br>
+	<div style="border: 2px solid lightgray;">
 	<h2 align="left" class="setprofile_head">공감한 레시피</h2>
 		<table>
 			<c:choose>
@@ -150,7 +153,7 @@ a:hover{color: gray}
                 </c:forEach>
                 </tr>
             </table>
-    		<table border="1" width="90%">
+    		<table width="90%">
 				<tr align="center" >
 					<td colspan = "2">
 						${ map.pagingImg }

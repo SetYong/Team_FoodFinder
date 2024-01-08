@@ -7,12 +7,8 @@
 <meta charset="UTF-8">
 <title>FoodFinder</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <style>
-a{text-decoration:none;}
-a:link{color : black}
-a:visited{color: black}
-a:hover{color: gray}
 </style>
 </head>
 <body>
@@ -59,7 +55,7 @@ a:hover{color: gray}
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>
 				<td align="left">
-					<a href="../Intro/IntroView.do?headnum=${ row.headnum }">${row.title }</a>
+					<a style="text-decoration-line: none;" href="../Intro/IntroView.do?headnum=${ row.headnum }">${row.title }</a>
 				</td>
 				<td>${ row.postdate }</td>
 				<td>${ row.visitcount }</td>

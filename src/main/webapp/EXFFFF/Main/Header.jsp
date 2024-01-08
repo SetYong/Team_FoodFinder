@@ -7,12 +7,6 @@
 <link rel="stylesheet" href="../css/custom.css">
 <title>today's food</title>
 <style>
-a:hover{
-cursor: pointer;
-}
-label:hover{
-cursor: pointer;
-}
 </style>
 </head>
 <body>

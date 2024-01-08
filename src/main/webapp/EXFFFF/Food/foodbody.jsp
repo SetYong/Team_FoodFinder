@@ -15,7 +15,8 @@ width:100%;
 font-family: 'Hanna';
 margin: auto;
 }
-.foodbody{
+.foodbox{
+border: 1px solid #555;
 }
 input[type=button]{
     margin-left: 40%;
@@ -66,38 +67,37 @@ a:hover{color: gray}
             	<table style = "width:auto; ">
                 <tr>
             	<c:forEach items="${boardLists}" var="row" end = "4" varStatus="loop">
-                		<td style="width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> 
+                		<td style="width:300px;"class="foodBoard"> 
+                		<div class="foodbox">
+                		<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> 
                 		<c:if test="${ row.image != null }"> <img src="../img/FoodImg/${ row.image }" alt="푸드게시판" /> </c:if>
-                		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a> </td>
-                </c:forEach>
-                </tr>
-               	<tr>
-                <c:forEach items="${boardLists}" var="row" end = "4" varStatus="loop">
-                	<td class="foodBoard"> 
-                	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a>
+                		<br>
+                		<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
                 		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
-                    </a>
-					</td>
+                  	 	</a>
+						</div>
+						</td>
                 </c:forEach>
                 </tr>
                 <tr>
             	<c:forEach items="${boardLists}" var="row" begin = "5" varStatus="loop">
-                		<td style = "width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		<td style = "width:300px;" class="foodBoard"> 
+                		<div class="foodbox">
+                		<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
                 		<c:if test="${ row.image != null }"> <img src="../img/FoodImg/${ row.image }" alt="푸드게시판" /> </c:if>
-                		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a> </td>
-                </c:forEach>
-                </tr>
-               	<tr>
-                <c:forEach items="${boardLists}" var="row" begin = "5" varStatus="loop">
-                	<td  class="foodBoard"> 
-                	<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a> 
+                		<br>
+                		<a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
                 		제목 : ${ row.title } <br> 카테고리 : ${ row.cate } <br> 작성일 : ${ row.fooddate }
-                    </a>
-					</td>
+                   		</a>
+                		</div>
+                		</td>
                 </c:forEach>
                 </tr>
             </table>
-    		<table border="1" width="100%">
+    		<table width="100%">
+    		<br>
 				<tr align="center" >
 					<td colspan = "2">
 						${ map.pagingImg }

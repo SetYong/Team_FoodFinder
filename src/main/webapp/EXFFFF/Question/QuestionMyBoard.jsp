@@ -37,7 +37,7 @@ a:hover{color: gray}
         	</table>
         </c:when>
         <c:otherwise>
-            <table border="1" style="width: 100%;" class="table table-hover table-striped table-bordered">
+            <table border="1" style="width: 100%; text-align:center;" class="table table-hover table-striped table-bordered">
                 <tr class="table-default">
                     <th width="10%">번호</th>
                     <th width="50%">제목</th>
@@ -48,7 +48,7 @@ a:hover{color: gray}
                 <c:forEach items="${boardLists}" var="row" varStatus="loop">
                     <tr align="center">
                         <td>${row.headnum}</td>
-                        <td><a href="../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QeustionViewUser.do?headnum=${ row.headnum }">${row.title}</a></td>
+                        <td><a href="../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionViewUser.do?headnum=${ row.headnum }">${row.title}</a></td>
                         <td>${row.qucate}</td>
                         <td>${row.qudate}</td>
                         <td>

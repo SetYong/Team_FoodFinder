@@ -29,6 +29,11 @@ width: 100%;
 <body>
 <script>  
 function validateForm(form){
+	var form = document.QuestionForm;
+	if(form.QuTitle.value==""){
+		alert("제목을 입력해주세요.");
+		return false;
+	}
 	if (confirm("문의 하시겠습니까?")) {
 		alert("문의가 완료되었습니다!")
 	} 

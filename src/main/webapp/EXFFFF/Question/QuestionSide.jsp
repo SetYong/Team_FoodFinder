@@ -27,7 +27,7 @@ label:hover {
 		<label
 			onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionBody.jsp'">문의하기</label>
 		<br> <label
-			onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QeustionListUser.do'">내
+			onclick="location.href='Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionListUser.do'">내
 			문의사항</label>
 	</div>
 </body>

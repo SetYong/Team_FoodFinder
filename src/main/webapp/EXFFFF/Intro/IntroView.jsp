@@ -16,9 +16,9 @@ a:hover{color: gray}
 </style>
 </head>
 <body>
-</br>
+<br>
 	<h2 style=text-align:center>${ dto.title }</h2>
-</br>
+<br>
 	<table border="1" width="100%" class="table  table-striped table-bordered">
 		<colgroup>
 			<col width="15%" />
@@ -38,7 +38,7 @@ a:hover{color: gray}
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td colspan="5" height="100">${ dto.text }</td>
+			<td colspan="5" height="100"><pre>${ dto.text }</pre></td>
 		</tr>
 		<tr>
 			<td colspan="6" align="center">

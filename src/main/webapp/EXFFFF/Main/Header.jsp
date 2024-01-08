@@ -7,10 +7,13 @@
 <link rel="stylesheet" href="../css/custom.css">
 <title>today's food</title>
 <style>
-label:hover {
-	color: white;
-	background-color: gray;
-}</style>
+a:hover{
+cursor: pointer;
+}
+label:hover{
+cursor: pointer;
+}
+</style>
 </head>
 <body>
 <%

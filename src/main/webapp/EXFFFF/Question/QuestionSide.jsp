@@ -10,9 +10,9 @@ System.out.println("사이드바 : " + session.getAttribute("MBNUM"));
 <title>FoodFinder - QuestionBoard</title>
 <style>
 label:hover {
-	color: white;
 	cursor: pointer;
 	outline: none;
+	color: gray;
 }
 
 .content {

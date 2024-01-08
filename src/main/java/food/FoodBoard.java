@@ -40,7 +40,7 @@ public class FoodBoard extends HttpServlet {
     			map.put("searchWord", searchWord);
     		}
             
-            int pageSize = 8;
+            int pageSize = 10;
             int blockPage = 5;
 
             int pageNum = 1;
@@ -64,12 +64,8 @@ public class FoodBoard extends HttpServlet {
             map.put("pageSize", pageSize);
             map.put("pageNum", pageNum);
 
-            System.out.println("리스트 페이지 이동");
             request.setAttribute("boardLists", boardLists);
-            System.out.println("게시판 셋팅 완료");
             request.setAttribute("map", map);
-            System.out.println("정보 등록 완료");
-            System.out.println("리스트 페이지 이동 성공");
             request.setAttribute("mbnumcheck", mbnum);
             request.getRequestDispatcher("../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/foodbody.jsp").forward(request, response);
             } catch (Exception e) {

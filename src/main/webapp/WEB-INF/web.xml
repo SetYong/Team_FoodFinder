@@ -238,7 +238,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>QuestionViewUser</servlet-name>
-		<url-pattern>/EXFFFF/Question/QeustionViewUser.do</url-pattern>
+		<url-pattern>/EXFFFF/Question/QuestionViewUser.do</url-pattern>
 	</servlet-mapping>
 	
 	

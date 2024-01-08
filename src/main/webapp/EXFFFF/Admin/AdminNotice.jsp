@@ -29,7 +29,7 @@ span{
 	<!-- 검색 폼 -->
 	<form method="post" action = "../Admin/AdminMain.jsp?contentPage=AdminNotice.do">
 	<table border="1" style ="width:100%" class="table">
-	<tr>
+	<tr style="font-size: 20pt;">
 		<td style = "width:33%; text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=notice" > 공지 </a> </td>
 		<td style = "text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=check"> 점검 </a> </td>
 		<td style = "text-align:center;"> <a href="../Admin/AdminMain.jsp?contentPage=AdminNotice.do?searchField=cate&searchWord=event"> 이벤트 </a> </td>
@@ -49,7 +49,7 @@ span{
 	
 	<!-- 목록테이블 -->
 	<table border="1" width="90%" class="table">
-		<tr align="center" class="table-default">
+		<tr align="center" class="table-default" style="font-size: 17pt;">
 			<th width="10%">번호</th>
 			<th width="15%">카테고리</th>
 			<th width="50%">제목</th>
@@ -60,7 +60,7 @@ span{
 	<table border="1" width="90%" class="table table-hover table-striped">
 	<c:choose>
 		<c:when test="${empty boardLists }">
-			<tr>
+			<tr style="font-size:13pt;">
 				<td colspan="5" align="center">
 					등록된 공지사항이 없습니다.
 				</td>
@@ -68,7 +68,7 @@ span{
 		</c:when>
 		<c:otherwise>
 			<c:forEach items="${ boardLists }" var="row" varStatus="loop">
-			<tr align="center">
+			<tr align="center" style="font-size:13pt;">
 				<td width="10%">
 					${ map.totalCount - (((map.pageNum-1)*map.pageSize)+loop.index)}
 				</td>

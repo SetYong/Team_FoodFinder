@@ -17,6 +17,10 @@ if (contentPage == null)
 <meta charset="UTF-8">
 <title>admin Page</title>
 <style>
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+*{
+font-family: 'Hanna';
+}
 .sidebar {
 	float: left;
 	width: 200px;
@@ -43,7 +47,7 @@ if (contentPage == null)
 	margin-right: 75px;
 }
 label:hover{
-background-color:gray;}
+background-color:#F1F1F1;}
 </style>
 </head>
 <body>
@@ -55,10 +59,10 @@ background-color:gray;}
 				<img class="sidebar_Image" src="../img/test2.jpeg" alt="프로필"/>
 				<p style="margin:auto;"> 관리자님
 			</div>
-		<div style="line-height: 30px">
-			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminNotice.do'">공지사항</label> <br>
-			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminFoodList.do'">게시글승인</label> <br>
-			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminQuestion.do'">문의사항</label> <br>
+		<div style="line-height: 30px; font-size: 14pt; margin:10%;">
+			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminNotice.do'" style="margin: 2%;">공지사항</label> <br>
+			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminFoodList.do'" style="margin: 2%;">게시글승인</label> <br>
+			<label onclick="location.href='../Admin/AdminMain.jsp?contentPage=AdminQuestion.do'" style="margin: 2%;">문의사항</label> <br>
 		</div>
 	</div>
 	<div class="<%=mainbody%>"><jsp:include page="<%=contentPage%>" /></div></div>

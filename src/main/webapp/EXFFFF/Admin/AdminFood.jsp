@@ -6,10 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
+<style>
+a{
+text-decoration:none;
+color: black;
+}
+tr{
+font-size: 17pt;
+}
+td{
+font-size: 14pt;
+}
+</style>
 <body>
-	<h2>Food List</h2>
-	<table>
+	<h2 style = "margin:3%; text-align:center">게시글 목록</h2>
+	<table style="width: 100%; text-align: center;"class="table">
 		<c:choose>
 			<c:when test="${empty boardLists}">
 				<tr>
@@ -20,11 +34,11 @@
 			</c:when>
 			<c:otherwise>
 				<tr>
-					<th width="10%">번호</th>
+					<th width="10%">게시글 번호</th>
                     <th width="50%">제목</th>
                     <th width="15%">카테고리</th>
                     <th width="15%">작성일</th>
-                    <th width="10%">승인</th>
+                    <th width="10%">승인여부</th>
 				</tr>
 				<c:forEach items="${boardLists}" var="row" varStatus="loop">
 					<tr>

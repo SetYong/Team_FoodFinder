@@ -51,7 +51,7 @@ public class QuestionBoardDAO extends DBConnPool{
 	//관리자 페이지 문의사항 View
 	public QuestionBoardDTO selectView(String headnum) {
 		QuestionBoardDTO dto = new QuestionBoardDTO();
-		String query = "SELECT * FROM QUESTIONBOARD WHERE headnum=?";
+		String query = "SELECT q.*, m.nickname FROM c##foodfinder.questionboard q, c##foodfinder.MEMBER_profile m WHERE q.mbnum = m.mbnum AND headnum=?";
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, headnum);;
@@ -59,13 +59,14 @@ public class QuestionBoardDAO extends DBConnPool{
 			
 			if(rs.next()) {
 				dto.setHeadnum(rs.getInt(1));
-				dto.setQucate(rs.getString(1));
+				dto.setQucate(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setContent(rs.getString(4));
 				dto.setMbnum(rs.getInt(5));
 				dto.setAnswer(rs.getString(6));
 				dto.setQudate(rs.getDate(7));
 				dto.setReadadmin(rs.getInt(8));
+				dto.setNickname(rs.getString(9));
 			}
 		} catch (Exception e) {
 			System.out.println("게시물 상세보기 중 예외 발생");

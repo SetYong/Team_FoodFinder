@@ -18,7 +18,7 @@
 		
 		<tr>
 			<td>번호</td> <td>${ dto.headnum }</td>
-			<td>작성자</td> <td>${ dto.mbnum }</td>
+			<td>작성자</td> <td>${ dto.nickname }</td>
 		</tr>
 		<tr>
 			<td>작성일</td> <td>${ dto.qudate }</td>

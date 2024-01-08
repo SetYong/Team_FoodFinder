@@ -6,9 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/custom.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <style>
 table{
 width:100%;
+font-family: 'Hanna';
 }
 .foodbody{
 }
@@ -28,16 +32,19 @@ img{
 width:100%;
 height: 250px;
 }
-a{text-decoration:none;}
+a{text-decoration:none;
+color: black;}
 a:link{color : black}
 a:visited{color: black}
 a:hover{color: gray}
 </style>
 </head>
 <body>
+<br>
+<h3 class="foodhead">세상에 있는 모든 맛있는 음식을 먹어봤으면 좋겠어요. </h3>
+<br>
 	<form name = "Foodform" action = "">
 		<table>
-			<tr> <td colspan ="4"> <h3 style = "text-align:center">세상에 있는 모든 맛있는 음식을 먹어봤으면 좋겠어요. </h3> </td> </tr>
 			<c:choose>
         	<c:when test="${empty boardLists}">
         		<tr>
@@ -74,7 +81,9 @@ a:hover{color: gray}
                 </tr>
                 <tr>
             	<c:forEach items="${boardLists}" var="row" begin = "4" varStatus="loop">
-                		<td style = "width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }"> <img src="../img/test2.jpeg" alt="푸드게시판 }" /> </a> </td>
+                		<td style = "width:300px;"> <a href="../Main/Main.jsp?sidePage=../Food/foodside.jsp&contentPage=../Food/FoodView.do?headnum=${ row.headnum }">
+                		<c:if test="${ row.image != null }"> <img src="../img/FoodImg/${ row.image }" alt="푸드게시판" /> </c:if>
+                		<c:if test="${ row.image == null }"> <img src="../img/test2.jpeg" alt = '푸드게시판'> </c:if> </a> </td>
                 </c:forEach>
                 </tr>
                	<tr>

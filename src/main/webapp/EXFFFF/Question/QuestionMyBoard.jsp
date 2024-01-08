@@ -45,7 +45,7 @@
                 <c:forEach items="${boardLists}" var="row" varStatus="loop">
                     <tr align="center">
                         <td>${row.headnum}</td>
-                        <td><a href="../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QeustionViewUser.do?headnum=${ row.headnum }">${row.title}</a></td>
+                        <td><a href="../Main/Main.jsp?sidePage=../Question/QuestionSide.jsp&contentPage=../Question/QuestionViewUser.do?headnum=${ row.headnum }">${row.title}</a></td>
                         <td>${row.qucate}</td>
                         <td>${row.qudate}</td>
                         <td>

@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>검색 API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=l6gbu2evid"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        <style>
@@ -30,13 +32,22 @@
     list-style: none;
     padding: 0;
     max-height: 80px;
-      
-    overflow-y: auto;  
+    overflow-y: auto;
 }
 
 ul li {
     margin: 5px 0;
     padding: 5px;  
+    background-color: #F5F5DC;
+    border-radius: 10px;
+    }
+#searchResult {
+    margin-left: 5px; 
+    margin-right: 5px; 
+    border: 1px solid #CCCCCC; 
+    border-radius: 10px; 
+    overflow: hidden; 
+
 }
     </style>
     <script>
@@ -89,7 +100,7 @@ ul li {
                     <option value="1">검색</option>
                 </select>
                 <input type="text" id="keyword" placeholder="검색어를 입력하세요." />
-                <button type="button" id="searchBtn">검색 요청</button>
+                <button type="button" id="searchBtn" class="btn btn-outline-primary">검색 요청</button>
             </form>
         </div>
         <div class="row" id="searchResult">

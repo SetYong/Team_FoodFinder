@@ -6,15 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>FoodFinder</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <style>
+a{text-decoration:none;}
+a:link{color : black}
+a:visited{color: black}
+a:hover{color: gray}
 </style>
 </head>
 <body>
-	<h2>공지사항</h2>
+<br>
+	<h2 style=text-align:center>공지사항</h2>
+<br>
 	
 	<!-- 검색 폼 -->
 	<form method="get">
-	<table border="1" width="90%">
+	<table border="1" width="100%" class="table table-hover table-striped">
 	<tr>
 		<td align="center">
 			<select name="searchField">
@@ -22,19 +30,19 @@
 				<option value="content">내용</option>
 			</select>
 			<input type="text" name="searchWord"/>
-			<input type="submit" value="검색하기" />
+			<input type="submit" value="검색하기" class="btn btn-outline-primary" />
 		</td>
 	</tr>
 	</table>
 	</form>
 	
 	<!-- 목록테이블 -->
-	<table border="1" width="90%">
+	<table border="1" width="100%" class="table table-hover table-striped table-bordered">
 		<tr>
-			<th width="10%">번호</th>
-			<th width="*">제목</th>
-			<th width="13%">날짜</th>
-			<th width="15%">조회수</th>
+			<th width="10%" style=text-align:center>번호</th>
+			<th width="*" style=text-align:center>제목</th>
+			<th width="13%" style=text-align:center >날짜</th>
+			<th width="15%" style=text-align:center>조회수</th>
 		</tr>
 	<c:choose>
 		<c:when test="${empty boardLists }">
@@ -61,8 +69,8 @@
 	</c:choose>
 	</table>
 	
-	<table border="1" width="90%">
-		<tr align="center">
+	<table border="1" width="100%" >
+		<tr align="center" style=text-align:center>
 			<td>
 				${ map.pagingImg }
 			</td>
